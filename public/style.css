@@ -1,0 +1,108 @@
+@font-face {
+    font-family: "Elastik-B";
+    src: url("/fonts/39C812_0_0.eot");
+    src: url("/fonts/39C812_0_0.eot?#iefix") format("embedded-opentype"), url("/fonts/39C812_0_0.woff2") format("woff2"), url("/fonts/39C812_0_0.woff") format("woff"), url("/fonts/39C812_0_0.ttf") format("truetype");
+}
+
+body {
+    color: #000;
+    background-image: url("https://api.dieradosveta.sk/web/sites/default/files/background_14.png?asffde");
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 15px 0;
+    font-family: Elastik-B, Arial;
+  }
+  
+  a {
+    color: #000;
+  }
+  
+  a:hover,
+  a:not([href]):not([tabindex]):focus,
+  a:not([href]):not([tabindex]):hover {
+    color: #fff;
+    background-color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  a:hover.no-bg,
+  a:not([href]):not([tabindex]):focus.no-bg,
+  a:not([href]):not([tabindex]):hover.no-bg {
+    background-color: transparent;
+  }
+  
+  .no-bg {
+    background-color: transparent;
+  }
+
+  .white-block {
+    background-color: #fff;
+    border: 3px solid #000;
+    margin: 15px 0;
+    padding: 15px;
+    position: relative;
+    transition-delay: 1s;
+    transition-property: height;
+}
+
+#header {
+  background-color: #fff;
+  border: 3px solid #000;
+  min-height: 80px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+nav {
+  background-color: #fff;
+  border: 3px solid #000;
+}
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+nav ul li {
+  text-transform: lowercase;
+  flex: 1;
+  text-align: center;
+  font-size: 2em;
+}
+nav ul li a {
+  display: block;
+  width: 100%;
+}
+nav ul li a:hover {
+  color: #fff;
+  background-color: #000;
+  text-decoration: none;
+}
+
+.language-flag {
+  width: 30px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.img-w100 {
+  width: 100%;
+}
+
+.img-link:hover {
+  color: none;
+  background-color: transparent;
+}
+
+.line {
+  height: 20px;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  nav ul {
+  flex-direction: row;
+}
+}
