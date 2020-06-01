@@ -9,10 +9,10 @@ export const FavoritesItem = (props) => {
 
     return (
         <div key={id} className="row mb-2 favorite">
-            <div className="col-4 favorites-img-box">
-                <img className="img-fluid" src={`${state.url}${defaultPhoto.photo}`} alt="bme f10" />
+            <div className="col-3 favorites-img-box">
+                <img src={`${state.url}${defaultPhoto.photo}`} alt="bme f10" />
             </div>
-            <div className="col-6 favorites-content-box">
+            <div className="col-7 favorites-content-box">
                 BMW F10 - {year_of_manufacture} <br />
                 {power} kW,  {decodeFuel(fuel)} <br />
                 {mileage} km, {price} €<br />

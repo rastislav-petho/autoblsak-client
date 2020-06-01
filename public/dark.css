@@ -128,8 +128,14 @@ body {
     z-index: 2;
 }
 
+/* .favorites-img-box, .favorites-content-box, .favorites-remove-box {
+  padding-right: 5px;
+} */
+
 .favorites-img-box img {
   border-radius: 60px;
+  width: 45px;
+  height: 45px;
 }
 
 .favorites-content-box {
@@ -146,6 +152,7 @@ body {
 .favorite {
   max-height: 100px;
 }
+
 
 .ad-box {
   margin-bottom: 25px;
