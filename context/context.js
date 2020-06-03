@@ -12,6 +12,10 @@ export const ContextProvider = (props) => {
         ads: [],
         favoriteAds: [],
         filter: {},
+        config: {
+            toggleFilter: false,
+            toggleFavorites: false,
+        }
     };
 
     const [state, dispatch] = useReducer(reducer, initialState);

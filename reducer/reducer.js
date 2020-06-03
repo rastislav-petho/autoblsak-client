@@ -18,6 +18,24 @@ export default function reducer(state, action) {
                 favoriteAds: state.favoriteAds.filter(item => item.id !== action.id)
             }
 
+        // state.config
+
+        case 'TOGGLE_FAVORITES': 
+        return {
+            ...state,
+            config: {
+                ...state.config, toggleFavorites: action.toggle
+            }
+        }
+
+        case 'TOGGLE_FILTER': 
+        return {
+            ...state,
+            config: {
+                ...state.config, toggleFilter: action.toggle
+            }
+        }
+
         default:
             return state;
     }
