@@ -4,17 +4,18 @@ import { decodeFuel } from './../helpers';
 
 export const Ad = (props) => {
 
-    const {id, year_of_manufacture, fuel, power, mileage, price, defaultPhoto, transmision, cubage} = props.ad;
+    const {id, year_of_manufacture, fuel, power, mileage, price, defaultPhoto, transmision, cubage } = props.ad;
     const { state, dispatch } = useContext(Context);
+
     return (
         <div key={id} className="row ad-box">
-            <div className="col-12 col-lg-2">
+            <div className="col-12 col-lg-4">
                 <img className="w-100" src={`${state.url}${defaultPhoto.photo}`} alt="bme f10" /> 
             </div>
-            <div className="col-12 col-lg-10">
+            <div className="col-12 col-lg-8">
                 <div className="row ad-titles">
                     <div className="col-6">
-                        BMW F10
+                        {props.ad.brand && props.ad.brand.value} {props.ad.model && props.ad.model.value}
                         </div>
                     <div className="col-6 text-right">
                         {price} EUR

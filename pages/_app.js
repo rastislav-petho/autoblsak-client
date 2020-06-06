@@ -6,7 +6,7 @@ class App extends NextApp {
 
     static async getInitialProps({ Component, ctx }) {
         let pageProps = {}
-        ctx.apiUrl = 'https://autoblsak.sk/api/api';
+        ctx.apiUrl = 'http://localhost:80/api';
 
         if (Component.getInitialProps) {
             pageProps = await Component.getInitialProps(ctx)

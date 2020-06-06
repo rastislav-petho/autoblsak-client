@@ -16,5 +16,8 @@
     "react-dom": "16.13.1",
     "react-modal": "^3.11.2"
   },
-  "proxy": "http://localhost:80"
+  "proxy": "http://localhost:80",
+  "devDependencies": {
+    "prettier": "2.0.5"
+  }
 }

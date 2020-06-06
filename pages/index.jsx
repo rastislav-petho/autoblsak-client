@@ -9,15 +9,22 @@ const Index = ({ data }) => {
     useEffect(() => {
         dispatch({ type: 'SET_ADS', ads: data.data });
     }, []);
-    console.log(state);
+    console.log('state', state);
     return (
         <Layout
             pageTitle="Autoblšák.sk"
             pageDescription=""
             pageKeywords=""
         >
-            
-            {state.ads.map((ad) => <Ad ad={ad} key={ad.id} />)}
+            <div className="row">
+                <div className="col-12 col-md-12 col-lg-8">
+                    {state.ads.map((ad) => <Ad ad={ad} key={ad.id} />)}
+                </div>
+                <div className="col-12 col-md-12 col-lg-4">
+
+                </div>
+            </div>
+
 
         </Layout>
     );

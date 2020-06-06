@@ -7,11 +7,10 @@ export const ContextProvider = (props) => {
     const initialState = {
         language: 'sk',
         url: 'https://autoblsak.sk/',
-        api: '',
+        api: 'http://localhost:80/api',
         theme: 'dark',
         ads: [],
         favoriteAds: [],
-        filter: {},
         config: {
             toggleFilter: false,
             toggleFavorites: false,
