@@ -2,6 +2,7 @@ import React, { Fragment, useContext } from 'react';
 import { Context } from './../context/context';
 import Head from 'next/head';
 import { Filter, Favorites, Header } from './index';
+import { Messages } from './../components/Messages';
 
 export const Layout = ({
     children,
@@ -31,6 +32,7 @@ export const Layout = ({
             </Head>
             <Filter />
             <Favorites />
+            {state.message.type && <Messages message={state.message} /> }
             <div className="container">
                 <Header />
                 {children}
