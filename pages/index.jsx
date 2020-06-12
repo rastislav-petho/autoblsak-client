@@ -73,7 +73,7 @@ const Index = ({ data }) => {
 };
 
 Index.getInitialProps = async function (ctx) {
-  const res = await fetch(`${ctx.apiUrl}/ads`);
+  const res = await fetch(`https://autoblsak.sk/api/api/ads`);
   const data = await res.json();
   return {
     data: data
