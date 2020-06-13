@@ -94,26 +94,6 @@ body {
   padding: 15px;
   border-right: 2px solid var(--text-second-color);
   z-index: 1;
-  -webkit-animation-duration: 1s;
-  animation-duration: 1s;
-  -webkit-animation-fill-mode: both;
-  animation-fill-mode: both;
-}
-@keyframes fadeInLeft {
-  0% {
-    opacity: 1;
-    width: 60px;
-    -webkit-transform: translateX(-20px);
-  }
-  100% {
-    opacity: 1;
-    -webkit-transform: translateX(0);
-  }
-}
-
-.fadeInLeft {
-  -webkit-animation-name: fadeInLeft;
-  animation-name: fadeInLeft;
 }
 
 .filter-box > .filter-buttons {

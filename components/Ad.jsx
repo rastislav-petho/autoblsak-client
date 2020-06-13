@@ -30,11 +30,11 @@ export const Ad = props => {
       </div>
       <div className="col-12 col-lg-8">
         <div className="row ad-titles">
-          <div className="col-6">
+          <div className="col-8">
             {props.ad.brand && props.ad.brand.value}{" "}
             {props.ad.model && props.ad.model.value}
           </div>
-          <div className="col-6 text-right">{price} EUR</div>
+          <div className="col-4 text-right">{price} €</div>
         </div>
         <div className="row ad-contents">
           <div className="col-12">

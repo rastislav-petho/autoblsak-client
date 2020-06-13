@@ -172,4 +172,4 @@ export const COLORS = [
         value: 26,
         label: 'Šedá',
     },
-]
+];

@@ -1,4 +1,7 @@
 import { FUEL, COUPE, TRANSMISION, COLORS } from "./../helpers/constants";
+import Cookies from "universal-cookie";
+
+const cookies = new Cookies();
 
 export const dateFormater = date => {
   var dateFormat = require("dateformat");
@@ -127,3 +130,23 @@ export const decodeColor = color => {
     return null;
   }
 };
+
+export const cookiesManager = (type, cookieName, limit, value) => {
+  if (type === 'set') {
+    if (limit) cookies.set(cookieName, value, {maxAge: 10800});
+    else cookies.set(cookieName, value);
+    return true;
+  } 
+
+  return cookies.get(cookieName);
+  
+};
+
+export const getYearsList = (min, max) => {
+  let years = [];
+  for(let i = max; i >= min; i--) {
+    years.push({value: i, label: i});
+  }
+
+  return years;
+}

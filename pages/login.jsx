@@ -3,8 +3,8 @@ import { Layout } from "./../components";
 import { Context } from "./../context/context";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import Cookies from "universal-cookie";
 import { useRouter } from "next/router";
+import { cookiesManager } from './../helpers/helpers';
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -16,10 +16,7 @@ const Login = () => {
       .post(`${state.api}/login`, data)
       .then(response => {
         if (response.status === 200 && response.data.id) {
-          const cookies = new Cookies();
-          cookies.set("user", response.data, {
-            maxAge: 10800
-          });
+          cookiesManager('set', 'user', response.data);
           dispatch({ type: "LOGIN", user: response.data });
           router.push('/');
         } else {
