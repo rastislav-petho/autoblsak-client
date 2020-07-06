@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { FilterForm, useFilter } from "./Filter/index";
+import { FilterForm, useFilter } from "./index";
 
 export const Filter = () => {
   const {collapse, brands, models, filter, handleChange, handleSubmitFilter, dispatch} = useFilter();
@@ -9,9 +9,11 @@ export const Filter = () => {
       <div
         className="filter-box"
         style={collapse ? { width: "300px" } : { width: "50px" }}
+        onMouseEnter={() => dispatch({ type: "TOGGLE_FILTER", toggle: true }) }
+        onMouseLeave={() => dispatch({ type: "TOGGLE_FILTER", toggle: false }) }
       >
         <div className="filter-buttons">
-          <button
+          {/* <button
             onClick={() =>
               dispatch({ type: "TOGGLE_FILTER", toggle: !collapse })
             }
@@ -21,7 +23,7 @@ export const Filter = () => {
             ) : (
               <i className="fas fa-chevron-right"></i>
             )}
-          </button>
+          </button> */}
           <button onClick={handleSubmitFilter}>
             <i aria-hidden className="fas fa-search"></i>
           </button>

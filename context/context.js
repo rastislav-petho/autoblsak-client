@@ -24,6 +24,7 @@ export const ContextProvider = props => {
       toggleFavorites: false
     },
     filter: {
+      category: "1",
       brand: "",
       model: "",
       fuel: "",

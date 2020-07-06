@@ -101,21 +101,27 @@ export const Header = () => {
           onClick={() =>
             dispatch({ type: "TOGGLE_FAVORITES", toggle: !collapseFavorites })
           }
-        ></i>
-        <span>
-          <Link href="/my-ad">
-            <a className="user-add-ads">
-              <i aria-hidden className="fas fa-car"></i>{" "}
-            </a>
-          </Link>
-        </span>
-        <span>
-          <Link href="/post-ad">
-            <a className="user-add-ads">
-              <i aria-hidden className="far fa-plus-square"></i>{" "}
-            </a>
-          </Link>
-        </span>
+        >
+          <span className="count">{state.favoriteAds.length}</span>
+        </i>
+        {state.user && (
+          <>
+            <span>
+              <Link href="/my-ad">
+                <a className="user-add-ads">
+                  <i aria-hidden className="fas fa-car"></i>{" "}
+                </a>
+              </Link>
+            </span>
+            <span>
+              <Link href="/post-ad">
+                <a className="user-add-ads">
+                  <i aria-hidden className="far fa-plus-square"></i>{" "}
+                </a>
+              </Link>
+            </span>
+          </>
+        )}
         <i
           aria-hidden
           className="fas fa-bars"

@@ -1,57 +1,102 @@
 import React from "react";
-import { FUEL, COUPE, TRANSMISION, COLORS } from "./../../helpers/constants";
 import {
-    decodeBrand,
-    decodeModel,
-    decodeFuel,
-    decodeCoupe,
-    decodeTransmision,
-    decodeColor,
-    getYearsList
-  } from "./../../helpers";
+  FUEL,
+  COUPE,
+  TRANSMISION,
+  COLORS,
+  CATEGORY
+} from "../../helpers/constants";
+import {
+  decodeBrand,
+  decodeModel,
+  decodeFuel,
+  decodeCoupe,
+  decodeTransmision,
+  decodeColor,
+  getYearsList,
+  decodeCategory
+} from "../../helpers";
 
-export const FilterForm = ({filter, brands, models, handleChange}) => {
+export const FilterForm = ({ filter, brands, models, handleChange }) => {
   return (
     <form>
       <div className="form-group">
-        <select onChange={handleChange} className="form-control" name="brand">
-          <option value={filter.brand ? filter.brand : null}>
-            {filter.brand ? decodeBrand(brands, filter.brand) : "Zvoľte značku"}
+        <select
+          onChange={handleChange}
+          className="form-control"
+          name="category"
+        >
+          <option value={filter.category ? filter.category : "1"}>
+            {filter.category
+              ? decodeCategory(filter.category)
+              : "Osobné vozidlá"}
           </option>
-          <option value="">-- Zvoľte značku --</option>
-          {brands.map(brand => (
-            <option key={brand.id} value={brand.id}>
-              {brand.value}
+          {CATEGORY.map(brand => (
+            <option key={brand.value} value={brand.value}>
+              {brand.label}
             </option>
           ))}
         </select>
       </div>
-      <div className="form-group">
-        <select onChange={handleChange} className="form-control" name="model">
-          <option value={filter.model ? filter.model : null}>
-            {filter.model ? decodeModel(models, filter.model) : "Zvoľte model"}
-          </option>
-          <option value="">-- Zvoľte model --</option>
-          {models.map(model => (
-            <option key={model.id} value={model.id}>
-              {model.value}
-            </option>
-          ))}
-        </select>
-      </div>
-      <div className="form-group">
-        <select onChange={handleChange} className="form-control" name="coupe">
-          <option value={filter.coupe ? filter.coupe : null}>
-            {filter.coupe ? decodeCoupe(filter.coupe) : "Karoséria"}
-          </option>
-          <option value="">-- Karoséria --</option>
-          {COUPE.map(item => (
-            <option key={item.value} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
-      </div>
+      {filter.category == 1 && (
+        <>
+          <div className="form-group">
+            <select
+              onChange={handleChange}
+              className="form-control"
+              name="brand"
+            >
+              <option value={filter.brand ? filter.brand : null}>
+                {filter.brand
+                  ? decodeBrand(brands, filter.brand)
+                  : "Zvoľte značku"}
+              </option>
+              <option value="">-- Zvoľte značku --</option>
+              {brands.map(brand => (
+                <option key={brand.id} value={brand.id}>
+                  {brand.value}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group">
+            <select
+              onChange={handleChange}
+              className="form-control"
+              name="model"
+            >
+              <option value={filter.model ? filter.model : null}>
+                {filter.model
+                  ? decodeModel(models, filter.model)
+                  : "Zvoľte model"}
+              </option>
+              <option value="">-- Zvoľte model --</option>
+              {models.map(model => (
+                <option key={model.id} value={model.id}>
+                  {model.value}
+                </option>
+              ))}
+            </select>
+          </div>
+          <div className="form-group">
+            <select
+              onChange={handleChange}
+              className="form-control"
+              name="coupe"
+            >
+              <option value={filter.coupe ? filter.coupe : null}>
+                {filter.coupe ? decodeCoupe(filter.coupe) : "Karoséria"}
+              </option>
+              <option value="">-- Karoséria --</option>
+              {COUPE.map(item => (
+                <option key={item.value} value={item.value}>
+                  {item.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </>
+      )}
       <div className="form-group">
         <select onChange={handleChange} className="form-control" name="fuel">
           <option value={filter.fuel ? filter.fuel : null}>
@@ -102,7 +147,7 @@ export const FilterForm = ({filter, brands, models, handleChange}) => {
             <select
               onChange={handleChange}
               name="yearFrom"
-              className="form-control"
+              className="form-control mb-2"
             >
               <option value={filter.yearFrom ? filter.yearFrom : null}>
                 {filter.yearFrom ? filter.yearFrom : "Od"}
@@ -117,7 +162,7 @@ export const FilterForm = ({filter, brands, models, handleChange}) => {
             <select
               onChange={handleChange}
               name="yearTo"
-              className="form-control"
+              className="form-control mb-2"
             >
               <option value={filter.yearTo ? filter.yearTo : null}>
                 {filter.yearTo ? filter.yearTo : "Do"}
@@ -137,7 +182,7 @@ export const FilterForm = ({filter, brands, models, handleChange}) => {
             <input
               onChange={handleChange}
               name="priceFrom"
-              className="form-control"
+              className="form-control mb-2"
               placeholder="Od"
               value={filter.priceFrom}
             ></input>
@@ -146,7 +191,7 @@ export const FilterForm = ({filter, brands, models, handleChange}) => {
             <input
               onChange={handleChange}
               name="priceTo"
-              className="form-control"
+              className="form-control mb-2"
               placeholder="Do"
               value={filter.priceTo}
             ></input>
@@ -160,7 +205,7 @@ export const FilterForm = ({filter, brands, models, handleChange}) => {
             <input
               onChange={handleChange}
               name="kmFrom"
-              className="form-control"
+              className="form-control mb-2"
               placeholder="Od"
               value={filter.kmFrom}
             ></input>
@@ -169,7 +214,7 @@ export const FilterForm = ({filter, brands, models, handleChange}) => {
             <input
               onChange={handleChange}
               name="kmTo"
-              className="form-control"
+              className="form-control mb-2"
               placeholder="Do"
               value={filter.kmTo}
             ></input>
@@ -183,7 +228,7 @@ export const FilterForm = ({filter, brands, models, handleChange}) => {
             <input
               onChange={handleChange}
               name="powerFrom"
-              className="form-control"
+              className="form-control mb-2"
               placeholder="Od"
               value={filter.powerFrom}
             ></input>
@@ -192,7 +237,7 @@ export const FilterForm = ({filter, brands, models, handleChange}) => {
             <input
               onChange={handleChange}
               name="powerTo"
-              className="form-control"
+              className="form-control mb-2"
               placeholder="Do"
               value={filter.powerTo}
             ></input>

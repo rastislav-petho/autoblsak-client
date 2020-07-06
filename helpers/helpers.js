@@ -1,5 +1,6 @@
-import { FUEL, COUPE, TRANSMISION, COLORS } from "./../helpers/constants";
+import { FUEL, COUPE, TRANSMISION, COLORS, CATEGORY } from "./../helpers/constants";
 import Cookies from "universal-cookie";
+import moment from 'moment';
 
 const cookies = new Cookies();
 
@@ -7,6 +8,11 @@ export const dateFormater = date => {
   var dateFormat = require("dateformat");
   return dateFormat(date, "dd.mm.yyyy");
 };
+
+export const getDateFromTimestamp = (timestamp) => {
+  var time = moment.unix(timestamp).format("DD.MM.YYYY");
+  return time;
+}
 
 export const decodeFuel = fuel => {
   if (fuel == 1) {
@@ -21,6 +27,44 @@ export const decodeFuel = fuel => {
     return FUEL[4].label;
   } else {
     return "-";
+  }
+};
+
+export const decodeCategory = category => {
+  if(category == 1) {
+    return CATEGORY[0].label;
+  } else if (category == 2) {
+    return CATEGORY[1].label;
+  } else if (category == 3) {
+    return CATEGORY[2].label;
+  } else if (category == 4) {
+    return CATEGORY[3].label;
+  } else if (category == 5) {
+    return CATEGORY[4].label;
+  } else if (category == 6) {
+    return CATEGORY[5].label;
+  } else if (category == 7) {
+    return CATEGORY[6].label;
+  } else if (category == 8) {
+    return CATEGORY[7].label;
+  } else if (category == 16) {
+    return CATEGORY[8].label;
+  } else if (category == 9) {
+    return CATEGORY[9].label;
+  } else if (category == 10) {
+    return CATEGORY[10].label;
+  } else if (category == 11) {
+    return CATEGORY[11].label;
+  } else if (category == 12) {
+    return CATEGORY[12].label;
+  } else if (category == 13) {
+    return CATEGORY[13].label;
+  } else if (category == 14) {
+    return CATEGORY[14].label;
+  } else if (category == 15) {
+    return CATEGORY[15].label;
+  } else {
+    return null;
   }
 };
 
@@ -150,3 +194,4 @@ export const getYearsList = (min, max) => {
 
   return years;
 }
+
