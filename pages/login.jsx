@@ -20,7 +20,7 @@ const Login = () => {
           cookiesManager("set", "user", response.data);
           dispatch({ type: "LOGIN", user: response.data });
           router.push("/");
-        } else {
+        } else if (response.status === 203) {
           dispatch({
             type: "SET_MESSAGE",
             message: { type: "danger", message: response.data.error }
