@@ -6,6 +6,12 @@ export default function reducer(state, action) {
         ads: action.ads
       };
 
+    case "SET_AD":
+      return {
+        ...state,
+        ad: action.ad
+      };
+
     case "ADD_TO_FAVORITES":
       return {
         ...state,
@@ -66,6 +72,28 @@ export default function reducer(state, action) {
     // FILTER
 
     case "SET_FILTER":
+      if (action.event.name === "category") {
+        return {
+          ...state,
+          filter: {
+            category: action.event.value,
+            brand: "",
+            model: "",
+            fuel: "",
+            transmision: "",
+            color: "",
+            yearFrom: "",
+            yearTo: "",
+            priceFrom: "",
+            priceTo: "",
+            kmFrom: "",
+            kmTo: "",
+            powerFrom: "",
+            powerTo: ""
+          }
+        };
+      }
+
       return {
         ...state,
         filter: {

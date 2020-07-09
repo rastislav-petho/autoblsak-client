@@ -172,4 +172,91 @@ export const COLORS = [
         value: 26,
         label: 'Šedá',
     },
+];
+
+export const CATEGORY = [
+    {
+        value: 1,
+        label: 'Osobné vozidlá'
+    },
+    {
+        value: 2,
+        label: 'Nákladné autá'
+    },
+    {
+        value: 3,
+        label: 'Dodávky'
+    },
+    {
+        value: 4,
+        label: 'Autobusy'
+    },
+    {
+        value: 5,
+        label: 'Mikrobusy'
+    },
+    {
+        value: 6,
+        label: 'Karavany'
+    },
+    {
+        value: 7,
+        label: 'Motocykle'
+    },
+    {
+        value: 8,
+        label: 'Skútre'
+    },
+    {
+        value: 16,
+        label: 'Štvorkolky'
+    },
+    {
+        value: 9,
+        label: 'Náhradné diely'
+    },
+    {
+        value: 10,
+        label: 'Prívesné vozíky'
+    },
+    {
+        value: 11,
+        label: 'Pneumatiky a kolesá'
+    },
+    {
+        value: 12,
+        label: 'Autorádia, gps navigácie'
+    },
+    {
+        value: 14,
+        label: 'Veterány'
+    },
+    {
+        value: 15,
+        label: 'Havarované vozidlá'
+    }
 ]
+
+export const EXTRAS_CATEGORIES = [
+    {
+        id: 1,
+        value: 'Bezpečnosť',
+    },
+    {
+        id: 2,
+        value: 'Komfort',
+    },
+    {
+        id: 3,
+        value: 'Exteriér',
+    },
+    {
+        id: 4,
+        value: 'Ochrana',
+    },
+    {
+        id: 5,
+        value: 'Interiér',
+    },
+]
+

@@ -1,12 +1,11 @@
 import React, { useReducer, createContext } from "react";
 import reducer from "./../reducer/reducer";
-import Cookies from "universal-cookie";
+import { cookiesManager } from "./../helpers/helpers";
 
 export const Context = createContext();
 
 export const ContextProvider = props => {
-  const cookies = new Cookies();
-  const user = cookies.get("user");
+  const user = cookiesManager("get", "user");
 
   const initialState = {
     language: "sk",
@@ -25,6 +24,7 @@ export const ContextProvider = props => {
       toggleFavorites: false
     },
     filter: {
+      category: "1",
       brand: "",
       model: "",
       fuel: "",
@@ -40,7 +40,7 @@ export const ContextProvider = props => {
       powerTo: ""
     },
     brands: [],
-    models: [],
+    models: []
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);

@@ -1,8 +1,8 @@
-import React, { useContext, Fragment } from "react";
+import React, { useContext, Fragment, memo } from "react";
 import { Context } from "./../context/context";
 import { decodeFuel } from "../helpers";
 
-export const FavoritesItem = props => {
+export const FavoritesItem = memo((props) => {
   const {
     id,
     year_of_manufacture,
@@ -41,4 +41,4 @@ export const FavoritesItem = props => {
       )}
     </div>
   );
-};
+});
