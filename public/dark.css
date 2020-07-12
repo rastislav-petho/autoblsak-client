@@ -25,6 +25,15 @@ a:hover {
   color: var(--text-color);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--text-second-color);
+}
+
 .menu {
   display: flex;
   flex-direction: row;
@@ -291,8 +300,9 @@ a:hover {
 }
 
 .inzerat-titles {
-  height: 80px;
+  height: auto;
   border-bottom: 1px solid var(--text-second-color);
+  padding-bottom: 10px;
 }
 
 .inzerat-titles h1 {
@@ -305,7 +315,7 @@ a:hover {
   color: var(--text-color);
 }
 
-.gallery-items { 
+.gallery-items {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -326,6 +336,10 @@ a:hover {
 .gallery-items img:first-child {
   width: 100%;
   height: auto;
+}
+
+.table {
+  color: var(--text-color);
 }
 
 @media (max-width: 1279px) {

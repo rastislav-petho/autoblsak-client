@@ -16,7 +16,6 @@ const Register = () => {
       .post(`${state.api}/register`, data)
       .then(response => {
         if (response.status === 200) {
-          console.log(response);
           dispatch({
             type: "SET_MESSAGE",
             message: {
@@ -24,7 +23,6 @@ const Register = () => {
               message: `Na e-mailovú adresu ${response.data.email} sme odoslali verifikačný link, na ktorý klikom dokončíte Vašu registráciu.`
             }
           });
-          //   dispatch({ type: "LOGIN", user: response.data });
           router.push("/");
         } else {
           dispatch({

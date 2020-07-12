@@ -7,9 +7,36 @@ import { Layout, Ad } from "./../components";
 const Index = ({ data }) => {
   const { state, dispatch } = useContext(Context);
   const ads = state.ads.data;
+  const filter = state.filter;
 
   useEffect(() => {
-    dispatch({ type: "SET_ADS", ads: data });
+    axios
+      .post(`${state.api}/filter`, filter)
+      .then(response => {
+        if (response.status === 200 && response.data.data.length !== 0) {
+          dispatch({ type: "SET_ADS", ads: response.data });
+          dispatch({ type: "TOGGLE_FILTER", toogle: false });
+        } else {
+          dispatch({
+            type: "SET_MESSAGE",
+            message: {
+              type: "warning",
+              message: "Pre zvolený filter sa nenašli žiadne výsledky."
+            }
+          });
+        }
+      })
+      .then(error => {
+        if (error) {
+          dispatch({
+            type: "SET_MESSAGE",
+            message: {
+              type: "warning",
+              message: "Chyba ! Kontaktujte administrátora"
+            }
+          });
+        }
+      });
   }, []);
 
   function handlePagination(move) {
@@ -72,7 +99,7 @@ const Index = ({ data }) => {
   );
 };
 
-Index.getInitialProps = async function (ctx) {
+Index.getInitialProps = async function () {
   const res = await fetch(`https://autoblsak.sk/api/api/ads`);
   const data = await res.json();
   return {
