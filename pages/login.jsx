@@ -4,7 +4,7 @@ import { Context } from "./../context/context";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { useRouter } from "next/router";
-import { cookiesManager } from "./../helpers/helpers";
+import { setCookie } from "./../helpers/helpers";
 import Link from "next/link";
 
 const Login = () => {
@@ -17,7 +17,7 @@ const Login = () => {
       .post(`${state.api}/login`, data)
       .then(response => {
         if (response.status === 200 && response.data.id) {
-          cookiesManager("set", "user", response.data);
+          setCookie("user", response.data, 86400);
           dispatch({ type: "LOGIN", user: response.data });
           router.push("/");
         } else if (response.status === 203) {
@@ -44,7 +44,9 @@ const Login = () => {
     <Layout pageTitle="Login - Autoblšák.sk" pageDescription="" pageKeywords="">
       <div className="row login-page">
         <div className="card">
-          <div className="card-header text-center"><h5>Prihláste sa</h5></div>
+          <div className="card-header text-center">
+            <h5>Prihláste sa</h5>
+          </div>
           <div className="card-body">
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="form-group">

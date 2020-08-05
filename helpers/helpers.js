@@ -1,6 +1,12 @@
-import { FUEL, COUPE, TRANSMISION, COLORS, CATEGORY } from "./../helpers/constants";
+import {
+  FUEL,
+  COUPE,
+  TRANSMISION,
+  COLORS,
+  CATEGORY
+} from "./../helpers/constants";
 import Cookies from "universal-cookie";
-import moment from 'moment';
+import moment from "moment";
 
 const cookies = new Cookies();
 
@@ -9,10 +15,10 @@ export const dateFormater = date => {
   return dateFormat(date, "dd.mm.yyyy");
 };
 
-export const getDateFromTimestamp = (timestamp) => {
+export const getDateFromTimestamp = timestamp => {
   var time = moment.unix(timestamp).format("DD.MM.YYYY");
   return time;
-}
+};
 
 export const decodeFuel = fuel => {
   if (fuel == 1) {
@@ -31,7 +37,7 @@ export const decodeFuel = fuel => {
 };
 
 export const decodeCategory = category => {
-  if(category == 1) {
+  if (category == 1) {
     return CATEGORY[0].label;
   } else if (category == 2) {
     return CATEGORY[1].label;
@@ -73,7 +79,7 @@ export const decodeBrand = (brands, id) => {
   if (brand) {
     return brand.value;
   }
-   return null;
+  return null;
 };
 
 export const decodeModel = (models, id) => {
@@ -81,7 +87,7 @@ export const decodeModel = (models, id) => {
   if (model) {
     return model.value;
   }
-  
+
   return null;
 };
 
@@ -175,23 +181,19 @@ export const decodeColor = color => {
   }
 };
 
-export const cookiesManager = (type, cookieName, limit, value) => {
-  if (type === 'set') {
-    if (limit) cookies.set(cookieName, value, {maxAge: 10800});
-    else cookies.set(cookieName, value);
-    return true;
-  } 
+export const setCookie = (cookieName, value, maxAge) => {
+  cookies.set(cookieName, value, { maxAge: maxAge });
+};
 
+export const getCookie = cookieName => {
   return cookies.get(cookieName);
-  
 };
 
 export const getYearsList = (min, max) => {
   let years = [];
-  for(let i = max; i >= min; i--) {
-    years.push({value: i, label: i});
+  for (let i = max; i >= min; i--) {
+    years.push({ value: i, label: i });
   }
 
   return years;
-}
-
+};

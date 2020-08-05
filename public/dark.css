@@ -34,6 +34,10 @@ h6 {
   color: var(--text-second-color);
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .menu {
   display: flex;
   flex-direction: row;
@@ -340,6 +344,27 @@ h6 {
 
 .table {
   color: var(--text-color);
+}
+
+.inzerat .card {
+  background-color: var(--bg-color);
+  border: 1px solid var(--text-second-color);
+}
+
+.default-photo {
+  border: 1px solid var(--success);
+}
+
+.breadcrumb {
+  background-color: var(--bg-second-color);
+}
+
+.breadcrumb-item.active {
+  color: var(--text-second-color);
+}
+
+.breadcrumb-item.novisite {
+  color: #6c757d;
 }
 
 @media (max-width: 1279px) {

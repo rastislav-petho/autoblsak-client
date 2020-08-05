@@ -1,16 +1,16 @@
 import React, { useReducer, createContext } from "react";
 import reducer from "./../reducer/reducer";
-import { cookiesManager } from "./../helpers/helpers";
+import { getCookie } from "./../helpers/helpers";
 
 export const Context = createContext();
 
 export const ContextProvider = props => {
-  const user = cookiesManager("get", "user");
+  const user = getCookie("user");
 
   const initialState = {
     language: "sk",
-    url: "https://autoblsak.sk/",
-    api: "https://autoblsak.sk/api/api",
+    url: "http://localhost",
+    api: "http://localhost:80/api",
     user: user,
     theme: "dark",
     ads: [],

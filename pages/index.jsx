@@ -2,7 +2,8 @@ import React, { useContext, useEffect } from "react";
 import fetch from "isomorphic-unfetch";
 import axios from "axios";
 import { Context } from "./../context/context";
-import { Layout, Ad } from "./../components";
+import { Layout } from "./../components";
+import { Ad } from "./../components/Ad";
 
 const Index = ({ data }) => {
   const { state, dispatch } = useContext(Context);
@@ -100,7 +101,7 @@ const Index = ({ data }) => {
 };
 
 Index.getInitialProps = async function () {
-  const res = await fetch(`https://autoblsak.sk/api/api/ads`);
+  const res = await fetch(`http://localhost:80/api/ads`);
   const data = await res.json();
   return {
     data: data

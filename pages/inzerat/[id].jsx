@@ -1,7 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../../context/context";
+import axios from "axios";
 import fetch from "isomorphic-unfetch";
-import { Layout, AdGallery } from "../../components";
+import { Layout } from "../../components";
+import { AdGallery, AdSendEmail } from "../../components/Ad";
 import {
   getDateFromTimestamp,
   decodeFuel,
@@ -11,7 +13,8 @@ import {
 } from "../../helpers";
 
 const Inzerat = ({ data }) => {
-  const { state, dispatch } = useContext(Context);
+  const { state } = useContext(Context);
+
   const {
     id,
     brand,
@@ -37,7 +40,13 @@ const Inzerat = ({ data }) => {
     extras
   } = data;
 
-  console.log(data);
+  useEffect(() => {
+    const data = { id: id, views: views + 1 };
+    axios.post(`${state.api}/ad/updateviews`, data).then(response => {
+      console.log(response);
+    });
+  }, []);
+
   return (
     <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
       <div className="row inzerat">
@@ -144,10 +153,7 @@ const Inzerat = ({ data }) => {
             <button className="button w-100 mb-2">
               <a href={`tel:${mobile_number}`}>Zavolať predajcovi</a>
             </button>
-
-            <button className="button w-100 mb-2">
-              Poslať predajcovi správu
-            </button>
+            <AdSendEmail user={state.user} />
             <button className="button w-100 mb-2">Poloha: {location}</button>
           </div>
         </div>
@@ -219,7 +225,7 @@ const Inzerat = ({ data }) => {
 };
 
 export async function getServerSideProps({ params }) {
-  const res = await fetch(`https://autoblsak.sk/api/api/ad/${params.id}`);
+  const res = await fetch(`http://localhost:80/api/ad/${params.id}`);
   const data = await res.json();
   return {
     props: { data }
