@@ -1,8 +1,9 @@
 import React from 'react';
 import { Layout } from '../components';
 import { Ad } from './../components/Ad';
+import { useMyAds } from './../hooks';
+import { MyAdsMenu, MyAdsHeader } from '../components/MyAds';
 
-import { MyAdsMenu, MyAdsHeader, useMyAds } from '../components/MyAds';
 const MyAd = () => {
   const {
     step,
@@ -12,6 +13,7 @@ const MyAd = () => {
     handleRemove,
     handleActive
   } = useMyAds();
+
   const { username, time_signin } = state.user;
 
   return (
@@ -42,6 +44,7 @@ const MyAd = () => {
               key={ad.id}
               handleRemove={handleRemove}
               handleActive={handleActive}
+              setStep={setStep}
             />
           ))}
       {step === 'inactive' &&
@@ -54,8 +57,11 @@ const MyAd = () => {
               key={ad.id}
               handleRemove={handleRemove}
               handleActive={handleActive}
+              setStep={setStep}
             />
           ))}
+
+      {step === 'edit' && <p>Edit</p>}
     </Layout>
   );
 };

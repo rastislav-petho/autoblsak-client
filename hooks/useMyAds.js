@@ -1,5 +1,5 @@
 import { useState, useEffect, useContext } from 'react';
-import { Context } from './../../context/context';
+import { Context } from '../context/context';
 import axios from 'axios';
 
 export const useMyAds = () => {

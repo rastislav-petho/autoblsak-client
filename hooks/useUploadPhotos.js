@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
 import imageCompression from 'browser-image-compression';
-import { Context } from './../../context/context';
+import { Context } from '../context/context';
 import axios from 'axios';
 
 export const useUploadPhotos = (aid, postAdState, setStep) => {

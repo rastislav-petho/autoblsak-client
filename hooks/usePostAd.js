@@ -1,6 +1,6 @@
 import { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
-import { Context } from './../../context/context';
+import { Context } from './../context/context';
 import { useForm } from 'react-hook-form';
 
 export const usePostAd = initialStep => {

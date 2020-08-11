@@ -1,5 +1,6 @@
-import React from "react";
-import { PostAdGallery, useUploadPhotos } from "./index";
+import React from 'react';
+import { PostAdGallery } from './index';
+import { useUploadPhotos } from './../../hooks';
 
 export const UploadPhotos = props => {
   const { aid, setPostAdState, postAdState, setStep } = props;

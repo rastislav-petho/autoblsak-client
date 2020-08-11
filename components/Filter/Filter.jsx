@@ -1,16 +1,25 @@
-import React, { Fragment } from "react";
-import { FilterForm, useFilter } from "./index";
+import React, { Fragment } from 'react';
+import { FilterForm } from './index';
+import { useFilter } from './../../hooks';
 
 export const Filter = () => {
-  const {collapse, brands, models, filter, handleChange, handleSubmitFilter, dispatch} = useFilter();
+  const {
+    collapse,
+    brands,
+    models,
+    filter,
+    handleChange,
+    handleSubmitFilter,
+    dispatch
+  } = useFilter();
 
   return (
     <Fragment>
       <div
         className="filter-box"
-        style={collapse ? { width: "300px" } : { width: "50px" }}
-        onMouseEnter={() => dispatch({ type: "TOGGLE_FILTER", toggle: true }) }
-        onMouseLeave={() => dispatch({ type: "TOGGLE_FILTER", toggle: false }) }
+        style={collapse ? { width: '300px' } : { width: '50px' }}
+        onMouseEnter={() => dispatch({ type: 'TOGGLE_FILTER', toggle: true })}
+        onMouseLeave={() => dispatch({ type: 'TOGGLE_FILTER', toggle: false })}
       >
         <div className="filter-buttons">
           {/* <button
@@ -57,7 +66,7 @@ export const Filter = () => {
             </button>
             <button
               onClick={() =>
-                dispatch({ type: "TOGGLE_FILTER", toggle: !collapse })
+                dispatch({ type: 'TOGGLE_FILTER', toggle: !collapse })
               }
             >
               <i aria-hidden className="fas fa-chevron-up"></i>

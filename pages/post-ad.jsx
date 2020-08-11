@@ -5,9 +5,9 @@ import {
   Stepper,
   Category,
   AdditionalInformation,
-  usePostAd,
   PublicationAd
 } from './../components/PostAd';
+import { usePostAd } from './../hooks';
 
 const PostAd = () => {
   const {
