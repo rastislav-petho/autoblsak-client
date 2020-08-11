@@ -81,7 +81,7 @@ const Login = () => {
               </div>
             </form>
           </div>
-          <div class="card-footer text-center">
+          <div className="card-footer text-center">
             <p className="card-text">
               Ak nemáte ešte vytvorený účet, možete sa zaregistrovať{" "}
               <Link href="/register">

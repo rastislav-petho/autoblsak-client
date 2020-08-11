@@ -1,8 +1,9 @@
-import React, { Fragment, useState, useContext } from "react";
-import { Context } from "./../context/context";
-import Link from "next/link";
-import Cookies from "universal-cookie";
-import { useRouter } from "next/router";
+import React, { Fragment, useState, useContext } from 'react';
+import { Context } from './../context/context';
+import Link from 'next/link';
+import Cookies from 'universal-cookie';
+import { useRouter } from 'next/router';
+import { setCookie } from './../helpers/';
 
 export const Header = () => {
   const [collapse, setCollapse] = useState(false);
@@ -13,9 +14,26 @@ export const Header = () => {
 
   const logout = () => {
     const cookies = new Cookies();
-    cookies.remove("user");
-    dispatch({ type: "LOGOUT" });
-    router.push("/login");
+    cookies.remove('user');
+    dispatch({ type: 'LOGOUT' });
+    router.push('/login');
+  };
+
+  const setTheme = () => {
+    let theme = '';
+    if (state.theme === 'dark') {
+      theme = 'light';
+    }
+
+    if (state.theme === 'light') {
+      theme = 'dark';
+    }
+
+    dispatch({
+      type: 'CHANGE_THEME',
+      theme: theme
+    });
+    setCookie('theme', theme, 100000000);
   };
 
   return (
@@ -92,14 +110,14 @@ export const Header = () => {
           aria-hidden
           className="fas fa-search"
           onClick={() =>
-            dispatch({ type: "TOGGLE_FILTER", toggle: !collapseFilter })
+            dispatch({ type: 'TOGGLE_FILTER', toggle: !collapseFilter })
           }
         ></i>
         <i
           aria-hidden
           className="far fa-star"
           onClick={() =>
-            dispatch({ type: "TOGGLE_FAVORITES", toggle: !collapseFavorites })
+            dispatch({ type: 'TOGGLE_FAVORITES', toggle: !collapseFavorites })
           }
         >
           <span className="count">{state.favoriteAds.length}</span>
@@ -109,14 +127,14 @@ export const Header = () => {
             <span>
               <Link href="/my-ad">
                 <a className="user-add-ads">
-                  <i aria-hidden className="fas fa-car"></i>{" "}
+                  <i aria-hidden className="fas fa-car"></i>{' '}
                 </a>
               </Link>
             </span>
             <span>
               <Link href="/post-ad">
                 <a className="user-add-ads">
-                  <i aria-hidden className="far fa-plus-square"></i>{" "}
+                  <i aria-hidden className="far fa-plus-square"></i>{' '}
                 </a>
               </Link>
             </span>
@@ -131,6 +149,9 @@ export const Header = () => {
 
       {collapse && (
         <div className="mobile-menu">
+          <span>
+            <a onClick={() => setTheme()}>Zmeniť tému</a>
+          </span>
           <span>
             <a href="https://autoblsak.sk/magazin">Magazín</a>
           </span>
@@ -155,7 +176,7 @@ export const Header = () => {
                 </Link>
               </span>
               <span>
-                <Link href="/post-ad">
+                <Link href="/my-ad">
                   <a className="user-add-ads">
                     <i aria-hidden className="fas fa-car"></i> Moje inzeráty
                   </a>

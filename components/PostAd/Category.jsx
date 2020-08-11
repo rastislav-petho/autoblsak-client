@@ -8,7 +8,7 @@ export const Category = props => {
         <div className="col-12 col-lg-6">
           <a
             href="#"
-            onClick={() => handleClick("1", "additional-information")}
+            onClick={() => handleClick("personal", "additional-information")}
           >
             <img src="/img/osobne.png" style={{ width: "100%" }} />
           </a>
@@ -16,7 +16,7 @@ export const Category = props => {
         <div className="col-12 col-lg-6">
           <a
             href="#"
-            onClick={() => handleClick("1", "additional-information")}
+            onClick={() => handleClick("commercial", "additional-information")}
           >
             <img src="/img/uzitkove.png" style={{ width: "100%" }} />
           </a>
@@ -35,7 +35,7 @@ export const Category = props => {
         <div className="col-12 col-md-6 col-lg-4">
           <a
             href="#"
-            onClick={() => handleClick("1", "additional-information")}
+            onClick={() => handleClick("moto", "additional-information")}
           >
             <img src="/img/moto.png" style={{ width: "100%" }} />
           </a>
@@ -43,7 +43,7 @@ export const Category = props => {
         <div className="col-12 col-md-6 col-lg-4">
           <a
             href="#"
-            onClick={() => handleClick("1", "additional-information")}
+            onClick={() => handleClick("accessories", "additional-information")}
           >
             <img src="/img/autodiely.png" style={{ width: "100%" }} />
           </a>
@@ -51,7 +51,7 @@ export const Category = props => {
         <div className="col-12 col-md-6 col-lg-4">
           <a
             href="#"
-            onClick={() => handleClick("1", "additional-information")}
+            onClick={() => handleClick("other", "additional-information")}
           >
             <img src="/img/ine.png" style={{ width: "100%" }} />
           </a>

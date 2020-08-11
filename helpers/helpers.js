@@ -4,19 +4,24 @@ import {
   TRANSMISION,
   COLORS,
   CATEGORY
-} from "./../helpers/constants";
-import Cookies from "universal-cookie";
-import moment from "moment";
+} from './../helpers/constants';
+import Cookies from 'universal-cookie';
+import moment from 'moment';
 
 const cookies = new Cookies();
 
 export const dateFormater = date => {
-  var dateFormat = require("dateformat");
-  return dateFormat(date, "dd.mm.yyyy");
+  var dateFormat = require('dateformat');
+  return dateFormat(date, 'dd.mm.yyyy');
 };
 
 export const getDateFromTimestamp = timestamp => {
-  var time = moment.unix(timestamp).format("DD.MM.YYYY");
+  var time = moment.unix(timestamp).format('DD.MM.YYYY');
+  return time;
+};
+
+export const getDateAndTimeFromTimestamp = timestamp => {
+  var time = moment.unix(timestamp).format('DD.MM.YYYY, H:m:s');
   return time;
 };
 
@@ -32,7 +37,7 @@ export const decodeFuel = fuel => {
   } else if (fuel == 5) {
     return FUEL[4].label;
   } else {
-    return "-";
+    return '-';
   }
 };
 

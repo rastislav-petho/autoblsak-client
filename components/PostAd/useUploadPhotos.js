@@ -1,7 +1,7 @@
-import { useContext, useState, useEffect } from "react";
-import imageCompression from "browser-image-compression";
-import { Context } from "./../../context/context";
-import axios from "axios";
+import { useContext, useState, useEffect } from 'react';
+import imageCompression from 'browser-image-compression';
+import { Context } from './../../context/context';
+import axios from 'axios';
 
 export const useUploadPhotos = (aid, postAdState, setStep) => {
   const { state, dispatch } = useContext(Context);
@@ -39,9 +39,9 @@ export const useUploadPhotos = (aid, postAdState, setStep) => {
       .then(response => {
         if (response.data.error) {
           dispatch({
-            type: "SET_MESSAGE",
+            type: 'SET_MESSAGE',
             message: {
-              type: "warning",
+              type: 'warning',
               message: response.data.error
             }
           });
@@ -52,10 +52,10 @@ export const useUploadPhotos = (aid, postAdState, setStep) => {
       .then(error => {
         if (error) {
           dispatch({
-            type: "SET_MESSAGE",
+            type: 'SET_MESSAGE',
             message: {
-              type: "danger",
-              message: "Chyba ! Kontaktujte administrátora"
+              type: 'danger',
+              message: 'Chyba ! Kontaktujte administrátora'
             }
           });
         }
@@ -74,12 +74,12 @@ export const useUploadPhotos = (aid, postAdState, setStep) => {
       const compressedFile = await imageCompression(imageFile, options);
 
       const formData = new FormData();
-      formData.append("image", compressedFile);
-      formData.append("aid", aid);
-      formData.append("uid", state.user.id);
+      formData.append('image', compressedFile);
+      formData.append('aid', aid);
+      formData.append('uid', state.user.id);
 
       fetch(`${state.api}/upload-photo`, {
-        method: "POST",
+        method: 'POST',
         body: formData
       })
         .then(response => response.json())
@@ -95,19 +95,19 @@ export const useUploadPhotos = (aid, postAdState, setStep) => {
   const handleSubmit = () => {
     if (photos.length < 1) {
       dispatch({
-        type: "SET_MESSAGE",
+        type: 'SET_MESSAGE',
         message: {
-          type: "warning",
+          type: 'warning',
           message:
-            "Pre uloženie inzerátu je potrebné nahrať minimálne jednu fotografiu!"
+            'Pre uloženie inzerátu je potrebné nahrať minimálne jednu fotografiu!'
         }
       });
     } else if (!postAdState.defaultPhoto) {
       dispatch({
-        type: "SET_MESSAGE",
+        type: 'SET_MESSAGE',
         message: {
-          type: "warning",
-          message: "Nie je zvolená žiadna titulná fotografia!"
+          type: 'warning',
+          message: 'Nie je zvolená žiadna titulná fotografia!'
         }
       });
     } else {
@@ -116,23 +116,23 @@ export const useUploadPhotos = (aid, postAdState, setStep) => {
         .then(response => {
           if (response.data.error) {
             dispatch({
-              type: "SET_MESSAGE",
+              type: 'SET_MESSAGE',
               message: {
-                type: "warning",
+                type: 'warning',
                 message: response.data.error
               }
             });
           } else {
-            setStep("publication-ad");
+            setStep('publication-ad');
           }
         })
         .then(error => {
           if (error) {
             dispatch({
-              type: "SET_MESSAGE",
+              type: 'SET_MESSAGE',
               message: {
-                type: "danger",
-                message: "Chyba ! Kontaktujte administrátora"
+                type: 'danger',
+                message: 'Chyba ! Kontaktujte administrátora'
               }
             });
           }

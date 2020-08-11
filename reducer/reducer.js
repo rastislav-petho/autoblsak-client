@@ -114,6 +114,12 @@ export default function reducer(state, action) {
         models: action.models
       };
 
+    case "CHANGE_THEME":
+      return {
+        ...state,
+        theme: action.theme
+      };
+
     default:
       return state;
   }

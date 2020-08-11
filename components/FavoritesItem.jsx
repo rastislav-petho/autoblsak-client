@@ -2,7 +2,7 @@ import React, { useContext, Fragment, memo } from "react";
 import { Context } from "./../context/context";
 import { decodeFuel } from "../helpers";
 
-export const FavoritesItem = memo((props) => {
+export const FavoritesItem = memo(props => {
   const {
     id,
     year_of_manufacture,
@@ -17,12 +17,14 @@ export const FavoritesItem = memo((props) => {
   return (
     <div key={id} className="row mb-2 favorite">
       <div className="col-3 favorites-img-box">
-        <img src={`${state.url}${defaultPhoto.photo}`} alt="bme f10" />
+        <img src={`${state.url}/${defaultPhoto.photo}`} alt="bme f10" />
       </div>
       {props.collapse && (
         <Fragment>
           <div className="col-7 favorites-content-box">
-            {props.ad.brand && props.ad.brand.value}{" "}
+            {props.ad.title
+              ? props.ad.title
+              : props.ad.brand && props.ad.brand.value}{" "}
             {props.ad.model && props.ad.model.value} - {year_of_manufacture}{" "}
             <br />
             {power} kW, {decodeFuel(fuel)} <br />

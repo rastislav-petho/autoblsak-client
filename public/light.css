@@ -1,9 +1,28 @@
 :root {
-  --bg-color: #222831;
-  /* --bg-second-color: #393e46; */
-  --bg-second-color: #393e46ea;
-  --text-color: #ffffff;
-  --text-second-color: #d65a31;
+  /* --bg-color: #322f3d;
+  --bg-second-color: #59405cb6;
+  --text-color: #dbdbdb;
+  --text-second-color: #4b5d67;
+  --success: #2d884d;
+  --warning: #fecf6d;
+  --danger: #b34045;
+  --info: #4091d7;
+  --info-second: #99e9eb; */
+
+  /* --bg-color: #000000;
+  --bg-second-color: #141414bb;
+  --text-color: #dbdbdb;
+  --text-second-color: #f0a500;
+  --success: #2d884d;
+  --warning: #fecf6d;
+  --danger: #b34045;
+  --info: #4091d7;
+  --info-second: #99e9eb; */
+
+  --bg-color: #ffffff;
+  --bg-second-color: #dde2ecd8;
+  --text-color: #011627;
+  --text-second-color: #9a031e;
   --success: #2d884d;
   --warning: #fecf6d;
   --danger: #b34045;
@@ -301,9 +320,9 @@ h6 {
 }
 
 .button {
-  color: var(--text-second-color);
+  color: var(--bg-color);
   border: 1px solid var(--text-second-color);
-  background-color: var(--bg-color);
+  background-color: var(--text-second-color);
   min-width: 150px;
   min-height: 50px;
   border-radius: 4px;
@@ -311,9 +330,9 @@ h6 {
 }
 
 .a-button {
-  color: var(--text-second-color);
+  color: var(--bg-color);
   border: 1px solid var(--text-second-color);
-  background-color: var(--bg-color);
+  background-color: var(--text-second-color);
   min-width: 150px;
   min-height: 50px;
   border-radius: 4px;
@@ -321,7 +340,7 @@ h6 {
 }
 
 .a-button:hover {
-  color: var(--text-second-color);
+  color: var(--bg-color);
   text-decoration: none;
 }
 

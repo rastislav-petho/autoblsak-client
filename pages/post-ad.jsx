@@ -1,12 +1,13 @@
-import React from "react";
-import { Layout } from "../components";
+import React from 'react';
+import { Layout } from '../components';
 import {
   UploadPhotos,
   Stepper,
   Category,
   AdditionalInformation,
-  usePostAd
-} from "./../components/PostAd";
+  usePostAd,
+  PublicationAd
+} from './../components/PostAd';
 
 const PostAd = () => {
   const {
@@ -24,9 +25,7 @@ const PostAd = () => {
     handleChange,
     handleExtrasChange,
     setPostAdState
-  } = usePostAd();
-
-  console.log(postAdState);
+  } = usePostAd('category');
 
   return (
     <Layout
@@ -36,9 +35,9 @@ const PostAd = () => {
     >
       <h4>Pridať inzerát</h4>
       <Stepper step={step} setStep={setStep} />
-      {step === "category" && <Category handleClick={handleClick} />}
+      {step === 'category' && <Category handleClick={handleClick} />}
 
-      {step === "additional-information" && (
+      {step === 'additional-information' && (
         <AdditionalInformation
           brands={brands}
           models={models}
@@ -52,7 +51,7 @@ const PostAd = () => {
           postAdState={postAdState}
         />
       )}
-      {step === "upload-photos" && (
+      {step === 'upload-photos' && (
         <UploadPhotos
           aid={postAdState.aid}
           setPostAdState={setPostAdState}
@@ -61,7 +60,7 @@ const PostAd = () => {
         />
       )}
 
-      {step === "publication-ad" && <h5>Zverejnenie inzerátu</h5>}
+      {step === 'publication-ad' && <PublicationAd aid={postAdState.aid} />}
     </Layout>
   );
 };

@@ -167,7 +167,7 @@ const Register = () => {
               </div>
             </form>
           </div>
-          <div class="card-footer text-center">
+          <div className="card-footer text-center">
             <p className="card-text">
               Ak už máte vytvorený účet, možete sa prihlásiť{" "}
               <Link href="/login">

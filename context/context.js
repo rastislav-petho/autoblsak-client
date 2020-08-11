@@ -6,13 +6,14 @@ export const Context = createContext();
 
 export const ContextProvider = props => {
   const user = getCookie("user");
+  const theme = getCookie("theme");
 
   const initialState = {
     language: "sk",
     url: "http://localhost",
     api: "http://localhost:80/api",
     user: user,
-    theme: "dark",
+    theme: theme ? theme : "dark",
     ads: [],
     favoriteAds: [],
     message: {

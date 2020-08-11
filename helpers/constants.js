@@ -237,6 +237,74 @@ export const CATEGORY = [
   }
 ];
 
+export const COMMERCIAL_CATEGORY = [
+  {
+    value: 2,
+    label: "Nákladné autá"
+  },
+  {
+    value: 3,
+    label: "Dodávky"
+  },
+  {
+    value: 4,
+    label: "Autobusy"
+  },
+  {
+    value: 5,
+    label: "Mikrobusy"
+  },
+  {
+    value: 6,
+    label: "Karavany"
+  }
+];
+
+export const MOTO_CATEGORY = [
+  {
+    value: 7,
+    label: "Motocykle"
+  },
+  {
+    value: 8,
+    label: "Skútre"
+  },
+  {
+    value: 16,
+    label: "Štvorkolky"
+  }
+];
+
+export const ACCESSORIES_CATEGORY = [
+  {
+    value: 9,
+    label: "Náhradné diely"
+  },
+  {
+    value: 10,
+    label: "Prívesné vozíky"
+  },
+  {
+    value: 11,
+    label: "Pneumatiky a kolesá"
+  },
+  {
+    value: 12,
+    label: "Autorádia, gps navigácie"
+  }
+];
+
+export const OTHER_CATEGORY = [
+  {
+    value: 14,
+    label: "Veterány"
+  },
+  {
+    value: 15,
+    label: "Havarované vozidlá"
+  }
+];
+
 export const EXTRAS_CATEGORIES = [
   {
     id: 1,

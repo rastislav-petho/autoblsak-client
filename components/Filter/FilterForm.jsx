@@ -180,6 +180,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
         <div className="row">
           <div className="col-12 col-md-6">
             <input
+              type="number"
               onChange={handleChange}
               name="priceFrom"
               className="form-control mb-2"
@@ -189,6 +190,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
           </div>
           <div className="col-12 col-md-6">
             <input
+              type="number"
               onChange={handleChange}
               name="priceTo"
               className="form-control mb-2"
@@ -203,6 +205,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
         <div className="row">
           <div className="col-12 col-md-6">
             <input
+              type="number"
               onChange={handleChange}
               name="kmFrom"
               className="form-control mb-2"
@@ -212,6 +215,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
           </div>
           <div className="col-12 col-md-6">
             <input
+              type="number"
               onChange={handleChange}
               name="kmTo"
               className="form-control mb-2"
@@ -226,6 +230,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
         <div className="row">
           <div className="col-12 col-md-6">
             <input
+              type="number"
               onChange={handleChange}
               name="powerFrom"
               className="form-control mb-2"
@@ -235,6 +240,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
           </div>
           <div className="col-12 col-md-6">
             <input
+              type="number"
               onChange={handleChange}
               name="powerTo"
               className="form-control mb-2"

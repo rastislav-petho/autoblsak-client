@@ -1,44 +1,46 @@
-import { useState, useContext, useEffect } from "react";
-import axios from "axios";
-import { Context } from "./../../context/context";
-import { useForm } from "react-hook-form";
+import { useState, useContext, useEffect } from 'react';
+import axios from 'axios';
+import { Context } from './../../context/context';
+import { useForm } from 'react-hook-form';
 
-export const usePostAd = () => {
+export const usePostAd = initialStep => {
   const { state, dispatch } = useContext(Context);
   const { register, handleSubmit, errors } = useForm();
   const [postAdState, setPostAdState] = useState({
+    categoryType: '',
     userId: state.user && state.user.id,
-    aid: "",
-    category: "",
-    brand: "",
-    model: "",
-    coupe: "",
-    fuel: "",
-    transmision: "",
-    color: "",
-    power: "",
-    mileage: "",
-    cubage: "",
-    year_of_manufacture: "",
-    number_of_doors: "",
-    price: "",
+    aid: '',
+    category: '',
+    title: '',
+    brand: '',
+    model: '',
+    coupe: '',
+    fuel: '',
+    transmision: '',
+    color: '',
+    power: '',
+    mileage: '',
+    cubage: '',
+    year_of_manufacture: '',
+    number_of_doors: '',
+    price: '',
     adExtras: [],
-    additional_information: "",
-    seller_name: "",
-    mobile_number: "",
+    additional_information: '',
+    seller_name: '',
+    mobile_number: '',
     email: state.user && state.user.email,
-    location: "",
-    defaultPhoto: ""
+    location: '',
+    defaultPhoto: ''
   });
 
-  const [step, setStep] = useState("category");
+  const [step, setStep] = useState(initialStep);
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);
   const [extras, setExtras] = useState([]);
 
   useEffect(() => {
     if (!state.user) {
-      document.location.href = "/";
+      document.location.href = '/';
     }
   }, []);
 
@@ -51,7 +53,7 @@ export const usePostAd = () => {
   }, []);
 
   useEffect(() => {
-    if (postAdState.brand !== "") {
+    if (postAdState.brand !== '') {
       fetch(`${state.api}/filter/models/${postAdState.brand}`)
         .then(res => res.json())
         .then(json => {
@@ -69,10 +71,19 @@ export const usePostAd = () => {
   }, []);
 
   function handleClick(value, step) {
-    setPostAdState({
-      ...postAdState,
-      category: value
-    });
+    if (value === 'personal') {
+      setPostAdState({
+        ...postAdState,
+        categoryType: value,
+        category: '1'
+      });
+    } else {
+      setPostAdState({
+        ...postAdState,
+        categoryType: value,
+        category: ''
+      });
+    }
     setStep(step);
   }
 
@@ -85,21 +96,21 @@ export const usePostAd = () => {
             ...postAdState,
             aid: response.data
           });
-          setStep("upload-photos");
+          setStep('upload-photos');
         } else {
           dispatch({
-            type: "SET_MESSAGE",
-            message: { type: "danger", message: response.data.error }
+            type: 'SET_MESSAGE',
+            message: { type: 'danger', message: response.data.error }
           });
         }
       })
       .then(error => {
         if (error) {
           dispatch({
-            type: "SET_MESSAGE",
+            type: 'SET_MESSAGE',
             message: {
-              type: "warning",
-              message: "Chyba ! Kontaktujte administrátora"
+              type: 'warning',
+              message: 'Chyba ! Kontaktujte administrátora'
             }
           });
         }
@@ -115,7 +126,7 @@ export const usePostAd = () => {
 
   function handleExtrasChange(event) {
     const index = postAdState.adExtras.indexOf(event.target.name);
-    console.log("index", index);
+    console.log('index', index);
     if (index > -1) {
       postAdState.adExtras.splice(index, 1);
       setPostAdState({
