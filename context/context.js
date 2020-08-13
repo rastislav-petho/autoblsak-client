@@ -10,8 +10,8 @@ export const ContextProvider = props => {
 
   const initialState = {
     language: 'sk',
-    url: 'http://autoblsak.sk',
-    api: 'http://autoblsak.sk/api/api',
+    url: 'https://autoblsak.sk',
+    api: 'https://autoblsak.sk/api/api',
     user: user,
     theme: theme ? theme : 'dark',
     ads: [],

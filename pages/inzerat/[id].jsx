@@ -248,7 +248,7 @@ const Inzerat = ({ data }) => {
 };
 
 export async function getServerSideProps({ params }) {
-  const res = await fetch(`http://autoblsak.sk/api/api/ad/${params.id}`);
+  const res = await fetch(`https://autoblsak.sk/api/api/ad/${params.id}`);
   const data = await res.json();
   return {
     props: { data }
