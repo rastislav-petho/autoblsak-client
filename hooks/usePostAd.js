@@ -2,10 +2,12 @@ import { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
 import { Context } from './../context/context';
 import { useForm } from 'react-hook-form';
+import { useApi } from './../hooks';
 
-export const usePostAd = initialStep => {
+export const usePostAd = () => {
   const { state, dispatch } = useContext(Context);
   const { register, handleSubmit, errors } = useForm();
+  const { getBrands, getModels, getExtras } = useApi();
   const [postAdState, setPostAdState] = useState({
     categoryType: '',
     userId: state.user && state.user.id,
@@ -33,7 +35,7 @@ export const usePostAd = initialStep => {
     defaultPhoto: ''
   });
 
-  const [step, setStep] = useState(initialStep);
+  const [step, setStep] = useState('category');
   const [brands, setBrands] = useState([]);
   const [models, setModels] = useState([]);
   const [extras, setExtras] = useState([]);
@@ -45,29 +47,17 @@ export const usePostAd = initialStep => {
   }, []);
 
   useEffect(() => {
-    fetch(`${state.api}/filter/brands`)
-      .then(res => res.json())
-      .then(json => {
-        setBrands(json);
-      });
+    getBrands(setBrands);
   }, []);
 
   useEffect(() => {
     if (postAdState.brand !== '') {
-      fetch(`${state.api}/filter/models/${postAdState.brand}`)
-        .then(res => res.json())
-        .then(json => {
-          setModels(json);
-        });
+      getModels(setModels, postAdState.brand);
     }
   }, [postAdState.brand]);
 
   useEffect(() => {
-    fetch(`${state.api}/extras`)
-      .then(res => res.json())
-      .then(json => {
-        setExtras(json);
-      });
+    getExtras(setExtras);
   }, []);
 
   function handleClick(value, step) {
@@ -126,7 +116,6 @@ export const usePostAd = initialStep => {
 
   function handleExtrasChange(event) {
     const index = postAdState.adExtras.indexOf(event.target.name);
-    console.log('index', index);
     if (index > -1) {
       postAdState.adExtras.splice(index, 1);
       setPostAdState({

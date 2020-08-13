@@ -25,7 +25,7 @@ const PostAd = () => {
     handleChange,
     handleExtrasChange,
     setPostAdState
-  } = usePostAd('category');
+  } = usePostAd();
 
   return (
     <Layout

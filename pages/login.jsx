@@ -1,43 +1,15 @@
-import React, { useContext } from "react";
-import { Layout } from "./../components";
-import { Context } from "./../context/context";
-import { useForm } from "react-hook-form";
-import axios from "axios";
-import { useRouter } from "next/router";
-import { setCookie } from "./../helpers/helpers";
-import Link from "next/link";
+import React from 'react';
+import { Layout } from './../components';
+import { useForm } from 'react-hook-form';
+import { useApi } from './../hooks';
+import Link from 'next/link';
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm();
-  const { state, dispatch } = useContext(Context);
-  const router = useRouter();
+  const { auth } = useApi();
 
   const onSubmit = data => {
-    axios
-      .post(`${state.api}/login`, data)
-      .then(response => {
-        if (response.status === 200 && response.data.id) {
-          setCookie("user", response.data, 86400);
-          dispatch({ type: "LOGIN", user: response.data });
-          router.push("/");
-        } else if (response.status === 203) {
-          dispatch({
-            type: "SET_MESSAGE",
-            message: { type: "danger", message: response.data.error }
-          });
-        }
-      })
-      .then(error => {
-        if (error) {
-          dispatch({
-            type: "SET_MESSAGE",
-            message: {
-              type: "warning",
-              message: "Chyba ! Kontaktujte administrátora"
-            }
-          });
-        }
-      });
+    auth(data);
   };
 
   return (
@@ -58,7 +30,7 @@ const Login = () => {
                   name="email"
                   ref={register({ required: true })}
                 ></input>
-                {errors.email && errors.email.type === "required" && (
+                {errors.email && errors.email.type === 'required' && (
                   <i className="text-danger">Email je povinný údaj.</i>
                 )}
               </div>
@@ -71,7 +43,7 @@ const Login = () => {
                   name="password"
                   ref={register({ required: true })}
                 ></input>
-                {errors.password && errors.password.type === "required" && (
+                {errors.password && errors.password.type === 'required' && (
                   <i className="text-danger">Heslo je povinný údaj.</i>
                 )}
               </div>
@@ -83,7 +55,7 @@ const Login = () => {
           </div>
           <div className="card-footer text-center">
             <p className="card-text">
-              Ak nemáte ešte vytvorený účet, možete sa zaregistrovať{" "}
+              Ak nemáte ešte vytvorený účet, možete sa zaregistrovať{' '}
               <Link href="/register">
                 <a>TU</a>
               </Link>

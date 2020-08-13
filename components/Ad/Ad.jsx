@@ -27,7 +27,7 @@ export const Ad = memo(props => {
     status,
     paid
   } = props.ad;
-  const { actionBar, handleRemove, handleActive, setStep } = props;
+  const { actionBar, handleRemove, handleActive, handleEdit } = props;
   const { state, dispatch } = useContext(Context);
 
   const addToFavorites = () => {
@@ -100,7 +100,7 @@ export const Ad = memo(props => {
           <div className="col-11 action-bar">
             {actionBar && (
               <>
-                <button onClick={() => setStep('edit')} className="mr-2">
+                <button onClick={() => handleEdit(id)} className="mr-2">
                   Upraviť
                 </button>
                 <button className="mr-2">Upraviť fotografie</button>

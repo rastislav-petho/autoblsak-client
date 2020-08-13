@@ -1,5 +1,5 @@
-import React, { useContext } from "react";
-import { Context } from "../../context/context";
+import React, { useContext } from 'react';
+import { Context } from '../../context/context';
 
 export const PostAdGallery = props => {
   const { photos, setPostAdState, postAdState, removePhoto } = props;
@@ -21,7 +21,7 @@ export const PostAdGallery = props => {
             <div
               key={item.id}
               className={`${
-                postAdState.defaultPhoto == item.id && "default-photo"
+                postAdState.defaultPhoto == item.id && 'default-photo'
               } col-12 col-md-6 col-lg-2 p-1 text-center`}
             >
               <img

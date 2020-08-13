@@ -1,19 +1,19 @@
-import React, { useReducer, createContext } from "react";
-import reducer from "./../reducer/reducer";
-import { getCookie } from "./../helpers/helpers";
+import React, { useReducer, createContext } from 'react';
+import reducer from './../reducer/reducer';
+import { getCookie } from './../helpers/helpers';
 
 export const Context = createContext();
 
 export const ContextProvider = props => {
-  const user = getCookie("user");
-  const theme = getCookie("theme");
+  const user = getCookie('user');
+  const theme = getCookie('theme');
 
   const initialState = {
-    language: "sk",
-    url: "http://localhost",
-    api: "http://localhost:80/api",
+    language: 'sk',
+    url: 'http://autoblsak.sk',
+    api: 'http://autoblsak.sk/api/api',
     user: user,
-    theme: theme ? theme : "dark",
+    theme: theme ? theme : 'dark',
     ads: [],
     favoriteAds: [],
     message: {
@@ -25,20 +25,20 @@ export const ContextProvider = props => {
       toggleFavorites: false
     },
     filter: {
-      category: "1",
-      brand: "",
-      model: "",
-      fuel: "",
-      transmision: "",
-      color: "",
-      yearFrom: "",
-      yearTo: "",
-      priceFrom: "",
-      priceTo: "",
-      kmFrom: "",
-      kmTo: "",
-      powerFrom: "",
-      powerTo: ""
+      category: '1',
+      brand: '',
+      model: '',
+      fuel: '',
+      transmision: '',
+      color: '',
+      yearFrom: '',
+      yearTo: '',
+      priceFrom: '',
+      priceTo: '',
+      kmFrom: '',
+      kmTo: '',
+      powerFrom: '',
+      powerTo: ''
     },
     brands: [],
     models: []

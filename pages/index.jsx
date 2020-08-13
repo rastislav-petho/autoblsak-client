@@ -1,80 +1,22 @@
-import React, { useContext, useEffect } from "react";
-import fetch from "isomorphic-unfetch";
-import axios from "axios";
-import { Context } from "./../context/context";
-import { Layout } from "./../components";
-import { Ad } from "./../components/Ad";
+import React, { useContext, useEffect } from 'react';
+import fetch from 'isomorphic-unfetch';
+import { Context } from './../context/context';
+import { Layout } from './../components';
+import { Ad } from './../components/Ad';
+import { useApi } from './../hooks';
 
 const Index = ({ data }) => {
-  const { state, dispatch } = useContext(Context);
+  const { state } = useContext(Context);
   const ads = state.ads.data;
-  const filter = state.filter;
+  const { filter, adPagination } = useApi();
 
   useEffect(() => {
-    axios
-      .post(`${state.api}/filter`, filter)
-      .then(response => {
-        if (response.status === 200 && response.data.data.length !== 0) {
-          dispatch({ type: "SET_ADS", ads: response.data });
-          dispatch({ type: "TOGGLE_FILTER", toogle: false });
-        } else {
-          dispatch({
-            type: "SET_MESSAGE",
-            message: {
-              type: "warning",
-              message: "Pre zvolený filter sa nenašli žiadne výsledky."
-            }
-          });
-        }
-      })
-      .then(error => {
-        if (error) {
-          dispatch({
-            type: "SET_MESSAGE",
-            message: {
-              type: "warning",
-              message: "Chyba ! Kontaktujte administrátora"
-            }
-          });
-        }
-      });
+    filter();
   }, []);
 
   function handlePagination(move) {
-    axios
-      .post(
-        `${state.api}/filter?page=${
-          move ? state.ads.current_page + 1 : state.ads.current_page - 1
-        }`,
-        state.filter
-      )
-      .then(response => {
-        if (response.status === 200 && response.data.length !== 0) {
-          dispatch({ type: "SET_ADS", ads: response.data });
-        } else {
-          dispatch({
-            type: "SET_MESSAGE",
-            message: {
-              type: "warning",
-              message: "Pre zvolený filter sa nenašli žiadne výsledky."
-            }
-          });
-        }
-      })
-      .then(error => {
-        if (error) {
-          dispatch({
-            type: "SET_MESSAGE",
-            message: {
-              type: "warning",
-              message: "Chyba ! Kontaktujte administrátora"
-            }
-          });
-        }
-      });
+    adPagination(move);
   }
-
-  console.log("state", state);
 
   return (
     <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
@@ -87,7 +29,7 @@ const Index = ({ data }) => {
               <div className="paginate">
                 <button onClick={() => handlePagination(false)}>
                   <i aria-hidden className="fas fa-chevron-left"></i>
-                </button>{" "}
+                </button>{' '}
                 <button onClick={() => handlePagination(true)}>
                   <i aria-hidden className="fas fa-chevron-right"></i>
                 </button>
@@ -101,7 +43,7 @@ const Index = ({ data }) => {
 };
 
 Index.getInitialProps = async function () {
-  const res = await fetch(`http://localhost:80/api/ads`);
+  const res = await fetch(`http://autoblsak.sk/api/api/ads`);
   const data = await res.json();
   return {
     data: data

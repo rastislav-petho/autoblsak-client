@@ -2,19 +2,28 @@ import React from 'react';
 import { Layout } from '../components';
 import { Ad } from './../components/Ad';
 import { useMyAds } from './../hooks';
-import { MyAdsMenu, MyAdsHeader } from '../components/MyAds';
+import { MyAdsMenu, MyAdsHeader, MyAdsEditForm } from '../components/MyAds';
 
-const MyAd = () => {
+const MyAd = props => {
   const {
     step,
     setStep,
     myAds,
     state,
     handleRemove,
-    handleActive
+    handleActive,
+    handleEdit,
+    postAdState,
+    brands,
+    models,
+    extras,
+    handleChange,
+    register,
+    handleSubmit,
+    errors,
+    handleExtrasChange,
+    onSubmit
   } = useMyAds();
-
-  const { username, time_signin } = state.user;
 
   return (
     <Layout
@@ -24,11 +33,13 @@ const MyAd = () => {
     >
       <div className="row mb-3">
         <div className="col-12">
-          <MyAdsHeader
-            userName={username}
-            timeSignin={time_signin}
-            adsCount={myAds.length}
-          />
+          {state.user && (
+            <MyAdsHeader
+              userName={state.user.username}
+              timeSignin={state.user.time_signin}
+              adsCount={myAds.length}
+            />
+          )}
         </div>
         <div className="col-12">
           <MyAdsMenu myAds={myAds} step={step} setStep={setStep} />
@@ -44,7 +55,7 @@ const MyAd = () => {
               key={ad.id}
               handleRemove={handleRemove}
               handleActive={handleActive}
-              setStep={setStep}
+              handleEdit={handleEdit}
             />
           ))}
       {step === 'inactive' &&
@@ -57,11 +68,24 @@ const MyAd = () => {
               key={ad.id}
               handleRemove={handleRemove}
               handleActive={handleActive}
-              setStep={setStep}
+              handleEdit={handleEdit}
             />
           ))}
 
-      {step === 'edit' && <p>Edit</p>}
+      {step === 'edit' && (
+        <MyAdsEditForm
+          postAdState={postAdState}
+          brands={brands}
+          models={models}
+          extras={extras}
+          handleChange={handleChange}
+          register={register}
+          handleSubmit={handleSubmit}
+          errors={errors}
+          handleExtrasChange={handleExtrasChange}
+          onSubmit={onSubmit}
+        />
+      )}
     </Layout>
   );
 };

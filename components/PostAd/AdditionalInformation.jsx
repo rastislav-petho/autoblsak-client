@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   FUEL,
   COUPE,
@@ -9,7 +9,7 @@ import {
   MOTO_CATEGORY,
   ACCESSORIES_CATEGORY,
   OTHER_CATEGORY
-} from "./../../helpers/constants";
+} from './../../helpers/constants';
 import {
   getYearsList,
   decodeBrand,
@@ -19,7 +19,7 @@ import {
   decodeTransmision,
   decodeColor,
   decodeCategory
-} from "./../../helpers";
+} from './../../helpers';
 
 export const AdditionalInformation = props => {
   const {
@@ -38,7 +38,7 @@ export const AdditionalInformation = props => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         <div className="col-12 col-lg-6">
-          {postAdState.categoryType === "personal" ? (
+          {postAdState.categoryType === 'personal' ? (
             <>
               <div className="form-group">
                 <label htmlFor="brand">Zvoľte značku</label>
@@ -62,7 +62,7 @@ export const AdditionalInformation = props => {
                     </option>
                   ))}
                 </select>
-                {errors.brand && errors.brand.type === "required" && (
+                {errors.brand && errors.brand.type === 'required' && (
                   <i className="text-danger">Značka je povinný údaj.</i>
                 )}
               </div>
@@ -89,7 +89,7 @@ export const AdditionalInformation = props => {
                     </option>
                   ))}
                 </select>
-                {errors.model && errors.model.type === "required" && (
+                {errors.model && errors.model.type === 'required' && (
                   <i className="text-danger">Model je povinný údaj.</i>
                 )}
               </div>
@@ -116,7 +116,7 @@ export const AdditionalInformation = props => {
                     </option>
                   ))}
                 </select>
-                {errors.coupe && errors.coupe.type === "required" && (
+                {errors.coupe && errors.coupe.type === 'required' && (
                   <i className="text-danger">Karoséria je povinný údaj.</i>
                 )}
               </div>
@@ -135,13 +135,13 @@ export const AdditionalInformation = props => {
                 ref={register({ required: true })}
               />
 
-              {errors.title && errors.title.type === "required" && (
+              {errors.title && errors.title.type === 'required' && (
                 <i className="text-danger">Názov je povinný údaj.</i>
               )}
             </div>
           )}
 
-          {postAdState.categoryType !== "personal" && (
+          {postAdState.categoryType !== 'personal' && (
             <div className="form-group">
               <label htmlFor="category">Kategória</label>
               <select
@@ -158,19 +158,19 @@ export const AdditionalInformation = props => {
                 ) : (
                   <option></option>
                 )}
-                {postAdState.categoryType === "commercial"
+                {postAdState.categoryType === 'commercial'
                   ? COMMERCIAL_CATEGORY.map(item => (
                       <option key={item.value} value={item.value}>
                         {item.label}
                       </option>
                     ))
-                  : postAdState.categoryType === "moto"
+                  : postAdState.categoryType === 'moto'
                   ? MOTO_CATEGORY.map(item => (
                       <option key={item.value} value={item.value}>
                         {item.label}
                       </option>
                     ))
-                  : postAdState.categoryType === "accessories"
+                  : postAdState.categoryType === 'accessories'
                   ? ACCESSORIES_CATEGORY.map(item => (
                       <option key={item.value} value={item.value}>
                         {item.label}
@@ -182,14 +182,14 @@ export const AdditionalInformation = props => {
                       </option>
                     ))}
               </select>
-              {errors.category && errors.category.type === "required" && (
+              {errors.category && errors.category.type === 'required' && (
                 <i className="text-danger">Kategŕia je povinný údaj.</i>
               )}
             </div>
           )}
 
-          {postAdState.categoryType === "personal" ||
-          postAdState.categoryType === "commercial" ? (
+          {postAdState.categoryType === 'personal' ||
+          postAdState.categoryType === 'commercial' ? (
             <>
               <div className="form-group">
                 <label htmlFor="fuel">Palivo</label>
@@ -213,7 +213,7 @@ export const AdditionalInformation = props => {
                     </option>
                   ))}
                 </select>
-                {errors.fuel && errors.fuel.type === "required" && (
+                {errors.fuel && errors.fuel.type === 'required' && (
                   <i className="text-danger">Palivo je povinný údaj.</i>
                 )}
               </div>
@@ -241,16 +241,16 @@ export const AdditionalInformation = props => {
                   ))}
                 </select>
                 {errors.transmision &&
-                  errors.transmision.type === "required" && (
+                  errors.transmision.type === 'required' && (
                     <i className="text-danger">Prevodovka je povinný údaj.</i>
                   )}
               </div>
             </>
           ) : null}
 
-          {postAdState.categoryType === "personal" ||
-          postAdState.categoryType === "commercial" ||
-          postAdState.categoryType === "moto" ? (
+          {postAdState.categoryType === 'personal' ||
+          postAdState.categoryType === 'commercial' ||
+          postAdState.categoryType === 'moto' ? (
             <div className="form-group">
               <label htmlFor="color">Farba</label>
               <select
@@ -273,16 +273,16 @@ export const AdditionalInformation = props => {
                   </option>
                 ))}
               </select>
-              {errors.color && errors.color.type === "required" && (
+              {errors.color && errors.color.type === 'required' && (
                 <i className="text-danger">Farba je povinný údaj.</i>
               )}
             </div>
           ) : null}
         </div>
         <div className="col-12 col-lg-6">
-          {postAdState.categoryType === "personal" ||
-          postAdState.categoryType === "commercial" ||
-          postAdState.categoryType === "moto" ? (
+          {postAdState.categoryType === 'personal' ||
+          postAdState.categoryType === 'commercial' ||
+          postAdState.categoryType === 'moto' ? (
             <>
               <div className="form-group">
                 <label htmlFor="power">Výkon</label>
@@ -300,7 +300,7 @@ export const AdditionalInformation = props => {
                     <span className="input-group-text">kW</span>
                   </div>
                 </div>
-                {errors.power && errors.power.type === "required" && (
+                {errors.power && errors.power.type === 'required' && (
                   <i className="text-danger">Výkon je povinný údaj.</i>
                 )}
               </div>
@@ -321,7 +321,7 @@ export const AdditionalInformation = props => {
                     <span className="input-group-text">Km</span>
                   </div>
                 </div>
-                {errors.mileage && errors.mileage.type === "required" && (
+                {errors.mileage && errors.mileage.type === 'required' && (
                   <i className="text-danger">Počet km je povinný údaj.</i>
                 )}
               </div>
@@ -342,7 +342,7 @@ export const AdditionalInformation = props => {
                     <span className="input-group-text">cm&sup3;</span>
                   </div>
                 </div>
-                {errors.cubage && errors.cubage.type === "required" && (
+                {errors.cubage && errors.cubage.type === 'required' && (
                   <i className="text-danger">Kubatúra je povinný údaj.</i>
                 )}
               </div>
@@ -363,21 +363,21 @@ export const AdditionalInformation = props => {
                   ) : (
                     <option></option>
                   )}
-                  {getYearsList("1950", new Date().getFullYear()).map(year => (
+                  {getYearsList('1950', new Date().getFullYear()).map(year => (
                     <option key={year.value} value={year.value}>
                       {year.label}
                     </option>
                   ))}
                 </select>
                 {errors.year_of_manufacture &&
-                  errors.year_of_manufacture.type === "required" && (
+                  errors.year_of_manufacture.type === 'required' && (
                     <i className="text-danger">Rok výroby je povinný údaj.</i>
                   )}
               </div>
             </>
           ) : null}
 
-          {postAdState.categoryType === "personal" && (
+          {postAdState.categoryType === 'personal' && (
             <div className="form-group">
               <label htmlFor="number_of_doors">Počet dverí</label>
               <select
@@ -399,7 +399,7 @@ export const AdditionalInformation = props => {
                 ))}
               </select>
               {errors.number_of_doors &&
-                errors.number_of_doors.type === "required" && (
+                errors.number_of_doors.type === 'required' && (
                   <i className="text-danger">Počet dverí je povinný údaj.</i>
                 )}
             </div>
@@ -423,20 +423,20 @@ export const AdditionalInformation = props => {
                 </span>
               </div>
             </div>
-            {errors.price && errors.price.type === "required" && (
+            {errors.price && errors.price.type === 'required' && (
               <i className="text-danger">Cena je povinný údaj.</i>
             )}
           </div>
         </div>
       </div>
-      {postAdState.categoryType === "personal" && (
+      {postAdState.categoryType === 'personal' && (
         <div className="row mt-3">
           <div className="col-12 col-md-6 col-lg-3">
             <h6>Bezpečnosť</h6>
 
             {extras.map(
               (item, key) =>
-                item.category_id === "1" && (
+                item.category_id === '1' && (
                   <div className="form-check">
                     <input
                       className="form-check-input"
@@ -462,7 +462,7 @@ export const AdditionalInformation = props => {
 
             {extras.map(
               (item, key) =>
-                item.category_id === "2" && (
+                item.category_id === '2' && (
                   <div className="form-check">
                     <input
                       className="form-check-input"
@@ -488,7 +488,7 @@ export const AdditionalInformation = props => {
 
             {extras.map(
               (item, key) =>
-                item.category_id === "5" && (
+                item.category_id === '5' && (
                   <div className="form-check">
                     <input
                       className="form-check-input"
@@ -514,7 +514,7 @@ export const AdditionalInformation = props => {
 
             {extras.map(
               (item, key) =>
-                item.category_id === "3" && (
+                item.category_id === '3' && (
                   <div className="form-check">
                     <input
                       className="form-check-input"
@@ -538,7 +538,7 @@ export const AdditionalInformation = props => {
 
             {extras.map(
               (item, key) =>
-                item.category_id === "6" && (
+                item.category_id === '6' && (
                   <div className="form-check">
                     <input
                       className="form-check-input"
@@ -587,7 +587,7 @@ export const AdditionalInformation = props => {
                 value={postAdState.seller_name}
                 ref={register({ required: true })}
               />
-              {errors.seller_name && errors.seller_name.type === "required" && (
+              {errors.seller_name && errors.seller_name.type === 'required' && (
                 <i className="text-danger">Vaše meno je povinný údaj.</i>
               )}
             </div>
@@ -603,7 +603,7 @@ export const AdditionalInformation = props => {
                 ref={register({ required: true })}
               />
               {errors.mobile_number &&
-                errors.mobile_number.type === "required" && (
+                errors.mobile_number.type === 'required' && (
                   <i className="text-danger">
                     Vaše tel. číslo je povinný údaj.
                   </i>
@@ -622,7 +622,7 @@ export const AdditionalInformation = props => {
                 onChange={handleChange}
                 ref={register({ required: true })}
               />
-              {errors.email && errors.email.type === "required" && (
+              {errors.email && errors.email.type === 'required' && (
                 <i className="text-danger">Váš email je povinný údaj.</i>
               )}
             </div>
@@ -638,7 +638,7 @@ export const AdditionalInformation = props => {
                 value={postAdState.location}
                 ref={register({ required: true })}
               />
-              {errors.location && errors.location.type === "required" && (
+              {errors.location && errors.location.type === 'required' && (
                 <i className="text-danger">Vaša poloha je povinný údaj.</i>
               )}
             </div>

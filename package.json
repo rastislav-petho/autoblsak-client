@@ -23,7 +23,7 @@
     "react-photo-gallery": "^8.0.0",
     "universal-cookie": "^4.0.3"
   },
-  
+  "proxy": "http://autoblsak.sk/api",
   "devDependencies": {
     "prettier": "2.0.5"
   }

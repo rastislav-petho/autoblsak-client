@@ -1,11 +1,19 @@
 import { useState, useEffect, useContext } from 'react';
 import { Context } from '../context/context';
 import axios from 'axios';
+import { useApi } from './../hooks';
+import { useForm } from 'react-hook-form';
 
 export const useMyAds = () => {
   const { state, dispatch } = useContext(Context);
+  const { register, handleSubmit, errors } = useForm();
+  const { getBrands, getModels, getExtras } = useApi();
   const [myAds, setMyAds] = useState([]);
   const [step, setStep] = useState('active');
+  const [postAdState, setPostAdState] = useState({});
+  const [brands, setBrands] = useState([]);
+  const [models, setModels] = useState([]);
+  const [extras, setExtras] = useState([]);
 
   const getMyAds = () => {
     fetch(`${state.api}/my-ads/${state.user.id}`)
@@ -22,6 +30,25 @@ export const useMyAds = () => {
       getMyAds();
     }
   }, []);
+
+  useEffect(() => {
+    getBrands(setBrands);
+  }, []);
+
+  useEffect(() => {
+    getModels(setModels, postAdState.brand);
+  }, [postAdState.brand]);
+
+  useEffect(() => {
+    getExtras(setExtras);
+  }, []);
+
+  function handleChange(event) {
+    setPostAdState({
+      ...postAdState,
+      [event.target.name]: event.target.value
+    });
+  }
 
   const handleRemove = id => {
     alert = confirm(
@@ -87,12 +114,89 @@ export const useMyAds = () => {
     }
   };
 
+  const handleEdit = id => {
+    fetch(`${state.api}/ad/${id}`)
+      .then(res => res.json())
+      .then(json => {
+        const adExtras = json.extras.map(extra => extra.extra_id);
+        json.adExtras = adExtras;
+        json.brand = json.brand_id;
+        json.model = json.model_id;
+        json.aid = json.id;
+        json.userId = state.user.id;
+        setPostAdState(json);
+        setStep('edit');
+      });
+  };
+
+  function handleExtrasChange(event) {
+    const index = postAdState.adExtras.indexOf(event.target.name);
+    if (index > -1) {
+      postAdState.adExtras.splice(index, 1);
+      setPostAdState({
+        ...postAdState,
+        adExtras: postAdState.adExtras
+      });
+    } else {
+      setPostAdState({
+        ...postAdState,
+        adExtras: [...postAdState.adExtras, event.target.name]
+      });
+    }
+  }
+
+  const onSubmit = data => {
+    axios
+      .post(`${state.api}/save-ad`, postAdState)
+      .then(response => {
+        if (response.status === 200) {
+          setPostAdState({
+            ...postAdState,
+            aid: response.data
+          });
+          getMyAds();
+          setStep('active');
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'success', message: response.data.success }
+          });
+        } else {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'danger', message: response.data.error }
+          });
+        }
+      })
+      .then(error => {
+        if (error) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: {
+              type: 'warning',
+              message: 'Chyba ! Kontaktujte administrátora'
+            }
+          });
+        }
+      });
+  };
+
   return {
     myAds,
     step,
     setStep,
     state,
+    brands,
+    models,
+    extras,
     handleRemove,
-    handleActive
+    handleActive,
+    handleEdit,
+    postAdState,
+    handleChange,
+    register,
+    handleSubmit,
+    errors,
+    handleExtrasChange,
+    onSubmit
   };
 };

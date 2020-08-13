@@ -1,47 +1,15 @@
-import React, { useContext } from "react";
-import { Layout } from "./../components";
-import { Context } from "./../context/context";
-import { useForm } from "react-hook-form";
-import axios from "axios";
-import { useRouter } from "next/router";
-import Link from "next/link";
+import React from 'react';
+import { Layout } from './../components';
+import { useForm } from 'react-hook-form';
+import Link from 'next/link';
+import { useApi } from './../hooks';
 
 const Register = () => {
   const { register, handleSubmit, errors } = useForm();
-  const { state, dispatch } = useContext(Context);
-  const router = useRouter();
+  const { registration } = useApi();
 
   const onSubmit = data => {
-    axios
-      .post(`${state.api}/register`, data)
-      .then(response => {
-        if (response.status === 200) {
-          dispatch({
-            type: "SET_MESSAGE",
-            message: {
-              type: "success",
-              message: `Na e-mailovú adresu ${response.data.email} sme odoslali verifikačný link, na ktorý klikom dokončíte Vašu registráciu.`
-            }
-          });
-          router.push("/");
-        } else {
-          dispatch({
-            type: "SET_MESSAGE",
-            message: { type: "danger", message: response.data.error }
-          });
-        }
-      })
-      .then(error => {
-        if (error) {
-          dispatch({
-            type: "SET_MESSAGE",
-            message: {
-              type: "warning",
-              message: "Chyba ! Kontaktujte administrátora"
-            }
-          });
-        }
-      });
+    registration(data);
   };
 
   return (
@@ -67,7 +35,7 @@ const Register = () => {
                   name="username"
                   ref={register({ required: true })}
                 ></input>
-                {errors.username && errors.username.type === "required" && (
+                {errors.username && errors.username.type === 'required' && (
                   <i className="text-danger">
                     Používateľské meno je povinný údaj.
                   </i>
@@ -82,7 +50,7 @@ const Register = () => {
                   name="email"
                   ref={register({ required: true })}
                 ></input>
-                {errors.email && errors.email.type === "required" && (
+                {errors.email && errors.email.type === 'required' && (
                   <i className="text-danger">Email je povinný údaj.</i>
                 )}
               </div>
@@ -95,7 +63,7 @@ const Register = () => {
                   name="password"
                   ref={register({ required: true })}
                 ></input>
-                {errors.password && errors.password.type === "required" && (
+                {errors.password && errors.password.type === 'required' && (
                   <i className="text-danger">Heslo je povinný údaj.</i>
                 )}
               </div>
@@ -108,8 +76,8 @@ const Register = () => {
                 />
 
                 <span>
-                  {" "}
-                  Súhlasím s{" "}
+                  {' '}
+                  Súhlasím s{' '}
                   <a
                     href="https://autoblsak.sk/pages/privacy-policy"
                     target="_blank"
@@ -117,7 +85,7 @@ const Register = () => {
                     ochranou osobných údajov
                   </a>
                 </span>
-                {errors.ochrana && errors.ochrana.type === "required" && (
+                {errors.ochrana && errors.ochrana.type === 'required' && (
                   <p>
                     <i className="text-danger">
                       Pré úspešnú registráciu musíte súhlasiť s ochranou
@@ -136,8 +104,8 @@ const Register = () => {
                 />
 
                 <span>
-                  {" "}
-                  Súhlasím s{" "}
+                  {' '}
+                  Súhlasím s{' '}
                   <a
                     href="https://autoblsak.sk/pages/obchodne-podmienky"
                     target="_blank"
@@ -145,7 +113,7 @@ const Register = () => {
                     obchodnými podmienkami
                   </a>
                 </span>
-                {errors.podmienky && errors.podmienky.type === "required" && (
+                {errors.podmienky && errors.podmienky.type === 'required' && (
                   <p>
                     <i className="text-danger">
                       Pré úspešnú registráciu musíte súhlasiť s obchodnými
@@ -155,9 +123,9 @@ const Register = () => {
                 )}
               </div>
               <div className="form-group">
-                <input type="checkbox" name="newsletter" value="true" />{" "}
+                <input type="checkbox" name="newsletter" value="true" />{' '}
                 <span>
-                  {" "}
+                  {' '}
                   Súhlasím s posielaním reklamných a marketingových správ na
                   moju e-mailovú adresu
                 </span>
@@ -169,7 +137,7 @@ const Register = () => {
           </div>
           <div className="card-footer text-center">
             <p className="card-text">
-              Ak už máte vytvorený účet, možete sa prihlásiť{" "}
+              Ak už máte vytvorený účet, možete sa prihlásiť{' '}
               <Link href="/login">
                 <a>TU</a>
               </Link>

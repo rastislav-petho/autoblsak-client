@@ -1,16 +1,16 @@
-import React, { useContext, useEffect } from "react";
-import { Context } from "../../context/context";
-import axios from "axios";
-import fetch from "isomorphic-unfetch";
-import { Layout } from "../../components";
-import { AdGallery, AdSendEmail } from "../../components/Ad";
+import React, { useContext, useEffect } from 'react';
+import { Context } from '../../context/context';
+import axios from 'axios';
+import fetch from 'isomorphic-unfetch';
+import { Layout } from '../../components';
+import { AdGallery, AdSendEmail } from '../../components/Ad';
 import {
   getDateFromTimestamp,
   decodeFuel,
   decodeCoupe,
   decodeTransmision,
   decodeColor
-} from "../../helpers";
+} from '../../helpers';
 
 const Inzerat = ({ data }) => {
   const { state } = useContext(Context);
@@ -18,8 +18,8 @@ const Inzerat = ({ data }) => {
   const {
     id,
     title,
-    brand,
-    model,
+    brand_label,
+    model_label,
     price,
     created,
     views,
@@ -41,12 +41,12 @@ const Inzerat = ({ data }) => {
     extras
   } = data;
 
-  // useEffect(() => {
-  //   const data = { id: id, views: views + 1 };
-  //   axios.post(`${state.api}/ad/updateviews`, data).then(response => {
-  //     console.log(response);
-  //   });
-  // }, []);
+  useEffect(() => {
+    const data = { id: id, views: views + 1 };
+    axios.post(`${state.api}/ad/updateviews`, data).then(response => {
+      console.log(response);
+    });
+  }, []);
 
   return (
     <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
@@ -54,19 +54,19 @@ const Inzerat = ({ data }) => {
         <div className="col-12">
           <div className="row inzerat-titles">
             <div className="col-12 col-lg-6">
-              <h1>{title ? title : brand + " " + model}</h1>
-              <span>ID inzerátu: {id}</span> -{" "}
-              <span>Zverejnené: {getDateFromTimestamp(created)}</span> -{" "}
+              <h1>{title ? title : brand_label + ' ' + model_label}</h1>
+              <span>ID inzerátu: {id}</span> -{' '}
+              <span>Zverejnené: {getDateFromTimestamp(created)}</span> -{' '}
               <span className="badge badge-success">
                 <i aria-hidden className="far fa-eye"></i> {views}
-              </span>{" "}
+              </span>{' '}
               {premium ? (
                 <span>
-                  {" "}
+                  {' '}
                   - <span className="badge badge-danger">TOP</span>
                 </span>
               ) : (
-                ""
+                ''
               )}
             </div>
             <div className="col-12 col-lg-6 text-lg-right">
@@ -248,7 +248,7 @@ const Inzerat = ({ data }) => {
 };
 
 export async function getServerSideProps({ params }) {
-  const res = await fetch(`http://localhost:80/api/ad/${params.id}`);
+  const res = await fetch(`http://autoblsak.sk/api/api/ad/${params.id}`);
   const data = await res.json();
   return {
     props: { data }
