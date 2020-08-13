@@ -100,10 +100,15 @@ export const Ad = memo(props => {
           <div className="col-11 action-bar">
             {actionBar && (
               <>
-                <button onClick={() => handleEdit(id)} className="mr-2">
+                <button onClick={() => handleEdit(id, 'edit')} className="mr-2">
                   Upraviť
                 </button>
-                <button className="mr-2">Upraviť fotografie</button>
+                <button
+                  onClick={() => handleEdit(id, 'edit-photos')}
+                  className="mr-2"
+                >
+                  Upraviť fotografie
+                </button>
                 {status == 1 ? (
                   <button
                     onClick={() => handleActive(id, 'deactive')}

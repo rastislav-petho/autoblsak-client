@@ -114,7 +114,7 @@ export const useMyAds = () => {
     }
   };
 
-  const handleEdit = id => {
+  const handleEdit = (id, step) => {
     fetch(`${state.api}/ad/${id}`)
       .then(res => res.json())
       .then(json => {
@@ -125,7 +125,7 @@ export const useMyAds = () => {
         json.aid = json.id;
         json.userId = state.user.id;
         setPostAdState(json);
-        setStep('edit');
+        setStep(step);
       });
   };
 
@@ -192,6 +192,7 @@ export const useMyAds = () => {
     handleActive,
     handleEdit,
     postAdState,
+    setPostAdState,
     handleChange,
     register,
     handleSubmit,

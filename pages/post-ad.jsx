@@ -27,6 +27,8 @@ const PostAd = () => {
     setPostAdState
   } = usePostAd();
 
+  console.log('postAdState', postAdState);
+
   return (
     <Layout
       pageTitle="Pridať inzerát - Autoblšák.sk"
@@ -60,7 +62,12 @@ const PostAd = () => {
         />
       )}
 
-      {step === 'publication-ad' && <PublicationAd aid={postAdState.aid} />}
+      {step === 'publication-ad' && (
+        <PublicationAd
+          aid={postAdState.aid}
+          category={postAdState.categoryType}
+        />
+      )}
     </Layout>
   );
 };

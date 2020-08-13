@@ -3,6 +3,7 @@ import { Layout } from '../components';
 import { Ad } from './../components/Ad';
 import { useMyAds } from './../hooks';
 import { MyAdsMenu, MyAdsHeader, MyAdsEditForm } from '../components/MyAds';
+import { UploadPhotos } from './../components/PostAd';
 
 const MyAd = props => {
   const {
@@ -14,6 +15,7 @@ const MyAd = props => {
     handleActive,
     handleEdit,
     postAdState,
+    setPostAdState,
     brands,
     models,
     extras,
@@ -84,6 +86,14 @@ const MyAd = props => {
           errors={errors}
           handleExtrasChange={handleExtrasChange}
           onSubmit={onSubmit}
+        />
+      )}
+      {step === 'edit-photos' && (
+        <UploadPhotos
+          aid={postAdState.aid}
+          setPostAdState={setPostAdState}
+          postAdState={postAdState}
+          setStep={setStep}
         />
       )}
     </Layout>

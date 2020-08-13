@@ -2,29 +2,52 @@ import React from 'react';
 import Link from 'next/link';
 
 export const PublicationAd = props => {
-  const { aid } = props;
+  const { aid, category } = props;
 
   return (
     <div className="row">
       <div className="col-12 col-lg-6">
         <div className="row publication">
-          <div className="card text-center">
-            <div className="card-header">
-              <p>Pre zverejnenie inzerátu pošlite SMS na číslo 8866 v tvare</p>
+          {category === 'personal' ||
+          category === 'moto' ||
+          category === 'commercial' ? (
+            <div className="card text-center">
+              <div className="card-header">
+                <p>
+                  Pre zverejnenie inzerátu pošlite SMS na číslo 8866 v tvare
+                </p>
+              </div>
+              <div className="card-body">
+                <h1>AUTOB {aid}</h1>
+              </div>
+              <div className="card-footer">
+                <p className="card-text">
+                  Inzerát môžete zobraziť v "Moje inzeráty".
+                  <br /> Cena za službu na 1 mesiac (30 dní) je 2,90 €
+                </p>
+              </div>
             </div>
-            <div className="card-body">
-              <h1>AUTOB {aid}</h1>
+          ) : (
+            <div className="card text-center">
+              <div className="card-header">
+                <p>Váš inzerát bol úspešne pridaný</p>
+              </div>
+              <div className="card-body">
+                <h1>
+                  <i className="fas fa-check" aria-hidden></i>
+                </h1>
+              </div>
+              <div className="card-footer">
+                <p className="card-text">
+                  Inzerát môžete zobraziť alebo upraviť v "Moje inzeráty".
+                </p>
+              </div>
             </div>
-            <div className="card-footer">
-              <p className="card-text">
-                Inzerát môžete zobraziť v "Moje inzeráty".
-                <br /> Cena za službu na 1 mesiac (30 dní) je 2,90 €
-              </p>
-            </div>
-          </div>
+          )}
         </div>
       </div>
-      <div className="col-12 col-lg-6 publication">
+
+      <div className="col-12 col-lg-6">
         <div className="row publication">
           <div className="card text-center">
             <div className="card-header">
