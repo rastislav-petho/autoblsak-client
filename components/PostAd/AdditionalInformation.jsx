@@ -20,6 +20,7 @@ import {
   decodeColor,
   decodeCategory
 } from './../../helpers';
+import { Input, InputWithAppend, Checkbox } from './../Form';
 
 export const AdditionalInformation = props => {
   const {
@@ -122,23 +123,15 @@ export const AdditionalInformation = props => {
               </div>
             </>
           ) : (
-            <div className="form-group">
-              <label htmlFor="title">Názov</label>
-
-              <input
-                type="text"
-                className="form-control"
-                id="title"
-                name="title"
-                onChange={handleChange}
-                value={postAdState.title}
-                ref={register({ required: true })}
-              />
-
-              {errors.title && errors.title.type === 'required' && (
-                <i className="text-danger">Názov je povinný údaj.</i>
-              )}
-            </div>
+            <Input
+              label="Názov"
+              name="title"
+              type="text"
+              onChange={handleChange}
+              value={postAdState.title}
+              validation={register({ required: true })}
+              errors={errors}
+            />
           )}
 
           {postAdState.categoryType !== 'personal' && (
@@ -284,68 +277,38 @@ export const AdditionalInformation = props => {
           postAdState.categoryType === 'commercial' ||
           postAdState.categoryType === 'moto' ? (
             <>
-              <div className="form-group">
-                <label htmlFor="power">Výkon</label>
-                <div className="input-group">
-                  <input
-                    type="number"
-                    className="form-control"
-                    id="power"
-                    name="power"
-                    onChange={handleChange}
-                    value={postAdState.power}
-                    ref={register({ required: true })}
-                  />
-                  <div className="input-group-prepend">
-                    <span className="input-group-text">kW</span>
-                  </div>
-                </div>
-                {errors.power && errors.power.type === 'required' && (
-                  <i className="text-danger">Výkon je povinný údaj.</i>
-                )}
-              </div>
+              <InputWithAppend
+                name="power"
+                label="Výkon"
+                type="number"
+                append="kW"
+                onChange={handleChange}
+                value={postAdState.power}
+                validation={register({ required: true })}
+                errors={errors}
+              />
 
-              <div className="form-group">
-                <label htmlFor="mileage">Počet km</label>
-                <div className="input-group">
-                  <input
-                    type="number"
-                    className="form-control"
-                    id="mileage"
-                    name="mileage"
-                    onChange={handleChange}
-                    value={postAdState.mileage}
-                    ref={register({ required: true })}
-                  />
-                  <div className="input-group-prepend">
-                    <span className="input-group-text">Km</span>
-                  </div>
-                </div>
-                {errors.mileage && errors.mileage.type === 'required' && (
-                  <i className="text-danger">Počet km je povinný údaj.</i>
-                )}
-              </div>
+              <InputWithAppend
+                name="mileage"
+                label="Počet km"
+                type="number"
+                append="Km"
+                onChange={handleChange}
+                value={postAdState.mileage}
+                validation={register({ required: true })}
+                errors={errors}
+              />
 
-              <div className="form-group">
-                <label htmlFor="cubage">Kubatúra</label>
-                <div className="input-group">
-                  <input
-                    type="number"
-                    className="form-control"
-                    id="cubage"
-                    name="cubage"
-                    onChange={handleChange}
-                    value={postAdState.cubage}
-                    ref={register({ required: true })}
-                  />
-                  <div className="input-group-prepend">
-                    <span className="input-group-text">cm&sup3;</span>
-                  </div>
-                </div>
-                {errors.cubage && errors.cubage.type === 'required' && (
-                  <i className="text-danger">Kubatúra je povinný údaj.</i>
-                )}
-              </div>
+              <InputWithAppend
+                name="cubage"
+                label="Kubatúra"
+                type="number"
+                append="cm&sup3;"
+                onChange={handleChange}
+                value={postAdState.cubage}
+                validation={register({ required: true })}
+                errors={errors}
+              />
 
               <div className="form-group">
                 <label htmlFor="year_of_manufacture">Rok výroby</label>
@@ -405,28 +368,16 @@ export const AdditionalInformation = props => {
             </div>
           )}
 
-          <div className="form-group">
-            <label htmlFor="price">Cena</label>
-            <div className="input-group">
-              <input
-                type="number"
-                className="form-control"
-                id="price"
-                name="price"
-                onChange={handleChange}
-                value={postAdState.price}
-                ref={register({ required: true })}
-              />
-              <div className="input-group-prepend">
-                <span className="input-group-text" id="basic-addon1">
-                  €
-                </span>
-              </div>
-            </div>
-            {errors.price && errors.price.type === 'required' && (
-              <i className="text-danger">Cena je povinný údaj.</i>
-            )}
-          </div>
+          <InputWithAppend
+            label="Cena"
+            name="price"
+            type="number"
+            append="€"
+            onChange={handleChange}
+            value={postAdState.price}
+            validation={register({ required: true })}
+            errors={errors}
+          />
         </div>
       </div>
       {postAdState.categoryType === 'personal' && (
@@ -437,22 +388,15 @@ export const AdditionalInformation = props => {
             {extras.map(
               (item, key) =>
                 item.category_id === '1' && (
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      name={item.id}
-                      id={key}
-                      key={key}
-                      checked={postAdState.adExtras.find(
-                        extra => extra == item.id
-                      )}
-                      onChange={handleExtrasChange}
-                    />
-                    <label className="form-check-label" htmlFor={key}>
-                      {item.value}
-                    </label>
-                  </div>
+                  <Checkbox
+                    name={item.id}
+                    key={key}
+                    checked={postAdState.adExtras.find(
+                      extra => extra == item.id
+                    )}
+                    onChange={handleExtrasChange}
+                    value={item.value}
+                  />
                 )
             )}
           </div>
@@ -463,22 +407,15 @@ export const AdditionalInformation = props => {
             {extras.map(
               (item, key) =>
                 item.category_id === '2' && (
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      name={item.id}
-                      id={key}
-                      key={key}
-                      checked={postAdState.adExtras.find(
-                        extra => extra == item.id
-                      )}
-                      onChange={handleExtrasChange}
-                    />
-                    <label className="form-check-label" htmlFor={key}>
-                      {item.value}
-                    </label>
-                  </div>
+                  <Checkbox
+                    name={item.id}
+                    key={key}
+                    checked={postAdState.adExtras.find(
+                      extra => extra == item.id
+                    )}
+                    onChange={handleExtrasChange}
+                    value={item.value}
+                  />
                 )
             )}
           </div>
@@ -489,22 +426,15 @@ export const AdditionalInformation = props => {
             {extras.map(
               (item, key) =>
                 item.category_id === '5' && (
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      name={item.id}
-                      id={key}
-                      key={key}
-                      checked={postAdState.adExtras.find(
-                        extra => extra == item.id
-                      )}
-                      onChange={handleExtrasChange}
-                    />
-                    <label className="form-check-label" htmlFor={key}>
-                      {item.value}
-                    </label>
-                  </div>
+                  <Checkbox
+                    name={item.id}
+                    key={key}
+                    checked={postAdState.adExtras.find(
+                      extra => extra == item.id
+                    )}
+                    onChange={handleExtrasChange}
+                    value={item.value}
+                  />
                 )
             )}
           </div>
@@ -515,22 +445,15 @@ export const AdditionalInformation = props => {
             {extras.map(
               (item, key) =>
                 item.category_id === '3' && (
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      name={item.id}
-                      id={key}
-                      key={key}
-                      checked={postAdState.adExtras.find(
-                        extra => extra == item.id
-                      )}
-                      onChange={handleExtrasChange}
-                    />
-                    <label className="form-check-label" htmlFor={key}>
-                      {item.value}
-                    </label>
-                  </div>
+                  <Checkbox
+                    name={item.id}
+                    key={key}
+                    checked={postAdState.adExtras.find(
+                      extra => extra == item.id
+                    )}
+                    onChange={handleExtrasChange}
+                    value={item.value}
+                  />
                 )
             )}
 
@@ -539,22 +462,15 @@ export const AdditionalInformation = props => {
             {extras.map(
               (item, key) =>
                 item.category_id === '6' && (
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      name={item.id}
-                      id={key}
-                      key={key}
-                      checked={postAdState.adExtras.find(
-                        extra => extra == item.id
-                      )}
-                      onChange={handleExtrasChange}
-                    />
-                    <label className="form-check-label" htmlFor={key}>
-                      {item.value}
-                    </label>
-                  </div>
+                  <Checkbox
+                    name={item.id}
+                    key={key}
+                    checked={postAdState.adExtras.find(
+                      extra => extra == item.id
+                    )}
+                    onChange={handleExtrasChange}
+                    value={item.value}
+                  />
                 )
             )}
           </div>
@@ -576,71 +492,52 @@ export const AdditionalInformation = props => {
         </div>
         <div className="col-12 col-lg-6">
           <div className="row">
-            <div className="form-group col-12 col-md-6">
-              <label htmlFor="seller_name">Vaše meno</label>
-              <input
-                type="text"
-                className="form-control"
-                id="seller_name"
+            <div className="col-12 col-md-6">
+              <Input
+                label="Vaše meno"
                 name="seller_name"
+                type="text"
                 onChange={handleChange}
                 value={postAdState.seller_name}
-                ref={register({ required: true })}
+                validation={register({ required: true })}
+                errors={errors}
               />
-              {errors.seller_name && errors.seller_name.type === 'required' && (
-                <i className="text-danger">Vaše meno je povinný údaj.</i>
-              )}
             </div>
-            <div className="form-group col-12 col-md-6">
-              <label htmlFor="mobile_number">Číslo mobilného telefónu</label>
-              <input
-                type="number"
-                className="form-control"
-                id="mobile_number"
+            <div className="col-12 col-md-6">
+              <Input
+                label="Číslo mobilného telefónu"
                 name="mobile_number"
+                type="number"
                 onChange={handleChange}
                 value={postAdState.mobile_number}
-                ref={register({ required: true })}
+                validation={register({ required: true })}
+                errors={errors}
               />
-              {errors.mobile_number &&
-                errors.mobile_number.type === 'required' && (
-                  <i className="text-danger">
-                    Vaše tel. číslo je povinný údaj.
-                  </i>
-                )}
             </div>
           </div>
           <div className="row">
-            <div className="form-group col-12">
-              <label htmlFor="email">Vaša emailová adresa</label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
+            <div className="col-12">
+              <Input
+                label="Vaša emailová adresa"
                 name="email"
-                value={postAdState.email}
+                type="email"
                 onChange={handleChange}
-                ref={register({ required: true })}
+                value={postAdState.email}
+                validation={register({ required: true })}
+                errors={errors}
               />
-              {errors.email && errors.email.type === 'required' && (
-                <i className="text-danger">Váš email je povinný údaj.</i>
-              )}
             </div>
 
-            <div className="form-group col-12">
-              <label htmlFor="location">Vaša poloha</label>
-              <input
-                type="text"
-                className="form-control"
-                id="location"
+            <div className="col-12">
+              <Input
+                label="Vaša poloha"
                 name="location"
+                type="text"
                 onChange={handleChange}
                 value={postAdState.location}
-                ref={register({ required: true })}
+                validation={register({ required: true })}
+                errors={errors}
               />
-              {errors.location && errors.location.type === 'required' && (
-                <i className="text-danger">Vaša poloha je povinný údaj.</i>
-              )}
             </div>
 
             <div className="form-group col-12">
