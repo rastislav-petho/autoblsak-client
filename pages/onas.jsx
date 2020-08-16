@@ -65,7 +65,7 @@ const Onas = ({ data }) => {
 };
 
 Onas.getInitialProps = async function () {
-  const res = await fetch(`https://autoblsak.sk/api/api/pages/5`);
+  const res = await fetch(`https://autoblsak.sk/api/api/page/5`);
   const data = await res.json();
   return {
     data: data
