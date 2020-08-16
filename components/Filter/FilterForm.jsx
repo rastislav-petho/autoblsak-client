@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react';
 import {
   FUEL,
   COUPE,
   TRANSMISION,
   COLORS,
   CATEGORY
-} from "../../helpers/constants";
+} from '../../helpers/constants';
 import {
   decodeBrand,
   decodeModel,
@@ -15,7 +15,7 @@ import {
   decodeColor,
   getYearsList,
   decodeCategory
-} from "../../helpers";
+} from '../../helpers';
 
 export const FilterForm = ({ filter, brands, models, handleChange }) => {
   return (
@@ -26,10 +26,10 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
           className="form-control"
           name="category"
         >
-          <option value={filter.category ? filter.category : "1"}>
+          <option value={filter.category ? filter.category : '1'}>
             {filter.category
               ? decodeCategory(filter.category)
-              : "Osobné vozidlá"}
+              : 'Osobné vozidlá'}
           </option>
           {CATEGORY.map(brand => (
             <option key={brand.value} value={brand.value}>
@@ -49,12 +49,12 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
               <option value={filter.brand ? filter.brand : null}>
                 {filter.brand
                   ? decodeBrand(brands, filter.brand)
-                  : "Zvoľte značku"}
+                  : 'Zvoľte značku'}
               </option>
               <option value="">-- Zvoľte značku --</option>
               {brands.map(brand => (
                 <option key={brand.id} value={brand.id}>
-                  {brand.value}
+                  {brand.label}
                 </option>
               ))}
             </select>
@@ -68,12 +68,12 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
               <option value={filter.model ? filter.model : null}>
                 {filter.model
                   ? decodeModel(models, filter.model)
-                  : "Zvoľte model"}
+                  : 'Zvoľte model'}
               </option>
               <option value="">-- Zvoľte model --</option>
               {models.map(model => (
                 <option key={model.id} value={model.id}>
-                  {model.value}
+                  {model.label}
                 </option>
               ))}
             </select>
@@ -85,7 +85,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
               name="coupe"
             >
               <option value={filter.coupe ? filter.coupe : null}>
-                {filter.coupe ? decodeCoupe(filter.coupe) : "Karoséria"}
+                {filter.coupe ? decodeCoupe(filter.coupe) : 'Karoséria'}
               </option>
               <option value="">-- Karoséria --</option>
               {COUPE.map(item => (
@@ -100,7 +100,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
       <div className="form-group">
         <select onChange={handleChange} className="form-control" name="fuel">
           <option value={filter.fuel ? filter.fuel : null}>
-            {filter.fuel ? decodeFuel(filter.fuel) : "Palivo"}
+            {filter.fuel ? decodeFuel(filter.fuel) : 'Palivo'}
           </option>
           <option value="">-- Palivo --</option>
           {FUEL.map(item => (
@@ -119,7 +119,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
           <option value={filter.transmision ? filter.transmision : null}>
             {filter.transmision
               ? decodeTransmision(filter.transmision)
-              : "Prevodovka"}
+              : 'Prevodovka'}
           </option>
           <option value="">-- Prevodovka --</option>
           {TRANSMISION.map(trans => (
@@ -132,7 +132,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
       <div className="form-group">
         <select onChange={handleChange} className="form-control" name="color">
           <option value={filter.color ? filter.color : null}>
-            {filter.color ? decodeColor(filter.color) : "Farba"}
+            {filter.color ? decodeColor(filter.color) : 'Farba'}
           </option>
           <option value="">-- Farba --</option>
           {COLORS.map(color => (
@@ -150,10 +150,10 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
               className="form-control mb-2"
             >
               <option value={filter.yearFrom ? filter.yearFrom : null}>
-                {filter.yearFrom ? filter.yearFrom : "Od"}
+                {filter.yearFrom ? filter.yearFrom : 'Od'}
               </option>
               <option value="">-- Od --</option>
-              {getYearsList("1950", new Date().getFullYear()).map(year => (
+              {getYearsList('1950', new Date().getFullYear()).map(year => (
                 <option value={year.value}>{year.label}</option>
               ))}
             </select>
@@ -165,10 +165,10 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
               className="form-control mb-2"
             >
               <option value={filter.yearTo ? filter.yearTo : null}>
-                {filter.yearTo ? filter.yearTo : "Do"}
+                {filter.yearTo ? filter.yearTo : 'Do'}
               </option>
               <option value="">-- Do --</option>
-              {getYearsList("1950", new Date().getFullYear()).map(year => (
+              {getYearsList('1950', new Date().getFullYear()).map(year => (
                 <option value={year.value}>{year.label}</option>
               ))}
             </select>
