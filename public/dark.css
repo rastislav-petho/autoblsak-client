@@ -4,6 +4,7 @@
   --bg-second-color: #393e46ea;
   --text-color: #ffffff;
   --text-second-color: #d65a31;
+  --bg-third-color: #212730;
   --success: #2d884d;
   --warning: #fecf6d;
   --danger: #b34045;
@@ -215,6 +216,12 @@ h6 {
   margin-bottom: 25px;
   padding: 0 0 20px 0;
   border-bottom: 1px solid var(--text-second-color);
+  background-color: var(--bg-third-color);
+}
+
+.ad-box img {
+  border: 2px solid var(--text-second-color);
+  border-radius: 5px;
 }
 
 .top {

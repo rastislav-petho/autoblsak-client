@@ -36,7 +36,7 @@ export const Ad = memo(props => {
   };
 
   return (
-    <div key={id} className="row ad-box">
+    <div key={id} className="row ad-box shadow">
       <div className="col-12 col-lg-4">
         {premium ? <div className="top">TOP</div> : ''}
         <Link href={`/inzerat/[id]`} as={`/inzerat/${id}`}>
