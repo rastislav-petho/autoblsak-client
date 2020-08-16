@@ -9,7 +9,8 @@ export const InputWithAppend = props => {
     value,
     errors,
     validation,
-    append
+    append,
+    className
   } = props;
   return (
     <div className="form-group">
@@ -17,7 +18,7 @@ export const InputWithAppend = props => {
       <div className="input-group">
         <input
           type={type}
-          className="form-control"
+          className={`form-control ${className}`}
           id={name}
           name={name}
           onChange={onChange}

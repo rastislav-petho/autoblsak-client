@@ -1,15 +1,14 @@
 import React from 'react';
 
 export const Checkbox = props => {
-  const { name, key, value, onChange, checked } = props;
+  const { name, value, onChange, checked, className } = props;
   return (
     <div className="form-check">
       <input
-        className="form-check-input"
+        className={`form-check-input ${className}`}
         type="checkbox"
         name={name}
         id={name}
-        key={key}
         checked={checked}
         onChange={onChange}
       />

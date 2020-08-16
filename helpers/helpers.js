@@ -80,17 +80,17 @@ export const decodeCategory = category => {
 };
 
 export const decodeBrand = (brands, id) => {
-  const brand = brands.find(item => item.id == id);
+  const brand = brands.find(item => item.value == id);
   if (brand) {
-    return brand.value;
+    return brand.label;
   }
   return null;
 };
 
 export const decodeModel = (models, id) => {
-  const model = models.find(item => item.id == id);
+  const model = models.find(item => item.value == id);
   if (model) {
-    return model.value;
+    return model.label;
   }
 
   return null;

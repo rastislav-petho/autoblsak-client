@@ -20,7 +20,7 @@ import {
   decodeColor,
   decodeCategory
 } from './../../helpers';
-import { Input, InputWithAppend, Checkbox } from './../Form';
+import { Input, InputWithAppend, Checkbox, Select, Textarea } from './../Form';
 
 export const AdditionalInformation = props => {
   const {
@@ -35,92 +35,46 @@ export const AdditionalInformation = props => {
     errors,
     postAdState
   } = props;
+
+  console.log(brands);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         <div className="col-12 col-lg-6">
           {postAdState.categoryType === 'personal' ? (
             <>
-              <div className="form-group">
-                <label htmlFor="brand">Zvoľte značku</label>
-                <select
-                  onChange={handleChange}
-                  className="form-control"
-                  name="brand"
-                  id="brand"
-                  ref={register({ required: true })}
-                >
-                  {postAdState.brand ? (
-                    <option value={postAdState.brand}>
-                      {decodeBrand(brands, postAdState.brand)}
-                    </option>
-                  ) : (
-                    <option></option>
-                  )}
-                  {brands.map(brand => (
-                    <option key={brand.id} value={brand.id}>
-                      {brand.value}
-                    </option>
-                  ))}
-                </select>
-                {errors.brand && errors.brand.type === 'required' && (
-                  <i className="text-danger">Značka je povinný údaj.</i>
-                )}
-              </div>
+              <Select
+                name="brand"
+                label="Značka"
+                validation={register({ required: true })}
+                value={postAdState.brand}
+                options={brands}
+                onChange={handleChange}
+                errors={errors}
+                decode={decodeBrand(brands, postAdState.brand)}
+              />
 
-              <div className="form-group">
-                <label htmlFor="model">Zvoľte model</label>
-                <select
-                  onChange={handleChange}
-                  className="form-control"
-                  name="model"
-                  id="model"
-                  ref={register({ required: true })}
-                >
-                  {postAdState.model ? (
-                    <option value={postAdState.model}>
-                      {decodeModel(models, postAdState.model)}
-                    </option>
-                  ) : (
-                    <option></option>
-                  )}
-                  {models.map(model => (
-                    <option key={model.id} value={model.id}>
-                      {model.value}
-                    </option>
-                  ))}
-                </select>
-                {errors.model && errors.model.type === 'required' && (
-                  <i className="text-danger">Model je povinný údaj.</i>
-                )}
-              </div>
+              <Select
+                name="model"
+                label="Model"
+                validation={register({ required: true })}
+                value={postAdState.model}
+                options={models}
+                onChange={handleChange}
+                errors={errors}
+                decode={decodeModel(models, postAdState.model)}
+              />
 
-              <div className="form-group">
-                <label htmlFor="coupe">Karoséria</label>
-                <select
-                  onChange={handleChange}
-                  className="form-control"
-                  name="coupe"
-                  id="coupe"
-                  ref={register({ required: true })}
-                >
-                  {postAdState.coupe ? (
-                    <option value={postAdState.coupe}>
-                      {decodeCoupe(postAdState.coupe)}
-                    </option>
-                  ) : (
-                    <option></option>
-                  )}
-                  {COUPE.map(item => (
-                    <option key={item.value} value={item.value}>
-                      {item.label}
-                    </option>
-                  ))}
-                </select>
-                {errors.coupe && errors.coupe.type === 'required' && (
-                  <i className="text-danger">Karoséria je povinný údaj.</i>
-                )}
-              </div>
+              <Select
+                name="coupe"
+                label="Karoséria"
+                validation={register({ required: true })}
+                value={postAdState.coupe}
+                options={COUPE}
+                onChange={handleChange}
+                errors={errors}
+                decode={decodeCoupe}
+              />
             </>
           ) : (
             <Input
@@ -135,141 +89,66 @@ export const AdditionalInformation = props => {
           )}
 
           {postAdState.categoryType !== 'personal' && (
-            <div className="form-group">
-              <label htmlFor="category">Kategória</label>
-              <select
-                onChange={handleChange}
-                className="form-control"
-                name="category"
-                id="category"
-                ref={register({ required: true })}
-              >
-                {postAdState.category ? (
-                  <option value={postAdState.category}>
-                    {decodeCategory(postAdState.category)}
-                  </option>
-                ) : (
-                  <option></option>
-                )}
-                {postAdState.categoryType === 'commercial'
-                  ? COMMERCIAL_CATEGORY.map(item => (
-                      <option key={item.value} value={item.value}>
-                        {item.label}
-                      </option>
-                    ))
+            <Select
+              name="category"
+              label="Kategória"
+              validation={register({ required: true })}
+              value={postAdState.category}
+              options={
+                postAdState.categoryType === 'commercial'
+                  ? COMMERCIAL_CATEGORY
                   : postAdState.categoryType === 'moto'
-                  ? MOTO_CATEGORY.map(item => (
-                      <option key={item.value} value={item.value}>
-                        {item.label}
-                      </option>
-                    ))
+                  ? MOTO_CATEGORY
                   : postAdState.categoryType === 'accessories'
-                  ? ACCESSORIES_CATEGORY.map(item => (
-                      <option key={item.value} value={item.value}>
-                        {item.label}
-                      </option>
-                    ))
-                  : OTHER_CATEGORY.map(item => (
-                      <option key={item.value} value={item.value}>
-                        {item.label}
-                      </option>
-                    ))}
-              </select>
-              {errors.category && errors.category.type === 'required' && (
-                <i className="text-danger">Kategŕia je povinný údaj.</i>
-              )}
-            </div>
+                  ? ACCESSORIES_CATEGORY
+                  : OTHER_CATEGORY
+              }
+              onChange={handleChange}
+              errors={errors}
+              decode={decodeCategory}
+            />
           )}
 
           {postAdState.categoryType === 'personal' ||
           postAdState.categoryType === 'commercial' ? (
             <>
-              <div className="form-group">
-                <label htmlFor="fuel">Palivo</label>
-                <select
-                  onChange={handleChange}
-                  className="form-control"
-                  name="fuel"
-                  id="fuel"
-                  ref={register({ required: true })}
-                >
-                  {postAdState.fuel ? (
-                    <option value={postAdState.fuel}>
-                      {decodeFuel(postAdState.fuel)}
-                    </option>
-                  ) : (
-                    <option></option>
-                  )}
-                  {FUEL.map(item => (
-                    <option key={item.value} value={item.value}>
-                      {item.label}
-                    </option>
-                  ))}
-                </select>
-                {errors.fuel && errors.fuel.type === 'required' && (
-                  <i className="text-danger">Palivo je povinný údaj.</i>
-                )}
-              </div>
+              <Select
+                name="fuel"
+                label="Palivo"
+                validation={register({ required: true })}
+                value={postAdState.fuel}
+                options={FUEL}
+                onChange={handleChange}
+                errors={errors}
+                decode={decodeFuel}
+              />
 
-              <div className="form-group">
-                <label htmlFor="transmision">Prevodovka</label>
-                <select
-                  onChange={handleChange}
-                  className="form-control"
-                  name="transmision"
-                  id="transmision"
-                  ref={register({ required: true })}
-                >
-                  {postAdState.transmision ? (
-                    <option value={postAdState.transmision}>
-                      {decodeTransmision(postAdState.transmision)}
-                    </option>
-                  ) : (
-                    <option></option>
-                  )}
-                  {TRANSMISION.map(item => (
-                    <option key={item.value} value={item.value}>
-                      {item.label}
-                    </option>
-                  ))}
-                </select>
-                {errors.transmision &&
-                  errors.transmision.type === 'required' && (
-                    <i className="text-danger">Prevodovka je povinný údaj.</i>
-                  )}
-              </div>
+              <Select
+                name="transmision"
+                label="Prevodovka"
+                validation={register({ required: true })}
+                value={postAdState.transmision}
+                options={TRANSMISION}
+                onChange={handleChange}
+                errors={errors}
+                decode={decodeTransmision}
+              />
             </>
           ) : null}
 
           {postAdState.categoryType === 'personal' ||
           postAdState.categoryType === 'commercial' ||
           postAdState.categoryType === 'moto' ? (
-            <div className="form-group">
-              <label htmlFor="color">Farba</label>
-              <select
-                onChange={handleChange}
-                className="form-control"
-                name="color"
-                id="color"
-                ref={register({ required: true })}
-              >
-                {postAdState.color ? (
-                  <option value={postAdState.color}>
-                    {decodeColor(postAdState.color)}
-                  </option>
-                ) : (
-                  <option></option>
-                )}
-                {COLORS.map(item => (
-                  <option key={item.value} value={item.value}>
-                    {item.label}
-                  </option>
-                ))}
-              </select>
-              {errors.color && errors.color.type === 'required' && (
-                <i className="text-danger">Farba je povinný údaj.</i>
-              )}
-            </div>
+            <Select
+              name="color"
+              label="Farba"
+              validation={register({ required: true })}
+              value={postAdState.color}
+              options={COLORS}
+              onChange={handleChange}
+              errors={errors}
+              decode={decodeColor}
+            />
           ) : null}
         </div>
         <div className="col-12 col-lg-6">
@@ -309,63 +188,28 @@ export const AdditionalInformation = props => {
                 validation={register({ required: true })}
                 errors={errors}
               />
-
-              <div className="form-group">
-                <label htmlFor="year_of_manufacture">Rok výroby</label>
-                <select
-                  onChange={handleChange}
-                  className="form-control"
-                  name="year_of_manufacture"
-                  id="year_of_manufacture"
-                  ref={register({ required: true })}
-                >
-                  {postAdState.year_of_manufacture ? (
-                    <option value={postAdState.year_of_manufacture}>
-                      {postAdState.year_of_manufacture}
-                    </option>
-                  ) : (
-                    <option></option>
-                  )}
-                  {getYearsList('1950', new Date().getFullYear()).map(year => (
-                    <option key={year.value} value={year.value}>
-                      {year.label}
-                    </option>
-                  ))}
-                </select>
-                {errors.year_of_manufacture &&
-                  errors.year_of_manufacture.type === 'required' && (
-                    <i className="text-danger">Rok výroby je povinný údaj.</i>
-                  )}
-              </div>
+              <Select
+                name="year_of_manufacture"
+                label="Rok výroby"
+                validation={register({ required: true })}
+                value={postAdState.year_of_manufacture}
+                options={getYearsList('1950', new Date().getFullYear())}
+                onChange={handleChange}
+                errors={errors}
+              />
             </>
           ) : null}
 
           {postAdState.categoryType === 'personal' && (
-            <div className="form-group">
-              <label htmlFor="number_of_doors">Počet dverí</label>
-              <select
-                onChange={handleChange}
-                className="form-control"
-                name="number_of_doors"
-                id="number_of_doors"
-                ref={register({ required: true })}
-              >
-                {postAdState.number_of_doors ? (
-                  <option value={postAdState.number_of_doors}>
-                    {postAdState.number_of_doors}
-                  </option>
-                ) : (
-                  <option></option>
-                )}
-                {NUMBER_OF_DOORS.map(item => (
-                  <option value={item.value}>{item.label}</option>
-                ))}
-              </select>
-              {errors.number_of_doors &&
-                errors.number_of_doors.type === 'required' && (
-                  <i className="text-danger">Počet dverí je povinný údaj.</i>
-                )}
-            </div>
+            <Select
+              name="number_of_doors"
+              label="Počet dverí"
+              validation={register({ required: true })}
+              value={postAdState.number_of_doors}
+              options={NUMBER_OF_DOORS}
+              onChange={handleChange}
+              errors={errors}
+            />
           )}
 
           <InputWithAppend
@@ -478,17 +322,13 @@ export const AdditionalInformation = props => {
       )}
       <div className="row mt-3">
         <div className="col-12 col-lg-6">
-          <div className="form-group">
-            <label htmlFor="additional_information">Ďalšie informácie</label>
-            <textarea
-              className="form-control"
-              id="additional_information"
-              name="additional_information"
-              rows="12"
-              onChange={handleChange}
-              value={postAdState.additional_information}
-            ></textarea>
-          </div>
+          <Textarea
+            name="additional_information"
+            label="Ďalšie informácie"
+            rows="12"
+            onChange={handleChange}
+            value={postAdState.additional_information}
+          />
         </div>
         <div className="col-12 col-lg-6">
           <div className="row">

@@ -1,30 +1,32 @@
 import React from 'react';
 
-export const Input = props => {
+export const Select = props => {
   const {
     name,
     label,
-    type,
-    onChange,
-    value,
-    errors,
     validation,
+    value,
+    options,
+    onChange,
+    errors,
+    decode,
     className
   } = props;
   return (
     <div className="form-group">
       <label htmlFor={name}>{label}</label>
-
-      <input
-        type={type}
-        className={`form-control ${className}`}
-        id={name}
-        name={name}
+      <select
         onChange={onChange}
-        value={value}
+        className={`form-control ${className}`}
+        name={name}
+        id={name}
         ref={validation}
-      />
-
+      >
+        {value ? <option value={value}>{decode}</option> : <option></option>}
+        {options.map(item => (
+          <option value={item.value}>{item.label}</option>
+        ))}
+      </select>
       {errors[name] && errors[name].type === 'required' && (
         <i className="text-danger">{label} je povinný údaj.</i>
       )}
