@@ -56,8 +56,8 @@ export const Ad = memo(props => {
               <a>
                 {props.ad.title
                   ? props.ad.title
-                  : props.ad.brand && props.ad.brand.value}{' '}
-                {props.ad.model && props.ad.model.value}
+                  : props.ad.brand && props.ad.brand}{' '}
+                {props.ad.model && props.ad.model}
               </a>
             </Link>
           </div>
@@ -97,7 +97,7 @@ export const Ad = memo(props => {
           </div>
         </div>
         <div className="row ad-footers mt-3">
-          <div className="col-11 action-bar">
+          <div className="col-10 action-bar">
             {actionBar && (
               <>
                 <button onClick={() => handleEdit(id, 'edit')} className="mr-2">
@@ -146,7 +146,7 @@ export const Ad = memo(props => {
               </>
             )}
           </div>
-          <div className="col-1 text-right">
+          <div className="col-2 text-right">
             {state.favoriteAds.find(ad => ad.id === id) ? (
               <i
                 aria-hidden

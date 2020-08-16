@@ -18,11 +18,14 @@ const Index = ({ data }) => {
     adPagination(move);
   }
 
+  console.log(state);
+
   return (
     <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
       <div className="row">
         <div className="col-12 col-md-12 col-lg-3"></div>
         <div className="col-12 col-md-12 col-lg-9">
+          <h6 className="mb-3">Počet nájdených výsledkov: {state.ads.total}</h6>
           {ads && ads.map(ad => <Ad ad={ad} key={ad.id} />)}
           <div className="row">
             <div className="col-12">
