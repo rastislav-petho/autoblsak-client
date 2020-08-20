@@ -1,6 +1,7 @@
-import React, { useContext, Fragment, memo } from "react";
-import { Context } from "./../context/context";
-import { decodeFuel } from "../helpers";
+import React, { useContext, Fragment, memo } from 'react';
+import { Context } from './../context/context';
+import { decodeFuel } from '../helpers';
+import Link from 'next/link';
 
 export const FavoritesItem = memo(props => {
   const {
@@ -17,23 +18,28 @@ export const FavoritesItem = memo(props => {
   return (
     <div key={id} className="row mb-2 favorite">
       <div className="col-3 favorites-img-box">
-        <img src={`${state.url}/${defaultPhoto.photo}`} alt="bme f10" />
+        <Link href={`/inzerat/[id]`} as={`/inzerat/${id}`}>
+          <a>
+            <img src={`${state.url}/${defaultPhoto.photo}`} alt="bme f10" />
+          </a>
+        </Link>
       </div>
       {props.collapse && (
         <Fragment>
-          <div className="col-7 favorites-content-box">
-            {props.ad.title
-              ? props.ad.title
-              : props.ad.brand && props.ad.brand.value}{" "}
-            {props.ad.model && props.ad.model.value} - {year_of_manufacture}{" "}
-            <br />
-            {power} kW, {decodeFuel(fuel)} <br />
-            {mileage} km, {price} €<br />
-          </div>
+          <Link href={`/inzerat/[id]`} as={`/inzerat/${id}`}>
+            <div className="col-7 favorites-content-box cursor-pointer">
+              {props.ad.title
+                ? props.ad.title
+                : props.ad.brand && props.ad.brand}{' '}
+              {props.ad.model && props.ad.model} - {year_of_manufacture} <br />
+              {power} kW, {decodeFuel(fuel)} <br />
+              {mileage} km, {price} €<br />
+            </div>
+          </Link>
           <div className="col-2 favorites-remove-box">
             <i
               onClick={() =>
-                dispatch({ type: "REMOVE_ITEM_FROM_FAVORITES", id: id })
+                dispatch({ type: 'REMOVE_ITEM_FROM_FAVORITES', id: id })
               }
               aria-hidden
               className="fas fa-times"

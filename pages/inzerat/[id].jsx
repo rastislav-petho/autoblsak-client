@@ -164,14 +164,16 @@ const Inzerat = ({ data }) => {
             </div>
           </div>
           <div className="row">
-            <button className="button w-100 mb-2">
-              Predajca: {seller_name}
-            </button>
-            <button className="button w-100 mb-2">
-              <a href={`tel:${mobile_number}`}>Zavolať predajcovi</a>
-            </button>
-            <AdSendEmail user={state.user} />
-            <button className="button w-100 mb-2">Poloha: {location}</button>
+            <div className="col-12">
+              <button className="button w-100 mb-2">
+                Predajca: {seller_name}
+              </button>
+              <button className="button w-100 mb-2">
+                <a href={`tel:${mobile_number}`}>Zavolať predajcovi</a>
+              </button>
+              <AdSendEmail user={state.user} />
+              <button className="button w-100 mb-2">Poloha: {location}</button>
+            </div>
           </div>
         </div>
         <div className="col-12 mt-4">
