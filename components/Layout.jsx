@@ -46,10 +46,10 @@ export const Layout = ({
       <Filter />
       <Favorites />
       {state.message.type && <Messages message={state.message} />}
-      <div className="container">
+      <div className="container-fluid nav-bar">
         <Header />
-        {children}
       </div>
+      <div className="container content">{children}</div>
     </Fragment>
   );
 };

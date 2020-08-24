@@ -22,6 +22,7 @@
     "react-images": "^1.1.7",
     "react-modal": "^3.11.2",
     "react-photo-gallery": "^8.0.0",
+    "react-reveal": "^1.2.2",
     "universal-cookie": "^4.0.3"
   },
   "proxy": "http://autoblsak.sk/api",

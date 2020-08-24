@@ -4,6 +4,7 @@ import { Ad } from './../components/Ad';
 import { useMyAds } from './../hooks';
 import { MyAdsMenu, MyAdsHeader, MyAdsEditForm } from '../components/MyAds';
 import { UploadPhotos } from './../components/PostAd';
+import Reveal from 'react-reveal/Reveal';
 
 const MyAd = props => {
   const {
@@ -51,14 +52,16 @@ const MyAd = props => {
         myAds
           .filter(ad => ad.status == 1)
           .map(ad => (
-            <Ad
-              ad={ad}
-              actionBar={true}
-              key={ad.id}
-              handleRemove={handleRemove}
-              handleActive={handleActive}
-              handleEdit={handleEdit}
-            />
+            <Reveal>
+              <Ad
+                ad={ad}
+                actionBar={true}
+                key={ad.id}
+                handleRemove={handleRemove}
+                handleActive={handleActive}
+                handleEdit={handleEdit}
+              />
+            </Reveal>
           ))}
       {step === 'inactive' &&
         myAds

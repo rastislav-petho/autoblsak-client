@@ -5,8 +5,7 @@ import {
   decodeFuel,
   decodeColor,
   decodeTransmision,
-  decodeCoupe,
-  setCookie
+  decodeCoupe
 } from '../../helpers';
 
 export const Ad = memo(props => {

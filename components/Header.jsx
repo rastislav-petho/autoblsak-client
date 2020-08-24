@@ -37,7 +37,7 @@ export const Header = () => {
   };
 
   return (
-    <Fragment>
+    <div className="container">
       <div className="menu">
         <span>
           <Link href="/">
@@ -204,6 +204,6 @@ export const Header = () => {
           )}
         </div>
       )}
-    </Fragment>
+    </div>
   );
 };

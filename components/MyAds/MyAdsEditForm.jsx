@@ -58,7 +58,7 @@ export const MyAdsEditForm = props => {
               options={brands}
               onChange={handleChange}
               errors={errors}
-              decode={decodeBrand(brands)}
+              decode={decodeBrand(brands, postAdState.brand)}
             />
           )}
 
@@ -71,7 +71,7 @@ export const MyAdsEditForm = props => {
               options={models}
               onChange={handleChange}
               errors={errors}
-              decode={decodeModel(models, postAdState.brand)}
+              decode={decodeModel(models, postAdState.model)}
             />
           )}
 
@@ -84,7 +84,7 @@ export const MyAdsEditForm = props => {
               options={COUPE}
               onChange={handleChange}
               errors={errors}
-              decode={decodeCoupe}
+              decode={decodeCoupe(postAdState.coupe)}
             />
           )}
 
@@ -97,7 +97,7 @@ export const MyAdsEditForm = props => {
               options={FUEL}
               onChange={handleChange}
               errors={errors}
-              decode={decodeFuel}
+              decode={decodeFuel(postAdState.fuel)}
             />
           )}
 
@@ -110,7 +110,7 @@ export const MyAdsEditForm = props => {
               options={TRANSMISION}
               onChange={handleChange}
               errors={errors}
-              decode={decodeTransmision}
+              decode={decodeTransmision(postAdState.transmision)}
             />
           )}
 
@@ -123,7 +123,7 @@ export const MyAdsEditForm = props => {
               options={COLORS}
               onChange={handleChange}
               errors={errors}
-              decode={decodeColor}
+              decode={decodeColor(postAdState.color)}
             />
           )}
         </div>

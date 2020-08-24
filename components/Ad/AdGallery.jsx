@@ -1,6 +1,6 @@
-import React, { useState, useCallback } from "react";
-import Gallery from "react-photo-gallery";
-import Carousel, { Modal, ModalGateway } from "react-images";
+import React, { useState, useCallback } from 'react';
+import Gallery from 'react-photo-gallery';
+import Carousel, { Modal, ModalGateway } from 'react-images';
 
 export const AdGallery = props => {
   const [currentImage, setCurrentImage] = useState(0);

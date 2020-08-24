@@ -2,6 +2,7 @@
   --bg-color: #222831;
   /* --bg-second-color: #393e46; */
   --bg-second-color: #393e46ea;
+  --bg-navbar-color: #1b2027;
   --text-color: #ffffff;
   --text-second-color: #d65a31;
   --bg-third-color: #212730;
@@ -39,6 +40,19 @@ h6 {
   cursor: pointer;
 }
 
+.nav-bar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: var(--bg-color);
+  z-index: 1;
+  border-bottom: 1px solid var(--text-second-color);
+}
+
+.content {
+  padding-top: 150px;
+}
+
 .menu {
   display: flex;
   flex-direction: row;
@@ -48,7 +62,6 @@ h6 {
   font-size: 1rem;
   list-style-type: none;
   padding-right: 0;
-  margin-bottom: 50px;
 }
 
 .menu span {
@@ -116,7 +129,7 @@ h6 {
   background-color: var(--bg-second-color);
   padding: 15px;
   border-right: 2px solid var(--text-second-color);
-  z-index: 1;
+  z-index: 2;
 }
 
 .filter-box > .filter-buttons {
@@ -163,7 +176,7 @@ h6 {
   background-color: var(--bg-second-color);
   padding: 15px;
   border-left: 2px solid var(--text-second-color);
-  z-index: 1;
+  z-index: 2;
 }
 
 .favorites-box button {
@@ -427,6 +440,10 @@ h6 {
 }
 
 @media (max-width: 1279px) {
+  .content {
+    padding-top: 70px;
+  }
+
   .filter-box {
     display: none;
   }
@@ -513,6 +530,10 @@ h6 {
 }
 
 @media (max-width: 600px) {
+  .content {
+    padding-top: 70px;
+  }
+
   .logo {
     width: 30vw;
   }

@@ -22,7 +22,11 @@ export const Select = props => {
         id={name}
         ref={validation}
       >
-        {value ? <option value={value}>{decode}</option> : <option></option>}
+        {value ? (
+          <option value={value}>{decode ? decode : value}</option>
+        ) : (
+          <option></option>
+        )}
         {options.map(item => (
           <option value={item.value}>{item.label}</option>
         ))}

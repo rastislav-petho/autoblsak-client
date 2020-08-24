@@ -19,11 +19,12 @@
   --info: #4091d7;
   --info-second: #99e9eb; */
 
-  --bg-color: #ffffff;
-  --bg-second-color: #dde2ecd8;
-  --bg-third-color: #dde2ecd8;
+  --bg-color: #fbfbfb;
+  --bg-second-color: #fbfbfbce;
+  --bg-third-color: #fbfbfbce;
+  --bg-navbar-color: #0d0106;
   --text-color: #011627;
-  --text-second-color: #9a031e;
+  --text-second-color: #ff331f;
   --success: #2d884d;
   --warning: #fecf6d;
   --danger: #b34045;
@@ -58,6 +59,19 @@ h6 {
   cursor: pointer;
 }
 
+.nav-bar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: var(--bg-navbar-color);
+  z-index: 1;
+  border-bottom: 1px solid var(--text-second-color);
+}
+
+.content {
+  padding-top: 150px;
+}
+
 .menu {
   display: flex;
   flex-direction: row;
@@ -67,7 +81,6 @@ h6 {
   font-size: 1rem;
   list-style-type: none;
   padding-right: 0;
-  margin-bottom: 50px;
 }
 
 .menu span {
@@ -76,7 +89,7 @@ h6 {
 
 .menu a,
 .mobile-menu a {
-  color: var(--text-color);
+  color: var(--text-second-color);
 }
 
 .menu a:hover,
@@ -135,7 +148,7 @@ h6 {
   background-color: var(--bg-second-color);
   padding: 15px;
   border-right: 2px solid var(--text-second-color);
-  z-index: 1;
+  z-index: 2;
 }
 
 .filter-box > .filter-buttons {
@@ -182,7 +195,7 @@ h6 {
   background-color: var(--bg-second-color);
   padding: 15px;
   border-left: 2px solid var(--text-second-color);
-  z-index: 1;
+  z-index: 2;
 }
 
 .favorites-box button {
@@ -235,6 +248,7 @@ h6 {
   margin-bottom: 25px;
   padding: 0 0 20px 0;
   border-bottom: 1px solid var(--text-second-color);
+  background-color: var(--bg-third-color);
 }
 
 .ad-box img {
@@ -326,9 +340,9 @@ h6 {
 }
 
 .button {
-  color: var(--bg-color);
+  color: var(--text-second-color);
   border: 1px solid var(--text-second-color);
-  background-color: var(--text-second-color);
+  background-color: var(--bg-color);
   min-width: 150px;
   min-height: 50px;
   border-radius: 4px;
@@ -336,9 +350,9 @@ h6 {
 }
 
 .a-button {
-  color: var(--bg-color);
+  color: var(--text-second-color);
   border: 1px solid var(--text-second-color);
-  background-color: var(--text-second-color);
+  background-color: var(--bg-color);
   min-width: 150px;
   min-height: 50px;
   border-radius: 4px;
@@ -346,7 +360,7 @@ h6 {
 }
 
 .a-button:hover {
-  color: var(--bg-color);
+  color: var(--text-second-color);
   text-decoration: none;
 }
 
@@ -445,6 +459,10 @@ h6 {
 }
 
 @media (max-width: 1279px) {
+  .content {
+    padding-top: 70px;
+  }
+
   .filter-box {
     display: none;
   }
@@ -531,6 +549,10 @@ h6 {
 }
 
 @media (max-width: 600px) {
+  .content {
+    padding-top: 70px;
+  }
+
   .logo {
     width: 30vw;
   }

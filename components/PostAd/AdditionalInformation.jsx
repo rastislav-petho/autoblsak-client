@@ -73,7 +73,7 @@ export const AdditionalInformation = props => {
                 options={COUPE}
                 onChange={handleChange}
                 errors={errors}
-                decode={decodeCoupe}
+                decode={decodeCoupe(postAdState.coupe)}
               />
             </>
           ) : (
@@ -105,7 +105,7 @@ export const AdditionalInformation = props => {
               }
               onChange={handleChange}
               errors={errors}
-              decode={decodeCategory}
+              decode={decodeCategory(postAdState.category)}
             />
           )}
 
@@ -120,7 +120,7 @@ export const AdditionalInformation = props => {
                 options={FUEL}
                 onChange={handleChange}
                 errors={errors}
-                decode={decodeFuel}
+                decode={decodeFuel(postAdState.fuel)}
               />
 
               <Select
@@ -131,7 +131,7 @@ export const AdditionalInformation = props => {
                 options={TRANSMISION}
                 onChange={handleChange}
                 errors={errors}
-                decode={decodeTransmision}
+                decode={decodeTransmision(postAdState.transmision)}
               />
             </>
           ) : null}
@@ -147,7 +147,7 @@ export const AdditionalInformation = props => {
               options={COLORS}
               onChange={handleChange}
               errors={errors}
-              decode={decodeColor}
+              decode={decodeColor(postAdState.color)}
             />
           ) : null}
         </div>

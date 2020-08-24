@@ -4,6 +4,7 @@ import { Context } from './../context/context';
 import { Layout } from './../components';
 import { Ad } from './../components/Ad';
 import { useApi } from './../hooks';
+import Reveal from 'react-reveal/Reveal';
 
 const Index = ({ data }) => {
   const { state } = useContext(Context);
@@ -26,7 +27,7 @@ const Index = ({ data }) => {
         <div className="col-12 col-md-12 col-lg-3"></div>
         <div className="col-12 col-md-12 col-lg-9">
           <h6 className="mb-3">Počet nájdených výsledkov: {state.ads.total}</h6>
-          {ads && ads.map(ad => <Ad ad={ad} key={ad.id} />)}
+          <Reveal>{ads && ads.map(ad => <Ad ad={ad} key={ad.id} />)}</Reveal>
           <div className="row">
             <div className="col-12">
               <div className="paginate">
