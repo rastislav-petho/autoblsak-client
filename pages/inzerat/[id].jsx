@@ -5,6 +5,7 @@ import fetch from 'isomorphic-unfetch';
 import { Layout } from '../../components';
 import { AdGallery, AdSendEmail } from '../../components/Ad';
 import Reveal from 'react-reveal/Reveal';
+import Link from 'next/link';
 import {
   getDateFromTimestamp,
   decodeFuel,
@@ -55,6 +56,15 @@ const Inzerat = ({ data }) => {
         <div className="row inzerat">
           <div className="col-12">
             <div className="row inzerat-titles">
+              <div className="col-12">
+                <h5>
+                  <Link href={`/`} as={`/`}>
+                    <a>
+                      <i aria-hidden className="fas fa-chevron-left"></i>
+                    </a>
+                  </Link>
+                </h5>
+              </div>
               <div className="col-12 col-lg-6">
                 <h1>{title ? title : brand_label + ' ' + model_label}</h1>
                 <span>ID inzerátu: {id}</span> -{' '}

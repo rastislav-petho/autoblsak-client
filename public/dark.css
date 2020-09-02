@@ -269,13 +269,6 @@ h6 {
   transform: translateX(-150px);
 }
 
-.paginate {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .paginate button {
   width: 50px;
   height: 50px;
@@ -437,6 +430,35 @@ h6 {
 
 .breadcrumb-item.novisite {
   color: #6c757d;
+}
+
+.magazine a {
+  color: var(--text-color);
+}
+
+.most-view img {
+  border: 2px solid var(--text-second-color);
+  border-radius: 5px;
+}
+
+.most-view span {
+  width: 100%;
+  position: relative;
+  bottom: 20px;
+  left: 0;
+  background-color: var(--text-second-color);
+  opacity: 0.6;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.back-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 60px;
+  border: 1px solid var(--text-second-color);
+  background-color: var(--bg-color);
+  color: var(--text-second-color);
 }
 
 @media (max-width: 1279px) {
