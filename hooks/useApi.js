@@ -3,6 +3,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { Context } from './../context/context';
 import { setCookie } from './../helpers';
+import Cookies from 'universal-cookie';
 
 export const useApi = () => {
   const { state, dispatch } = useContext(Context);
@@ -17,6 +18,80 @@ export const useApi = () => {
           dispatch({ type: 'LOGIN', user: response.data });
           router.push('/');
         } else if (response.status === 203) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'danger', message: response.data.error }
+          });
+        }
+      })
+      .then(error => {
+        if (error) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: {
+              type: 'warning',
+              message: 'Chyba ! Kontaktujte administrátora'
+            }
+          });
+        }
+      });
+  };
+
+  const logout = () => {
+    const cookies = new Cookies();
+    cookies.remove('user');
+    dispatch({ type: 'LOGOUT' });
+    router.push('/login');
+  };
+
+  const changePassword = data => {
+    axios
+      .post(`${state.api}/change-password`, data)
+      .then(response => {
+        if (response.status === 200 && response.data.success) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'success', message: response.data.success }
+          });
+
+          logout();
+        } else if (response.status === 200 && response.data.warning) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'warning', message: response.data.warning }
+          });
+        } else {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'danger', message: response.data.error }
+          });
+        }
+      })
+      .then(error => {
+        if (error) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: {
+              type: 'warning',
+              message: 'Chyba ! Kontaktujte administrátora'
+            }
+          });
+        }
+      });
+  };
+
+  const deactiveAccount = () => {
+    axios
+      .post(`${state.api}/deactive-account`, { userId: state.user.id })
+      .then(response => {
+        if (response.status === 200 && response.data.success) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'success', message: response.data.success }
+          });
+
+          logout();
+        } else {
           dispatch({
             type: 'SET_MESSAGE',
             message: { type: 'danger', message: response.data.error }
@@ -159,6 +234,9 @@ export const useApi = () => {
 
   return {
     auth,
+    logout,
+    changePassword,
+    deactiveAccount,
     registration,
     filter,
     adPagination,

@@ -25,8 +25,8 @@ export const MyAdsMenu = props => {
       </li>
       <li className="nav-item">
         <a
-          onClick={() => setStep('change-pass')}
-          className={`nav-link ${step === 'change-pass' && 'active'}`}
+          onClick={() => setStep('change-password')}
+          className={`nav-link ${step === 'change-password' && 'active'}`}
           href="#"
         >
           Zmena hesla

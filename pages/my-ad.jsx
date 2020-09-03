@@ -2,7 +2,13 @@ import React from 'react';
 import { Layout } from '../components';
 import { Ad } from './../components/Ad';
 import { useMyAds } from './../hooks';
-import { MyAdsMenu, MyAdsHeader, MyAdsEditForm } from '../components/MyAds';
+import {
+  MyAdsMenu,
+  MyAdsHeader,
+  MyAdsEditForm,
+  ChangePassword,
+  DeactiveAccount
+} from '../components/MyAds';
 import { UploadPhotos } from './../components/PostAd';
 import Reveal from 'react-reveal/Reveal';
 
@@ -76,6 +82,18 @@ const MyAd = props => {
               handleEdit={handleEdit}
             />
           ))}
+
+      {step === 'change-password' && (
+        <Reveal>
+          <ChangePassword userId={state.user ? state.user.id : null} />
+        </Reveal>
+      )}
+
+      {step === 'deactive-account' && (
+        <Reveal>
+          <DeactiveAccount />
+        </Reveal>
+      )}
 
       {step === 'edit' && (
         <MyAdsEditForm

@@ -285,7 +285,8 @@ h6 {
 }
 
 .login-page,
-.register-page {
+.register-page,
+.changepassword-page {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -293,15 +294,18 @@ h6 {
 }
 
 .login-page > .card,
-.register-page > .card {
+.register-page > .card,
+.changepassword-page > .card {
   background-color: var(--bg-second-color);
   opacity: 0.9;
   max-width: 360px;
+  width: 360px;
   margin: 15px;
 }
 
 .login-page input,
-.register-page input {
+.register-page input,
+.changepassword-page input {
   background-color: var(--bg-second-color);
   color: var(--text-second-color);
 }
