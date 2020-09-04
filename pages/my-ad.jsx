@@ -85,7 +85,7 @@ const MyAd = props => {
 
       {step === 'change-password' && (
         <Reveal>
-          <ChangePassword userId={state.user ? state.user.id : null} />
+          <ChangePassword />
         </Reveal>
       )}
 

@@ -51,7 +51,11 @@ const Inzerat = ({ data }) => {
   }, []);
 
   return (
-    <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
+    <Layout
+      pageTitle={`${brand_label} ${model_label} - Autoblšák.sk`}
+      pageDescription={additional_information}
+      pageKeywords=""
+    >
       <Reveal>
         <div className="row inzerat">
           <div className="col-12">

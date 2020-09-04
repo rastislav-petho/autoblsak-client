@@ -2,16 +2,14 @@ import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 import { useApi } from './../../hooks/useApi';
 
-export const ChangePassword = props => {
-  const { userId } = props;
+export const ChangePassword = () => {
   const { register, handleSubmit, errors, watch } = useForm();
   const { changePassword } = useApi();
   const password = useRef({});
   password.current = watch('password', '');
 
   const onSubmit = data => {
-    data = { ...data, userId: userId };
-    changePasswordSubmit(data);
+    changePassword(data);
   };
 
   return (

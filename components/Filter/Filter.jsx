@@ -61,15 +61,15 @@ export const Filter = () => {
           />
 
           <div className="filter-mobile-buttons">
-            <button onClick={handleSubmitFilter}>
-              <i aria-hidden className="fas fa-search"></i>
-            </button>
             <button
               onClick={() =>
                 dispatch({ type: 'TOGGLE_FILTER', toggle: !collapse })
               }
             >
               <i aria-hidden className="fas fa-chevron-up"></i>
+            </button>
+            <button onClick={handleSubmitFilter}>
+              <i aria-hidden className="fas fa-search"></i> Ok
             </button>
           </div>
         </div>

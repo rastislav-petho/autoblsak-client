@@ -36,14 +36,14 @@ const Index = ({ data }) => {
                 <div className="col-6">
                   {state.ads.current_page !== 1 && (
                     <button onClick={() => handlePagination(false)}>
-                      <i aria-hidden className="fas fa-chevron-left"></i>
+                      <i aria-hidden className="fas fa-chevron-left"></i> Späť
                     </button>
                   )}
                 </div>
                 <div className="col-6 text-right">
                   {state.ads.current_page !== state.ads.last_page && (
                     <button onClick={() => handlePagination(true)}>
-                      <i aria-hidden className="fas fa-chevron-right"></i>
+                      Ďalej <i aria-hidden className="fas fa-chevron-right"></i>
                     </button>
                   )}
                 </div>

@@ -8,6 +8,7 @@ import Cookies from 'universal-cookie';
 export const useApi = () => {
   const { state, dispatch } = useContext(Context);
   const router = useRouter();
+  const cookies = new Cookies();
 
   const auth = data => {
     axios
@@ -38,13 +39,13 @@ export const useApi = () => {
   };
 
   const logout = () => {
-    const cookies = new Cookies();
     cookies.remove('user');
     dispatch({ type: 'LOGOUT' });
     router.push('/login');
   };
 
   const changePassword = data => {
+    data = { ...data, token: state.user.token };
     axios
       .post(`${state.api}/change-password`, data)
       .then(response => {
@@ -82,7 +83,10 @@ export const useApi = () => {
 
   const deactiveAccount = () => {
     axios
-      .post(`${state.api}/deactive-account`, { userId: state.user.id })
+      .post(`${state.api}/deactive-account`, {
+        userId: state.user.id,
+        token: state.user.token
+      })
       .then(response => {
         if (response.status === 200 && response.data.success) {
           dispatch({

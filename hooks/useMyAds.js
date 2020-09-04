@@ -56,26 +56,28 @@ export const useMyAds = () => {
     );
 
     if (alert) {
-      axios.post(`${state.api}/ad/remove`, { id: id }).then(response => {
-        if (response.data.error) {
-          dispatch({
-            type: 'SET_MESSAGE',
-            message: {
-              type: 'warning',
-              message: response.data.error
-            }
-          });
-        } else {
-          getMyAds();
-          dispatch({
-            type: 'SET_MESSAGE',
-            message: {
-              type: 'success',
-              message: response.data.success
-            }
-          });
-        }
-      });
+      axios
+        .post(`${state.api}/ad/remove`, { id: id, token: state.user.token })
+        .then(response => {
+          if (response.data.error) {
+            dispatch({
+              type: 'SET_MESSAGE',
+              message: {
+                type: 'warning',
+                message: response.data.error
+              }
+            });
+          } else {
+            getMyAds();
+            dispatch({
+              type: 'SET_MESSAGE',
+              message: {
+                type: 'success',
+                message: response.data.success
+              }
+            });
+          }
+        });
     }
   };
 
@@ -90,7 +92,11 @@ export const useMyAds = () => {
 
     if (alert) {
       axios
-        .post(`${state.api}/ad/active-handler`, { id: id, action: action })
+        .post(`${state.api}/ad/active-handler`, {
+          id: id,
+          action: action,
+          token: state.user.token
+        })
         .then(response => {
           if (response.data.error) {
             dispatch({
