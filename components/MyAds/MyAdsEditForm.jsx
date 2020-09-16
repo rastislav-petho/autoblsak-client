@@ -31,8 +31,6 @@ export const MyAdsEditForm = props => {
     onSubmit
   } = props;
 
-  console.log(postAdState);
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">

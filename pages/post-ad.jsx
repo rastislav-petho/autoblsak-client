@@ -27,8 +27,6 @@ const PostAd = () => {
     setPostAdState
   } = usePostAd();
 
-  console.log('postAdState', postAdState);
-
   return (
     <Layout
       pageTitle="Pridať inzerát - Autoblšák.sk"

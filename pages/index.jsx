@@ -20,8 +20,6 @@ const Index = ({ data }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  console.log(state);
-
   return (
     <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
       <div className="row">

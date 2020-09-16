@@ -36,7 +36,6 @@ export const AdditionalInformation = props => {
     postAdState
   } = props;
 
-  console.log(brands);
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
