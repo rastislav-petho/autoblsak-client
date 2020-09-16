@@ -5,3 +5,4 @@ export * from './FavoritesItem';
 export * from './Header';
 export * from './Magazine';
 export * from './MostView';
+export * from './Loading';

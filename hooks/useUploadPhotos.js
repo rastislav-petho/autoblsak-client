@@ -6,6 +6,7 @@ import axios from 'axios';
 export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
   const { state, dispatch } = useContext(Context);
   const [photos, setPhotos] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     axios
@@ -64,7 +65,7 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
 
   async function handleImageUpload(event) {
     const imageFile = event.target.files[0];
-
+    setLoading(true);
     const options = {
       maxSizeMB: 1,
       maxWidthOrHeight: 1024,
@@ -83,7 +84,11 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
         body: formData
       })
         .then(response => response.json())
-        .then(() => getPhotos())
+        .then(() => {
+          getPhotos();
+          setLoading(false);
+        })
+
         .catch(error => {
           console.error(error);
         });
@@ -144,6 +149,7 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
     handleSubmit,
     handleImageUpload,
     removePhoto,
-    photos
+    photos,
+    loading
   };
 };
