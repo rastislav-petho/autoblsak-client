@@ -3,7 +3,7 @@ import imageCompression from 'browser-image-compression';
 import { Context } from '../context/context';
 import axios from 'axios';
 
-export const useUploadPhotos = (aid, postAdState, setStep) => {
+export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
   const { state, dispatch } = useContext(Context);
   const [photos, setPhotos] = useState([]);
 
@@ -123,7 +123,7 @@ export const useUploadPhotos = (aid, postAdState, setStep) => {
               }
             });
           } else {
-            setStep('publication-ad');
+            setStep(nextStep);
           }
         })
         .then(error => {

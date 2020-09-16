@@ -3,13 +3,13 @@ import { PostAdGallery } from './index';
 import { useUploadPhotos } from './../../hooks';
 
 export const UploadPhotos = props => {
-  const { aid, setPostAdState, postAdState, setStep } = props;
+  const { aid, setPostAdState, postAdState, setStep, nextStep } = props;
   const {
     handleSubmit,
     handleImageUpload,
     removePhoto,
     photos
-  } = useUploadPhotos(aid, postAdState, setStep);
+  } = useUploadPhotos(aid, postAdState, setStep, nextStep);
   return (
     <div>
       <input type="file" accept="image/*" onChange={handleImageUpload} />

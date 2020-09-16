@@ -57,6 +57,7 @@ const PostAd = () => {
           setPostAdState={setPostAdState}
           postAdState={postAdState}
           setStep={setStep}
+          nextStep="publication-ad"
         />
       )}
 

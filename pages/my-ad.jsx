@@ -115,6 +115,7 @@ const MyAd = props => {
           setPostAdState={setPostAdState}
           postAdState={postAdState}
           setStep={setStep}
+          nextStep="active"
         />
       )}
     </Layout>
