@@ -1,50 +1,57 @@
-import React, { useState } from "react";
-import { useForm } from "react-hook-form";
+import React, { useState, useContext } from 'react';
+import { useForm } from 'react-hook-form';
+import axios from 'axios';
+import { Context } from './../../context/context';
 
 export const AdSendEmail = props => {
   const [sendEmail, setSendEmail] = useState(false);
 
-  const { user } = props;
+  const { user, email } = props;
+  const initialState = {
+    name: user ? user.username : '',
+    email: user ? user.email : '',
+    message: '',
+    adEmail: email
+  };
+  const [emailState, setEmailState] = useState(initialState);
 
-  const [state, setState] = useState({
-    name: user ? user.username : "",
-    email: user ? user.email : "",
-    message: ""
-  });
+  const { state, dispatch } = useContext(Context);
 
   const { register, handleSubmit, watch, errors } = useForm();
 
   const handleChange = event => {
-    setState({ ...state, [event.target.name]: event.target.value });
+    setEmailState({ ...emailState, [event.target.name]: event.target.value });
   };
 
   async function onSubmit(data) {
-    console.log(data);
-    // axios
-    //   .post(`${state.api}/login`, data)
-    //   .then(response => {
-    //     if (response.status === 200 && response.data.id) {
-    //       setCookie("user", response.data, 86400);
-    //       dispatch({ type: "LOGIN", user: response.data });
-    //       router.push("/");
-    //     } else if (response.status === 203) {
-    //       dispatch({
-    //         type: "SET_MESSAGE",
-    //         message: { type: "danger", message: response.data.error }
-    //       });
-    //     }
-    //   })
-    //   .then(error => {
-    //     if (error) {
-    //       dispatch({
-    //         type: "SET_MESSAGE",
-    //         message: {
-    //           type: "warning",
-    //           message: "Chyba ! Kontaktujte administrátora"
-    //         }
-    //       });
-    //     }
-    //   });
+    axios
+      .post(`${state.api}/contact-seller`, emailState)
+      .then(response => {
+        if (response.status === 200 && response.data.success) {
+          setEmailState(initialState);
+          setSendEmail(false);
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'success', message: response.data.success }
+          });
+        } else {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'danger', message: response.data.error }
+          });
+        }
+      })
+      .then(error => {
+        if (error) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: {
+              type: 'warning',
+              message: 'Chyba ! Kontaktujte administrátora'
+            }
+          });
+        }
+      });
   }
 
   return (
@@ -70,11 +77,11 @@ export const AdSendEmail = props => {
                   className="form-control"
                   id="name"
                   name="name"
-                  value={state.name}
+                  value={emailState.name}
                   onChange={event => handleChange(event)}
                   ref={register({ required: true })}
                 />
-                {errors.name && errors.name.type === "required" && (
+                {errors.name && errors.name.type === 'required' && (
                   <i className="text-danger">Vaše meno je povinný údaj.</i>
                 )}
               </div>
@@ -85,17 +92,17 @@ export const AdSendEmail = props => {
                   className="form-control"
                   id="email"
                   name="email"
-                  value={state.email}
+                  value={emailState.email}
                   onChange={event => handleChange(event)}
                   ref={register({
                     required: true,
                     pattern: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
                   })}
                 />
-                {(errors.email && errors.email.type === "required" && (
+                {(errors.email && errors.email.type === 'required' && (
                   <i className="text-danger">E-mail je povinný.</i>
                 )) ||
-                  (errors.email && errors.email.type === "pattern" && (
+                  (errors.email && errors.email.type === 'pattern' && (
                     <i className="text-danger">E-mail je v nesprávnom tvare.</i>
                   ))}
               </div>
@@ -107,11 +114,11 @@ export const AdSendEmail = props => {
                   id="message"
                   name="message"
                   rows="5"
-                  value={state.message}
+                  value={emailState.message}
                   onChange={event => handleChange(event)}
                   ref={register({ required: true })}
                 ></textarea>
-                {errors.message && errors.message.type === "required" && (
+                {errors.message && errors.message.type === 'required' && (
                   <i className="text-danger">Vaše správa je povinný údaj.</i>
                 )}
               </div>

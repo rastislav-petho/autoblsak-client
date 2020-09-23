@@ -6,3 +6,5 @@ export * from './Header';
 export * from './Magazine';
 export * from './MostView';
 export * from './Loading';
+export * from './CookieSection';
+export * from './Messages';

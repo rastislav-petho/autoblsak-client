@@ -40,7 +40,8 @@ const Inzerat = ({ data }) => {
     mobile_number,
     location,
     additional_information,
-    extras
+    extras,
+    email
   } = data;
 
   useEffect(() => {
@@ -187,7 +188,7 @@ const Inzerat = ({ data }) => {
                 <button className="button w-100 mb-2">
                   <a href={`tel:${mobile_number}`}>Zavolať predajcovi</a>
                 </button>
-                <AdSendEmail user={state.user} />
+                <AdSendEmail user={state.user} email={email} />
                 <button className="button w-100 mb-2">
                   Poloha: {location}
                 </button>

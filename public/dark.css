@@ -513,6 +513,7 @@ h6 {
     padding-bottom: 60px;
     z-index: 1;
     overflow: scroll;
+    margin-top: 50px;
   }
 
   .filter-box-mobile form {

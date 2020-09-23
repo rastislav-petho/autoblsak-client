@@ -52,7 +52,6 @@ export const Filter = () => {
       </div>
       {collapse && (
         <div className="filter-box-mobile">
-          <h3>Filter</h3>
           <FilterForm
             filter={filter}
             brands={brands}

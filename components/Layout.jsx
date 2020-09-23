@@ -2,7 +2,7 @@ import React, { Fragment, useContext } from 'react';
 import { Context } from './../context/context';
 import Head from 'next/head';
 import { Filter, Favorites, Header } from './index';
-import { Messages } from './../components/Messages';
+import { Messages, CookiesSection } from './../components';
 
 export const Layout = ({
   children,
@@ -45,6 +45,7 @@ export const Layout = ({
       </Head>
       <Filter />
       <Favorites />
+      <CookiesSection />
       {state.message.type && <Messages message={state.message} />}
       <div className="container-fluid nav-bar">
         <Header />
