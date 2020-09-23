@@ -45,7 +45,8 @@ export const useApi = () => {
   };
 
   const changePassword = data => {
-    data = { ...data, token: state.user.token };
+    data = { ...data, token: state.user.token, userId: state.user.id };
+    console.log(data);
     axios
       .post(`${state.api}/change-password`, data)
       .then(response => {
