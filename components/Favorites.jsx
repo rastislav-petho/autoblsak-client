@@ -1,6 +1,6 @@
-import React, { useContext, Fragment, useEffect } from "react";
-import { Context } from "./../context/context";
-import { FavoritesItem } from "./index";
+import React, { useContext, Fragment, useEffect } from 'react';
+import { Context } from './../context/context';
+import { FavoritesItem } from './index';
 
 export const Favorites = () => {
   const { state, dispatch } = useContext(Context);
@@ -9,34 +9,44 @@ export const Favorites = () => {
   return (
     <Fragment>
       <div
-        className="favorites-box"
-        style={collapse ? { width: "300px" } : { width: "75px" }}
+        className="favorites-box-wrapper"
+        style={collapse ? { width: '400px' } : { width: '100px' }}
         onMouseEnter={() =>
-          dispatch({ type: "TOGGLE_FAVORITES", toggle: true })
+          dispatch({ type: 'TOGGLE_FAVORITES', toggle: true })
         }
         onMouseLeave={() =>
-          dispatch({ type: "TOGGLE_FAVORITES", toggle: false })
+          dispatch({ type: 'TOGGLE_FAVORITES', toggle: false })
         }
       >
-        <button
-          onClick={() =>
-            dispatch({ type: "TOGGLE_FAVORITES", toggle: !collapse })
-          }
+        <div
+          className="favorites-box"
+          style={collapse ? { width: '300px' } : { width: '75px' }}
         >
-          {state.favoriteAds.length > 0 ? (
-            <div>
-              {state.favoriteAds.length}
+          <button
+            onClick={() =>
+              dispatch({ type: 'TOGGLE_FAVORITES', toggle: !collapse })
+            }
+          >
+            {state.favoriteAds.length > 0 ? (
+              <div>
+                {state.favoriteAds.length}
+                <i aria-hidden className="far fa-star"></i>
+              </div>
+            ) : (
               <i aria-hidden className="far fa-star"></i>
-            </div>
-          ) : (
-            <i aria-hidden className="far fa-star"></i>
-          )}
-        </button>
-        {collapse && <h3>{state.favoriteAds.length} - Obľúbené</h3>}
-        {state.favoriteAds.map(favorite => (
-          <FavoritesItem ad={favorite} key={favorite.id} collapse={collapse} />
-        ))}
+            )}
+          </button>
+          {collapse && <h3>{state.favoriteAds.length} - Obľúbené</h3>}
+          {state.favoriteAds.map(favorite => (
+            <FavoritesItem
+              ad={favorite}
+              key={favorite.id}
+              collapse={collapse}
+            />
+          ))}
+        </div>
       </div>
+
       {collapse && (
         <div className="favorite-box-mobile">
           <h3>{state.favoriteAds.length} - Obľúbené</h3>
@@ -51,7 +61,7 @@ export const Favorites = () => {
           <div className="favorite-mobile-buttons">
             <button
               onClick={() =>
-                dispatch({ type: "TOGGLE_FAVORITES", toggle: !collapse })
+                dispatch({ type: 'TOGGLE_FAVORITES', toggle: !collapse })
               }
             >
               <i aria-hidden className="fas fa-chevron-up"></i>

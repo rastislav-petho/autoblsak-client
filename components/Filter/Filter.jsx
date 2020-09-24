@@ -16,13 +16,17 @@ export const Filter = () => {
   return (
     <Fragment>
       <div
-        className="filter-box"
-        style={collapse ? { width: '300px' } : { width: '50px' }}
+        className="filter-box-wrapper"
         onMouseEnter={() => dispatch({ type: 'TOGGLE_FILTER', toggle: true })}
         onMouseLeave={() => dispatch({ type: 'TOGGLE_FILTER', toggle: false })}
+        style={collapse ? { width: '400px' } : { width: '100px' }}
       >
-        <div className="filter-buttons">
-          {/* <button
+        <div
+          className="filter-box"
+          style={collapse ? { width: '300px' } : { width: '50px' }}
+        >
+          <div className="filter-buttons">
+            {/* <button
             onClick={() =>
               dispatch({ type: "TOGGLE_FILTER", toggle: !collapse })
             }
@@ -33,23 +37,25 @@ export const Filter = () => {
               <i className="fas fa-chevron-right"></i>
             )}
           </button> */}
-          <button onClick={handleSubmitFilter}>
-            <i aria-hidden className="fas fa-search"></i>
-          </button>
-        </div>
+            <button onClick={handleSubmitFilter}>
+              <i aria-hidden className="fas fa-search"></i>
+            </button>
+          </div>
 
-        {collapse && (
-          <Fragment>
-            <h3>Filter</h3>
-            <FilterForm
-              filter={filter}
-              brands={brands}
-              models={models}
-              handleChange={handleChange}
-            />
-          </Fragment>
-        )}
+          {collapse && (
+            <Fragment>
+              <h3>Filter</h3>
+              <FilterForm
+                filter={filter}
+                brands={brands}
+                models={models}
+                handleChange={handleChange}
+              />
+            </Fragment>
+          )}
+        </div>
       </div>
+
       {collapse && (
         <div className="filter-box-mobile">
           <FilterForm

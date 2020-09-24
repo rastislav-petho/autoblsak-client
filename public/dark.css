@@ -120,6 +120,14 @@ h6 {
   display: none;
 }
 
+.filter-box-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 2;
+}
+
 .filter-box {
   position: fixed;
   top: 0;
@@ -129,7 +137,6 @@ h6 {
   background-color: var(--bg-second-color);
   padding: 15px;
   border-right: 2px solid var(--text-second-color);
-  z-index: 2;
 }
 
 .filter-box > .filter-buttons {
@@ -167,6 +174,15 @@ h6 {
   display: none;
 }
 
+.favorites-box-wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  display: flex;
+  height: 100%;
+  z-index: 2;
+}
+
 .favorites-box {
   position: fixed;
   top: 0;
@@ -176,7 +192,6 @@ h6 {
   background-color: var(--bg-second-color);
   padding: 15px;
   border-left: 2px solid var(--text-second-color);
-  z-index: 2;
 }
 
 .favorites-box button {
@@ -470,11 +485,13 @@ h6 {
     padding-top: 70px;
   }
 
-  .filter-box {
+  .filter-box,
+  .filter-box-wrapper {
     display: none;
   }
 
-  .favorites-box {
+  .favorites-box,
+  .favorites-box-wrapper {
     display: none;
   }
 
