@@ -242,13 +242,12 @@ h6 {
 
 .ad-box {
   margin-bottom: 25px;
-  padding: 0 0 20px 0;
+  padding: 10px;
   border-bottom: 1px solid var(--text-second-color);
   background-color: var(--bg-third-color);
 }
 
 .ad-box img {
-  border: 2px solid var(--text-second-color);
   border-radius: 5px;
 }
 
@@ -503,6 +502,7 @@ h6 {
     align-items: center;
   }
   .toggle-menu i {
+    color: var(--text-second-color);
     font-size: 2rem;
     cursor: pointer;
   }

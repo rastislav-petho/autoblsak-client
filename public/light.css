@@ -19,10 +19,11 @@
   --info: #4091d7;
   --info-second: #99e9eb; */
 
-  --bg-color: #fbfbfb;
-  --bg-second-color: #fbfbfbce;
-  --bg-third-color: #fbfbfbce;
-  --bg-navbar-color: #0d0106;
+  --bg-color: #f8f9fa;
+  --bg-second-color: #e9ecefe7;
+  --bg-third-color: #f8f9fa;
+  --bg-navbar-color: #343a40;
+  --navbar-text-color: #f8f9fa;
   --text-color: #011627;
   --text-second-color: #ff331f;
   --success: #2d884d;
@@ -89,7 +90,7 @@ h6 {
 
 .menu a,
 .mobile-menu a {
-  color: var(--text-second-color);
+  color: var(--navbar-text-color);
 }
 
 .menu a:hover,
@@ -263,13 +264,12 @@ h6 {
 
 .ad-box {
   margin-bottom: 25px;
-  padding: 0 0 20px 0;
+  padding: 10px;
   border-bottom: 1px solid var(--text-second-color);
   background-color: var(--bg-third-color);
 }
 
 .ad-box img {
-  border: 2px solid var(--text-second-color);
   border-radius: 5px;
 }
 
@@ -524,6 +524,7 @@ h6 {
     align-items: center;
   }
   .toggle-menu i {
+    color: var(--navbar-text-color);
     font-size: 2rem;
     cursor: pointer;
   }

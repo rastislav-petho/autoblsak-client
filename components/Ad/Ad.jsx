@@ -5,10 +5,10 @@ import {
   decodeFuel,
   decodeColor,
   decodeTransmision,
-  decodeCoupe
+  decodeCoupe,
 } from '../../helpers';
 
-export const Ad = memo(props => {
+export const Ad = memo((props) => {
   const {
     id,
     year_of_manufacture,
@@ -24,7 +24,7 @@ export const Ad = memo(props => {
     premium,
     coupe,
     status,
-    paid
+    paid,
   } = props.ad;
   const { actionBar, handleRemove, handleActive, handleEdit } = props;
   const { state, dispatch } = useContext(Context);
@@ -36,7 +36,7 @@ export const Ad = memo(props => {
 
   return (
     <div key={id} className="row ad-box shadow">
-      <div className="col-12 col-lg-4">
+      <div className="col-12 col-lg-4 p-0">
         {premium ? <div className="top">TOP</div> : ''}
         <Link href={`/inzerat/[id]`} as={`/inzerat/${id}`}>
           <a>
@@ -146,7 +146,7 @@ export const Ad = memo(props => {
             )}
           </div>
           <div className="col-2 text-right">
-            {state.favoriteAds.find(ad => ad.id === id) ? (
+            {state.favoriteAds.find((ad) => ad.id === id) ? (
               <i
                 aria-hidden
                 className="fas fa-star add-to-favorites-button"

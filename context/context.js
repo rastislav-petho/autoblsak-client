@@ -4,7 +4,7 @@ import { getCookie } from './../helpers/helpers';
 
 export const Context = createContext();
 
-export const ContextProvider = props => {
+export const ContextProvider = (props) => {
   const user = getCookie('user');
   const theme = getCookie('theme');
 
@@ -13,16 +13,16 @@ export const ContextProvider = props => {
     url: 'https://autoblsak.sk',
     api: 'https://autoblsak.sk/api/api',
     user: user,
-    theme: theme ? theme : 'dark',
+    theme: theme ? theme : 'light',
     ads: [],
     favoriteAds: [],
     message: {
       type: null,
-      message: null
+      message: null,
     },
     config: {
       toggleFilter: false,
-      toggleFavorites: false
+      toggleFavorites: false,
     },
     filter: {
       category: '1',
@@ -38,10 +38,10 @@ export const ContextProvider = props => {
       kmFrom: '',
       kmTo: '',
       powerFrom: '',
-      powerTo: ''
+      powerTo: '',
     },
     brands: [],
-    models: []
+    models: [],
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
