@@ -10,7 +10,7 @@ export const Filter = () => {
     filter,
     handleChange,
     handleSubmitFilter,
-    dispatch
+    dispatch,
   } = useFilter();
 
   return (
@@ -50,6 +50,7 @@ export const Filter = () => {
                 brands={brands}
                 models={models}
                 handleChange={handleChange}
+                handleSubmitFilter={handleSubmitFilter}
               />
             </Fragment>
           )}

@@ -4,7 +4,7 @@ import {
   COUPE,
   TRANSMISION,
   COLORS,
-  CATEGORY
+  CATEGORY,
 } from '../../helpers/constants';
 import {
   decodeBrand,
@@ -14,10 +14,16 @@ import {
   decodeTransmision,
   decodeColor,
   getYearsList,
-  decodeCategory
+  decodeCategory,
 } from '../../helpers';
 
-export const FilterForm = ({ filter, brands, models, handleChange }) => {
+export const FilterForm = ({
+  filter,
+  brands,
+  models,
+  handleChange,
+  handleSubmitFilter,
+}) => {
   return (
     <form>
       <div className="form-group">
@@ -31,7 +37,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
               ? decodeCategory(filter.category)
               : 'Osobné vozidlá'}
           </option>
-          {CATEGORY.map(brand => (
+          {CATEGORY.map((brand) => (
             <option key={brand.value} value={brand.value}>
               {brand.label}
             </option>
@@ -52,7 +58,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
                   : 'Zvoľte značku'}
               </option>
               <option value="">-- Zvoľte značku --</option>
-              {brands.map(brand => (
+              {brands.map((brand) => (
                 <option key={brand.id} value={brand.id}>
                   {brand.label}
                 </option>
@@ -71,7 +77,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
                   : 'Zvoľte model'}
               </option>
               <option value="">-- Zvoľte model --</option>
-              {models.map(model => (
+              {models.map((model) => (
                 <option key={model.id} value={model.id}>
                   {model.label}
                 </option>
@@ -88,7 +94,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
                 {filter.coupe ? decodeCoupe(filter.coupe) : 'Karoséria'}
               </option>
               <option value="">-- Karoséria --</option>
-              {COUPE.map(item => (
+              {COUPE.map((item) => (
                 <option key={item.value} value={item.value}>
                   {item.label}
                 </option>
@@ -103,7 +109,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
             {filter.fuel ? decodeFuel(filter.fuel) : 'Palivo'}
           </option>
           <option value="">-- Palivo --</option>
-          {FUEL.map(item => (
+          {FUEL.map((item) => (
             <option key={item.value} value={item.value}>
               {item.label}
             </option>
@@ -122,7 +128,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
               : 'Prevodovka'}
           </option>
           <option value="">-- Prevodovka --</option>
-          {TRANSMISION.map(trans => (
+          {TRANSMISION.map((trans) => (
             <option key={trans.value} value={trans.value}>
               {trans.label}
             </option>
@@ -135,7 +141,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
             {filter.color ? decodeColor(filter.color) : 'Farba'}
           </option>
           <option value="">-- Farba --</option>
-          {COLORS.map(color => (
+          {COLORS.map((color) => (
             <option value={color.value}>{color.label}</option>
           ))}
         </select>
@@ -153,7 +159,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
                 {filter.yearFrom ? filter.yearFrom : 'Od'}
               </option>
               <option value="">-- Od --</option>
-              {getYearsList('1950', new Date().getFullYear()).map(year => (
+              {getYearsList('1950', new Date().getFullYear()).map((year) => (
                 <option value={year.value}>{year.label}</option>
               ))}
             </select>
@@ -168,7 +174,7 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
                 {filter.yearTo ? filter.yearTo : 'Do'}
               </option>
               <option value="">-- Do --</option>
-              {getYearsList('1950', new Date().getFullYear()).map(year => (
+              {getYearsList('1950', new Date().getFullYear()).map((year) => (
                 <option value={year.value}>{year.label}</option>
               ))}
             </select>
@@ -249,6 +255,11 @@ export const FilterForm = ({ filter, brands, models, handleChange }) => {
             ></input>
           </div>
         </div>
+      </div>
+      <div className="form-group text-center">
+        <button onClick={handleSubmitFilter} className="button">
+          Hľadať
+        </button>
       </div>
     </form>
   );
