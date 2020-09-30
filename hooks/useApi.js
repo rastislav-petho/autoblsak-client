@@ -10,10 +10,10 @@ export const useApi = () => {
   const router = useRouter();
   const cookies = new Cookies();
 
-  const auth = data => {
+  const auth = (data) => {
     axios
       .post(`${state.api}/login`, data)
-      .then(response => {
+      .then((response) => {
         if (response.status === 200 && response.data.id) {
           setCookie('user', response.data, 86400);
           dispatch({ type: 'LOGIN', user: response.data });
@@ -21,18 +21,18 @@ export const useApi = () => {
         } else if (response.status === 203) {
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'danger', message: response.data.error }
+            message: { type: 'danger', message: response.data.error },
           });
         }
       })
-      .then(error => {
+      .then((error) => {
         if (error) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora'
-            }
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
           });
         }
       });
@@ -44,39 +44,39 @@ export const useApi = () => {
     router.push('/login');
   };
 
-  const changePassword = data => {
+  const changePassword = (data) => {
     data = { ...data, token: state.user.token, userId: state.user.id };
     console.log(data);
     axios
       .post(`${state.api}/change-password`, data)
-      .then(response => {
+      .then((response) => {
         if (response.status === 200 && response.data.success) {
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'success', message: response.data.success }
+            message: { type: 'success', message: response.data.success },
           });
 
           logout();
         } else if (response.status === 200 && response.data.warning) {
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'warning', message: response.data.warning }
+            message: { type: 'warning', message: response.data.warning },
           });
         } else {
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'danger', message: response.data.error }
+            message: { type: 'danger', message: response.data.error },
           });
         }
       })
-      .then(error => {
+      .then((error) => {
         if (error) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora'
-            }
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
           });
         }
       });
@@ -86,64 +86,64 @@ export const useApi = () => {
     axios
       .post(`${state.api}/deactive-account`, {
         userId: state.user.id,
-        token: state.user.token
+        token: state.user.token,
       })
-      .then(response => {
+      .then((response) => {
         if (response.status === 200 && response.data.success) {
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'success', message: response.data.success }
+            message: { type: 'success', message: response.data.success },
           });
 
           logout();
         } else {
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'danger', message: response.data.error }
+            message: { type: 'danger', message: response.data.error },
           });
         }
       })
-      .then(error => {
+      .then((error) => {
         if (error) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora'
-            }
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
           });
         }
       });
   };
 
-  const registration = data => {
+  const registration = (data) => {
     axios
       .post(`${state.api}/register`, data)
-      .then(response => {
+      .then((response) => {
         if (response.status === 200) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'success',
-              message: `Na e-mailovú adresu ${response.data.email} sme odoslali verifikačný link, na ktorý klikom dokončíte Vašu registráciu.`
-            }
+              message: `Na e-mailovú adresu ${response.data.email} sme odoslali verifikačný link, na ktorý klikom dokončíte Vašu registráciu.`,
+            },
           });
           router.push('/');
         } else {
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'danger', message: response.data.error }
+            message: { type: 'danger', message: response.data.error },
           });
         }
       })
-      .then(error => {
+      .then((error) => {
         if (error) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora'
-            }
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
           });
         }
       });
@@ -152,7 +152,7 @@ export const useApi = () => {
   const filter = () => {
     axios
       .post(`${state.api}/filter`, state.filter)
-      .then(response => {
+      .then((response) => {
         if (response.status === 200 && response.data.data.length !== 0) {
           dispatch({ type: 'SET_ADS', ads: response.data });
           dispatch({ type: 'TOGGLE_FILTER', toogle: false });
@@ -161,25 +161,25 @@ export const useApi = () => {
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: 'Pre zvolený filter sa nenašli žiadne výsledky.'
-            }
+              message: 'Pre zvolený filter sa nenašli žiadne výsledky.',
+            },
           });
         }
       })
-      .then(error => {
+      .then((error) => {
         if (error) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora'
-            }
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
           });
         }
       });
   };
 
-  const adPagination = move => {
+  const adPagination = (move) => {
     axios
       .post(
         `${state.api}/filter?page=${
@@ -187,7 +187,7 @@ export const useApi = () => {
         }`,
         state.filter
       )
-      .then(response => {
+      .then((response) => {
         if (response.status === 200 && response.data.length !== 0) {
           dispatch({ type: 'SET_ADS', ads: response.data });
         } else {
@@ -195,44 +195,44 @@ export const useApi = () => {
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: 'Pre zvolený filter sa nenašli žiadne výsledky.'
-            }
+              message: 'Pre zvolený filter sa nenašli žiadne výsledky.',
+            },
           });
         }
       })
-      .then(error => {
+      .then((error) => {
         if (error) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora'
-            }
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
           });
         }
       });
   };
 
-  const getBrands = setBrands => {
+  const getBrands = (setBrands) => {
     fetch(`${state.api}/filter/brands`)
-      .then(res => res.json())
-      .then(json => {
+      .then((res) => res.json())
+      .then((json) => {
         setBrands(json);
       });
   };
 
   const getModels = (setModels, brand) => {
     fetch(`${state.api}/filter/models/${brand}`)
-      .then(res => res.json())
-      .then(json => {
+      .then((res) => res.json())
+      .then((json) => {
         setModels(json);
       });
   };
 
-  const getExtras = setExtras => {
+  const getExtras = (setExtras) => {
     fetch(`${state.api}/extras`)
-      .then(res => res.json())
-      .then(json => {
+      .then((res) => res.json())
+      .then((json) => {
         setExtras(json);
       });
   };
@@ -247,6 +247,6 @@ export const useApi = () => {
     adPagination,
     getBrands,
     getModels,
-    getExtras
+    getExtras,
   };
 };

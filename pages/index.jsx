@@ -2,11 +2,12 @@ import React, { useContext, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Context } from './../context/context';
 import { Layout, Magazine, MostView } from './../components';
+import { Filter } from './../components/Filter';
 import { Ad } from './../components/Ad';
 import { useApi } from './../hooks';
 import Reveal from 'react-reveal/Reveal';
 
-const Index = ({ data }) => {
+const Index = () => {
   const { state } = useContext(Context);
   const ads = state.ads.data;
   const { filter, adPagination } = useApi();
@@ -20,6 +21,7 @@ const Index = ({ data }) => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  console.log(state);
   return (
     <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
       <div className="row">
@@ -27,7 +29,7 @@ const Index = ({ data }) => {
           <h6 className="mb-3">
             Počet nájdených výsledkov: {state.ads.to} z {state.ads.total}
           </h6>
-          <Reveal>{ads && ads.map(ad => <Ad ad={ad} key={ad.id} />)}</Reveal>
+          <Reveal>{ads && ads.map((ad) => <Ad ad={ad} key={ad.id} />)}</Reveal>
           <div className="row">
             <div className="col-12">
               <div className="row paginate">
@@ -52,6 +54,9 @@ const Index = ({ data }) => {
         <div className="col-12 col-md-12 col-lg-3">
           <div className="row">
             <div className="col-12">
+              <Filter />
+            </div>
+            <div className="col-12">
               <Magazine apiUrl={state.api} />
             </div>
             <div className="col-12">
@@ -64,12 +69,12 @@ const Index = ({ data }) => {
   );
 };
 
-Index.getInitialProps = async function () {
-  const res = await fetch(`https://autoblsak.sk/api/api/ads`);
-  const data = await res.json();
-  return {
-    data: data
-  };
-};
+// Index.getInitialProps = async function ({ params }) {
+//   const res = await fetch(`https://autoblsak.sk/api/api/ads`);
+//   const data = await res.json();
+//   return {
+//     data: data,
+//   };
+// };
 
 export default Index;

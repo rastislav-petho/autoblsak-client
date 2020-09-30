@@ -1,14 +1,14 @@
 import React, { Fragment, useContext } from 'react';
 import { Context } from './../context/context';
 import Head from 'next/head';
-import { Filter, Favorites, Header } from './index';
-import { Messages, CookiesSection } from './../components';
+import { Favorites, Header } from './index';
+import { Messages, CookiesSection, Footer } from './../components';
 
 export const Layout = ({
   children,
   pageTitle,
   pageDescription,
-  pageKeywords
+  pageKeywords,
 }) => {
   const { state } = useContext(Context);
 
@@ -43,7 +43,6 @@ export const Layout = ({
           <link rel="stylesheet" href="/dark.css"></link>
         )}
       </Head>
-      <Filter />
       <Favorites />
       <CookiesSection />
       {state.message.type && <Messages message={state.message} />}
@@ -51,6 +50,9 @@ export const Layout = ({
         <Header />
       </div>
       <div className="container content">{children}</div>
+      <div className="container-fluid p-0">
+        <Footer />
+      </div>
     </Fragment>
   );
 };

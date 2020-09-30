@@ -8,3 +8,4 @@ export * from './MostView';
 export * from './Loading';
 export * from './CookieSection';
 export * from './Messages';
+export * from './Footer';

@@ -15,46 +15,17 @@ export const Filter = () => {
 
   return (
     <Fragment>
-      <div
-        className="filter-box-wrapper"
-        onMouseEnter={() => dispatch({ type: 'TOGGLE_FILTER', toggle: true })}
-        onMouseLeave={() => dispatch({ type: 'TOGGLE_FILTER', toggle: false })}
-        style={collapse ? { width: '400px' } : { width: '100px' }}
-      >
-        <div
-          className="filter-box"
-          style={collapse ? { width: '300px' } : { width: '50px' }}
-        >
-          <div className="filter-buttons">
-            {/* <button
-            onClick={() =>
-              dispatch({ type: "TOGGLE_FILTER", toggle: !collapse })
-            }
-          >
-            {collapse ? (
-              <i className="fas fa-chevron-left"></i>
-            ) : (
-              <i className="fas fa-chevron-right"></i>
-            )}
-          </button> */}
-            <button onClick={handleSubmitFilter}>
-              <i aria-hidden className="fas fa-search"></i>
-            </button>
-          </div>
-
-          {collapse && (
-            <Fragment>
-              <h3>Filter</h3>
-              <FilterForm
-                filter={filter}
-                brands={brands}
-                models={models}
-                handleChange={handleChange}
-                handleSubmitFilter={handleSubmitFilter}
-              />
-            </Fragment>
-          )}
-        </div>
+      <div className="filter-box">
+        <Fragment>
+          <h3>Filter</h3>
+          <FilterForm
+            filter={filter}
+            brands={brands}
+            models={models}
+            handleChange={handleChange}
+            handleSubmitFilter={handleSubmitFilter}
+          />
+        </Fragment>
       </div>
 
       {collapse && (
@@ -65,19 +36,6 @@ export const Filter = () => {
             models={models}
             handleChange={handleChange}
           />
-
-          <div className="filter-mobile-buttons">
-            <button
-              onClick={() =>
-                dispatch({ type: 'TOGGLE_FILTER', toggle: !collapse })
-              }
-            >
-              <i aria-hidden className="fas fa-chevron-up"></i>
-            </button>
-            <button onClick={handleSubmitFilter}>
-              <i aria-hidden className="fas fa-search"></i> Ok
-            </button>
-          </div>
         </div>
       )}
     </Fragment>

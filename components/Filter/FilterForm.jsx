@@ -25,7 +25,7 @@ export const FilterForm = ({
   handleSubmitFilter,
 }) => {
   return (
-    <form>
+    <div>
       <div className="form-group">
         <select
           onChange={handleChange}
@@ -261,6 +261,6 @@ export const FilterForm = ({
           Hľadať
         </button>
       </div>
-    </form>
+    </div>
   );
 };
