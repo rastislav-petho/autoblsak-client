@@ -121,6 +121,8 @@ h6 {
 }
 
 .filter-box {
+  border-bottom: 1px solid var(--text-second-color);
+  margin-bottom: 15px;
 }
 
 .filter-box > .filter-buttons {
@@ -432,6 +434,11 @@ h6 {
 
 .breadcrumb-item.novisite {
   color: #6c757d;
+}
+
+.magazine {
+  border-bottom: 1px solid var(--text-second-color);
+  margin-bottom: 15px;
 }
 
 .magazine a {

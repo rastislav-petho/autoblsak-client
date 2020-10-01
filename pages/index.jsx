@@ -29,7 +29,9 @@ const Index = () => {
           <h6 className="mb-3">
             Počet nájdených výsledkov: {state.ads.to} z {state.ads.total}
           </h6>
-          <Reveal>{ads && ads.map((ad) => <Ad ad={ad} key={ad.id} />)}</Reveal>
+          <Reveal>
+            <>{ads && ads.map((ad) => <Ad ad={ad} key={ad.id} />)}</>
+          </Reveal>
           <div className="row">
             <div className="col-12">
               <div className="row paginate">
