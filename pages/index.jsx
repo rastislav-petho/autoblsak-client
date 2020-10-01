@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Context } from './../context/context';
-import { Layout, Magazine, MostView } from './../components';
+import { Layout, Magazine, MostView, UserPanel } from './../components';
 import { Filter } from './../components/Filter';
 import { Ad } from './../components/Ad';
 import { useApi } from './../hooks';
@@ -53,6 +53,9 @@ const Index = () => {
         </div>
         <div className="col-12 col-md-12 col-lg-3">
           <div className="row">
+            <div className="col-12">
+              <UserPanel user={state.user} />
+            </div>
             <div className="col-12">
               <Filter />
             </div>

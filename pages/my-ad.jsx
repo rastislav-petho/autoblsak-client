@@ -7,12 +7,12 @@ import {
   MyAdsHeader,
   MyAdsEditForm,
   ChangePassword,
-  DeactiveAccount
+  DeactiveAccount,
 } from '../components/MyAds';
 import { UploadPhotos } from './../components/PostAd';
 import Reveal from 'react-reveal/Reveal';
 
-const MyAd = props => {
+const MyAd = (props) => {
   const {
     step,
     setStep,
@@ -31,7 +31,7 @@ const MyAd = props => {
     handleSubmit,
     errors,
     handleExtrasChange,
-    onSubmit
+    onSubmit,
   } = useMyAds();
 
   return (
@@ -42,22 +42,13 @@ const MyAd = props => {
     >
       <div className="row mb-3">
         <div className="col-12">
-          {state.user && (
-            <MyAdsHeader
-              userName={state.user.username}
-              timeSignin={state.user.time_signin}
-              adsCount={myAds.length}
-            />
-          )}
-        </div>
-        <div className="col-12">
           <MyAdsMenu myAds={myAds} step={step} setStep={setStep} />
         </div>
       </div>
       {step === 'active' &&
         myAds
-          .filter(ad => ad.status == 1)
-          .map(ad => (
+          .filter((ad) => ad.status == 1)
+          .map((ad) => (
             <Reveal>
               <Ad
                 ad={ad}
@@ -71,8 +62,8 @@ const MyAd = props => {
           ))}
       {step === 'inactive' &&
         myAds
-          .filter(ad => ad.status != 1)
-          .map(ad => (
+          .filter((ad) => ad.status != 1)
+          .map((ad) => (
             <Ad
               ad={ad}
               actionBar={true}

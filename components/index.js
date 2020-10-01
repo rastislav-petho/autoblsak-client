@@ -9,3 +9,4 @@ export * from './Loading';
 export * from './CookieSection';
 export * from './Messages';
 export * from './Footer';
+export * from './UserPanel';

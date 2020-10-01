@@ -17,8 +17,8 @@ export const useMyAds = () => {
 
   const getMyAds = () => {
     fetch(`${state.api}/my-ads/${state.user.id}`)
-      .then(res => res.json())
-      .then(json => {
+      .then((res) => res.json())
+      .then((json) => {
         setMyAds(json);
       });
   };
@@ -46,11 +46,11 @@ export const useMyAds = () => {
   function handleChange(event) {
     setPostAdState({
       ...postAdState,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   }
 
-  const handleRemove = id => {
+  const handleRemove = (id) => {
     alert = confirm(
       'Po odstránení bude inzerát nenávratne preč, prajete si pokračovať?'
     );
@@ -58,14 +58,14 @@ export const useMyAds = () => {
     if (alert) {
       axios
         .post(`${state.api}/ad/remove`, { id: id, token: state.user.token })
-        .then(response => {
+        .then((response) => {
           if (response.data.error) {
             dispatch({
               type: 'SET_MESSAGE',
               message: {
                 type: 'warning',
-                message: response.data.error
-              }
+                message: response.data.error,
+              },
             });
           } else {
             getMyAds();
@@ -73,8 +73,8 @@ export const useMyAds = () => {
               type: 'SET_MESSAGE',
               message: {
                 type: 'success',
-                message: response.data.success
-              }
+                message: response.data.success,
+              },
             });
           }
         });
@@ -95,16 +95,16 @@ export const useMyAds = () => {
         .post(`${state.api}/ad/active-handler`, {
           id: id,
           action: action,
-          token: state.user.token
+          token: state.user.token,
         })
-        .then(response => {
+        .then((response) => {
           if (response.data.error) {
             dispatch({
               type: 'SET_MESSAGE',
               message: {
                 type: 'warning',
-                message: response.data.error
-              }
+                message: response.data.error,
+              },
             });
           } else {
             getMyAds();
@@ -112,8 +112,8 @@ export const useMyAds = () => {
               type: 'SET_MESSAGE',
               message: {
                 type: 'success',
-                message: response.data.success
-              }
+                message: response.data.success,
+              },
             });
           }
         });
@@ -122,9 +122,9 @@ export const useMyAds = () => {
 
   const handleEdit = (id, step) => {
     fetch(`${state.api}/ad/${id}`)
-      .then(res => res.json())
-      .then(json => {
-        const adExtras = json.extras.map(extra => extra.extra_id);
+      .then((res) => res.json())
+      .then((json) => {
+        const adExtras = json.extras.map((extra) => extra.extra_id);
         json.adExtras = adExtras;
         json.brand = json.brand_id;
         json.model = json.model_id;
@@ -141,46 +141,46 @@ export const useMyAds = () => {
       postAdState.adExtras.splice(index, 1);
       setPostAdState({
         ...postAdState,
-        adExtras: postAdState.adExtras
+        adExtras: postAdState.adExtras,
       });
     } else {
       setPostAdState({
         ...postAdState,
-        adExtras: [...postAdState.adExtras, event.target.name]
+        adExtras: [...postAdState.adExtras, event.target.name],
       });
     }
   }
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     axios
       .post(`${state.api}/save-ad`, postAdState)
-      .then(response => {
+      .then((response) => {
         if (response.status === 200) {
           setPostAdState({
             ...postAdState,
-            aid: response.data
+            aid: response.data,
           });
           getMyAds();
           setStep('active');
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'success', message: response.data.success }
+            message: { type: 'success', message: response.data.success },
           });
         } else {
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'danger', message: response.data.error }
+            message: { type: 'danger', message: response.data.error },
           });
         }
       })
-      .then(error => {
+      .then((error) => {
         if (error) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora'
-            }
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
           });
         }
       });
@@ -204,6 +204,6 @@ export const useMyAds = () => {
     handleSubmit,
     errors,
     handleExtrasChange,
-    onSubmit
+    onSubmit,
   };
 };

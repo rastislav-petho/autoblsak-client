@@ -1,11 +1,9 @@
 import { useContext, useEffect } from 'react';
 import { Context } from './../context/context';
 import axios from 'axios';
-import { useRouter } from 'next/router';
 
 export const useFilter = () => {
   const { state, dispatch } = useContext(Context);
-  const router = useRouter();
   const collapse = state.config.toggleFilter;
   const brands = state.brands;
   const models = state.models;

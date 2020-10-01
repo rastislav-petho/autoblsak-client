@@ -3,11 +3,12 @@ import { Context } from './../context/context';
 import Link from 'next/link';
 import Cookies from 'universal-cookie';
 import { useRouter } from 'next/router';
-import { setCookie } from './../helpers/';
+import { useTheme } from './../hooks';
 
 export const Header = () => {
   const [collapse, setCollapse] = useState(false);
   const { state, dispatch } = useContext(Context);
+  const { handleChangeTheme } = useTheme();
   const collapseFilter = state.config.toggleFilter;
   const collapseFavorites = state.config.toggleFavorites;
   const router = useRouter();
@@ -17,23 +18,6 @@ export const Header = () => {
     cookies.remove('user');
     dispatch({ type: 'LOGOUT' });
     router.push('/login');
-  };
-
-  const setTheme = () => {
-    let theme = '';
-    if (state.theme === 'dark') {
-      theme = 'light';
-    }
-
-    if (state.theme === 'light') {
-      theme = 'dark';
-    }
-
-    dispatch({
-      type: 'CHANGE_THEME',
-      theme: theme
-    });
-    setCookie('theme', theme, 100000000);
   };
 
   return (
@@ -49,40 +33,18 @@ export const Header = () => {
         <span>
           <a href="https://autoblsak.sk/magazin">Magazín</a>
         </span>
-        <span>
-          <Link href="/kontakt">
-            <a>Kontakt</a>
-          </Link>
-        </span>
+
         <span>
           <Link href="/onas">
             <a>O nás</a>
           </Link>
         </span>
-        {state.user && (
-          <Fragment>
-            <span>
-              <Link href="/post-ad">
-                <a className="user-add-ads">
-                  <i aria-hidden className="far fa-plus-square"></i> Pridať
-                  inzerát
-                </a>
-              </Link>
-            </span>
-            <span>
-              <Link href="/my-ad">
-                <a className="user-add-ads">
-                  <i aria-hidden className="fas fa-car"></i> Moje inzeráty
-                </a>
-              </Link>
-            </span>
-          </Fragment>
-        )}
-        {state.user ? (
-          <a onClick={logout} href="#" className="user-add-ads">
-            <i aria-hidden className="fas fa-sign-out-alt"></i> Odhlásiť
-          </a>
-        ) : (
+        <span>
+          <Link href="/kontakt">
+            <a>Kontakt</a>
+          </Link>
+        </span>
+        {!state.user && (
           <Fragment>
             <span>
               <Link href="/register">
@@ -150,7 +112,7 @@ export const Header = () => {
       {collapse && (
         <div className="mobile-menu">
           <span>
-            <a onClick={() => setTheme()}>Zmeniť tému</a>
+            <a onClick={() => handleChangeTheme()}>Zmeniť tému</a>
           </span>
           <span>
             <a href="https://autoblsak.sk/magazin">Magazín</a>
