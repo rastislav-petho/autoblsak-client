@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import { Context } from './../context/context';
 import Head from 'next/head';
-import { Favorites, Header } from './index';
+import { Header } from './index';
 import { Messages, CookiesSection, Footer } from './../components';
 
 export const Layout = ({
@@ -43,10 +43,9 @@ export const Layout = ({
           <link rel="stylesheet" href="/dark.css"></link>
         )}
       </Head>
-      <Favorites />
       <CookiesSection />
       {state.message.type && <Messages message={state.message} />}
-      <div className="container-fluid nav-bar">
+      <div className="container-fluid nav-bar p-0">
         <Header />
       </div>
       <div className="container content">{children}</div>

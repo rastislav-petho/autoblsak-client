@@ -6,6 +6,7 @@ import {
   decodeColor,
   decodeTransmision,
   decodeCoupe,
+  getDateFromTimestamp,
 } from '../../helpers';
 
 export const Ad = memo((props) => {
@@ -25,6 +26,7 @@ export const Ad = memo((props) => {
     coupe,
     status,
     paid,
+    created,
   } = props.ad;
   const { actionBar, handleRemove, handleActive, handleEdit } = props;
   const { state, dispatch } = useContext(Context);
@@ -97,7 +99,7 @@ export const Ad = memo((props) => {
         </div>
         <div className="row ad-footers mt-3">
           <div className="col-10 action-bar">
-            {actionBar && (
+            {actionBar ? (
               <>
                 <button onClick={() => handleEdit(id, 'edit')} className="mr-2">
                   Upraviť
@@ -142,6 +144,10 @@ export const Ad = memo((props) => {
                     (7 dní) je 2,00 €
                   </p>
                 )}
+              </>
+            ) : (
+              <>
+                <span>Pridaný: </span> {getDateFromTimestamp(created)}
               </>
             )}
           </div>

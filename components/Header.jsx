@@ -21,7 +21,7 @@ export const Header = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container p-1">
       <div className="menu">
         <span>
           <Link href="/">

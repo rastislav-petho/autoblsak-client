@@ -25,7 +25,7 @@
   --bg-navbar-color: #343a40;
   --navbar-text-color: #f8f9fa;
   --text-color: #011627;
-  --text-second-color: #ff331f;
+  --text-second-color: #d90429;
   --success: #2d884d;
   --warning: #fecf6d;
   --danger: #b34045;
@@ -45,6 +45,7 @@ a {
 
 a:hover {
   color: var(--text-color);
+  text-decoration: none;
 }
 
 h1,
@@ -65,12 +66,14 @@ h6 {
   left: 0;
   top: 0;
   background-color: var(--bg-navbar-color);
-  z-index: 1;
+  z-index: 2;
   border-bottom: 1px solid var(--text-second-color);
 }
 
 .content {
   padding-top: 150px;
+  padding-bottom: 50px;
+  min-height: 1080px;
 }
 
 .menu {
@@ -180,39 +183,9 @@ h6 {
   display: none;
 }
 
-.favorites-box-wrapper {
-  position: fixed;
-  top: 0;
-  right: 0;
-  display: flex;
-  height: 100%;
-  z-index: 2;
-}
-
 .favorites-box {
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 75px;
-  height: 100%;
-  background-color: var(--bg-second-color);
-  padding: 15px;
-  border-left: 2px solid var(--text-second-color);
-  z-index: 2;
-}
-
-.favorites-box button {
-  position: absolute;
-  top: 50%;
-  left: -25px;
-  transform: translateY(-55px);
-  width: 50px;
-  height: 50px;
-  border-radius: 60px;
-  border: 1px solid var(--text-second-color);
-  background-color: var(--bg-color);
-  color: var(--text-second-color);
-  z-index: 2;
+  border-bottom: 1px solid var(--text-second-color);
+  margin-bottom: 15px;
 }
 
 .favorites-box h3 {
@@ -276,7 +249,8 @@ h6 {
   color: var(--text-second-color);
 }
 
-.ad-contents span {
+.ad-contents,
+.action-bar span {
   font-weight: 600;
 }
 
@@ -523,10 +497,7 @@ h6 {
   }
 
   .filter-box,
-  .filter-box-wrapper {
-    display: none;
-  }
-
+  .user-panel,
   .favorites-box,
   .favorites-box-wrapper {
     display: none;

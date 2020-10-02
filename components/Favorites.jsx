@@ -8,49 +8,17 @@ export const Favorites = () => {
 
   return (
     <Fragment>
-      <div
-        className="favorites-box-wrapper"
-        style={collapse ? { width: '400px' } : { width: '100px' }}
-        onMouseEnter={() =>
-          dispatch({ type: 'TOGGLE_FAVORITES', toggle: true })
-        }
-        onMouseLeave={() =>
-          dispatch({ type: 'TOGGLE_FAVORITES', toggle: false })
-        }
-      >
-        <div
-          className="favorites-box"
-          style={collapse ? { width: '300px' } : { width: '75px' }}
-        >
-          <button
-            onClick={() =>
-              dispatch({ type: 'TOGGLE_FAVORITES', toggle: !collapse })
-            }
-          >
-            {state.favoriteAds.length > 0 ? (
-              <div>
-                {state.favoriteAds.length}
-                <i aria-hidden className="far fa-star"></i>
-              </div>
-            ) : (
-              <i aria-hidden className="far fa-star"></i>
-            )}
-          </button>
-          {collapse && <h3>{state.favoriteAds.length} - Obľúbené</h3>}
-          {state.favoriteAds.map(favorite => (
-            <FavoritesItem
-              ad={favorite}
-              key={favorite.id}
-              collapse={collapse}
-            />
-          ))}
-        </div>
+      <div className="favorites-box">
+        <h4>Obľúbené - {state.favoriteAds.length}</h4>
+        {state.favoriteAds.map((favorite) => (
+          <FavoritesItem ad={favorite} key={favorite.id} collapse={collapse} />
+        ))}
       </div>
 
       {collapse && (
         <div className="favorite-box-mobile">
           <h3>{state.favoriteAds.length} - Obľúbené</h3>
-          {state.favoriteAds.map(favorite => (
+          {state.favoriteAds.map((favorite) => (
             <FavoritesItem
               ad={favorite}
               key={favorite.id}

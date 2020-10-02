@@ -1,7 +1,13 @@
 import React, { useContext, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Context } from './../context/context';
-import { Layout, Magazine, MostView, UserPanel } from './../components';
+import {
+  Layout,
+  Magazine,
+  MostView,
+  UserPanel,
+  Favorites,
+} from './../components';
 import { Filter } from './../components/Filter';
 import { Ad } from './../components/Ad';
 import { useApi } from './../hooks';
@@ -25,6 +31,27 @@ const Index = () => {
   return (
     <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
       <div className="row">
+        <div className="col-12 col-md-12 col-lg-3">
+          <div className="row">
+            <div className="col-12">
+              <UserPanel user={state.user} />
+            </div>
+            {state.favoriteAds.length !== 0 && (
+              <div className="col-12">
+                <Favorites />
+              </div>
+            )}
+            <div className="col-12">
+              <Filter />
+            </div>
+            <div className="col-12">
+              <Magazine apiUrl={state.api} />
+            </div>
+            <div className="col-12">
+              <MostView apiUrl={state.api} url={state.url} />
+            </div>
+          </div>
+        </div>
         <div className="col-12 col-md-12 col-lg-9">
           <h6 className="mb-3">
             Počet nájdených výsledkov: {state.ads.to} z {state.ads.total}
@@ -50,22 +77,6 @@ const Index = () => {
                   )}
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div className="col-12 col-md-12 col-lg-3">
-          <div className="row">
-            <div className="col-12">
-              <UserPanel user={state.user} />
-            </div>
-            <div className="col-12">
-              <Filter />
-            </div>
-            <div className="col-12">
-              <Magazine apiUrl={state.api} />
-            </div>
-            <div className="col-12">
-              <MostView apiUrl={state.api} url={state.url} />
             </div>
           </div>
         </div>
