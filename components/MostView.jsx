@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 
-export const MostView = props => {
+export const MostView = (props) => {
   const { apiUrl, url } = props;
   const [data, setData] = useState([]);
   useEffect(() => {
     fetch(`${apiUrl}/most-view`)
-      .then(res => res.json())
-      .then(json => {
+      .then((res) => res.json())
+      .then((json) => {
         setData(json.data);
       });
   }, []);
 
   return (
     <div className="most-view">
-      <h6>Napozeranejšie inzeráty</h6>
+      <h5>
+        <i aria-hidden className="far fa-eye"></i> Napozeranejšie inzeráty
+      </h5>
       <div className="row">
-        {data.map(item => (
+        {data.map((item) => (
           <div key={item.id} className="col-12 mb-2">
             <Link href={`/inzerat/[id]`} as={`/inzerat/${item.id}`}>
               <a>
@@ -28,8 +30,9 @@ export const MostView = props => {
               </a>
             </Link>
             <span>
-              {item.brand} {item.model}, {item.price} €,{' '}
-              <i aria-hidden className="far fa-eye"></i> {item.views}
+              {item.title ? item.title : item.brand + ' ' + item.model},{' '}
+              {item.price} €, <i aria-hidden className="far fa-eye"></i>{' '}
+              {item.views}
             </span>
           </div>
         ))}

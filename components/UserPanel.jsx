@@ -14,7 +14,7 @@ export const UserPanel = ({ user }) => {
           <h4>Ahoj, {user.username} </h4>
           <p>
             <strong>Posledné prihlásenie:</strong>{' '}
-            {getDateFromTimestamp(user.time_signin)}
+            {user.time_signin ? getDateFromTimestamp(user.time_signin) : 'dnes'}
           </p>
 
           <p>

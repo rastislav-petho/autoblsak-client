@@ -9,7 +9,10 @@ export const Favorites = () => {
   return (
     <Fragment>
       <div className="favorites-box">
-        <h4>Obľúbené</h4>
+        <h5>
+          <i aria-hidden className="far fa-star add-to-favorites-button"></i>{' '}
+          Obľúbené
+        </h5>
         {state.favoriteAds.map((favorite) => (
           <FavoritesItem ad={favorite} key={favorite.id} collapse={collapse} />
         ))}

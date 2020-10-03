@@ -31,6 +31,7 @@ export const Ad = memo((props) => {
     title,
     brand,
     model,
+    location,
   } = props.ad;
   const { actionBar, handleRemove, handleActive, handleEdit } = props;
   const { state, dispatch } = useContext(Context);
@@ -61,7 +62,7 @@ export const Ad = memo((props) => {
           </a>
         </Link>
       </div>
-      <div className="col-12 col-lg-8">
+      <div className="col-12 col-lg-8 p-0 pl-lg-2">
         <div className="row ad-titles">
           <div className="col-8">
             <Link href={`/inzerat/[id]`} as={`/inzerat/${id}`}>
@@ -75,35 +76,46 @@ export const Ad = memo((props) => {
           </div>
           <div className="col-4 text-right">{price} €</div>
         </div>
-        <div className="row ad-contents">
+        <div className="row ad-contents mt-2">
           <div className="col-12">
             <div className="row">
-              <div className="col-6 col-md-4">
-                <span>Rok výroby:</span> {year_of_manufacture}
+              <div className="col-4 col-md-2 text-center">
+                <span>
+                  <i aria-hidden className="fas fa-calendar-alt"></i>
+                </span>
+                <br />
+                {year_of_manufacture}
               </div>
-              <div className="col-6 col-md-4">
-                <span>Palivo:</span> {decodeFuel(fuel)}
+              <div className="col-4 col-md-2 text-center">
+                <span>
+                  <i aria-hidden className="fas fa-gas-pump"></i> <br />
+                </span>{' '}
+                {decodeFuel(fuel)}
               </div>
-              <div className="col-6 col-md-4">
-                <span>Prevodovka:</span> {decodeTransmision(transmision)}
+              <div className="col-4 col-md-2 text-center">
+                <span>
+                  <i aria-hidden className="fas fa-dumbbell"></i>
+                </span>
+                <br />
+                {decodeTransmision(transmision)}
               </div>
-              <div className="col-6 col-md-4">
-                <span>Výkon:</span> {power} kW
+              <div className="col-4 col-md-2 text-center">
+                <span>
+                  <i aria-hidden className="fas fa-tachometer-alt"></i>
+                </span>
+                <br /> {power} kW
               </div>
-              <div className="col-6 col-md-4">
-                <span>Počet km:</span> {mileage} km
+              <div className="col-4 col-md-2 text-center">
+                <span>
+                  <i aria-hidden className="fas fa-road"></i>
+                </span>
+                <br /> {mileage} km
               </div>
-              <div className="col-6 col-md-4">
-                <span>Farba:</span> {decodeColor(color)}
-              </div>
-              <div className="col-6 col-md-4">
-                <span>Kubatúra:</span> {cubage}
-              </div>
-              <div className="col-6 col-md-4">
-                <span>Počet dverí:</span> {number_of_doors}
-              </div>
-              <div className="col-6 col-md-4">
-                <span>karoséria:</span> {decodeCoupe(coupe)}
+              <div className="col-4 col-md-2 text-center">
+                <span>
+                  <i aria-hidden className="fas fa-palette"></i>
+                </span>{' '}
+                <br /> {decodeColor(color)}
               </div>
             </div>
           </div>
@@ -158,7 +170,10 @@ export const Ad = memo((props) => {
               </>
             ) : (
               <>
-                <span>Pridaný: </span> {getDateFromTimestamp(created)}
+                <span className="badge badge-pill badge-secondary mr-2">
+                  {getDateFromTimestamp(created)}
+                </span>
+                <span className="badge badge-pill badge-info">{location}</span>
               </>
             )}
           </div>
@@ -168,12 +183,18 @@ export const Ad = memo((props) => {
                 onClick={() => removeFavorites(id)}
                 aria-hidden
                 className="fas fa-star add-to-favorites-button"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Odobrať z obľúbených"
               ></i>
             ) : (
               <i
                 onClick={() => addToFavorites()}
                 aria-hidden
                 className="far fa-star add-to-favorites-button"
+                data-toggle="tooltip"
+                data-placement="top"
+                title="Pridať do obľúbených"
               ></i>
             )}
           </div>

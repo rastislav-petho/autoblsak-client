@@ -222,6 +222,7 @@ h6 {
   opacity: 0.9;
   font-weight: 600;
   text-align: center;
+  color: #ffffff;
 }
 
 .ad-titles {
@@ -229,7 +230,12 @@ h6 {
   color: var(--text-second-color);
 }
 
-.ad-contents,
+.ad-contents span {
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: var(--text-second-color);
+}
+
 .action-bar span {
   font-weight: 600;
 }
@@ -434,6 +440,7 @@ h6 {
   opacity: 0.6;
   padding-left: 5px;
   padding-right: 5px;
+  color: #ffffff;
 }
 
 .back-btn {

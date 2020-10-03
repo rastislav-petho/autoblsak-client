@@ -31,7 +31,7 @@ const Index = () => {
   return (
     <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
       <div className="row">
-        <div className="col-12 col-md-12 col-lg-3">
+        <div className="col-12 col-md-12 col-lg-3 order-lg-1 order-2">
           <div className="row">
             <div className="col-12">
               <UserPanel user={state.user} />
@@ -52,7 +52,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="col-12 col-md-12 col-lg-9">
+        <div className="col-12 col-md-12 col-lg-9 order-lg-2 order-1">
           <h6 className="mb-3">
             Počet nájdených výsledkov: {state.ads.to} z {state.ads.total}
           </h6>

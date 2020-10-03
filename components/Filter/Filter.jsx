@@ -17,7 +17,9 @@ export const Filter = () => {
     <Fragment>
       <div className="filter-box">
         <Fragment>
-          <h3>Filter</h3>
+          <h5>
+            <i aria-hidden className="fas fa-search"></i> Filter
+          </h5>
           <FilterForm
             filter={filter}
             brands={brands}
