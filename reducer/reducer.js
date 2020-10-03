@@ -1,96 +1,96 @@
 export default function reducer(state, action) {
   switch (action.type) {
-    case "SET_ADS":
+    case 'SET_ADS':
       return {
         ...state,
-        ads: action.ads
+        ads: action.ads,
       };
 
-    case "SET_AD":
+    case 'SET_AD':
       return {
         ...state,
-        ad: action.ad
+        ad: action.ad,
       };
 
-    case "ADD_TO_FAVORITES":
+    case 'ADD_TO_FAVORITES':
       return {
         ...state,
-        favoriteAds: [...state.favoriteAds, action.ad]
+        favoriteAds: [...state.favoriteAds, action.ad],
       };
 
-    case "REMOVE_ITEM_FROM_FAVORITES":
+    case 'REMOVE_ITEM_FROM_FAVORITES':
       return {
         ...state,
-        favoriteAds: state.favoriteAds.filter(item => item.id !== action.id)
+        favoriteAds: state.favoriteAds.filter((item) => item.id !== action.id),
       };
 
     // state.config
 
-    case "TOGGLE_FAVORITES":
+    case 'TOGGLE_FAVORITES':
       return {
         ...state,
         config: {
           ...state.config,
-          toggleFavorites: action.toggle
-        }
+          toggleFavorites: action.toggle,
+        },
       };
 
-    case "TOGGLE_FILTER":
+    case 'TOGGLE_FILTER':
       return {
         ...state,
         config: {
           ...state.config,
-          toggleFilter: action.toggle
-        }
+          toggleFilter: action.toggle,
+        },
       };
 
     // AUTHENTIFIKACIA
 
-    case "LOGIN":
+    case 'LOGIN':
       return {
         ...state,
-        user: action.user
+        user: action.user,
       };
 
-    case "LOGOUT":
+    case 'LOGOUT':
       return {
         ...state,
-        user: null
+        user: null,
       };
 
     // MESSAGES
 
-    case "SET_MESSAGE":
+    case 'SET_MESSAGE':
       return {
         ...state,
         message: {
           type: action.message.type,
-          message: action.message.message
-        }
+          message: action.message.message,
+        },
       };
 
     // FILTER
 
-    case "SET_FILTER":
-      if (action.event.name === "category") {
+    case 'SET_FILTER':
+      if (action.event.name === 'category') {
         return {
           ...state,
           filter: {
             category: action.event.value,
-            brand: "",
-            model: "",
-            fuel: "",
-            transmision: "",
-            color: "",
-            yearFrom: "",
-            yearTo: "",
-            priceFrom: "",
-            priceTo: "",
-            kmFrom: "",
-            kmTo: "",
-            powerFrom: "",
-            powerTo: ""
-          }
+            brand: '',
+            model: '',
+            fuel: '',
+            transmision: '',
+            color: '',
+            yearFrom: '',
+            yearTo: '',
+            priceFrom: '',
+            priceTo: '',
+            kmFrom: '',
+            kmTo: '',
+            powerFrom: '',
+            powerTo: '',
+          },
         };
       }
 
@@ -98,26 +98,26 @@ export default function reducer(state, action) {
         ...state,
         filter: {
           ...state.filter,
-          [action.event.name]: action.event.value
-        }
+          [action.event.name]: action.event.value,
+        },
       };
 
-    case "SET_BRANDS":
+    case 'SET_BRANDS':
       return {
         ...state,
-        brands: action.brands
+        brands: action.brands,
       };
 
-    case "SET_MODELS":
+    case 'SET_MODELS':
       return {
         ...state,
-        models: action.models
+        models: action.models,
       };
 
-    case "CHANGE_THEME":
+    case 'CHANGE_THEME':
       return {
         ...state,
-        theme: action.theme
+        theme: action.theme,
       };
 
     default:

@@ -36,11 +36,11 @@ const Index = () => {
             <div className="col-12">
               <UserPanel user={state.user} />
             </div>
-            {state.favoriteAds.length !== 0 && (
-              <div className="col-12">
-                <Favorites />
-              </div>
-            )}
+
+            <div className="col-12">
+              <Favorites />
+            </div>
+
             <div className="col-12">
               <Filter />
             </div>

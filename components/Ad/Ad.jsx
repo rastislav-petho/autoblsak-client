@@ -1,5 +1,6 @@
 import React, { useContext, memo } from 'react';
 import { Context } from '../../context/context';
+import { useFavorites } from './../../hooks';
 import Link from 'next/link';
 import {
   decodeFuel,
@@ -27,14 +28,24 @@ export const Ad = memo((props) => {
     status,
     paid,
     created,
+    title,
+    brand,
+    model,
   } = props.ad;
   const { actionBar, handleRemove, handleActive, handleEdit } = props;
   const { state, dispatch } = useContext(Context);
-
-  const addToFavorites = () => {
-    dispatch({ type: 'ADD_TO_FAVORITES', ad: props.ad });
-    //setCookie("favorites", state.ads, 100000000);
-  };
+  const { addToFavorites, removeFavorites } = useFavorites(
+    id,
+    year_of_manufacture,
+    fuel,
+    power,
+    mileage,
+    price,
+    defaultPhoto,
+    title,
+    brand,
+    model
+  );
 
   return (
     <div key={id} className="row ad-box shadow">
@@ -154,6 +165,7 @@ export const Ad = memo((props) => {
           <div className="col-2 text-right">
             {state.favoriteAds.find((ad) => ad.id === id) ? (
               <i
+                onClick={() => removeFavorites(id)}
                 aria-hidden
                 className="fas fa-star add-to-favorites-button"
               ></i>

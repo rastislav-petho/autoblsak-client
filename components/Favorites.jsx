@@ -9,7 +9,7 @@ export const Favorites = () => {
   return (
     <Fragment>
       <div className="favorites-box">
-        <h4>Obľúbené - {state.favoriteAds.length}</h4>
+        <h4>Obľúbené</h4>
         {state.favoriteAds.map((favorite) => (
           <FavoritesItem ad={favorite} key={favorite.id} collapse={collapse} />
         ))}

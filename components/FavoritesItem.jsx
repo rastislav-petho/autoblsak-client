@@ -1,5 +1,6 @@
 import React, { useContext, Fragment, memo } from 'react';
 import { Context } from './../context/context';
+import { useFavorites } from './../hooks';
 import { decodeFuel } from '../helpers';
 import Link from 'next/link';
 
@@ -14,6 +15,7 @@ export const FavoritesItem = memo((props) => {
     defaultPhoto,
   } = props.ad;
   const { state, dispatch } = useContext(Context);
+  const { removeFavorites } = useFavorites(props.ad);
 
   return (
     <div key={id} className="row mb-2 favorite">
@@ -36,9 +38,7 @@ export const FavoritesItem = memo((props) => {
         </Link>
         <div className="col-2 favorites-remove-box">
           <i
-            onClick={() =>
-              dispatch({ type: 'REMOVE_ITEM_FROM_FAVORITES', id: id })
-            }
+            onClick={() => removeFavorites(id)}
             aria-hidden
             className="fas fa-times"
           ></i>

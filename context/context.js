@@ -7,6 +7,9 @@ export const Context = createContext();
 export const ContextProvider = (props) => {
   const user = getCookie('user');
   const theme = getCookie('theme');
+  const favorites = getCookie('fav');
+
+  console.log(favorites);
 
   const initialState = {
     language: 'sk',
@@ -15,7 +18,7 @@ export const ContextProvider = (props) => {
     user: user,
     theme: theme ? theme : 'light',
     ads: [],
-    favoriteAds: [],
+    favoriteAds: favorites ? favorites : [],
     message: {
       type: null,
       message: null,
