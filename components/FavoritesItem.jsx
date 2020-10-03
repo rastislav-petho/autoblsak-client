@@ -40,7 +40,10 @@ export const FavoritesItem = memo((props) => {
           <i
             onClick={() => removeFavorites(id)}
             aria-hidden
-            className="fas fa-times"
+            className="far fa-trash-alt"
+            data-toggle="tooltip"
+            data-placement="top"
+            title="Odobrať z obľúbených"
           ></i>
         </div>
       </Fragment>
