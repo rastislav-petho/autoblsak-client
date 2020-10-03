@@ -1,17 +1,25 @@
 import React from 'react';
+import Link from 'next/link';
 
-export const MyAdsMenu = props => {
+export const MyAdsMenu = (props) => {
   const { myAds, step, setStep } = props;
 
   return (
     <ul className="nav nav-tabs">
+      <li className="nav-item">
+        <Link href="/">
+          <a className="nav-link">
+            <i aria-hidden className="fas fa-chevron-left"></i>
+          </a>
+        </Link>
+      </li>
       <li className="nav-item">
         <a
           onClick={() => setStep('active')}
           className={`nav-link ${step === 'active' && 'active'}`}
           href="#"
         >
-          Aktívne ({myAds.filter(ad => ad.status == 1).length})
+          Aktívne ({myAds.filter((ad) => ad.status == 1).length})
         </a>
       </li>
       <li className="nav-item">
@@ -20,7 +28,7 @@ export const MyAdsMenu = props => {
           className={`nav-link ${step === 'inactive' && 'active'}`}
           href="#"
         >
-          Neaktívne ({myAds.filter(ad => ad.status != 1).length})
+          Neaktívne ({myAds.filter((ad) => ad.status != 1).length})
         </a>
       </li>
       <li className="nav-item">

@@ -1,10 +1,18 @@
 import React from 'react';
+import Link from 'next/link';
 
-export const Stepper = props => {
+export const Stepper = (props) => {
   const { step, setStep } = props;
   return (
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
+        <li className="breadcrumb-item">
+          <Link href="/">
+            <a>
+              <i aria-hidden className="fas fa-chevron-left"></i>
+            </a>
+          </Link>
+        </li>
         {step === 'category' && (
           <>
             <li className="breadcrumb-item active">Kategória vozidla</li>
