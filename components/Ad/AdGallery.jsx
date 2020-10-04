@@ -2,9 +2,11 @@ import React, { useState, useCallback } from 'react';
 import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from 'react-images';
 
-export const AdGallery = props => {
+export const AdGallery = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
-  const [viewerIsOpen, setViewerIsOpen] = useState(false);
+  const [viewerIsOpen, setViewerIsOpen] = useState(
+    props.open ? props.open : false
+  );
   const [photos] = useState(props.photos);
 
   const openLightbox = useCallback((event, { photo, index }) => {
@@ -15,6 +17,7 @@ export const AdGallery = props => {
   const closeLightbox = () => {
     setCurrentImage(0);
     setViewerIsOpen(false);
+    props.setLoadGallery(false);
   };
 
   return (
@@ -25,10 +28,10 @@ export const AdGallery = props => {
           <Modal onClose={closeLightbox}>
             <Carousel
               currentIndex={currentImage}
-              views={photos.map(x => ({
+              views={photos.map((x) => ({
                 ...x,
                 srcset: x.srcSet,
-                caption: x.title
+                caption: x.title,
               }))}
             />
           </Modal>

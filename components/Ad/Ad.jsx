@@ -1,7 +1,10 @@
-import React, { useContext, memo } from 'react';
+import React, { useContext, memo, useState } from 'react';
 import { Context } from '../../context/context';
 import { useFavorites } from './../../hooks';
+import { AdGallery } from './index';
 import Link from 'next/link';
+import axios from 'axios';
+import ReactLoading from 'react-loading';
 import {
   decodeFuel,
   decodeColor,
@@ -34,6 +37,9 @@ export const Ad = memo((props) => {
     location,
   } = props.ad;
   const { actionBar, handleRemove, handleActive, handleEdit } = props;
+  const [loadGallery, setLoadGallery] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [photos, setPhotos] = useState([]);
   const { state, dispatch } = useContext(Context);
   const { addToFavorites, removeFavorites } = useFavorites(
     id,
@@ -48,10 +54,55 @@ export const Ad = memo((props) => {
     model
   );
 
+  const handleLoadGallery = () => {
+    setLoading(true);
+    axios
+      .get(`${state.api}/upload-photos/${id}`)
+      .then(function (response) {
+        if (response.status === 200) {
+          const mapPhotos = response.data.map((item) => ({
+            ...item,
+            src: `http://autoblsak.sk/${item.photo}`,
+          }));
+          setPhotos(mapPhotos);
+          setLoadGallery(true);
+          setLoading(false);
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
   return (
     <div key={id} className="row ad-box shadow">
+      {loadGallery && (
+        <div>
+          <AdGallery
+            photos={photos}
+            open={loadGallery}
+            setLoadGallery={setLoadGallery}
+          />
+        </div>
+      )}
       <div className="col-12 col-lg-4 p-0">
         {premium ? <div className="top">TOP</div> : ''}
+
+        {loading ? (
+          <div className="load-gallery-loading">
+            <ReactLoading
+              type={'spinningBubbles'}
+              color={state.theme === 'dark' ? '#d65a31' : '#ff331f'}
+              height={'25px'}
+              width={'25px'}
+            />
+          </div>
+        ) : (
+          <div className="load-gallery" onClick={() => handleLoadGallery()}>
+            <i aria-hidden className="fas fa-images"></i>
+          </div>
+        )}
+
         <Link href={`/inzerat/[id]`} as={`/inzerat/${id}`}>
           <a>
             <img

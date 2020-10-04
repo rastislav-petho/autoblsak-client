@@ -228,6 +228,27 @@ h6 {
   color: #ffffff;
 }
 
+.load-gallery {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background-color: var(--bg-color);
+  opacity: 0.9;
+  font-weight: 600;
+  text-align: center;
+  color: #ffffff;
+}
+
+.load-gallery-loading {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  background-color: var(--bg-color);
+}
+
 .ad-titles {
   font-size: 1.5rem;
   color: var(--text-second-color);
