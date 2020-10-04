@@ -237,15 +237,18 @@ h6 {
   line-height: 30px;
   background-color: var(--bg-color);
   opacity: 0.9;
-  font-weight: 600;
   text-align: center;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .load-gallery-loading {
   position: absolute;
   right: 0px;
   top: 0px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
   background-color: var(--bg-color);
 }
 
