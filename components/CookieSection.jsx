@@ -4,26 +4,29 @@ import { Context } from './../context/context';
 
 export const CookiesSection = () => {
   const { state } = useContext(Context);
+  const backgroundDark = '#1b2027';
+  const backgroundLight = '#252422';
+  const textDark = '#d65a31';
+  const textLight = '#d90429';
   return (
     <CookieConsent
       location="bottom"
       buttonText="Súhlasím"
-      cookieName="konopnafarmaliptov"
+      cookieName="autoblsakAllowCookie"
       style={{
-        background: state.theme === 'dark' ? '#393e46ea' : '#fbfbfbce',
-        borderTop: `2px solid ${
-          state.theme === 'dark' ? '#d65a31' : '#ff331f'
-        }`,
+        background: state.theme === 'dark' ? backgroundDark : backgroundLight,
+        borderTop: `2px solid ${state.theme === 'dark' ? textDark : textLight}`,
         borderBottom: `2px solid ${
-          state.theme === 'dark' ? '#d65a31' : '#ff331f'
+          state.theme === 'dark' ? textDark : textLight
         }`,
-        color: state.theme === 'dark' ? '#d65a31' : '#ff331f',
-        fontWeight: '600'
+        color: state.theme === 'dark' ? textDark : textLight,
+        fontWeight: '600',
       }}
       buttonStyle={{
-        color: state.theme === 'dark' ? '#d65a31' : '#ff331f',
-        background: state.theme === 'dark' ? '#2B2834' : '#fbfbfb',
-        fontSize: '13px'
+        color: state.theme === 'dark' ? backgroundDark : backgroundLight,
+        background: state.theme === 'dark' ? textDark : textLight,
+        fontSize: '13px',
+        fontWeight: 600,
       }}
       expires={150}
     >

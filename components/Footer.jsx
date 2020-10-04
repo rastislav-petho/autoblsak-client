@@ -21,13 +21,13 @@ export const Footer = () => {
           <Link href="/kontakt">
             <a>Kontakt</a>
           </Link>
-          <Link href="/">
+          <Link href="/page/ochrana-osobnych-udajov">
             <a>Ochrana osobných údajov</a>
           </Link>
-          <Link href="/">
+          <Link href="/page/odstupenie-od-zmluvy">
             <a>Odstúpenie od zmluvy</a>
           </Link>
-          <Link href="/">
+          <Link href="/page/obchodne-podmienky">
             <a>Podmienky poskytovania služieb</a>
           </Link>
         </div>

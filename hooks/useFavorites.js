@@ -36,7 +36,7 @@ export const useFavorites = (
     }
 
     favorites.push(ad);
-    setCookie('fav', favorites, 86400);
+    setCookie('fav', favorites, 10000000);
 
     dispatch({
       type: 'ADD_TO_FAVORITES',
@@ -47,7 +47,7 @@ export const useFavorites = (
   const removeFavorites = (id) => {
     const favoritesCookie = getCookie('fav');
     const newFav = favoritesCookie.filter((item) => item.id !== id);
-    setCookie('fav', newFav, 86400);
+    setCookie('fav', newFav, 10000000);
     dispatch({ type: 'REMOVE_ITEM_FROM_FAVORITES', id: id });
   };
 
