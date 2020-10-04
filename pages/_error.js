@@ -1,6 +1,7 @@
 import React from 'react';
-import { Layout } from './../components';
+import { Layout } from '../components';
 import Reveal from 'react-reveal/Reveal';
+import Link from 'next/link';
 
 function Error({ statusCode }) {
   return (
@@ -11,13 +12,13 @@ function Error({ statusCode }) {
     >
       <Reveal>
         <div className="row">
-          <div className="col-12 text-center">
-            <h2>OOOPS!!</h2>
+          <div className="col-12 text-center mt-5">
+            <h2 className="mb-5">OOOPS!!</h2>
             <h4>
               STRÁNKA, KTORÚ STE HĽADALI SA NENAŠLA PREJDITE PROSÍM NA NIEKTORÚ
               ZO STRÁNOK
             </h4>
-            <div className="row">
+            <div className="row mt-5">
               <div className="col-12 col-lg-4">
                 <Link href="/">
                   <button className="button">INZERCIA</button>
