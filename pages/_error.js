@@ -19,17 +19,17 @@ function Error({ statusCode }) {
               ZO STRÁNOK
             </h4>
             <div className="row mt-5">
-              <div className="col-12 col-lg-4">
+              <div className="col-12 col-lg-4 mt-3">
                 <Link href="/">
                   <button className="button">INZERCIA</button>
                 </Link>
               </div>
-              <div className="col-12 col-lg-4">
+              <div className="col-12 col-lg-4 mt-3">
                 <Link href="https://autoblsak.sk/magazin">
                   <button className="button">MAGAZÍN</button>
                 </Link>
               </div>
-              <div className="col-12 col-lg-4">
+              <div className="col-12 col-lg-4 mt-3">
                 <Link href="/kontakt">
                   <button className="button">KONTAKT</button>
                 </Link>
