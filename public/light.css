@@ -227,7 +227,7 @@ h6 {
   margin-bottom: 25px;
   padding: 10px;
   border-bottom: 1px solid var(--text-second-color);
-  background-color: var(--bg-third-color);
+  background-color: var(--bg-second-color);
 }
 
 .ad-box img {
