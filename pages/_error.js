@@ -25,9 +25,7 @@ function Error({ statusCode }) {
                 </Link>
               </div>
               <div className="col-12 col-lg-4 mt-3">
-                <Link href="https://autoblsak.sk/magazin">
-                  <button className="button">MAGAZÍN</button>
-                </Link>
+                <a className="button" href="https://autoblsak.sk/magazin"></a>
               </div>
               <div className="col-12 col-lg-4 mt-3">
                 <Link href="/kontakt">
