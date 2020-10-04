@@ -50,8 +50,11 @@ h6 {
   border-bottom: 1px solid var(--text-second-color);
 }
 
+.spacer {
+  height: 15vw;
+}
+
 .content {
-  padding-top: 150px;
   padding-bottom: 50px;
   min-height: 1080px;
 }
@@ -483,10 +486,6 @@ h6 {
 }
 
 @media (max-width: 1279px) {
-  .content {
-    padding-top: 70px;
-  }
-
   .filter-box,
   .user-panel,
   .favorites-box,

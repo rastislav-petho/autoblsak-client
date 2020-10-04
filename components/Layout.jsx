@@ -48,6 +48,7 @@ export const Layout = ({
       <div className="container-fluid nav-bar p-0">
         <Header />
       </div>
+      <div className="spacer"></div>
       <div className="container content">{children}</div>
       <div className="container-fluid p-0">
         <Footer />
