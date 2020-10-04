@@ -62,7 +62,7 @@ export const Ad = memo((props) => {
           </a>
         </Link>
       </div>
-      <div className="col-12 col-lg-8 p-0 pl-lg-2">
+      <div className="col-12 col-lg-8">
         <div className="row ad-titles">
           <div className="col-8">
             <Link href={`/inzerat/[id]`} as={`/inzerat/${id}`}>
@@ -77,47 +77,43 @@ export const Ad = memo((props) => {
           <div className="col-4 text-right">{price} €</div>
         </div>
         <div className="row ad-contents mt-2">
-          <div className="col-12">
-            <div className="row">
-              <div className="col-4 col-md-2 text-center">
-                <span>
-                  <i aria-hidden className="fas fa-calendar-alt"></i>
-                </span>
-                <br />
-                {year_of_manufacture}
-              </div>
-              <div className="col-4 col-md-2 text-center">
-                <span>
-                  <i aria-hidden className="fas fa-gas-pump"></i> <br />
-                </span>{' '}
-                {decodeFuel(fuel)}
-              </div>
-              <div className="col-4 col-md-2 text-center">
-                <span>
-                  <i aria-hidden className="fas fa-dumbbell"></i>
-                </span>
-                <br />
-                {decodeTransmision(transmision)}
-              </div>
-              <div className="col-4 col-md-2 text-center">
-                <span>
-                  <i aria-hidden className="fas fa-tachometer-alt"></i>
-                </span>
-                <br /> {power} kW
-              </div>
-              <div className="col-4 col-md-2 text-center">
-                <span>
-                  <i aria-hidden className="fas fa-road"></i>
-                </span>
-                <br /> {mileage} km
-              </div>
-              <div className="col-4 col-md-2 text-center">
-                <span>
-                  <i aria-hidden className="fas fa-palette"></i>
-                </span>{' '}
-                <br /> {decodeColor(color)}
-              </div>
-            </div>
+          <div className="col-4 col-md-2 text-center">
+            <span>
+              <i aria-hidden className="fas fa-calendar-alt"></i>
+            </span>
+            <br />
+            {year_of_manufacture}
+          </div>
+          <div className="col-4 col-md-2 text-center">
+            <span>
+              <i aria-hidden className="fas fa-gas-pump"></i> <br />
+            </span>{' '}
+            {decodeFuel(fuel)}
+          </div>
+          <div className="col-4 col-md-2 text-center">
+            <span>
+              <i aria-hidden className="fas fa-dumbbell"></i>
+            </span>
+            <br />
+            {decodeTransmision(transmision)}
+          </div>
+          <div className="col-4 col-md-2 text-center">
+            <span>
+              <i aria-hidden className="fas fa-tachometer-alt"></i>
+            </span>
+            <br /> {power} kW
+          </div>
+          <div className="col-4 col-md-2 text-center">
+            <span>
+              <i aria-hidden className="fas fa-road"></i>
+            </span>
+            <br /> {mileage} km
+          </div>
+          <div className="col-4 col-md-2 text-center">
+            <span>
+              <i aria-hidden className="fas fa-palette"></i>
+            </span>{' '}
+            <br /> {decodeColor(color)}
           </div>
         </div>
         <div className="row ad-footers mt-3">
