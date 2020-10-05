@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Context } from './../context/context';
-import { setCookie } from './../helpers';
+import Cookies from 'js-cookie';
 
 export const useTheme = () => {
   const { state, dispatch } = useContext(Context);
@@ -19,7 +19,7 @@ export const useTheme = () => {
       type: 'CHANGE_THEME',
       theme: theme,
     });
-    setCookie('theme', theme, 100000000);
+    Cookies.set('theme', theme, { expires: 365 });
   };
 
   return {

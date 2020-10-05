@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Context } from './../context/context';
-import { getCookie, setCookie } from './../helpers';
+import Cookies from 'js-cookie';
 
 export const useFavorites = (
   id,
@@ -29,14 +29,14 @@ export const useFavorites = (
   };
 
   const addToFavorites = () => {
-    const favoritesCookie = getCookie('fav');
+    const favoritesCookie = Cookies.getJSON('fav');
     let favorites = [];
     if (favoritesCookie) {
       favorites = favoritesCookie;
     }
 
     favorites.push(ad);
-    setCookie('fav', favorites, 10000000);
+    Cookies.set('fav', favorites, { expires: 365 });
 
     dispatch({
       type: 'ADD_TO_FAVORITES',
@@ -45,9 +45,9 @@ export const useFavorites = (
   };
 
   const removeFavorites = (id) => {
-    const favoritesCookie = getCookie('fav');
+    const favoritesCookie = Cookies.getJSON('fav');
     const newFav = favoritesCookie.filter((item) => item.id !== id);
-    setCookie('fav', newFav, 10000000);
+    Cookies.set('fav', newFav, { expires: 365 });
     dispatch({ type: 'REMOVE_ITEM_FROM_FAVORITES', id: id });
   };
 

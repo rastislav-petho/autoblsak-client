@@ -2,20 +2,18 @@ import { useContext } from 'react';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 import { Context } from './../context/context';
-import { setCookie } from './../helpers';
-import Cookies from 'universal-cookie';
+import Cookies from 'js-cookie';
 
 export const useApi = () => {
   const { state, dispatch } = useContext(Context);
   const router = useRouter();
-  const cookies = new Cookies();
 
   const auth = (data) => {
     axios
       .post(`${state.api}/login`, data)
       .then((response) => {
         if (response.status === 200 && response.data.id) {
-          setCookie('user', response.data, 86400);
+          Cookies.set('user', response.data, { expires: 30 });
           dispatch({ type: 'LOGIN', user: response.data });
           router.push('/');
         } else if (response.status === 203) {
@@ -39,7 +37,7 @@ export const useApi = () => {
   };
 
   const logout = () => {
-    cookies.remove('user');
+    Cookies.remove('user');
     dispatch({ type: 'LOGOUT' });
     router.push('/login');
   };

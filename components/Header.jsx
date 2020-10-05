@@ -1,7 +1,7 @@
 import React, { Fragment, useState, useContext } from 'react';
 import { Context } from './../context/context';
 import Link from 'next/link';
-import Cookies from 'universal-cookie';
+import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { useTheme } from './../hooks';
 
@@ -14,8 +14,7 @@ export const Header = () => {
   const router = useRouter();
 
   const logout = () => {
-    const cookies = new Cookies();
-    cookies.remove('user');
+    Cookies.remove('user');
     dispatch({ type: 'LOGOUT' });
     router.push('/login');
   };

@@ -3,29 +3,26 @@ import {
   COUPE,
   TRANSMISION,
   COLORS,
-  CATEGORY
+  CATEGORY,
 } from './../helpers/constants';
-import Cookies from 'universal-cookie';
 import moment from 'moment';
 
-const cookies = new Cookies();
-
-export const dateFormater = date => {
+export const dateFormater = (date) => {
   var dateFormat = require('dateformat');
   return dateFormat(date, 'dd.mm.yyyy');
 };
 
-export const getDateFromTimestamp = timestamp => {
+export const getDateFromTimestamp = (timestamp) => {
   var time = moment.unix(timestamp).format('DD.MM.YYYY');
   return time;
 };
 
-export const getDateAndTimeFromTimestamp = timestamp => {
+export const getDateAndTimeFromTimestamp = (timestamp) => {
   var time = moment.unix(timestamp).format('DD.MM.YYYY, H:m:s');
   return time;
 };
 
-export const decodeFuel = fuel => {
+export const decodeFuel = (fuel) => {
   if (fuel == 1) {
     return FUEL[0].label;
   } else if (fuel == 2) {
@@ -41,7 +38,7 @@ export const decodeFuel = fuel => {
   }
 };
 
-export const decodeCategory = category => {
+export const decodeCategory = (category) => {
   if (category == 1) {
     return CATEGORY[0].label;
   } else if (category == 2) {
@@ -80,7 +77,7 @@ export const decodeCategory = category => {
 };
 
 export const decodeBrand = (brands, id) => {
-  const brand = brands.find(item => item.value == id);
+  const brand = brands.find((item) => item.value == id);
   if (brand) {
     return brand.label;
   }
@@ -88,7 +85,7 @@ export const decodeBrand = (brands, id) => {
 };
 
 export const decodeModel = (models, id) => {
-  const model = models.find(item => item.value == id);
+  const model = models.find((item) => item.value == id);
   if (model) {
     return model.label;
   }
@@ -96,7 +93,7 @@ export const decodeModel = (models, id) => {
   return null;
 };
 
-export const decodeCoupe = coupe => {
+export const decodeCoupe = (coupe) => {
   if (coupe == 1) {
     return COUPE[0].label;
   } else if (coupe == 2) {
@@ -118,7 +115,7 @@ export const decodeCoupe = coupe => {
   }
 };
 
-export const decodeTransmision = trans => {
+export const decodeTransmision = (trans) => {
   if (trans == 1) {
     return TRANSMISION[0].label;
   } else if (trans == 2) {
@@ -128,7 +125,7 @@ export const decodeTransmision = trans => {
   }
 };
 
-export const decodeColor = color => {
+export const decodeColor = (color) => {
   if (color == 1) {
     return COLORS[0].label;
   } else if (color == 2) {
@@ -184,14 +181,6 @@ export const decodeColor = color => {
   } else {
     return null;
   }
-};
-
-export const setCookie = (cookieName, value, maxAge) => {
-  cookies.set(cookieName, value, { maxAge: maxAge });
-};
-
-export const getCookie = cookieName => {
-  return cookies.get(cookieName);
 };
 
 export const getYearsList = (min, max) => {

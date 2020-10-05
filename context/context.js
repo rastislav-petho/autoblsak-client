@@ -1,13 +1,15 @@
 import React, { useReducer, createContext } from 'react';
 import reducer from './../reducer/reducer';
-import { getCookie } from './../helpers/helpers';
+import Cookies from 'js-cookie';
 
 export const Context = createContext();
 
 export const ContextProvider = (props) => {
-  const user = getCookie('user');
-  const theme = getCookie('theme');
-  const favorites = getCookie('fav');
+  const user = Cookies.getJSON('user');
+  const theme = Cookies.get('theme');
+  const favorites = Cookies.getJSON('fav');
+
+  console.log(favorites);
 
   const initialState = {
     language: 'sk',
