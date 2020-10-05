@@ -4,7 +4,7 @@ import {
   COUPE,
   TRANSMISION,
   COLORS,
-  NUMBER_OF_DOORS
+  NUMBER_OF_DOORS,
 } from './../../helpers/constants';
 import {
   getYearsList,
@@ -13,11 +13,11 @@ import {
   decodeCoupe,
   decodeFuel,
   decodeTransmision,
-  decodeColor
+  decodeColor,
 } from './../../helpers';
 import { Input, InputWithAppend, Select, Checkbox, Textarea } from './../Form';
 
-export const MyAdsEditForm = props => {
+export const MyAdsEditForm = (props) => {
   const {
     postAdState,
     brands,
@@ -28,14 +28,14 @@ export const MyAdsEditForm = props => {
     handleSubmit,
     errors,
     handleExtrasChange,
-    onSubmit
+    onSubmit,
   } = props;
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         <div className="col-12 col-lg-6">
-          {postAdState.title && (
+          {postAdState.title !== undefined && (
             <Input
               label="Názov"
               name="title"
@@ -47,7 +47,7 @@ export const MyAdsEditForm = props => {
             />
           )}
 
-          {postAdState.brand && (
+          {postAdState.brand !== undefined && (
             <Select
               name="brand"
               label="Značka"
@@ -60,7 +60,7 @@ export const MyAdsEditForm = props => {
             />
           )}
 
-          {postAdState.model && (
+          {postAdState.model !== undefined && (
             <Select
               name="model"
               label="Model"
@@ -73,7 +73,7 @@ export const MyAdsEditForm = props => {
             />
           )}
 
-          {postAdState.coupe && (
+          {postAdState.coupe !== undefined && (
             <Select
               name="coupe"
               label="Karoséria"
@@ -86,7 +86,7 @@ export const MyAdsEditForm = props => {
             />
           )}
 
-          {postAdState.fuel && (
+          {postAdState.fuel !== undefined && (
             <Select
               name="fuel"
               label="Palivo"
@@ -99,7 +99,7 @@ export const MyAdsEditForm = props => {
             />
           )}
 
-          {postAdState.transmision && (
+          {postAdState.transmision !== undefined && (
             <Select
               name="transmision"
               label="Prevodovka"
@@ -112,7 +112,7 @@ export const MyAdsEditForm = props => {
             />
           )}
 
-          {postAdState.color && (
+          {postAdState.color !== undefined && (
             <Select
               name="color"
               label="Farba"
@@ -126,7 +126,7 @@ export const MyAdsEditForm = props => {
           )}
         </div>
         <div className="col-12 col-lg-6">
-          {postAdState.power && (
+          {postAdState.power !== undefined && (
             <InputWithAppend
               name="power"
               label="Výkon"
@@ -139,7 +139,7 @@ export const MyAdsEditForm = props => {
             />
           )}
 
-          {postAdState.mileage && (
+          {postAdState.mileage !== undefined && (
             <InputWithAppend
               name="mileage"
               label="Počet km"
@@ -152,7 +152,7 @@ export const MyAdsEditForm = props => {
             />
           )}
 
-          {postAdState.cubage && (
+          {postAdState.cubage !== undefined && (
             <InputWithAppend
               name="cubage"
               label="Kubatúra"
@@ -165,7 +165,7 @@ export const MyAdsEditForm = props => {
             />
           )}
 
-          {postAdState.year_of_manufacture && (
+          {postAdState.year_of_manufacture !== undefined && (
             <Select
               name="year_of_manufacture"
               label="Rok výroby"
@@ -177,7 +177,7 @@ export const MyAdsEditForm = props => {
             />
           )}
 
-          {postAdState.number_of_doors && (
+          {postAdState.number_of_doors !== undefined && (
             <Select
               name="number_of_doors"
               label="Počet dverí"
@@ -189,7 +189,7 @@ export const MyAdsEditForm = props => {
             />
           )}
 
-          {postAdState.price && (
+          {postAdState.price !== undefined && (
             <InputWithAppend
               label="Cena"
               name="price"
@@ -213,7 +213,9 @@ export const MyAdsEditForm = props => {
                 <Checkbox
                   name={item.id}
                   key={key}
-                  checked={postAdState.adExtras.find(extra => extra == item.id)}
+                  checked={postAdState.adExtras.find(
+                    (extra) => extra == item.id
+                  )}
                   onChange={handleExtrasChange}
                   value={item.value}
                 />
@@ -230,7 +232,9 @@ export const MyAdsEditForm = props => {
                 <Checkbox
                   name={item.id}
                   key={key}
-                  checked={postAdState.adExtras.find(extra => extra == item.id)}
+                  checked={postAdState.adExtras.find(
+                    (extra) => extra == item.id
+                  )}
                   onChange={handleExtrasChange}
                   value={item.value}
                 />
@@ -247,7 +251,9 @@ export const MyAdsEditForm = props => {
                 <Checkbox
                   name={item.id}
                   key={key}
-                  checked={postAdState.adExtras.find(extra => extra == item.id)}
+                  checked={postAdState.adExtras.find(
+                    (extra) => extra == item.id
+                  )}
                   onChange={handleExtrasChange}
                   value={item.value}
                 />
@@ -264,7 +270,9 @@ export const MyAdsEditForm = props => {
                 <Checkbox
                   name={item.id}
                   key={key}
-                  checked={postAdState.adExtras.find(extra => extra == item.id)}
+                  checked={postAdState.adExtras.find(
+                    (extra) => extra == item.id
+                  )}
                   onChange={handleExtrasChange}
                   value={item.value}
                 />
@@ -279,7 +287,9 @@ export const MyAdsEditForm = props => {
                 <Checkbox
                   name={item.id}
                   key={key}
-                  checked={postAdState.adExtras.find(extra => extra == item.id)}
+                  checked={postAdState.adExtras.find(
+                    (extra) => extra == item.id
+                  )}
                   onChange={handleExtrasChange}
                   value={item.value}
                 />

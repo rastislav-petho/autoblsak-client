@@ -63,6 +63,8 @@ export const Ad = memo((props) => {
           const mapPhotos = response.data.map((item) => ({
             ...item,
             src: `http://autoblsak.sk/${item.photo}`,
+            width: 4,
+            height: 3,
           }));
           setPhotos(mapPhotos);
           setLoadGallery(true);
