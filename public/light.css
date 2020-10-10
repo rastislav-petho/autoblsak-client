@@ -26,6 +26,7 @@
   --navbar-text-color: #f8f9fa;
   --text-color: #011627;
   --text-second-color: #d90429;
+  --text-form-color: #555555;
   --success: #2d884d;
   --warning: #fecf6d;
   --danger: #b34045;
@@ -187,14 +188,16 @@ h6 {
 
 .filter-box input {
   background-color: var(--bg-color);
-  color: var(--text-second-color);
+  color: var(--text-form-color);
   height: 37px;
+  font-size: 0.9rem;
 }
 
 .filter-box select {
   background-color: var(--bg-color);
-  color: var(--text-second-color);
+  color: var(--text-form-color);
   height: 37px;
+  font-size: 0.9rem;
 }
 
 .favorites-box-mobile {

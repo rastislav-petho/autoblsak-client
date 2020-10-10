@@ -169,12 +169,14 @@ h6 {
   background-color: var(--bg-color);
   color: var(--text-second-color);
   height: 37px;
+  font-size: 0.9rem;
 }
 
 .filter-box select {
   background-color: var(--bg-color);
   color: var(--text-second-color);
   height: 37px;
+  font-size: 0.9rem;
 }
 
 .favorites-box-mobile {

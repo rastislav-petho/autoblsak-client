@@ -34,42 +34,43 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
       });
   };
 
-  const removePhoto = id => {
+  const removePhoto = (id) => {
     axios
       .post(`${state.api}/remove-photo`, { id: id })
-      .then(response => {
+      .then((response) => {
         if (response.data.error) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: response.data.error
-            }
+              message: response.data.error,
+            },
           });
         } else {
           getPhotos();
         }
       })
-      .then(error => {
+      .then((error) => {
         if (error) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'danger',
-              message: 'Chyba ! Kontaktujte administrátora'
-            }
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
           });
         }
       });
   };
 
   async function handleImageUpload(event) {
-    const imageFile = event.target.files[0];
-    setLoading(true);
+    const imageFile = event[0];
+    //setLoading(true);
+    console.log(event[0]);
     const options = {
       maxSizeMB: 1,
       maxWidthOrHeight: 1024,
-      useWebWorker: true
+      useWebWorker: true,
     };
     try {
       const compressedFile = await imageCompression(imageFile, options);
@@ -81,15 +82,15 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
 
       fetch(`${state.api}/upload-photo`, {
         method: 'POST',
-        body: formData
+        body: formData,
       })
-        .then(response => response.json())
+        .then((response) => response.json())
         .then(() => {
           getPhotos();
           setLoading(false);
         })
 
-        .catch(error => {
+        .catch((error) => {
           console.error(error);
         });
     } catch (error) {
@@ -104,41 +105,41 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
         message: {
           type: 'warning',
           message:
-            'Pre uloženie inzerátu je potrebné nahrať minimálne jednu fotografiu!'
-        }
+            'Pre uloženie inzerátu je potrebné nahrať minimálne jednu fotografiu!',
+        },
       });
     } else if (!postAdState.defaultPhoto) {
       dispatch({
         type: 'SET_MESSAGE',
         message: {
           type: 'warning',
-          message: 'Nie je zvolená žiadna titulná fotografia!'
-        }
+          message: 'Nie je zvolená žiadna titulná fotografia!',
+        },
       });
     } else {
       axios
         .post(`${state.api}/set-default-photo`, postAdState)
-        .then(response => {
+        .then((response) => {
           if (response.data.error) {
             dispatch({
               type: 'SET_MESSAGE',
               message: {
                 type: 'warning',
-                message: response.data.error
-              }
+                message: response.data.error,
+              },
             });
           } else {
             setStep(nextStep);
           }
         })
-        .then(error => {
+        .then((error) => {
           if (error) {
             dispatch({
               type: 'SET_MESSAGE',
               message: {
                 type: 'danger',
-                message: 'Chyba ! Kontaktujte administrátora'
-              }
+                message: 'Chyba ! Kontaktujte administrátora',
+              },
             });
           }
         });
@@ -150,6 +151,6 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
     handleImageUpload,
     removePhoto,
     photos,
-    loading
+    loading,
   };
 };
