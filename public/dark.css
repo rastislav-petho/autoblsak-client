@@ -41,6 +41,10 @@ h6 {
   cursor: pointer;
 }
 
+.white-space {
+  white-space: nowrap;
+}
+
 .nav-bar {
   position: fixed;
   left: 0;
@@ -222,7 +226,6 @@ h6 {
   height: 20px;
   line-height: 20px;
   background-color: var(--danger);
-  opacity: 0.9;
   font-weight: 600;
   text-align: center;
   color: #ffffff;
@@ -255,6 +258,10 @@ h6 {
 .ad-titles {
   font-size: 1.5rem;
   color: var(--text-second-color);
+}
+
+.ad-titles a {
+  font-weight: 600;
 }
 
 .ad-contents span {
@@ -333,6 +340,20 @@ h6 {
   min-height: 50px;
   border-radius: 4px;
   font-weight: 600;
+}
+
+.full-button {
+  color: var(--text-color);
+  border: 1px solid var(--bg-navbar-color);
+  background-color: var(--text-second-color);
+  width: 100%;
+  min-height: 50px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+.full-button a {
+  color: var(--text-color);
 }
 
 .a-button {

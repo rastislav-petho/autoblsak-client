@@ -11,7 +11,7 @@ import {
   decodeFuel,
   decodeCoupe,
   decodeTransmision,
-  decodeColor
+  decodeColor,
 } from '../../helpers';
 
 const Inzerat = ({ data }) => {
@@ -41,12 +41,12 @@ const Inzerat = ({ data }) => {
     location,
     additional_information,
     extras,
-    email
+    email,
   } = data;
 
   useEffect(() => {
     const data = { id: id, views: views + 1 };
-    axios.post(`${state.api}/ad/updateviews`, data).then(response => {
+    axios.post(`${state.api}/ad/updateviews`, data).then((response) => {
       console.log(response);
     });
   }, []);
@@ -182,16 +182,14 @@ const Inzerat = ({ data }) => {
             </div>
             <div className="row">
               <div className="col-12">
-                <button className="button w-100 mb-2">
+                <button className="full-button mb-2">
                   Predajca: {seller_name}
                 </button>
-                <button className="button w-100 mb-2">
+                <button className="full-button mb-2">
                   <a href={`tel:${mobile_number}`}>Zavolať predajcovi</a>
                 </button>
                 <AdSendEmail user={state.user} email={email} />
-                <button className="button w-100 mb-2">
-                  Poloha: {location}
-                </button>
+                <button className="full-button mb-2">Poloha: {location}</button>
               </div>
             </div>
           </div>
@@ -273,7 +271,7 @@ export async function getServerSideProps({ params }) {
   const res = await fetch(`https://autoblsak.sk/api/api/ad/${params.id}`);
   const data = await res.json();
   return {
-    props: { data }
+    props: { data },
   };
 }
 

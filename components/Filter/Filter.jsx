@@ -26,6 +26,7 @@ export const Filter = () => {
             models={models}
             handleChange={handleChange}
             handleSubmitFilter={handleSubmitFilter}
+            button="full-button"
           />
         </Fragment>
       </div>
@@ -37,6 +38,7 @@ export const Filter = () => {
             brands={brands}
             models={models}
             handleChange={handleChange}
+            button="button"
           />
         </div>
       )}

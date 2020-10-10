@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import axios from 'axios';
 import { Context } from './../../context/context';
 
-export const AdSendEmail = props => {
+export const AdSendEmail = (props) => {
   const [sendEmail, setSendEmail] = useState(false);
 
   const { user, email } = props;
@@ -11,7 +11,7 @@ export const AdSendEmail = props => {
     name: user ? user.username : '',
     email: user ? user.email : '',
     message: '',
-    adEmail: email
+    adEmail: email,
   };
   const [emailState, setEmailState] = useState(initialState);
 
@@ -19,36 +19,36 @@ export const AdSendEmail = props => {
 
   const { register, handleSubmit, watch, errors } = useForm();
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     setEmailState({ ...emailState, [event.target.name]: event.target.value });
   };
 
   async function onSubmit(data) {
     axios
       .post(`${state.api}/contact-seller`, emailState)
-      .then(response => {
+      .then((response) => {
         if (response.status === 200 && response.data.success) {
           setEmailState(initialState);
           setSendEmail(false);
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'success', message: response.data.success }
+            message: { type: 'success', message: response.data.success },
           });
         } else {
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'danger', message: response.data.error }
+            message: { type: 'danger', message: response.data.error },
           });
         }
       })
-      .then(error => {
+      .then((error) => {
         if (error) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora'
-            }
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
           });
         }
       });
@@ -57,10 +57,7 @@ export const AdSendEmail = props => {
   return (
     <>
       {!sendEmail ? (
-        <button
-          className="button w-100 mb-2"
-          onClick={() => setSendEmail(true)}
-        >
+        <button className="full-button mb-2" onClick={() => setSendEmail(true)}>
           Poslať predajcovi správu
         </button>
       ) : (
@@ -78,7 +75,7 @@ export const AdSendEmail = props => {
                   id="name"
                   name="name"
                   value={emailState.name}
-                  onChange={event => handleChange(event)}
+                  onChange={(event) => handleChange(event)}
                   ref={register({ required: true })}
                 />
                 {errors.name && errors.name.type === 'required' && (
@@ -93,10 +90,10 @@ export const AdSendEmail = props => {
                   id="email"
                   name="email"
                   value={emailState.email}
-                  onChange={event => handleChange(event)}
+                  onChange={(event) => handleChange(event)}
                   ref={register({
                     required: true,
-                    pattern: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/
+                    pattern: /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/,
                   })}
                 />
                 {(errors.email && errors.email.type === 'required' && (
@@ -115,7 +112,7 @@ export const AdSendEmail = props => {
                   name="message"
                   rows="5"
                   value={emailState.message}
-                  onChange={event => handleChange(event)}
+                  onChange={(event) => handleChange(event)}
                   ref={register({ required: true })}
                 ></textarea>
                 {errors.message && errors.message.type === 'required' && (

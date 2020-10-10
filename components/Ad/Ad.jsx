@@ -137,32 +137,32 @@ export const Ad = memo((props) => {
             <br />
             {year_of_manufacture}
           </div>
-          <div className="col-4 col-md-2 text-center">
+          <div className="col-4 col-md-2 text-center white-space">
             <span>
               <i aria-hidden className="fas fa-gas-pump"></i> <br />
             </span>{' '}
             {decodeFuel(fuel)}
           </div>
-          <div className="col-4 col-md-2 text-center">
+          <div className="col-4 col-md-2 text-center white-space">
             <span>
               <i aria-hidden className="fas fa-dumbbell"></i>
             </span>
             <br />
             {decodeTransmision(transmision)}
           </div>
-          <div className="col-4 col-md-2 text-center">
+          <div className="col-4 col-md-2 text-center white-space">
             <span>
               <i aria-hidden className="fas fa-tachometer-alt"></i>
             </span>
             <br /> {power} kW
           </div>
-          <div className="col-4 col-md-2 text-center">
+          <div className="col-4 col-md-2 text-center white-space">
             <span>
               <i aria-hidden className="fas fa-road"></i>
             </span>
             <br /> {mileage} km
           </div>
-          <div className="col-4 col-md-2 text-center">
+          <div className="col-4 col-md-2 text-center white-space">
             <span>
               <i aria-hidden className="fas fa-palette"></i>
             </span>{' '}

@@ -23,10 +23,11 @@ export const FilterForm = ({
   models,
   handleChange,
   handleSubmitFilter,
+  button,
 }) => {
   return (
     <div>
-      <div className="form-group">
+      <div className="form-group mb-2">
         <select
           onChange={handleChange}
           className="form-control"
@@ -46,7 +47,7 @@ export const FilterForm = ({
       </div>
       {filter.category == 1 && (
         <>
-          <div className="form-group">
+          <div className="form-group mb-2">
             <select
               onChange={handleChange}
               className="form-control"
@@ -65,7 +66,7 @@ export const FilterForm = ({
               ))}
             </select>
           </div>
-          <div className="form-group">
+          <div className="form-group mb-2">
             <select
               onChange={handleChange}
               className="form-control"
@@ -84,7 +85,7 @@ export const FilterForm = ({
               ))}
             </select>
           </div>
-          <div className="form-group">
+          <div className="form-group mb-2">
             <select
               onChange={handleChange}
               className="form-control"
@@ -103,7 +104,7 @@ export const FilterForm = ({
           </div>
         </>
       )}
-      <div className="form-group">
+      <div className="form-group mb-2">
         <select onChange={handleChange} className="form-control" name="fuel">
           <option value={filter.fuel ? filter.fuel : null}>
             {filter.fuel ? decodeFuel(filter.fuel) : 'Palivo'}
@@ -116,7 +117,7 @@ export const FilterForm = ({
           ))}
         </select>
       </div>
-      <div className="form-group">
+      <div className="form-group mb-2">
         <select
           onChange={handleChange}
           className="form-control"
@@ -135,7 +136,7 @@ export const FilterForm = ({
           ))}
         </select>
       </div>
-      <div className="form-group">
+      <div className="form-group mb-2">
         <select onChange={handleChange} className="form-control" name="color">
           <option value={filter.color ? filter.color : null}>
             {filter.color ? decodeColor(filter.color) : 'Farba'}
@@ -146,7 +147,7 @@ export const FilterForm = ({
           ))}
         </select>
       </div>
-      <div className="form-group">
+      <div className="form-group mb-2">
         <label>Rok výroby</label>
         <div className="row">
           <div className="col-12 col-md-6">
@@ -181,7 +182,7 @@ export const FilterForm = ({
           </div>
         </div>
       </div>
-      <div className="form-group">
+      <div className="form-group mb-2">
         <label>Cena</label>
         <div className="row">
           <div className="col-12 col-md-6">
@@ -206,7 +207,7 @@ export const FilterForm = ({
           </div>
         </div>
       </div>
-      <div className="form-group">
+      <div className="form-group mb-2">
         <label>Najazdených km</label>
         <div className="row">
           <div className="col-12 col-md-6">
@@ -231,7 +232,7 @@ export const FilterForm = ({
           </div>
         </div>
       </div>
-      <div className="form-group">
+      <div className="form-group mb-2">
         <label>Výkon (kW)</label>
         <div className="row">
           <div className="col-12 col-md-6">
@@ -257,7 +258,7 @@ export const FilterForm = ({
         </div>
       </div>
       <div className="form-group text-center">
-        <button onClick={handleSubmitFilter} className="button">
+        <button onClick={handleSubmitFilter} className={button}>
           Hľadať
         </button>
       </div>
