@@ -65,6 +65,15 @@ h6 {
   white-space: nowrap;
 }
 
+.modal-window {
+  position: fixed;
+  z-index: 4;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+}
+
 .nav-bar {
   position: fixed;
   left: 0;
@@ -364,7 +373,7 @@ h6 {
 
 .full-button {
   color: var(--bg-color);
-  border: 1px solid var(--bg-navbar-color);
+  border: none;
   background-color: var(--text-second-color);
   width: 100%;
   min-height: 35px;
@@ -551,6 +560,11 @@ h6 {
 }
 
 @media (max-width: 1279px) {
+  .modal-window {
+    transform: translate(-50%, -65%);
+    width: 98%;
+  }
+
   .filter-box,
   .user-panel,
   .favorites-box,
