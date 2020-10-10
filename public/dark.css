@@ -166,13 +166,15 @@ h6 {
 }
 
 .filter-box input {
-  background-color: var(--bg-second-color);
+  background-color: var(--bg-color);
   color: var(--text-second-color);
+  height: 34px;
 }
 
 .filter-box select {
-  background-color: var(--bg-second-color);
+  background-color: var(--bg-color);
   color: var(--text-second-color);
+  height: 34px;
 }
 
 .favorites-box-mobile {
