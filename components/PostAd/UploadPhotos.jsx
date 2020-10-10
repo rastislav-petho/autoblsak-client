@@ -27,7 +27,7 @@ export const UploadPhotos = (props) => {
           />
         </>
       )}
-      <DropZone handleImageUpload={handleImageUpload} />
+
       <div className="row text-center mt-3">
         <div className="col-12">
           <button className="button" onClick={handleSubmit}>
