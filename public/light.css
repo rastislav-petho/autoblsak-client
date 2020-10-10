@@ -188,13 +188,13 @@ h6 {
 .filter-box input {
   background-color: var(--bg-color);
   color: var(--text-second-color);
-  height: 34px;
+  height: 37px;
 }
 
 .filter-box select {
   background-color: var(--bg-color);
   color: var(--text-second-color);
-  height: 34px;
+  height: 37px;
 }
 
 .favorites-box-mobile {
