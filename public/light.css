@@ -367,7 +367,7 @@ h6 {
   border: 1px solid var(--bg-navbar-color);
   background-color: var(--text-second-color);
   width: 100%;
-  min-height: 40px;
+  min-height: 35px;
   border-radius: 4px;
   font-weight: 600;
 }

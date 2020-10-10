@@ -122,58 +122,56 @@ const Inzerat = ({ data }) => {
                   <tbody>
                     {fuel && (
                       <tr>
-                        <td>Palivo</td>
-                        <th scope="row">{decodeFuel(fuel)}</th>
+                        <th scope="row">Palivo</th>
+                        <td>{decodeFuel(fuel)}</td>
                       </tr>
                     )}
                     {coupe && (
                       <tr>
-                        <td>Karoséria</td>
-                        <th scope="row">{decodeCoupe(coupe)}</th>
+                        <th scope="row">Karoséria</th>
+                        <td>{decodeCoupe(coupe)}</td>
                       </tr>
                     )}
                     {transmision && (
                       <tr>
-                        <td>Prevodovka</td>
-                        <th scope="row">{decodeTransmision(transmision)}</th>
+                        <th scope="row">Prevodovka</th>
+                        <td>{decodeTransmision(transmision)}</td>
                       </tr>
                     )}
                     {power && (
                       <tr>
-                        <td>Výkon</td>
-                        <th scope="row">{power} kW</th>
+                        <th scope="row">Výkon</th>
+                        <td>{power} kW</td>
                       </tr>
                     )}
                     {cubage && (
                       <tr>
-                        <td>Kubatúra</td>
-                        <th scope="row">
-                          {cubage} <sub>cm</sub>2
-                        </th>
+                        <th scope="row">Kubatúra</th>
+                        <td>{cubage} cm&sup3;</td>
                       </tr>
                     )}
                     {year_of_manufacture && (
                       <tr>
-                        <td>Rok výroby</td>
-                        <th scope="row">{year_of_manufacture}</th>
+                        <th scope="row">Rok výroby</th>
+                        <td>{year_of_manufacture}</td>
                       </tr>
                     )}
                     {mileage && (
                       <tr>
-                        <td>Počet km</td>
-                        <th scope="row">{mileage} km</th>
+                        <th scope="row">Počet km</th>
+                        <td>{mileage} km</td>
                       </tr>
                     )}
                     {number_of_doors && (
                       <tr>
-                        <td>Počet dverí</td>
-                        <th scope="row">{number_of_doors}</th>
+                        <th scope="row">Počet dverí</th>
+                        <td>{number_of_doors}</td>
                       </tr>
                     )}
                     {color && (
                       <tr>
-                        <td>Farba</td>
-                        <th scope="row">{decodeColor(color)}</th>
+                        <th scope="row">Farba</th>
+                        <td>{decodeColor(color)}</td>
                       </tr>
                     )}
                   </tbody>
