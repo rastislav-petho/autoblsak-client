@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 import { Context } from '../../context/context';
 
-export const PostAdGallery = props => {
+export const PostAdGallery = (props) => {
   const { photos, setPostAdState, postAdState, removePhoto } = props;
   const { state } = useContext(Context);
 
-  const selectDefaultPhoto = item => {
+  const selectDefaultPhoto = (item) => {
     setPostAdState({
       ...postAdState,
-      defaultPhoto: item.id
+      defaultPhoto: item.id,
     });
   };
 
@@ -17,7 +17,7 @@ export const PostAdGallery = props => {
       <div className="col-12 pl-5 pr-5">
         {photos.length > 0 && <p>Vyberte jednu titulnú fotku</p>}
         <div className="row">
-          {photos.map(item => (
+          {photos.map((item) => (
             <div
               key={item.id}
               className={`${

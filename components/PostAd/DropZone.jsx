@@ -1,21 +1,21 @@
 import React, { useCallback } from 'react';
 import { useDropzone } from 'react-dropzone';
 
-export function DropZone(props) {
-  const { handleImageUpload } = props;
-  const onDrop = useCallback((acceptedFiles) => {
-    handleImageUpload(acceptedFiles[0]);
+export const DropZone = (props) => {
+  const onDrop = useCallback((files) => {
+    console.log(files);
+    files.map((file) => props.handleImageUpload(file));
   }, []);
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
   return (
-    <div {...getRootProps()}>
+    <div {...getRootProps()} className="drop-zone">
       <input {...getInputProps()} />
       {isDragActive ? (
-        <p>Drop the files here ...</p>
+        <p>Vložiť</p>
       ) : (
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>Sem presunte fotky ktoré chcete nahrať ...</p>
       )}
     </div>
   );
-}
+};

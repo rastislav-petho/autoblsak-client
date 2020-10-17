@@ -18,7 +18,7 @@ export const UploadPhotos = (props) => {
         <Loading />
       ) : (
         <>
-          <input type="file" accept="image/*" onChange={handleImageUpload} />
+          <DropZone handleImageUpload={handleImageUpload} />
           <PostAdGallery
             photos={photos}
             setPostAdState={setPostAdState}

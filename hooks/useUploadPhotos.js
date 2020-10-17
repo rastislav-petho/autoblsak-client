@@ -63,8 +63,8 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
       });
   };
 
-  async function handleImageUpload(event) {
-    const imageFile = event.target.files[0];
+  async function handleImageUpload(file) {
+    const imageFile = file;
     setLoading(true);
     const options = {
       maxSizeMB: 1,

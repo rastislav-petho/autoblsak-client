@@ -53,7 +53,9 @@ const Inzerat = ({ data }) => {
 
   return (
     <Layout
-      pageTitle={`${brand_label} ${model_label} - Autoblšák.sk`}
+      pageTitle={`${
+        title ? title : brand_label + ' ' + model_label
+      } - Autoblšák.sk`}
       pageDescription={additional_information}
       pageKeywords=""
     >

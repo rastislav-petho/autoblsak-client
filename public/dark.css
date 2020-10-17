@@ -548,6 +548,15 @@ h6 {
   margin-bottom: 15px;
 }
 
+.drop-zone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 150px;
+  border: dashed 1px var(--text-second-color);
+}
+
 @media (max-width: 1279px) {
   .modal-window {
     transform: translate(-50%, -65%);
