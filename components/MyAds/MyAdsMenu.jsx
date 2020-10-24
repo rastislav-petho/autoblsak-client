@@ -31,24 +31,6 @@ export const MyAdsMenu = (props) => {
           Neaktívne ({myAds.filter((ad) => ad.status != 1).length})
         </a>
       </li>
-      <li className="nav-item">
-        <a
-          onClick={() => setStep('change-password')}
-          className={`nav-link ${step === 'change-password' && 'active'}`}
-          href="#"
-        >
-          Zmena hesla
-        </a>
-      </li>
-      <li className="nav-item">
-        <a
-          onClick={() => setStep('deactive-account')}
-          className={`nav-link ${step === 'deactive-account' && 'active'}`}
-          href="#"
-        >
-          Zrušiť účet
-        </a>
-      </li>
     </ul>
   );
 };

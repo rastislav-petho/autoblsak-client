@@ -34,6 +34,13 @@ export const UserPanel = ({ user }) => {
               </Link>
             </h6>
             <h6>
+              <Link href="/password">
+                <a>
+                  <i aria-hidden className="fas fa-key mr-2"></i> Zmeniť heslo
+                </a>
+              </Link>
+            </h6>
+            <h6>
               <a className="cursor-pointer" onClick={() => handleChangeTheme()}>
                 <i aria-hidden className="fas fa-palette mr-2"></i> Zmeniť tému
               </a>
