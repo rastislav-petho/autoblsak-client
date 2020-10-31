@@ -79,7 +79,7 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
       formData.append('aid', aid);
       formData.append('uid', state.user.id);
 
-      fetch(`${state.api}/upload-photo`, {
+      await fetch(`${state.api}/upload-photo`, {
         method: 'POST',
         body: formData,
       })

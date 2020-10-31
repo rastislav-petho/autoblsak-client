@@ -8,7 +8,7 @@ import {
   COMMERCIAL_CATEGORY,
   MOTO_CATEGORY,
   ACCESSORIES_CATEGORY,
-  OTHER_CATEGORY
+  OTHER_CATEGORY,
 } from './../../helpers/constants';
 import {
   getYearsList,
@@ -18,11 +18,11 @@ import {
   decodeFuel,
   decodeTransmision,
   decodeColor,
-  decodeCategory
+  decodeCategory,
 } from './../../helpers';
 import { Input, InputWithAppend, Checkbox, Select, Textarea } from './../Form';
 
-export const AdditionalInformation = props => {
+export const AdditionalInformation = (props) => {
   const {
     handleSubmit,
     onSubmit,
@@ -33,7 +33,7 @@ export const AdditionalInformation = props => {
     handleExtrasChange,
     register,
     errors,
-    postAdState
+    postAdState,
   } = props;
 
   return (
@@ -235,7 +235,7 @@ export const AdditionalInformation = props => {
                     name={item.id}
                     key={key}
                     checked={postAdState.adExtras.find(
-                      extra => extra == item.id
+                      (extra) => extra == item.id
                     )}
                     onChange={handleExtrasChange}
                     value={item.value}
@@ -254,7 +254,7 @@ export const AdditionalInformation = props => {
                     name={item.id}
                     key={key}
                     checked={postAdState.adExtras.find(
-                      extra => extra == item.id
+                      (extra) => extra == item.id
                     )}
                     onChange={handleExtrasChange}
                     value={item.value}
@@ -273,7 +273,7 @@ export const AdditionalInformation = props => {
                     name={item.id}
                     key={key}
                     checked={postAdState.adExtras.find(
-                      extra => extra == item.id
+                      (extra) => extra == item.id
                     )}
                     onChange={handleExtrasChange}
                     value={item.value}
@@ -292,7 +292,7 @@ export const AdditionalInformation = props => {
                     name={item.id}
                     key={key}
                     checked={postAdState.adExtras.find(
-                      extra => extra == item.id
+                      (extra) => extra == item.id
                     )}
                     onChange={handleExtrasChange}
                     value={item.value}
@@ -309,7 +309,7 @@ export const AdditionalInformation = props => {
                     name={item.id}
                     key={key}
                     checked={postAdState.adExtras.find(
-                      extra => extra == item.id
+                      (extra) => extra == item.id
                     )}
                     onChange={handleExtrasChange}
                     value={item.value}
@@ -380,7 +380,12 @@ export const AdditionalInformation = props => {
             </div>
 
             <div className="form-group col-12">
-              <input type="submit" className="button w-100" name="submit" />
+              <input
+                type="submit"
+                className="button w-100"
+                name="submit"
+                value="Pokračovať na fotografie"
+              />
             </div>
           </div>
         </div>
