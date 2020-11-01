@@ -87,7 +87,16 @@ export const Ad = memo((props) => {
           />
         </div>
       )}
-      <div className="col-12 col-lg-4 p-0">
+
+      <div
+        className="col-12 col-lg-4 p-0 ad-photo"
+        style={{
+          backgroundImage: `url(${state.url}/${defaultPhoto.photo})`,
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: 'cover',
+        }}
+      >
         {premium ? <div className="top">TOP</div> : ''}
 
         {loading ? (
@@ -104,17 +113,11 @@ export const Ad = memo((props) => {
             <i aria-hidden className="fas fa-images"></i>
           </div>
         )}
-
         <Link href={`/inzerat/[id]`} as={`/inzerat/${id}`}>
-          <a>
-            <img
-              className="w-100"
-              src={`${state.url}/${defaultPhoto.photo}`}
-              alt="bme f10"
-            />
-          </a>
+          <a></a>
         </Link>
       </div>
+
       <div className="col-12 col-lg-8">
         <div className="row ad-titles">
           <div className="col-8">
