@@ -9,7 +9,7 @@ const Login = () => {
   const { register, handleSubmit, errors } = useForm();
   const { auth } = useApi();
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     auth(data);
   };
 
