@@ -226,6 +226,8 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: start;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .favorites-box h3 {
