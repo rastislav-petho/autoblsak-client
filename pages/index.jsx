@@ -53,9 +53,9 @@ const Index = () => {
           </div>
         </div>
         <div className="col-12 col-md-12 col-lg-9 order-lg-2 order-1">
-          <h6 className="mb-3">
+          <p className="mb-3 font-weight-bold">
             Počet nájdených výsledkov: {state.ads.to} z {state.ads.total}
-          </h6>
+          </p>
           <Reveal>
             <>{ads && ads.map((ad) => <Ad ad={ad} key={ad.id} />)}</>
           </Reveal>

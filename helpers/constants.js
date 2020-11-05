@@ -1,340 +1,340 @@
 export const FUEL = [
   {
     value: 1,
-    label: "Diesel"
+    label: 'Diesel',
   },
   {
     value: 2,
-    label: "Benzín"
+    label: 'Benzín',
   },
   {
     value: 3,
-    label: "Benzín + LPG"
+    label: 'Benzín + LPG',
   },
   {
     value: 4,
-    label: "Hybrid"
+    label: 'Hybrid',
   },
   {
     value: 5,
-    label: "Elektro"
-  }
+    label: 'Elektro',
+  },
 ];
 
 export const COUPE = [
   {
     value: 1,
-    label: "Sedan"
+    label: 'Sedan',
   },
   {
     value: 2,
-    label: "Hatchback"
+    label: 'Hatchback',
   },
   {
     value: 3,
-    label: "Combi"
+    label: 'Combi',
   },
   {
     value: 4,
-    label: "Cabrio"
+    label: 'Cabrio',
   },
   {
     value: 5,
-    label: "SUV / Off-road"
+    label: 'SUV / Off-road',
   },
   {
     value: 6,
-    label: "Pick-up"
+    label: 'Pick-up',
   },
   {
     value: 7,
-    label: "Van"
+    label: 'Van',
   },
   {
     value: 8,
-    label: "Coupe"
-  }
+    label: 'Coupe',
+  },
 ];
 
 export const TRANSMISION = [
   {
     value: 1,
-    label: "Manuálna"
+    label: 'Manuálna',
   },
   {
     value: 2,
-    label: "Automatická"
-  }
+    label: 'Automatická',
+  },
 ];
 
 export const COLORS = [
   {
     value: 1,
-    label: "Béžová"
+    label: 'Béžová',
   },
   {
     value: 2,
-    label: "Bordeaux"
+    label: 'Bordeaux',
   },
   {
     value: 3,
-    label: "Bronzová"
+    label: 'Bronzová',
   },
   {
     value: 4,
-    label: "Biela"
+    label: 'Biela',
   },
   {
     value: 5,
-    label: "Fialová"
+    label: 'Fialová',
   },
   {
     value: 6,
-    label: "Žltá"
+    label: 'Žltá',
   },
   {
     value: 7,
-    label: "Zelená"
+    label: 'Zelená',
   },
   {
     value: 8,
-    label: "Zlatá"
+    label: 'Zlatá',
   },
   {
     value: 9,
-    label: "Hnedá"
+    label: 'Hnedá',
   },
   {
     value: 10,
-    label: "Oranžová"
+    label: 'Oranžová',
   },
   {
     value: 11,
-    label: "Sivá"
+    label: 'Sivá',
   },
   {
     value: 12,
-    label: "Modrá"
+    label: 'Modrá',
   },
   {
     value: 13,
-    label: "Strieborná"
+    label: 'Strieborná',
   },
   {
     value: 14,
-    label: "Červená"
+    label: 'Červená',
   },
   {
     value: 15,
-    label: "Čierna"
+    label: 'Čierna',
   },
   {
     value: 16,
-    label: "Okrovožltá"
+    label: 'Okrovožltá',
   },
   {
     value: 17,
-    label: "Perleťová"
+    label: 'Perleťová',
   },
   {
     value: 18,
-    label: "Ružová"
+    label: 'Ružová',
   },
   {
     value: 19,
-    label: "Farba chameleón"
+    label: 'Farba chameleón',
   },
   {
     value: 20,
-    label: "Svetlozelená"
+    label: 'Svetlozelená',
   },
   {
     value: 21,
-    label: "Svetlosivá"
+    label: 'Svetlosivá',
   },
   {
     value: 22,
-    label: "Svetlomodrá"
+    label: 'Svetlomodrá',
   },
   {
     value: 23,
-    label: "Tmavozelená"
+    label: 'Tmavozelená',
   },
   {
     value: 24,
-    label: "Tmavosivá"
+    label: 'Tmavosivá',
   },
   {
     value: 25,
-    label: "Tmavomodrá"
+    label: 'Tmavomodrá',
   },
   {
     value: 26,
-    label: "Šedá"
-  }
+    label: 'Šedá',
+  },
 ];
 
 export const CATEGORY = [
   {
     value: 1,
-    label: "Osobné vozidlá"
+    label: 'Osobné vozidlá',
   },
   {
     value: 2,
-    label: "Nákladné autá"
+    label: 'Nákladné autá',
   },
   {
     value: 3,
-    label: "Dodávky"
+    label: 'Dodávky',
   },
   {
     value: 4,
-    label: "Autobusy"
+    label: 'Autobusy',
   },
   {
     value: 5,
-    label: "Mikrobusy"
+    label: 'Mikrobusy',
   },
   {
     value: 6,
-    label: "Karavany"
+    label: 'Karavany',
   },
   {
     value: 7,
-    label: "Motocykle"
+    label: 'Motocykle',
   },
   {
     value: 8,
-    label: "Skútre"
+    label: 'Skútre',
   },
   {
     value: 16,
-    label: "Štvorkolky"
+    label: 'Štvorkolky',
   },
   {
     value: 9,
-    label: "Náhradné diely"
+    label: 'Náhradné diely',
   },
   {
     value: 10,
-    label: "Prívesné vozíky"
+    label: 'Prívesné vozíky',
   },
   {
     value: 11,
-    label: "Pneumatiky a kolesá"
+    label: 'Pneumatiky a kolesá',
   },
   {
     value: 12,
-    label: "Autorádia, gps navigácie"
+    label: 'Autorádia, gps navigácie',
+  },
+  {
+    value: 13,
+    label: 'Veterány',
   },
   {
     value: 14,
-    label: "Veterány"
+    label: 'Havarované vozidlá',
   },
-  {
-    value: 15,
-    label: "Havarované vozidlá"
-  }
 ];
 
 export const COMMERCIAL_CATEGORY = [
   {
     value: 2,
-    label: "Nákladné autá"
+    label: 'Nákladné autá',
   },
   {
     value: 3,
-    label: "Dodávky"
+    label: 'Dodávky',
   },
   {
     value: 4,
-    label: "Autobusy"
+    label: 'Autobusy',
   },
   {
     value: 5,
-    label: "Mikrobusy"
+    label: 'Mikrobusy',
   },
   {
     value: 6,
-    label: "Karavany"
-  }
+    label: 'Karavany',
+  },
 ];
 
 export const MOTO_CATEGORY = [
   {
     value: 7,
-    label: "Motocykle"
+    label: 'Motocykle',
   },
   {
     value: 8,
-    label: "Skútre"
+    label: 'Skútre',
   },
   {
     value: 16,
-    label: "Štvorkolky"
-  }
+    label: 'Štvorkolky',
+  },
 ];
 
 export const ACCESSORIES_CATEGORY = [
   {
     value: 9,
-    label: "Náhradné diely"
+    label: 'Náhradné diely',
   },
   {
     value: 10,
-    label: "Prívesné vozíky"
+    label: 'Prívesné vozíky',
   },
   {
     value: 11,
-    label: "Pneumatiky a kolesá"
+    label: 'Pneumatiky a kolesá',
   },
   {
     value: 12,
-    label: "Autorádia, gps navigácie"
-  }
+    label: 'Autorádia, gps navigácie',
+  },
 ];
 
 export const OTHER_CATEGORY = [
   {
-    value: 14,
-    label: "Veterány"
+    value: 13,
+    label: 'Veterány',
   },
   {
-    value: 15,
-    label: "Havarované vozidlá"
-  }
+    value: 14,
+    label: 'Havarované vozidlá',
+  },
 ];
 
 export const EXTRAS_CATEGORIES = [
   {
     id: 1,
-    value: "Bezpečnosť"
+    value: 'Bezpečnosť',
   },
   {
     id: 2,
-    value: "Komfort"
+    value: 'Komfort',
   },
   {
     id: 3,
-    value: "Exteriér"
+    value: 'Exteriér',
   },
   {
     id: 4,
-    value: "Ochrana"
+    value: 'Ochrana',
   },
   {
     id: 5,
-    value: "Interiér"
-  }
+    value: 'Interiér',
+  },
 ];
 
 export const NUMBER_OF_DOORS = [
   {
-    value: "2/3",
-    label: "2/3"
+    value: '2/3',
+    label: '2/3',
   },
   {
-    value: "4/5",
-    label: "4/5"
-  }
+    value: '4/5',
+    label: '4/5',
+  },
 ];

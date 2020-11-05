@@ -5,7 +5,7 @@ import {
   Stepper,
   Category,
   AdditionalInformation,
-  PublicationAd
+  PublicationAd,
 } from './../components/PostAd';
 import { usePostAd } from './../hooks';
 
@@ -24,7 +24,7 @@ const PostAd = () => {
     onSubmit,
     handleChange,
     handleExtrasChange,
-    setPostAdState
+    setPostAdState,
   } = usePostAd();
 
   return (

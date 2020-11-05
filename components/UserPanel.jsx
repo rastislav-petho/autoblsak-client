@@ -18,39 +18,27 @@ export const UserPanel = ({ user }) => {
           </p>
 
           <p>
-            <h6>
-              <Link href="/post-ad">
-                <a>
-                  <i aria-hidden className="fas fa-plus mr-2"></i> Pridať
-                  inzerát
-                </a>
-              </Link>
-            </h6>
-            <h6>
-              <Link href="/my-ad">
-                <a>
-                  <i aria-hidden className="fas fa-car mr-2"></i> Moje inzeráty
-                </a>
-              </Link>
-            </h6>
-            <h6>
-              <Link href="/password">
-                <a>
-                  <i aria-hidden className="fas fa-key mr-2"></i> Zmeniť heslo
-                </a>
-              </Link>
-            </h6>
-            <h6>
-              <a className="cursor-pointer" onClick={() => handleChangeTheme()}>
-                <i aria-hidden className="fas fa-palette mr-2"></i> Zmeniť tému
+            <Link href="/post-ad">
+              <a>
+                <i aria-hidden className="fas fa-plus mr-2"></i> Pridať inzerát
               </a>
-            </h6>
-            <h6>
-              <a onClick={logout} href="#" className="user-add-ads">
-                <i aria-hidden className="fas fa-sign-out-alt mr-2"></i>{' '}
-                Odhlásiť
+            </Link>
+            <Link href="/my-ad">
+              <a>
+                <i aria-hidden className="fas fa-car mr-2"></i> Moje inzeráty
               </a>
-            </h6>
+            </Link>
+            <Link href="/password">
+              <a>
+                <i aria-hidden className="fas fa-key mr-2"></i> Zmeniť heslo
+              </a>
+            </Link>
+            <a className="cursor-pointer" onClick={() => handleChangeTheme()}>
+              <i aria-hidden className="fas fa-palette mr-2"></i> Zmeniť tému
+            </a>
+            <a onClick={logout} href="#" className="user-add-ads">
+              <i aria-hidden className="fas fa-sign-out-alt mr-2"></i> Odhlásiť
+            </a>
           </p>
         </>
       ) : (

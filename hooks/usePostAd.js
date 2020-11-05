@@ -32,7 +32,7 @@ export const usePostAd = () => {
     mobile_number: '',
     email: state.user && state.user.email,
     location: '',
-    defaultPhoto: ''
+    defaultPhoto: '',
   });
 
   const [step, setStep] = useState('category');
@@ -65,43 +65,43 @@ export const usePostAd = () => {
       setPostAdState({
         ...postAdState,
         categoryType: value,
-        category: '1'
+        category: '1',
       });
     } else {
       setPostAdState({
         ...postAdState,
         categoryType: value,
-        category: ''
+        category: '',
       });
     }
     setStep(step);
   }
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     axios
       .post(`${state.api}/save-ad`, postAdState)
-      .then(response => {
+      .then((response) => {
         if (response.status === 200) {
           setPostAdState({
             ...postAdState,
-            aid: response.data
+            aid: response.data,
           });
           setStep('upload-photos');
         } else {
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'danger', message: response.data.error }
+            message: { type: 'danger', message: response.data.error },
           });
         }
       })
-      .then(error => {
+      .then((error) => {
         if (error) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora'
-            }
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
           });
         }
       });
@@ -110,7 +110,7 @@ export const usePostAd = () => {
   function handleChange(event) {
     setPostAdState({
       ...postAdState,
-      [event.target.name]: event.target.value
+      [event.target.name]: event.target.value,
     });
   }
 
@@ -120,12 +120,12 @@ export const usePostAd = () => {
       postAdState.adExtras.splice(index, 1);
       setPostAdState({
         ...postAdState,
-        adExtras: postAdState.adExtras
+        adExtras: postAdState.adExtras,
       });
     } else {
       setPostAdState({
         ...postAdState,
-        adExtras: [...postAdState.adExtras, event.target.name]
+        adExtras: [...postAdState.adExtras, event.target.name],
       });
     }
   }
@@ -144,6 +144,6 @@ export const usePostAd = () => {
     onSubmit,
     handleChange,
     handleExtrasChange,
-    setPostAdState
+    setPostAdState,
   };
 };

@@ -69,8 +69,6 @@ export const decodeCategory = (category) => {
     return CATEGORY[13].label;
   } else if (category == 14) {
     return CATEGORY[14].label;
-  } else if (category == 15) {
-    return CATEGORY[15].label;
   } else {
     return null;
   }
