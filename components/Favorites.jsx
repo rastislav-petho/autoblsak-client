@@ -1,6 +1,7 @@
-import React, { useContext, Fragment, useEffect } from 'react';
+import React, { useContext, Fragment } from 'react';
 import { Context } from './../context/context';
 import { FavoritesItem } from './index';
+import Fade from 'react-reveal/Fade';
 
 export const Favorites = () => {
   const { state, dispatch } = useContext(Context);
@@ -9,17 +10,19 @@ export const Favorites = () => {
   return (
     <Fragment>
       {collapse && (
-        <div className="container">
-          <div className="favorites-box">
-            {state.favoriteAds.map((favorite) => (
-              <FavoritesItem
-                ad={favorite}
-                key={favorite.id}
-                collapse={collapse}
-              />
-            ))}
+        <Fade top>
+          <div className="container">
+            <div className="favorites-box">
+              {state.favoriteAds.map((favorite) => (
+                <FavoritesItem
+                  ad={favorite}
+                  key={favorite.id}
+                  collapse={collapse}
+                />
+              ))}
+            </div>
           </div>
-        </div>
+        </Fade>
       )}
 
       {collapse && (
