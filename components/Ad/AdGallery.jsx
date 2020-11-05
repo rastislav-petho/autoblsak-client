@@ -7,7 +7,6 @@ export const AdGallery = (props) => {
   const [viewerIsOpen, setViewerIsOpen] = useState(
     props.open ? props.open : false
   );
-  const [photos] = useState(props.photos);
 
   const openLightbox = useCallback((event, { photo, index }) => {
     setCurrentImage(index);
@@ -20,9 +19,13 @@ export const AdGallery = (props) => {
     props.setLoadGallery(false);
   };
 
+  const loadPhotos = () => {
+    return props.photos;
+  };
+
   return (
     <>
-      <Gallery photos={photos} onClick={openLightbox} />
+      <Gallery photos={loadPhotos()} onClick={openLightbox} />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>

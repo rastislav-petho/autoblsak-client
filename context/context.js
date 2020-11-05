@@ -9,8 +9,6 @@ export const ContextProvider = (props) => {
   const theme = Cookies.get('theme');
   const favorites = Cookies.getJSON('fav');
 
-  console.log(favorites);
-
   const initialState = {
     language: 'sk',
     url: 'https://autoblsak.sk',
