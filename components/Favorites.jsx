@@ -8,15 +8,19 @@ export const Favorites = () => {
 
   return (
     <Fragment>
-      <div className="favorites-box">
-        <h5>
-          <i aria-hidden className="far fa-star add-to-favorites-button"></i>{' '}
-          Obľúbené
-        </h5>
-        {state.favoriteAds.map((favorite) => (
-          <FavoritesItem ad={favorite} key={favorite.id} collapse={collapse} />
-        ))}
-      </div>
+      {collapse && (
+        <div className="container">
+          <div className="favorites-box">
+            {state.favoriteAds.map((favorite) => (
+              <FavoritesItem
+                ad={favorite}
+                key={favorite.id}
+                collapse={collapse}
+              />
+            ))}
+          </div>
+        </div>
+      )}
 
       {collapse && (
         <div className="favorite-box-mobile">

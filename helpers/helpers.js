@@ -189,3 +189,6 @@ export const getYearsList = (min, max) => {
 
   return years;
 };
+
+export const scrollToTop = () =>
+  window.scrollTo({ top: 0, behavior: 'smooth' });

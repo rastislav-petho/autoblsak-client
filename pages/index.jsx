@@ -1,17 +1,12 @@
 import React, { useContext, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Context } from './../context/context';
-import {
-  Layout,
-  Magazine,
-  MostView,
-  UserPanel,
-  Favorites,
-} from './../components';
+import { Layout, Magazine, MostView, UserPanel } from './../components';
 import { Filter } from './../components/Filter';
 import { Ad } from './../components/Ad';
 import { useApi } from './../hooks';
 import Reveal from 'react-reveal/Reveal';
+import { scrollToTop } from './../helpers';
 
 const Index = () => {
   const { state } = useContext(Context);
@@ -24,7 +19,7 @@ const Index = () => {
 
   function handlePagination(move) {
     adPagination(move);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
   }
 
   console.log(state);
@@ -35,10 +30,6 @@ const Index = () => {
           <div className="row">
             <div className="col-12">
               <UserPanel user={state.user} />
-            </div>
-
-            <div className="col-12">
-              <Favorites />
             </div>
 
             <div className="col-12">

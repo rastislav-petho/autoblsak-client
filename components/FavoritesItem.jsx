@@ -18,8 +18,8 @@ export const FavoritesItem = memo((props) => {
   const { removeFavorites } = useFavorites(props.ad);
 
   return (
-    <div key={id} className="row mb-2 favorite">
-      <div className="col-3 favorites-img-box">
+    <div key={id} className="mb-2 mr-2 favorite">
+      <div className="favorites-img-box">
         <Link href={`/inzerat/[id]`} as={`/inzerat/${id}`}>
           <a>
             <img src={`${state.url}/${defaultPhoto.photo}`} alt="bme f10" />
@@ -29,14 +29,14 @@ export const FavoritesItem = memo((props) => {
 
       <Fragment>
         <Link href={`/inzerat/[id]`} as={`/inzerat/${id}`}>
-          <div className="col-7 favorites-content-box cursor-pointer">
+          <div className="favorites-content-box cursor-pointer">
             {props.ad.title ? props.ad.title : props.ad.brand && props.ad.brand}{' '}
             {props.ad.model && props.ad.model} - {year_of_manufacture} <br />
             {power} kW, {decodeFuel(fuel)} <br />
             {mileage} km, {price} €<br />
           </div>
         </Link>
-        <div className="col-2 favorites-remove-box">
+        <div className="favorites-remove-box">
           <i
             onClick={() => removeFavorites(id)}
             aria-hidden

@@ -3,6 +3,7 @@ import { Context } from './../context/context';
 import Head from 'next/head';
 import { Header } from './index';
 import { Messages, CookiesSection, Footer } from './../components';
+import { Favorites } from './Favorites';
 
 export const Layout = ({
   children,
@@ -45,10 +46,12 @@ export const Layout = ({
       </Head>
       <CookiesSection />
       {state.message.type && <Messages message={state.message} />}
+
       <div className="container-fluid nav-bar p-0">
         <Header />
       </div>
       <div className="spacer"></div>
+      <Favorites />
       <div className="container content">{children}</div>
       <div className="container-fluid p-0">
         <Footer />

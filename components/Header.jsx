@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
 import { useTheme } from './../hooks';
+import { scrollToTop } from '../helpers';
 
 export const Header = () => {
   const [collapse, setCollapse] = useState(false);
@@ -19,44 +20,56 @@ export const Header = () => {
     router.push('/login');
   };
 
+  const handleFavorites = () => {
+    dispatch({ type: 'TOGGLE_FAVORITES', toggle: !collapseFavorites });
+    scrollToTop();
+  };
+
   return (
     <div className="container p-1">
-      <div className="menu">
-        <span>
-          <Link href="/">
-            <a>
-              <img src="/img/bazarik-1.png" alt="Logo" className="logo" />
-            </a>
-          </Link>
-        </span>
-        <span>
-          <a href="https://autoblsak.sk/magazin">Magazín</a>
-        </span>
+      <div className="menu-wrapper">
+        <div className="menu">
+          <span>
+            <Link href="/">
+              <a>
+                <img src="/img/bazarik-1.png" alt="Logo" className="logo" />
+              </a>
+            </Link>
+          </span>
+          <span>
+            <a href="https://autoblsak.sk/magazin">Magazín</a>
+          </span>
 
-        <span>
-          <Link href="/onas">
-            <a>O nás</a>
-          </Link>
-        </span>
-        <span>
-          <Link href="/kontakt">
-            <a>Kontakt</a>
-          </Link>
-        </span>
-        {!state.user && (
-          <Fragment>
-            <span>
-              <Link href="/register">
-                <a>Registrácia</a>
-              </Link>
-            </span>
-            <span>
-              <Link href="/login">
-                <a>Prihlásiť</a>
-              </Link>
-            </span>
-          </Fragment>
-        )}
+          <span>
+            <Link href="/onas">
+              <a>O nás</a>
+            </Link>
+          </span>
+          <span>
+            <Link href="/kontakt">
+              <a>Kontakt</a>
+            </Link>
+          </span>
+          {!state.user && (
+            <Fragment>
+              <span>
+                <Link href="/register">
+                  <a>Registrácia</a>
+                </Link>
+              </span>
+              <span>
+                <Link href="/login">
+                  <a>Prihlásiť</a>
+                </Link>
+              </span>
+            </Fragment>
+          )}
+        </div>
+        <div className="favorites">
+          <i aria-hidden className="far fa-star" onClick={handleFavorites}>
+            <span className="count">{state.favoriteAds.length}</span>
+          </i>
+        </div>
       </div>
 
       <div className="toggle-menu">

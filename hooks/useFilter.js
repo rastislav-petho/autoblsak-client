@@ -1,6 +1,7 @@
 import { useContext, useEffect } from 'react';
 import { Context } from './../context/context';
 import axios from 'axios';
+import { scrollToTop } from '../helpers';
 
 export const useFilter = () => {
   const { state, dispatch } = useContext(Context);
@@ -62,7 +63,7 @@ export const useFilter = () => {
           });
         }
       });
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    scrollToTop();
   }
 
   return {
