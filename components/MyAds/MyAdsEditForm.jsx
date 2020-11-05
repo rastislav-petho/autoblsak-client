@@ -35,7 +35,7 @@ export const MyAdsEditForm = (props) => {
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="row">
         <div className="col-12 col-lg-6">
-          {postAdState.title !== undefined && (
+          {postAdState.title !== null && (
             <Input
               label="Názov"
               name="title"
@@ -47,7 +47,7 @@ export const MyAdsEditForm = (props) => {
             />
           )}
 
-          {postAdState.brand !== undefined && (
+          {postAdState.brand !== null && (
             <Select
               name="brand"
               label="Značka"
@@ -60,7 +60,7 @@ export const MyAdsEditForm = (props) => {
             />
           )}
 
-          {postAdState.model !== undefined && (
+          {postAdState.model !== null && (
             <Select
               name="model"
               label="Model"
@@ -73,7 +73,7 @@ export const MyAdsEditForm = (props) => {
             />
           )}
 
-          {postAdState.coupe !== undefined && (
+          {postAdState.coupe !== null && (
             <Select
               name="coupe"
               label="Karoséria"
@@ -86,7 +86,7 @@ export const MyAdsEditForm = (props) => {
             />
           )}
 
-          {postAdState.fuel !== undefined && (
+          {postAdState.fuel !== null && (
             <Select
               name="fuel"
               label="Palivo"
@@ -99,7 +99,7 @@ export const MyAdsEditForm = (props) => {
             />
           )}
 
-          {postAdState.transmision !== undefined && (
+          {postAdState.transmision !== null && (
             <Select
               name="transmision"
               label="Prevodovka"
@@ -112,7 +112,7 @@ export const MyAdsEditForm = (props) => {
             />
           )}
 
-          {postAdState.color !== undefined && (
+          {postAdState.color !== null && (
             <Select
               name="color"
               label="Farba"
@@ -126,7 +126,7 @@ export const MyAdsEditForm = (props) => {
           )}
         </div>
         <div className="col-12 col-lg-6">
-          {postAdState.power !== undefined && (
+          {postAdState.power !== null && (
             <InputWithAppend
               name="power"
               label="Výkon"
@@ -139,7 +139,7 @@ export const MyAdsEditForm = (props) => {
             />
           )}
 
-          {postAdState.mileage !== undefined && (
+          {postAdState.mileage !== null && (
             <InputWithAppend
               name="mileage"
               label="Počet km"
@@ -152,7 +152,7 @@ export const MyAdsEditForm = (props) => {
             />
           )}
 
-          {postAdState.cubage !== undefined && (
+          {postAdState.cubage !== null && (
             <InputWithAppend
               name="cubage"
               label="Kubatúra"
@@ -165,7 +165,7 @@ export const MyAdsEditForm = (props) => {
             />
           )}
 
-          {postAdState.year_of_manufacture !== undefined && (
+          {postAdState.year_of_manufacture !== null && (
             <Select
               name="year_of_manufacture"
               label="Rok výroby"
@@ -177,7 +177,7 @@ export const MyAdsEditForm = (props) => {
             />
           )}
 
-          {postAdState.number_of_doors !== undefined && (
+          {postAdState.number_of_doors !== null && (
             <Select
               name="number_of_doors"
               label="Počet dverí"
@@ -189,7 +189,7 @@ export const MyAdsEditForm = (props) => {
             />
           )}
 
-          {postAdState.price !== undefined && (
+          {postAdState.price !== null && (
             <InputWithAppend
               label="Cena"
               name="price"
@@ -203,100 +203,102 @@ export const MyAdsEditForm = (props) => {
           )}
         </div>
       </div>
-      <div className="row mt-3">
-        <div className="col-12 col-md-6 col-lg-3">
-          <h6>Bezpečnosť</h6>
+      {postAdState.category == 1 && (
+        <div className="row mt-3">
+          <div className="col-12 col-md-6 col-lg-3">
+            <h6>Bezpečnosť</h6>
 
-          {extras.map(
-            (item, key) =>
-              item.category_id === '1' && (
-                <Checkbox
-                  name={item.id}
-                  key={key}
-                  checked={postAdState.adExtras.find(
-                    (extra) => extra == item.id
-                  )}
-                  onChange={handleExtrasChange}
-                  value={item.value}
-                />
-              )
-          )}
+            {extras.map(
+              (item, key) =>
+                item.category_id === '1' && (
+                  <Checkbox
+                    name={item.id}
+                    key={key}
+                    checked={postAdState.adExtras.find(
+                      (extra) => extra == item.id
+                    )}
+                    onChange={handleExtrasChange}
+                    value={item.value}
+                  />
+                )
+            )}
+          </div>
+
+          <div className="col-12 col-md-6 col-lg-3">
+            <h6>Komfort</h6>
+
+            {extras.map(
+              (item, key) =>
+                item.category_id === '2' && (
+                  <Checkbox
+                    name={item.id}
+                    key={key}
+                    checked={postAdState.adExtras.find(
+                      (extra) => extra == item.id
+                    )}
+                    onChange={handleExtrasChange}
+                    value={item.value}
+                  />
+                )
+            )}
+          </div>
+
+          <div className="col-12 col-md-6 col-lg-3">
+            <h6>Ochrana</h6>
+
+            {extras.map(
+              (item, key) =>
+                item.category_id === '5' && (
+                  <Checkbox
+                    name={item.id}
+                    key={key}
+                    checked={postAdState.adExtras.find(
+                      (extra) => extra == item.id
+                    )}
+                    onChange={handleExtrasChange}
+                    value={item.value}
+                  />
+                )
+            )}
+          </div>
+
+          <div className="col-12 col-md-6 col-lg-3">
+            <h6>Exterier</h6>
+
+            {extras.map(
+              (item, key) =>
+                item.category_id === '3' && (
+                  <Checkbox
+                    name={item.id}
+                    key={key}
+                    checked={postAdState.adExtras.find(
+                      (extra) => extra == item.id
+                    )}
+                    onChange={handleExtrasChange}
+                    value={item.value}
+                  />
+                )
+            )}
+
+            <h6 className="mt-3">Interier</h6>
+
+            {extras.map(
+              (item, key) =>
+                item.category_id === '6' && (
+                  <Checkbox
+                    name={item.id}
+                    key={key}
+                    checked={postAdState.adExtras.find(
+                      (extra) => extra == item.id
+                    )}
+                    onChange={handleExtrasChange}
+                    value={item.value}
+                  />
+                )
+            )}
+          </div>
         </div>
-
-        <div className="col-12 col-md-6 col-lg-3">
-          <h6>Komfort</h6>
-
-          {extras.map(
-            (item, key) =>
-              item.category_id === '2' && (
-                <Checkbox
-                  name={item.id}
-                  key={key}
-                  checked={postAdState.adExtras.find(
-                    (extra) => extra == item.id
-                  )}
-                  onChange={handleExtrasChange}
-                  value={item.value}
-                />
-              )
-          )}
-        </div>
-
-        <div className="col-12 col-md-6 col-lg-3">
-          <h6>Ochrana</h6>
-
-          {extras.map(
-            (item, key) =>
-              item.category_id === '5' && (
-                <Checkbox
-                  name={item.id}
-                  key={key}
-                  checked={postAdState.adExtras.find(
-                    (extra) => extra == item.id
-                  )}
-                  onChange={handleExtrasChange}
-                  value={item.value}
-                />
-              )
-          )}
-        </div>
-
-        <div className="col-12 col-md-6 col-lg-3">
-          <h6>Exterier</h6>
-
-          {extras.map(
-            (item, key) =>
-              item.category_id === '3' && (
-                <Checkbox
-                  name={item.id}
-                  key={key}
-                  checked={postAdState.adExtras.find(
-                    (extra) => extra == item.id
-                  )}
-                  onChange={handleExtrasChange}
-                  value={item.value}
-                />
-              )
-          )}
-
-          <h6 className="mt-3">Interier</h6>
-
-          {extras.map(
-            (item, key) =>
-              item.category_id === '6' && (
-                <Checkbox
-                  name={item.id}
-                  key={key}
-                  checked={postAdState.adExtras.find(
-                    (extra) => extra == item.id
-                  )}
-                  onChange={handleExtrasChange}
-                  value={item.value}
-                />
-              )
-          )}
-        </div>
-      </div>
+      )}
       <div className="row mt-3">
         <div className="col-12 col-lg-6">
           <Textarea
