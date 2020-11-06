@@ -53,11 +53,6 @@ export const Header = () => {
           {!state.user && (
             <Fragment>
               <span>
-                <Link href="/register">
-                  <a>Registrácia</a>
-                </Link>
-              </span>
-              <span>
                 <Link href="/login">
                   <a>Prihlásiť</a>
                 </Link>
@@ -65,6 +60,14 @@ export const Header = () => {
             </Fragment>
           )}
         </div>
+        <Link href="/post-ad">
+          <button className="button mr-2">Pridať inzerát</button>
+        </Link>
+        {!state.user && (
+          <Link href="/register">
+            <button className="button mr-2">Vytvoriť účet</button>
+          </Link>
+        )}
         <div className="favorites">
           <i aria-hidden className="far fa-star" onClick={handleFavorites}>
             <span className="count">{state.favoriteAds.length}</span>
@@ -153,6 +156,13 @@ export const Header = () => {
                 <Link href="/my-ad">
                   <a className="user-add-ads">
                     <i aria-hidden className="fas fa-car"></i> Moje inzeráty
+                  </a>
+                </Link>
+              </span>
+              <span>
+                <Link href="/account">
+                  <a className="user-add-ads">
+                    <i aria-hidden className="fas fa-cog"></i> Nastavenia účtu
                   </a>
                 </Link>
               </span>

@@ -11,7 +11,7 @@ export const Layout = ({
   pageDescription,
   pageKeywords,
 }) => {
-  const { state } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
 
   return (
     <Fragment>
@@ -45,13 +45,19 @@ export const Layout = ({
         )}
       </Head>
       <CookiesSection />
-      {state.message.type && <Messages message={state.message} />}
+      {state.message.type && (
+        <Messages message={state.message} dispatch={dispatch} />
+      )}
 
       <div className="container-fluid nav-bar p-0">
         <Header />
       </div>
       <div className="spacer"></div>
-      <Favorites />
+      <Favorites
+        favorites={state.favoriteAds}
+        collapse={state.config.toggleFavorites}
+        dispatch={dispatch}
+      />
       <div className="container content">{children}</div>
       <div className="container-fluid p-0">
         <Footer />

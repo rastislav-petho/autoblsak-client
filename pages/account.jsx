@@ -1,13 +1,17 @@
 import React, { useContext, useState } from 'react';
-import { Layout } from './../components';
-import { Context } from './../context/context';
+import { Layout } from '../components';
+import { Context } from '../context/context';
 import Reveal from 'react-reveal/Reveal';
-import { ChangePassword, DeactiveAccount } from '../components/MyAds';
+import {
+  ChangePassword,
+  DeactiveAccount,
+  PrivateInformation,
+} from '../components/MyAds';
 import Link from 'next/link';
 
-const Password = () => {
+const Account = () => {
   const { state, dispatch } = useContext(Context);
-  const [step, setStep] = useState('change-password');
+  const [step, setStep] = useState('private-information');
 
   return (
     <Layout
@@ -25,6 +29,17 @@ const Password = () => {
                     <i aria-hidden className="fas fa-chevron-left"></i>
                   </a>
                 </Link>
+              </li>
+              <li className="nav-item">
+                <a
+                  onClick={() => setStep('private-information')}
+                  className={`nav-link ${
+                    step === 'private-information' && 'active'
+                  }`}
+                  href="#"
+                >
+                  Osobné informácie
+                </a>
               </li>
               <li className="nav-item">
                 <a
@@ -53,6 +68,12 @@ const Password = () => {
         </div>
         <div className="row">
           <div className="col-12">
+            {step === 'private-information' && (
+              <Reveal>
+                <PrivateInformation user={state.user} />
+              </Reveal>
+            )}
+
             {step === 'change-password' && (
               <Reveal>
                 <ChangePassword />
@@ -71,4 +92,4 @@ const Password = () => {
   );
 };
 
-export default Password;
+export default Account;

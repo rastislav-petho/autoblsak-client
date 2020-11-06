@@ -44,7 +44,6 @@ export const useApi = () => {
 
   const changePassword = (data) => {
     data = { ...data, token: state.user.token, userId: state.user.id };
-    console.log(data);
     axios
       .post(`${state.api}/change-password`, data)
       .then((response) => {
@@ -59,6 +58,35 @@ export const useApi = () => {
           dispatch({
             type: 'SET_MESSAGE',
             message: { type: 'warning', message: response.data.warning },
+          });
+        } else {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'danger', message: response.data.error },
+          });
+        }
+      })
+      .then((error) => {
+        if (error) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: {
+              type: 'warning',
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
+          });
+        }
+      });
+  };
+
+  const editAccount = (data) => {
+    axios
+      .post(`${state.api}/edit-account`, data)
+      .then((response) => {
+        if (response.status === 200 && response.data.success) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'success', message: response.data.success },
           });
         } else {
           dispatch({
@@ -246,5 +274,6 @@ export const useApi = () => {
     getBrands,
     getModels,
     getExtras,
+    editAccount,
   };
 };

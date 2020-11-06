@@ -28,9 +28,9 @@ export const UserPanel = ({ user }) => {
                 <i aria-hidden className="fas fa-car mr-2"></i> Moje inzeráty
               </a>
             </Link>
-            <Link href="/password">
+            <Link href="/account">
               <a>
-                <i aria-hidden className="fas fa-key mr-2"></i> Zmeniť heslo
+                <i aria-hidden className="fas fa-cog mr-2"></i> Nastavenia účtu
               </a>
             </Link>
             <a className="cursor-pointer" onClick={() => handleChangeTheme()}>

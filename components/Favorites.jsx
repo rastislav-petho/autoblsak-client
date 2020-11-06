@@ -1,11 +1,9 @@
-import React, { useContext, Fragment } from 'react';
-import { Context } from './../context/context';
+import React, { Fragment, memo } from 'react';
 import { FavoritesItem } from './index';
 import Fade from 'react-reveal/Fade';
 
-export const Favorites = () => {
-  const { state, dispatch } = useContext(Context);
-  const collapse = state.config.toggleFavorites;
+export const Favorites = memo((props) => {
+  const { favorites, collapse, dispatch } = props;
 
   return (
     <Fragment>
@@ -13,7 +11,7 @@ export const Favorites = () => {
         <Fade top>
           <div className="container">
             <div className="favorites-box">
-              {state.favoriteAds.map((favorite) => (
+              {favorites.map((favorite) => (
                 <FavoritesItem
                   ad={favorite}
                   key={favorite.id}
@@ -27,8 +25,8 @@ export const Favorites = () => {
 
       {collapse && (
         <div className="favorite-box-mobile">
-          <h3>{state.favoriteAds.length} - Obľúbené</h3>
-          {state.favoriteAds.map((favorite) => (
+          <h3>{favorites.length} - Obľúbené</h3>
+          {favorites.map((favorite) => (
             <FavoritesItem
               ad={favorite}
               key={favorite.id}
@@ -49,4 +47,4 @@ export const Favorites = () => {
       )}
     </Fragment>
   );
-};
+});

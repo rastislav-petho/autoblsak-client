@@ -42,7 +42,7 @@ export const usePostAd = () => {
 
   useEffect(() => {
     if (!state.user) {
-      document.location.href = '/';
+      document.location.href = '/login';
     }
   }, []);
 

@@ -31,7 +31,7 @@ export const AdGallery = (props) => {
           <Modal onClose={closeLightbox}>
             <Carousel
               currentIndex={currentImage}
-              views={photos.map((x) => ({
+              views={props.photos.map((x) => ({
                 ...x,
                 srcset: x.srcSet,
                 caption: x.title,
