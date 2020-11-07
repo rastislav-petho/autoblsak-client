@@ -6,4 +6,5 @@ export * from './Magazine';
 export * from './Messages';
 export * from './MostView';
 export * from './Pagination';
+export * from './PageMenu';
 export * from './UserPanel';

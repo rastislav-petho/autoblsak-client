@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { Layout } from '../components';
+import { Layout, PageMenu } from '../components';
 import { Context } from '../context/context';
 import Reveal from 'react-reveal/Reveal';
 import {
@@ -7,11 +7,28 @@ import {
   DeactiveAccount,
   PrivateInformation,
 } from '../components/MyAds';
-import Link from 'next/link';
 
 const Account = () => {
-  const { state, dispatch } = useContext(Context);
+  const { state } = useContext(Context);
   const [step, setStep] = useState('private-information');
+
+  const pageMenuItems = [
+    {
+      step: 'private-information',
+      label: 'Osobné informácie',
+      className: `nav-link ${step === 'private-information' && 'active'}`,
+    },
+    {
+      step: 'change-password',
+      label: 'Zmena hesla',
+      className: `nav-link ${step === 'change-password' && 'active'}`,
+    },
+    {
+      step: 'deactive-account',
+      label: 'Zrušiť účet',
+      className: `nav-link ${step === 'deactive-account' && 'active'}`,
+    },
+  ];
 
   return (
     <Layout
@@ -22,48 +39,7 @@ const Account = () => {
       <Reveal>
         <div className="row mb-3">
           <div className="col-12">
-            <ul className="nav nav-tabs">
-              <li className="nav-item">
-                <Link href="/">
-                  <a className="nav-link">
-                    <i aria-hidden className="fas fa-chevron-left"></i>
-                  </a>
-                </Link>
-              </li>
-              <li className="nav-item">
-                <a
-                  onClick={() => setStep('private-information')}
-                  className={`nav-link ${
-                    step === 'private-information' && 'active'
-                  }`}
-                  href="#"
-                >
-                  Osobné informácie
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  onClick={() => setStep('change-password')}
-                  className={`nav-link ${
-                    step === 'change-password' && 'active'
-                  }`}
-                  href="#"
-                >
-                  Zmena hesla
-                </a>
-              </li>
-              <li className="nav-item">
-                <a
-                  onClick={() => setStep('deactive-account')}
-                  className={`nav-link ${
-                    step === 'deactive-account' && 'active'
-                  }`}
-                  href="#"
-                >
-                  Zrušiť účet
-                </a>
-              </li>
-            </ul>
+            <PageMenu setStep={setStep} items={pageMenuItems} />
           </div>
         </div>
         <div className="row">

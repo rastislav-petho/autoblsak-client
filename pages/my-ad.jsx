@@ -1,8 +1,8 @@
 import React from 'react';
-import { Layout } from '../components';
+import { Layout, PageMenu } from '../components';
 import { Ad } from './../components/Ad';
 import { useMyAds } from './../hooks';
-import { MyAdsMenu, MyAdsEditForm } from '../components/MyAds';
+import { MyAdsEditForm } from '../components/MyAds';
 import { UploadPhotos } from './../components/PostAd';
 import Reveal from 'react-reveal/Reveal';
 
@@ -28,6 +28,21 @@ const MyAd = (props) => {
     onSubmit,
   } = useMyAds();
 
+  const pageMenuItems = [
+    {
+      step: 'active',
+      label: 'Aktívne',
+      adsCount: myAds.filter((ad) => ad.status == 1).length,
+      className: `nav-link ${step === 'active' && 'active'}`,
+    },
+    {
+      step: 'inactive',
+      label: 'Neaktívne',
+      adsCount: myAds.filter((ad) => ad.status !== 1).length,
+      className: `nav-link ${step === 'inactive' && 'active'}`,
+    },
+  ];
+
   return (
     <Layout
       pageTitle="Moje inzeráty - Autoblšák.sk"
@@ -36,7 +51,7 @@ const MyAd = (props) => {
     >
       <div className="row mb-3">
         <div className="col-12">
-          <MyAdsMenu myAds={myAds} step={step} setStep={setStep} />
+          <PageMenu items={pageMenuItems} setStep={setStep} />
         </div>
       </div>
       {step === 'active' &&
