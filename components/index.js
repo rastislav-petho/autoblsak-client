@@ -5,4 +5,5 @@ export * from './Loading';
 export * from './Magazine';
 export * from './Messages';
 export * from './MostView';
+export * from './Pagination';
 export * from './UserPanel';

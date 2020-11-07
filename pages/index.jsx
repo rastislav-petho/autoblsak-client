@@ -1,7 +1,13 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useCallback } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Context } from './../context/context';
-import { Layout, Magazine, MostView, UserPanel } from './../components';
+import {
+  Layout,
+  Magazine,
+  MostView,
+  UserPanel,
+  Pagination,
+} from './../components';
 import { Filter } from './../components/Filter';
 import { Ad } from './../components/Ad';
 import { useApi } from './../hooks';
@@ -17,10 +23,10 @@ const Index = () => {
     filter();
   }, []);
 
-  function handlePagination(move) {
+  const handlePagination = (move) => {
     adPagination(move);
     scrollToTop();
-  }
+  };
 
   return (
     <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
@@ -50,24 +56,11 @@ const Index = () => {
             <>{ads && ads.map((ad) => <Ad ad={ad} key={ad.id} />)}</>
           </Reveal>
           <div className="row">
-            <div className="col-12">
-              <div className="row paginate">
-                <div className="col-6">
-                  {state.ads.current_page !== 1 && (
-                    <button onClick={() => handlePagination(false)}>
-                      <i aria-hidden className="fas fa-chevron-left"></i> Späť
-                    </button>
-                  )}
-                </div>
-                <div className="col-6 text-right">
-                  {state.ads.current_page !== state.ads.last_page && (
-                    <button onClick={() => handlePagination(true)}>
-                      Ďalej <i aria-hidden className="fas fa-chevron-right"></i>
-                    </button>
-                  )}
-                </div>
-              </div>
-            </div>
+            <Pagination
+              currentPage={state.ads.current_page}
+              lastPage={state.ads.last_page}
+              handlePagination={handlePagination}
+            />
           </div>
         </div>
       </div>
