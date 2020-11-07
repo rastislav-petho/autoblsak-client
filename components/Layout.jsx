@@ -1,7 +1,7 @@
 import React, { Fragment, useContext } from 'react';
 import { Context } from './../context/context';
 import Head from 'next/head';
-import { Header } from './index';
+import { Header } from './Header';
 import { Messages, CookiesSection, Footer } from './../components';
 import { Favorites } from './Favorites';
 
