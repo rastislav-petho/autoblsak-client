@@ -1,7 +1,7 @@
 import React, { useContext, Fragment, memo } from 'react';
-import { Context } from './../context/context';
-import { useFavorites } from './../hooks';
-import { decodeFuel } from '../helpers';
+import { Context } from './../../context/context';
+import { useFavorites } from './../../hooks';
+import { decodeFuel } from '../../helpers';
 import Link from 'next/link';
 
 export const FavoritesItem = memo((props) => {
