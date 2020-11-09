@@ -190,5 +190,9 @@ export const getYearsList = (min, max) => {
   return years;
 };
 
+export const getAdTitle = (title, brand, model) => {
+  return title ? title : brand + ' ' + model;
+};
+
 export const scrollToTop = () =>
   window.scrollTo({ top: 0, behavior: 'smooth' });

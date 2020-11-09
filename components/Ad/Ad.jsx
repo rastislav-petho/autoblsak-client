@@ -1,4 +1,4 @@
-import React, { useContext, memo, useState } from 'react';
+import React, { useContext, memo, useState, useCallback } from 'react';
 import { Context } from '../../context/context';
 import { useFavorites } from './../../hooks';
 import { AdGallery } from './index';
@@ -9,7 +9,6 @@ import {
   decodeFuel,
   decodeColor,
   decodeTransmision,
-  decodeCoupe,
   getDateFromTimestamp,
 } from '../../helpers';
 
@@ -23,11 +22,8 @@ export const Ad = memo((props) => {
     price,
     defaultPhoto,
     transmision,
-    cubage,
     color,
-    number_of_doors,
     premium,
-    coupe,
     status,
     paid,
     created,
