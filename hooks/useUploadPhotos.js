@@ -9,6 +9,7 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
   const [loading, setLoading] = useState(false);
   const [copressedFiles, setCompressedFiles] = useState([]);
   const [uploadedFiles, setUploadedFiles] = useState([]);
+  const [countOfFiles, setCountOfFiles] = useState(0);
 
   useEffect(() => {
     axios
