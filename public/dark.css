@@ -459,7 +459,7 @@ h6 {
 }
 
 .action-bar > p {
-  background-color: var(--bg-second-color);
+  background-color: var(--bg-color);
   padding: 15px;
   border-radius: 5px;
 }

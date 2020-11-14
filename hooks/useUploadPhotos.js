@@ -11,16 +11,7 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
   const [countOfFiles, setCountOfFiles] = useState(0);
 
   useEffect(() => {
-    axios
-      .get(`${state.api}/upload-photos/${aid}`)
-      .then(function (response) {
-        if (response.status === 200) {
-          setPhotos(response.data);
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    getPhotos();
   }, []);
 
   useEffect(() => {
