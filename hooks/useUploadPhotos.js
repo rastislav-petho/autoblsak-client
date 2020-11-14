@@ -8,7 +8,6 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [copressedFiles, setCompressedFiles] = useState([]);
-  const [uploadedFiles, setUploadedFiles] = useState([]);
   const [countOfFiles, setCountOfFiles] = useState(0);
 
   useEffect(() => {
@@ -48,7 +47,6 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
         setLoading(false);
         getPhotos();
         setCompressedFiles([]);
-        setUploadedFiles([]);
         setCountOfFiles(0);
       })
 
