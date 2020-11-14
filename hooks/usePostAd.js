@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Context } from './../context/context';
 import { useForm } from 'react-hook-form';
 import { useApi } from './../hooks';
+import { scrollToTop } from '../helpers';
 
 export const usePostAd = () => {
   const { state, dispatch } = useContext(Context);
@@ -59,6 +60,10 @@ export const usePostAd = () => {
   useEffect(() => {
     getExtras(setExtras);
   }, []);
+
+  useEffect(() => {
+    scrollToTop();
+  }, [step]);
 
   function handleClick(value, step) {
     if (value === 'personal') {
