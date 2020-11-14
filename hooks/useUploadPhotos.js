@@ -7,6 +7,8 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
   const { state, dispatch } = useContext(Context);
   const [photos, setPhotos] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [copressedFiles, setCompressedFiles] = useState([]);
+  const [uploadedFiles, setUploadedFiles] = useState([]);
 
   useEffect(() => {
     axios
@@ -20,6 +22,39 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
         console.log(error);
       });
   }, []);
+
+  useEffect(() => {
+    if (countOfFiles === copressedFiles.length && countOfFiles !== 0) {
+      hanfleSubmitUploadPhotos();
+    }
+  }, [copressedFiles]);
+
+  const hanfleSubmitUploadPhotos = () => {
+    const formData = new FormData();
+
+    for (var i = 0; i < copressedFiles.length; i++) {
+      formData.append('data[]', copressedFiles[i]);
+    }
+    formData.append('aid', aid);
+    formData.append('uid', state.user.id);
+
+    fetch(`${state.api}/upload-photo`, {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then(() => {
+        setLoading(false);
+        getPhotos();
+        setCompressedFiles([]);
+        setUploadedFiles([]);
+        setCountOfFiles(0);
+      })
+
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   const getPhotos = () => {
     axios
@@ -64,8 +99,8 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
   };
 
   async function handleImageUpload(file) {
-    const imageFile = file;
     setLoading(true);
+    const imageFile = file;
     const options = {
       maxSizeMB: 1,
       maxWidthOrHeight: 1024,
@@ -74,24 +109,7 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
     try {
       const compressedFile = await imageCompression(imageFile, options);
 
-      const formData = new FormData();
-      formData.append('image', compressedFile);
-      formData.append('aid', aid);
-      formData.append('uid', state.user.id);
-
-      await fetch(`${state.api}/upload-photo`, {
-        method: 'POST',
-        body: formData,
-      })
-        .then((response) => response.json())
-        .then(() => {
-          getPhotos();
-          setLoading(false);
-        })
-
-        .catch((error) => {
-          console.error(error);
-        });
+      setCompressedFiles((prevState) => [...prevState, compressedFile]);
     } catch (error) {
       console.log(error);
     }
@@ -151,5 +169,7 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
     removePhoto,
     photos,
     loading,
+    setCountOfFiles,
+    hanfleSubmitUploadPhotos,
   };
 };

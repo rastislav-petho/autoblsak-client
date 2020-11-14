@@ -11,6 +11,8 @@ export const UploadPhotos = (props) => {
     removePhoto,
     photos,
     loading,
+    setCountOfFiles,
+    hanfleSubmitUploadPhotos,
   } = useUploadPhotos(aid, postAdState, setStep, nextStep);
   return (
     <div>
@@ -18,7 +20,10 @@ export const UploadPhotos = (props) => {
         <Loading />
       ) : (
         <>
-          <DropZone handleImageUpload={handleImageUpload} />
+          <DropZone
+            handleImageUpload={handleImageUpload}
+            setCountOfFiles={setCountOfFiles}
+          />
           <PostAdGallery
             photos={photos}
             setPostAdState={setPostAdState}
