@@ -2,10 +2,11 @@
   "name": "client",
   "version": "0.1.2",
   "private": true,
+  "homepage": "https://autoblsak.sk/",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start -p $PORT",
+    "start": "next start -p 3000",
     "heroku-postbuild": "npm run build"
   },
   "dependencies": {

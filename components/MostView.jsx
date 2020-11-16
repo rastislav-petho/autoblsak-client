@@ -14,9 +14,7 @@ export const MostView = (props) => {
 
   return (
     <div className="most-view">
-      <h5>
-        <i aria-hidden className="far fa-eye"></i> Napozeranejšie inzeráty
-      </h5>
+      <h5>Napozeranejšie inzeráty</h5>
       <div className="row">
         {data.map((item) => (
           <div key={item.id} className="col-12 mb-2">

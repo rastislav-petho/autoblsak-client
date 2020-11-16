@@ -1,6 +1,10 @@
 import React from 'react';
 import Link from 'next/link';
-import { getAdTitle, getDateFromTimestamp } from './../../../helpers';
+import {
+  getAdTitle,
+  getDateFromTimestamp,
+  formateNumbers,
+} from './../../../helpers';
 
 export const AdPageHeader = (props) => {
   const { title, brand, model, id, created, views, premium, price } = props;
@@ -10,9 +14,9 @@ export const AdPageHeader = (props) => {
       <div className="col-12">
         <h5>
           <Link href={`/`} as={`/`}>
-            <a>
+            <button className="back-button">
               <i aria-hidden className="fas fa-chevron-left"></i>
-            </a>
+            </button>
           </Link>
         </h5>
       </div>
@@ -33,7 +37,7 @@ export const AdPageHeader = (props) => {
         )}
       </div>
       <div className="col-12 col-lg-6 text-lg-right">
-        <h1>{price} €</h1>
+        <h1>{formateNumbers(price)} €</h1>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ import {
   decodeColor,
   decodeTransmision,
   getDateFromTimestamp,
+  formateNumbers,
 } from '../../helpers';
 
 export const Ad = memo((props) => {
@@ -126,7 +127,9 @@ export const Ad = memo((props) => {
               </a>
             </Link>
           </div>
-          <div className="col-4 text-right font-weight-bold">{price} €</div>
+          <div className="col-4 text-right font-weight-bold">
+            {formateNumbers(price)} €
+          </div>
         </div>
         <div className="row ad-contents mt-2">
           <div className="col-4 col-md-2 text-center white-space p-1">

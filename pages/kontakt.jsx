@@ -9,33 +9,33 @@ const Kontakt = () => {
   const { state, dispatch } = useContext(Context);
   const { register, handleSubmit, errors } = useForm();
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     axios
       .post(`${state.api}/contact-form`, data)
-      .then(response => {
+      .then((response) => {
         if (response.status === 200) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'success',
-              message: response.data.success
-            }
+              message: response.data.success,
+            },
           });
         } else {
           dispatch({
             type: 'SET_MESSAGE',
-            message: { type: 'danger', message: response.data.error }
+            message: { type: 'danger', message: response.data.error },
           });
         }
       })
-      .then(error => {
+      .then((error) => {
         if (error) {
           dispatch({
             type: 'SET_MESSAGE',
             message: {
               type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora'
-            }
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
           });
         }
       });
@@ -49,7 +49,7 @@ const Kontakt = () => {
     >
       <Reveal>
         <div className="row">
-          <div className="col-12">
+          <div className="col-12 col-lg-6">
             <h4>Kontakt</h4>
             <p>
               Hľadáte kontakt na redakciu magazínu Autoblšak? V prípade

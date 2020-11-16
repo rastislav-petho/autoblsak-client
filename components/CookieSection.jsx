@@ -15,15 +15,15 @@ export const CookiesSection = () => {
       cookieName="autoblsakAllowCookie"
       style={{
         background: state.theme === 'dark' ? backgroundDark : backgroundLight,
-        borderTop: `2px solid ${state.theme === 'dark' ? textDark : textLight}`,
+        //borderTop: `2px solid ${state.theme === 'dark' ? textDark : textLight}`,
         borderBottom: `2px solid ${
           state.theme === 'dark' ? textDark : textLight
         }`,
-        color: state.theme === 'dark' ? textDark : textLight,
+        color: state.theme === 'dark' ? textDark : '#ffffff',
         fontWeight: '600',
       }}
       buttonStyle={{
-        color: state.theme === 'dark' ? backgroundDark : backgroundLight,
+        color: state.theme === 'dark' ? backgroundDark : '#ffffff',
         background: state.theme === 'dark' ? textDark : textLight,
         fontSize: '13px',
         fontWeight: 600,

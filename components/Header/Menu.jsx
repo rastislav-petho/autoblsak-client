@@ -38,11 +38,11 @@ export const Menu = (props) => {
         )}
       </div>
       <Link href="/post-ad">
-        <button className="button mr-2">Pridať inzerát</button>
+        <button className="header-button mr-2">Pridať inzerát</button>
       </Link>
       {!user && (
         <Link href="/register">
-          <button className="button mr-2">Vytvoriť účet</button>
+          <button className="header-button mr-2">Vytvoriť účet</button>
         </Link>
       )}
       <div className="favorites">

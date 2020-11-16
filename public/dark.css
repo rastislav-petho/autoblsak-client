@@ -48,11 +48,11 @@ h6 {
 
 .modal-window {
   position: fixed;
-  top: 50%;
+  z-index: 4;
+  top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
-  z-index: 4;
 }
 
 .nav-bar {
@@ -284,7 +284,7 @@ h6 {
   width: 70px;
   height: 20px;
   line-height: 20px;
-  background-color: var(--danger);
+  background-color: var(--text-second-color);
   font-weight: 600;
   text-align: center;
   color: #ffffff;
@@ -405,6 +405,16 @@ h6 {
   font-weight: 600;
 }
 
+.header-button {
+  color: var(--text-second-color);
+  border: 1px solid var(--text-second-color);
+  background-color: var(--bg-color);
+  min-width: 150px;
+  min-height: 40px;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
 .full-button {
   color: var(--text-color);
   border: none;
@@ -432,6 +442,15 @@ h6 {
 .a-button:hover {
   color: var(--text-second-color);
   text-decoration: none;
+}
+
+.back-button {
+  border: 3px solid var(--text-second-color);
+  border-radius: 20px;
+  background-color: var(--bg-navbar-color);
+  color: var(--text-second-color);
+  width: 40px;
+  height: auto;
 }
 
 .nav-tabs {
@@ -476,8 +495,11 @@ h6 {
 }
 
 .inzerat-titles span {
-  font-size: 1rem;
-  color: var(--text-color);
+  font-size: 0.8rem;
+}
+
+.badge-danger {
+  background-color: var(--text-second-color);
 }
 
 .gallery-items {
@@ -625,7 +647,7 @@ h6 {
 
 @media (max-width: 1279px) {
   .modal-window {
-    transform: translate(-50%, -65%);
+    transform: translate(-50%, -53%);
     width: 98%;
   }
 
@@ -728,6 +750,10 @@ h6 {
     position: absolute;
     top: 30px;
     left: 0;
+  }
+
+  .ad-titles {
+    margin-top: 10px;
   }
 }
 

@@ -13,9 +13,7 @@ export const Magazine = (props) => {
 
   return (
     <div className="magazine">
-      <h5>
-        <i aria-hidden className="fas fa-blog"></i> Magazín
-      </h5>
+      <h5> Magazín</h5>
       {data.map((item, key) => (
         <p key={key}>
           <a href={item.guid}>{item.post_title}</a>
