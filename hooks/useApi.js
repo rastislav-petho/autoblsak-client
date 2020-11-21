@@ -263,6 +263,40 @@ export const useApi = () => {
       });
   };
 
+  const newsletter = (data) => {
+    axios
+      .post(`${state.api}/newsletter`, data)
+      .then((response) => {
+        if (response.status === 200 && response.data.success) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'success', message: response.data.success },
+          });
+        } else if (response.status === 200 && response.data.warning) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'warning', message: response.data.warning },
+          });
+        } else {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'danger', message: response.data.error },
+          });
+        }
+      })
+      .then((error) => {
+        if (error) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: {
+              type: 'warning',
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
+          });
+        }
+      });
+  };
+
   return {
     auth,
     logout,
@@ -275,5 +309,6 @@ export const useApi = () => {
     getModels,
     getExtras,
     editAccount,
+    newsletter,
   };
 };

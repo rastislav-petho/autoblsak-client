@@ -345,7 +345,7 @@ h6 {
   color: var(--text-color);
 }
 
-.ad-contents span {
+.ad-contents i {
   font-weight: 600;
   font-size: 1.1rem;
   color: var(--text-second-color);
@@ -607,6 +607,23 @@ h6 {
   border: 1px solid var(--text-second-color);
   background-color: var(--bg-color);
   color: var(--text-second-color);
+}
+
+.newsletter {
+  margin-top: 20px;
+}
+
+.newsletter h2 {
+  font-size: 1.1rem;
+}
+
+.newsletter p {
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.newsletter .jumbotron {
+  padding: 1rem;
 }
 
 .footer {

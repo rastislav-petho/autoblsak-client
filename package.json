@@ -26,6 +26,7 @@
     "react-images": "^1.1.7",
     "react-loading": "^2.0.3",
     "react-modal": "^3.11.2",
+    "react-number-format": "^4.4.1",
     "react-photo-gallery": "^8.0.0",
     "react-reveal": "^1.2.2",
     "xml2js": "^0.4.23"

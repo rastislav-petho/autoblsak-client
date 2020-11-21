@@ -5,6 +5,7 @@ import {
   decodeTransmision,
   decodeColor,
 } from '../../../helpers';
+import NumberFormat from 'react-number-format';
 
 export const AdPageInformation = (props) => {
   const {
@@ -62,7 +63,13 @@ export const AdPageInformation = (props) => {
             {mileage && (
               <tr>
                 <th scope="row">Počet km</th>
-                <td>{mileage} km</td>
+                <NumberFormat
+                  value={mileage}
+                  displayType="text"
+                  thousandSeparator={true}
+                  suffix=" km"
+                  renderText={(value) => <td>{value}</td>}
+                />
               </tr>
             )}
             {number_of_doors && (

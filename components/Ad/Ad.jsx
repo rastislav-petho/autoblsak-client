@@ -1,16 +1,16 @@
-import React, { useContext, memo, useState, useCallback } from 'react';
+import React, { useContext, memo, useState } from 'react';
 import { Context } from '../../context/context';
 import { useFavorites } from './../../hooks';
 import { AdGallery } from './index';
 import Link from 'next/link';
 import axios from 'axios';
 import ReactLoading from 'react-loading';
+import NumberFormat from 'react-number-format';
 import {
   decodeFuel,
   decodeColor,
   decodeTransmision,
   getDateFromTimestamp,
-  formateNumbers,
 } from '../../helpers';
 
 export const Ad = memo((props) => {
@@ -128,41 +128,42 @@ export const Ad = memo((props) => {
             </Link>
           </div>
           <div className="col-4 text-right font-weight-bold">
-            {formateNumbers(price)} €
+            <NumberFormat
+              value={price}
+              displayType="text"
+              thousandSeparator={true}
+              suffix=" €"
+            />
           </div>
         </div>
         <div className="row ad-contents mt-2">
           <div className="col-4 col-md-2 text-center white-space p-1">
-            <span>
-              <i aria-hidden className="fas fa-calendar-alt"></i>
-            </span>
+            <i aria-hidden className="fas fa-calendar-alt"></i>
             <br />
             {year_of_manufacture}
           </div>
           <div className="col-4 col-md-2 text-center white-space p-1">
-            <span>
-              <i aria-hidden className="fas fa-gas-pump"></i> <br />
-            </span>{' '}
+            <i aria-hidden className="fas fa-gas-pump"></i> <br />
             {decodeFuel(fuel)}
           </div>
           <div className="col-4 col-md-2 text-center white-space p-1">
-            <span>
-              <i aria-hidden className="fas fa-dumbbell"></i>
-            </span>
+            <i aria-hidden className="fas fa-dumbbell"></i>
             <br />
             {decodeTransmision(transmision)}
           </div>
           <div className="col-4 col-md-2 text-center white-space p-1">
-            <span>
-              <i aria-hidden className="fas fa-tachometer-alt"></i>
-            </span>
+            <i aria-hidden className="fas fa-tachometer-alt"></i>
             <br /> {power} kW
           </div>
           <div className="col-4 col-md-2 text-center white-space p-1">
-            <span>
-              <i aria-hidden className="fas fa-road"></i>
-            </span>
-            <br /> {mileage} km
+            <i aria-hidden className="fas fa-road"></i>
+            <br />{' '}
+            <NumberFormat
+              value={mileage}
+              displayType="text"
+              thousandSeparator={true}
+              suffix=" km"
+            />
           </div>
           <div className="col-4 col-md-2 text-center white-space p-1">
             <span>

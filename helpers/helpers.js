@@ -196,8 +196,3 @@ export const getAdTitle = (title, brand, model) => {
 
 export const scrollToTop = () =>
   window.scrollTo({ top: 0, behavior: 'smooth' });
-
-export const formateNumbers = (number) => {
-  const formattedNumber = new Intl.NumberFormat('en-IN').format(number);
-  return formattedNumber;
-};

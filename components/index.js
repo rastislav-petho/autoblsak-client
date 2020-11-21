@@ -8,3 +8,4 @@ export * from './MostView';
 export * from './Pagination';
 export * from './PageMenu';
 export * from './UserPanel';
+export * from './Newsletter';

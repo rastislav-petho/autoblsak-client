@@ -1,10 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
-import {
-  getAdTitle,
-  getDateFromTimestamp,
-  formateNumbers,
-} from './../../../helpers';
+import { getAdTitle, getDateFromTimestamp } from './../../../helpers';
+import NumberFormat from 'react-number-format';
 
 export const AdPageHeader = (props) => {
   const { title, brand, model, id, created, views, premium, price } = props;
@@ -37,7 +34,13 @@ export const AdPageHeader = (props) => {
         )}
       </div>
       <div className="col-12 col-lg-6 text-lg-right">
-        <h1>{formateNumbers(price)} €</h1>
+        <NumberFormat
+          value={price}
+          displayType="text"
+          thousandSeparator={true}
+          suffix=" €"
+          renderText={(value) => <h1>{value}</h1>}
+        />
       </div>
     </div>
   );

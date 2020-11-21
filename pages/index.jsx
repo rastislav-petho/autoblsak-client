@@ -7,6 +7,7 @@ import {
   MostView,
   UserPanel,
   Pagination,
+  Newsletter,
 } from './../components';
 import { Filter } from './../components/Filter';
 import { Ad } from './../components/Ad';
@@ -62,6 +63,7 @@ const Index = () => {
               handlePagination={handlePagination}
             />
           </div>
+          <Newsletter />
         </div>
       </div>
     </Layout>
