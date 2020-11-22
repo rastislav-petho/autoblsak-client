@@ -21,7 +21,7 @@ export const AdPageHeader = (props) => {
         <h1>{getAdTitle(title, brand, model)}</h1>
         <span>ID inzerátu: {id}</span> -{' '}
         <span>Zverejnené: {getDateFromTimestamp(created)}</span> -{' '}
-        <span className="badge badge-success">
+        <span className="badge badge-secondary">
           <i aria-hidden className="far fa-eye"></i> {views}
         </span>{' '}
         {premium ? (

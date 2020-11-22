@@ -782,4 +782,9 @@ h6 {
   .logo {
     width: 30vw;
   }
+
+  .gallery-items img {
+    width: 31.9%;
+    height: 100%;
+  }
 }
