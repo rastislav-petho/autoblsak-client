@@ -66,7 +66,7 @@ export const AdPageInformation = (props) => {
                 <NumberFormat
                   value={mileage}
                   displayType="text"
-                  thousandSeparator={true}
+                  thousandSeparator=" "
                   suffix=" km"
                   renderText={(value) => <td>{value}</td>}
                 />

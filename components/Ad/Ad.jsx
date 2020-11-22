@@ -131,7 +131,7 @@ export const Ad = memo((props) => {
             <NumberFormat
               value={price}
               displayType="text"
-              thousandSeparator={true}
+              thousandSeparator=" "
               suffix=" €"
             />
           </div>

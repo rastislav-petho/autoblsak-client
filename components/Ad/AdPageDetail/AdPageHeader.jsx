@@ -37,7 +37,7 @@ export const AdPageHeader = (props) => {
         <NumberFormat
           value={price}
           displayType="text"
-          thousandSeparator={true}
+          thousandSeparator=" "
           suffix=" €"
           renderText={(value) => <h1>{value}</h1>}
         />

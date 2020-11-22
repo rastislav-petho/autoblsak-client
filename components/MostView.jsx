@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import NumberFormat from 'react-number-format';
 
 export const MostView = (props) => {
   const { apiUrl, url } = props;
@@ -29,8 +30,14 @@ export const MostView = (props) => {
             </Link>
             <span>
               {item.title ? item.title : item.brand + ' ' + item.model},{' '}
-              {item.price} €, <i aria-hidden className="far fa-eye"></i>{' '}
-              {item.views}
+              <NumberFormat
+                value={item.price}
+                displayType="text"
+                thousandSeparator=" "
+                suffix=" €"
+                renderText={(value) => <>{value}</>}
+              />
+              , <i aria-hidden className="far fa-eye"></i> {item.views}
             </span>
           </div>
         ))}
