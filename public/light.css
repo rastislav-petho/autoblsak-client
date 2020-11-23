@@ -469,15 +469,6 @@ h6 {
   text-decoration: none;
 }
 
-.back-button {
-  border: 3px solid var(--text-second-color);
-  border-radius: 20px;
-  background-color: var(--bg-third-color);
-  color: var(--text-second-color);
-  width: 40px;
-  height: auto;
-}
-
 .nav-tabs {
   border-bottom: 1px solid var(--bg-second-color);
 }

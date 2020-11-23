@@ -8,7 +8,7 @@ export const AdPageAction = (props) => {
       <div className="col-12">
         <button className="full-button mb-2">Predajca: {seller_name}</button>
         <button className="full-button mb-2">
-          <a href={`tel:${mobile_number}`}>Zavolať predajcovi</a>
+          <a href={`tel:${mobile_number}`}>Zavolať {mobile_number}</a>
         </button>
         <AdSendEmail user={user} email={email} />
         <button className="full-button mb-2">Poloha: {location}</button>

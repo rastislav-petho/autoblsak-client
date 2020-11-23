@@ -11,9 +11,7 @@ export const AdPageHeader = (props) => {
       <div className="col-12">
         <h5>
           <Link href={`/`} as={`/`}>
-            <button className="back-button">
-              <i aria-hidden className="fas fa-chevron-left"></i>
-            </button>
+            <button className="btn btn-dark btn-sm">Späť</button>
           </Link>
         </h5>
       </div>

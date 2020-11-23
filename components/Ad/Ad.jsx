@@ -161,7 +161,7 @@ export const Ad = memo((props) => {
             <NumberFormat
               value={mileage}
               displayType="text"
-              thousandSeparator={true}
+              thousandSeparator=" "
               suffix=" km"
             />
           </div>
@@ -225,7 +225,9 @@ export const Ad = memo((props) => {
                 <span className="badge badge-pill badge-secondary mr-2">
                   {getDateFromTimestamp(created)}
                 </span>
-                <span className="badge badge-pill badge-info">{location}</span>
+                <span className="badge badge-pill badge-secondary">
+                  {location}
+                </span>
               </>
             )}
           </div>
