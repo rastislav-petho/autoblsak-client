@@ -26,6 +26,7 @@ export const Layout = ({
         <meta name="description" content={pageDescription} />
         <meta name="keywords" content={pageKeywords} />
         <title>{pageTitle}</title>
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link
           rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"

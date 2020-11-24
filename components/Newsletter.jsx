@@ -31,6 +31,7 @@ export const Newsletter = () => {
                 className="form-control"
                 id="email"
                 name="email"
+                placeholder="Vaša emailová adresa"
                 ref={register({
                   required: true,
                   pattern: {
