@@ -14,7 +14,7 @@ export const DropZone = (props) => {
       {isDragActive ? (
         <p>Vložiť</p>
       ) : (
-        <p>Sem presunte fotky ktoré chcete nahrať ...</p>
+        <p>Sem presuňte / vložte fotky, ktoré chcete nahrať...</p>
       )}
     </div>
   );

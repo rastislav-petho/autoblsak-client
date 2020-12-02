@@ -30,7 +30,9 @@ export const CookiesSection = () => {
       }}
       expires={150}
     >
-      Táto web stránka používa súbory cookies pre lepší zážitok z prehliadania.{' '}
+      Používame cookies, aby sme pre Vás zabezpečili ten najlepší zážitok z
+      našich webových stránok. Ak budete pokračovať v používaní tejto
+      webstránky, budeme predpokladať, že ste s ňou spokojní.{' '}
     </CookieConsent>
   );
 };
