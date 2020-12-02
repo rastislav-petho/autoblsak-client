@@ -36,6 +36,7 @@ export const useFilter = () => {
   }
 
   function handleSubmitFilter() {
+    console.log('submitFilter');
     axios
       .post(`${state.api}/filter`, filter)
       .then((response) => {

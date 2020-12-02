@@ -52,9 +52,9 @@ export const Ad = memo((props) => {
     brand,
     model
   );
-  const withOutIcons = [9, 10, 11, 12, 13, 14];
 
-  console.log(props.ad);
+  // TODO spravit ako konstantu
+  const withOutIcons = [9, 10, 11, 12, 13, 14];
 
   const handleLoadGallery = () => {
     setLoading(true);

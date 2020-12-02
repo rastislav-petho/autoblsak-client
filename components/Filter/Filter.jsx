@@ -38,6 +38,7 @@ export const Filter = () => {
             brands={brands}
             models={models}
             handleChange={handleChange}
+            handleSubmitFilter={handleSubmitFilter}
             button="button"
           />
         </div>
