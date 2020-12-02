@@ -1,7 +1,7 @@
 import React from 'react';
 
 export const Category = (props) => {
-  const { handleClick } = props;
+  const { handleCategory } = props;
   return (
     <>
       <div className="row text-center">
@@ -11,7 +11,7 @@ export const Category = (props) => {
               <a
                 href="#"
                 onClick={() =>
-                  handleClick('personal', 'additional-information')
+                  handleCategory('personal', 'additional-information')
                 }
               >
                 <img src="/img/osobne.png" style={{ width: '100%' }} />
@@ -28,7 +28,7 @@ export const Category = (props) => {
               <a
                 href="#"
                 onClick={() =>
-                  handleClick('commercial', 'additional-information')
+                  handleCategory('commercial', 'additional-information')
                 }
               >
                 <img src="/img/uzitkove.png" style={{ width: '100%' }} />
@@ -48,7 +48,7 @@ export const Category = (props) => {
             <div className="col-12">
               <a
                 href="#"
-                onClick={() => handleClick('moto', 'additional-information')}
+                onClick={() => handleCategory('moto', 'additional-information')}
               >
                 <img src="/img/moto.png" style={{ width: '100%' }} />
               </a>
@@ -66,7 +66,7 @@ export const Category = (props) => {
               <a
                 href="#"
                 onClick={() =>
-                  handleClick('accessories', 'additional-information')
+                  handleCategory('accessories', 'additional-information')
                 }
               >
                 <img src="/img/autodiely.png" style={{ width: '100%' }} />
@@ -85,7 +85,9 @@ export const Category = (props) => {
             <div className="col-12">
               <a
                 href="#"
-                onClick={() => handleClick('other', 'additional-information')}
+                onClick={() =>
+                  handleCategory('other', 'additional-information')
+                }
               >
                 <img src="/img/ine.png" style={{ width: '100%' }} />
               </a>

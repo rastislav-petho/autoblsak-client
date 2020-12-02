@@ -20,7 +20,7 @@ const PostAd = () => {
     extras,
     step,
     setStep,
-    handleClick,
+    handleCategory,
     onSubmit,
     handleChange,
     handleExtrasChange,
@@ -35,7 +35,7 @@ const PostAd = () => {
     >
       <h4>Pridať inzerát</h4>
       <Stepper step={step} setStep={setStep} />
-      {step === 'category' && <Category handleClick={handleClick} />}
+      {step === 'category' && <Category handleCategory={handleCategory} />}
 
       {step === 'additional-information' && (
         <AdditionalInformation

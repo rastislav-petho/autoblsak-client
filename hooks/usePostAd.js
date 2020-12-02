@@ -65,7 +65,7 @@ export const usePostAd = () => {
     scrollToTop();
   }, [step]);
 
-  function handleClick(value, step) {
+  function handleCategory(value, step) {
     if (value === 'personal') {
       setPostAdState({
         ...postAdState,
@@ -145,7 +145,7 @@ export const usePostAd = () => {
     extras,
     step,
     setStep,
-    handleClick,
+    handleCategory,
     onSubmit,
     handleChange,
     handleExtrasChange,

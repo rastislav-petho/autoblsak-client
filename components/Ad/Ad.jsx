@@ -137,40 +137,52 @@ export const Ad = memo((props) => {
           </div>
         </div>
         <div className="row ad-contents mt-2">
-          <div className="col-4 col-md-2 text-center white-space p-1">
-            <i aria-hidden className="fas fa-calendar-alt"></i>
-            <br />
-            {year_of_manufacture}
-          </div>
-          <div className="col-4 col-md-2 text-center white-space p-1">
-            <i aria-hidden className="fas fa-gas-pump"></i> <br />
-            {decodeFuel(fuel)}
-          </div>
-          <div className="col-4 col-md-2 text-center white-space p-1">
-            <i aria-hidden className="fas fa-dumbbell"></i>
-            <br />
-            {decodeTransmision(transmision)}
-          </div>
-          <div className="col-4 col-md-2 text-center white-space p-1">
-            <i aria-hidden className="fas fa-tachometer-alt"></i>
-            <br /> {power} kW
-          </div>
-          <div className="col-4 col-md-2 text-center white-space p-1">
-            <i aria-hidden className="fas fa-road"></i>
-            <br />{' '}
-            <NumberFormat
-              value={mileage}
-              displayType="text"
-              thousandSeparator=" "
-              suffix=" km"
-            />
-          </div>
-          <div className="col-4 col-md-2 text-center white-space p-1">
-            <span>
-              <i aria-hidden className="fas fa-palette"></i>
-            </span>{' '}
-            <br /> {decodeColor(color)}
-          </div>
+          {year_of_manufacture && (
+            <div className="col-4 col-md-2 text-center white-space p-1">
+              <i aria-hidden className="fas fa-calendar-alt"></i>
+              <br />
+              {year_of_manufacture}
+            </div>
+          )}
+          {fuel && (
+            <div className="col-4 col-md-2 text-center white-space p-1">
+              <i aria-hidden className="fas fa-gas-pump"></i> <br />
+              {decodeFuel(fuel)}
+            </div>
+          )}
+          {transmision && (
+            <div className="col-4 col-md-2 text-center white-space p-1">
+              <i aria-hidden className="fas fa-dumbbell"></i>
+              <br />
+              {decodeTransmision(transmision)}
+            </div>
+          )}
+          {power && (
+            <div className="col-4 col-md-2 text-center white-space p-1">
+              <i aria-hidden className="fas fa-tachometer-alt"></i>
+              <br /> {power} kW
+            </div>
+          )}
+          {mileage && (
+            <div className="col-4 col-md-2 text-center white-space p-1">
+              <i aria-hidden className="fas fa-road"></i>
+              <br />{' '}
+              <NumberFormat
+                value={mileage}
+                displayType="text"
+                thousandSeparator=" "
+                suffix=" km"
+              />
+            </div>
+          )}
+          {color && (
+            <div className="col-4 col-md-2 text-center white-space p-1">
+              <span>
+                <i aria-hidden className="fas fa-palette"></i>
+              </span>{' '}
+              <br /> {decodeColor(color)}
+            </div>
+          )}
         </div>
         <div className="row ad-footers mt-3">
           <div className="col-10 action-bar">
