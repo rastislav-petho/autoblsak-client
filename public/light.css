@@ -90,7 +90,7 @@ h6 {
 
 .content {
   padding-bottom: 50px;
-  min-height: 1080px;
+  min-height: 750px;
 }
 
 .menu-wrapper {
@@ -284,6 +284,7 @@ h6 {
   margin-bottom: 25px;
   padding: 10px;
   background-color: var(--bg-second-color);
+  min-height: 160px;
 }
 
 .ad-photo a {

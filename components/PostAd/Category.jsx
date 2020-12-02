@@ -14,7 +14,7 @@ export const Category = (props) => {
                   handleCategory('personal', 'additional-information')
                 }
               >
-                <img src="/img/osobne.png" style={{ width: '100%' }} />
+                <img src="/img/osobne.png" style={{ width: '60%' }} />
               </a>
             </div>
             <div className="col-12">
@@ -31,7 +31,7 @@ export const Category = (props) => {
                   handleCategory('commercial', 'additional-information')
                 }
               >
-                <img src="/img/uzitkove.png" style={{ width: '100%' }} />
+                <img src="/img/uzitkove.png" style={{ width: '60%' }} />
               </a>
             </div>
             <div className="col-12">
@@ -50,7 +50,7 @@ export const Category = (props) => {
                 href="#"
                 onClick={() => handleCategory('moto', 'additional-information')}
               >
-                <img src="/img/moto.png" style={{ width: '100%' }} />
+                <img src="/img/moto.png" style={{ width: '70%' }} />
               </a>
             </div>
             <div className="col-12">
@@ -69,7 +69,7 @@ export const Category = (props) => {
                   handleCategory('accessories', 'additional-information')
                 }
               >
-                <img src="/img/autodiely.png" style={{ width: '100%' }} />
+                <img src="/img/autodiely.png" style={{ width: '70%' }} />
               </a>
             </div>
             <div className="col-12">
@@ -89,7 +89,7 @@ export const Category = (props) => {
                   handleCategory('other', 'additional-information')
                 }
               >
-                <img src="/img/ine.png" style={{ width: '100%' }} />
+                <img src="/img/ine.png" style={{ width: '70%' }} />
               </a>
             </div>
             <div className="col-12">

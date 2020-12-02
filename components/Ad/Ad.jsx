@@ -32,6 +32,8 @@ export const Ad = memo((props) => {
     brand,
     model,
     location,
+    category,
+    additional_information,
   } = props.ad;
   const { actionBar, handleRemove, handleActive, handleEdit } = props;
   const [loadGallery, setLoadGallery] = useState(false);
@@ -50,6 +52,9 @@ export const Ad = memo((props) => {
     brand,
     model
   );
+  const withOutIcons = [9, 10, 11, 12, 13, 14];
+
+  console.log(props.ad);
 
   const handleLoadGallery = () => {
     setLoading(true);
@@ -183,6 +188,9 @@ export const Ad = memo((props) => {
               <br /> {decodeColor(color)}
             </div>
           )}
+          <div className="col-12">
+            {withOutIcons.includes(category) && additional_information}
+          </div>
         </div>
         <div className="row ad-footers mt-3">
           <div className="col-10 action-bar">
