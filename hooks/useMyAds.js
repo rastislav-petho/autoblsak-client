@@ -57,7 +57,10 @@ export const useMyAds = () => {
 
     if (alert) {
       axios
-        .post(`${state.api}/ad/remove`, { id: id, token: state.user.token })
+        .post(`${state.api}/inzerat/remove`, {
+          id: id,
+          token: state.user.token,
+        })
         .then((response) => {
           if (response.data.error) {
             dispatch({
@@ -92,7 +95,7 @@ export const useMyAds = () => {
 
     if (alert) {
       axios
-        .post(`${state.api}/ad/active-handler`, {
+        .post(`${state.api}/inzerat/active-handler`, {
           id: id,
           action: action,
           token: state.user.token,
@@ -121,7 +124,7 @@ export const useMyAds = () => {
   };
 
   const handleEdit = (id, step) => {
-    fetch(`${state.api}/ad/${id}`)
+    fetch(`${state.api}/inzerat/${id}`)
       .then((res) => res.json())
       .then((json) => {
         const adExtras = json.extras.map((extra) => extra.extra_id);

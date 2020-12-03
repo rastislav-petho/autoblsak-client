@@ -46,7 +46,7 @@ const Inzerat = ({ data }) => {
 
   useEffect(() => {
     const data = { id: id, views: views + 1 };
-    axios.post(`${state.api}/ad/updateviews`, data).then((response) => {
+    axios.post(`${state.api}/inzerat/updateviews`, data).then((response) => {
       console.log(response);
     });
   }, []);
@@ -126,7 +126,7 @@ const Inzerat = ({ data }) => {
 };
 
 export async function getServerSideProps({ params }) {
-  const res = await fetch(`https://autoblsak.sk/api/api/ad/${params.id}`);
+  const res = await fetch(`https://autoblsak.sk/api/api/inzerat/${params.id}`);
   const data = await res.json();
   return {
     props: { data },
