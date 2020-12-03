@@ -142,8 +142,10 @@ export const FilterForm = ({
             {filter.color ? decodeColor(filter.color) : 'Farba'}
           </option>
           <option value="">-- Farba --</option>
-          {COLORS.map((color) => (
-            <option value={color.value}>{color.label}</option>
+          {COLORS.map((color, index) => (
+            <option key={index} value={color.value}>
+              {color.label}
+            </option>
           ))}
         </select>
       </div>
@@ -160,9 +162,13 @@ export const FilterForm = ({
                 {filter.yearFrom ? filter.yearFrom : 'Od'}
               </option>
               <option value="">-- Od --</option>
-              {getYearsList('1950', new Date().getFullYear()).map((year) => (
-                <option value={year.value}>{year.label}</option>
-              ))}
+              {getYearsList('1950', new Date().getFullYear()).map(
+                (year, index) => (
+                  <option key={index} value={year.value}>
+                    {year.label}
+                  </option>
+                )
+              )}
             </select>
           </div>
           <div className="col-12 col-md-6">
@@ -175,9 +181,13 @@ export const FilterForm = ({
                 {filter.yearTo ? filter.yearTo : 'Do'}
               </option>
               <option value="">-- Do --</option>
-              {getYearsList('1950', new Date().getFullYear()).map((year) => (
-                <option value={year.value}>{year.label}</option>
-              ))}
+              {getYearsList('1950', new Date().getFullYear()).map(
+                (year, index) => (
+                  <option key={index} value={year.value}>
+                    {year.label}
+                  </option>
+                )
+              )}
             </select>
           </div>
         </div>

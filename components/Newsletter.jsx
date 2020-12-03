@@ -10,7 +10,6 @@ export const Newsletter = () => {
     newsletter(data);
   };
 
-  console.log(errors.email);
   return (
     <div className="row newsletter">
       <div className="col-lg-12">

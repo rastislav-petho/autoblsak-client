@@ -47,7 +47,7 @@ const Inzerat = ({ data }) => {
   useEffect(() => {
     const data = { id: id, views: views + 1 };
     axios.post(`${state.api}/inzerat/updateviews`, data).then((response) => {
-      console.log(response);
+      return;
     });
   }, []);
 

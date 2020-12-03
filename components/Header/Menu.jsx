@@ -9,7 +9,11 @@ export const Menu = (props) => {
         <span>
           <Link href="/">
             <a>
-              <img src="/img/bazarik-1.png" alt="Logo" className="logo" />
+              <img
+                src="/img/bazarik-1.png"
+                alt="Autoblšák.sk"
+                className="logo"
+              />
             </a>
           </Link>
         </span>
