@@ -60,6 +60,7 @@ const Inzerat = ({ data }) => {
       )} - Autoblšák.sk`}
       pageDescription={additional_information}
       pageKeywords=""
+      image={photos[0].src}
     >
       <Reveal>
         <div className="row inzerat">

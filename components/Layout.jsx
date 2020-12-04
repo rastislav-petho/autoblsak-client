@@ -10,6 +10,7 @@ export const Layout = ({
   pageTitle,
   pageDescription,
   pageKeywords,
+  image,
 }) => {
   const { state, dispatch } = useContext(Context);
 
@@ -17,6 +18,9 @@ export const Layout = ({
     <Fragment>
       <Head>
         <base url="/" />
+        <meta property="og:title" content={pageTitle} />
+        <meta property="og:image" content={image} />
+        <title>{pageTitle}</title>
         <meta charSet="utf-8"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
@@ -25,7 +29,6 @@ export const Layout = ({
         />
         <meta name="description" content={pageDescription} />
         <meta name="keywords" content={pageKeywords} />
-        <title>{pageTitle}</title>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link
           rel="stylesheet"
