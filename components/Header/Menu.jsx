@@ -7,15 +7,9 @@ export const Menu = (props) => {
     <div className="menu-wrapper">
       <div className="menu">
         <span>
-          <Link href="/">
-            <a>
-              <img
-                src="/img/bazarik-1.png"
-                alt="Autoblšák.sk"
-                className="logo"
-              />
-            </a>
-          </Link>
+          <a href="/">
+            <img src="/img/bazarik-1.png" alt="Autoblšák.sk" className="logo" />
+          </a>
         </span>
         <span>
           <a href="https://autoblsak.sk/magazin">Magazín</a>
