@@ -44,6 +44,14 @@ export default function reducer(state, action) {
         },
       };
 
+    case 'HANDLE_LOADING':
+      return {
+        ...state,
+        config: {
+          ...state.config,
+          loading: action.loading,
+        },
+      };
     // AUTHENTIFIKACIA
 
     case 'LOGIN':

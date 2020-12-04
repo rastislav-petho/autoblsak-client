@@ -8,6 +8,7 @@ import {
   UserPanel,
   Pagination,
   Newsletter,
+  Loading,
 } from './../components';
 import { Filter } from './../components/Filter';
 import { Ad } from './../components/Ad';
@@ -54,7 +55,13 @@ const Index = () => {
             Počet nájdených výsledkov: {state.ads.to} z {state.ads.total}
           </p>
           <Reveal>
-            <>{ads && ads.map((ad) => <Ad ad={ad} key={ad.id} />)}</>
+            <>
+              {state.config.loading ? (
+                <Loading />
+              ) : (
+                ads.map((ad) => <Ad ad={ad} key={ad.id} />)
+              )}
+            </>
           </Reveal>
           <div className="row">
             <Pagination

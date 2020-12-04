@@ -36,12 +36,14 @@ export const useFilter = () => {
   }
 
   function handleSubmitFilter() {
+    dispatch({ type: 'HANDLE_LOADING', loading: true });
     axios
       .post(`${state.api}/filter`, filter)
       .then((response) => {
         if (response.status === 200 && response.data.data.length !== 0) {
           dispatch({ type: 'SET_ADS', ads: response.data });
           dispatch({ type: 'TOGGLE_FILTER', toogle: false });
+          dispatch({ type: 'HANDLE_LOADING', loading: false });
         } else {
           dispatch({
             type: 'SET_MESSAGE',

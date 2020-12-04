@@ -24,6 +24,7 @@ export const ContextProvider = (props) => {
     config: {
       toggleFilter: false,
       toggleFavorites: false,
+      loading: true,
     },
     filter: {
       category: '1',

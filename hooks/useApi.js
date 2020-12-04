@@ -182,6 +182,7 @@ export const useApi = () => {
         if (response.status === 200 && response.data.data.length !== 0) {
           dispatch({ type: 'SET_ADS', ads: response.data });
           dispatch({ type: 'TOGGLE_FILTER', toogle: false });
+          dispatch({ type: 'HANDLE_LOADING', loading: false });
         } else {
           dispatch({
             type: 'SET_MESSAGE',
@@ -206,6 +207,7 @@ export const useApi = () => {
   };
 
   const adPagination = (move) => {
+    dispatch({ type: 'HANDLE_LOADING', loading: true });
     axios
       .post(
         `${state.api}/filter?page=${
@@ -216,6 +218,7 @@ export const useApi = () => {
       .then((response) => {
         if (response.status === 200 && response.data.length !== 0) {
           dispatch({ type: 'SET_ADS', ads: response.data });
+          dispatch({ type: 'HANDLE_LOADING', loading: false });
         } else {
           dispatch({
             type: 'SET_MESSAGE',
