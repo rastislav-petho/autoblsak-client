@@ -13,11 +13,9 @@ export const ToogleMenu = (props) => {
   return (
     <div className="toggle-menu">
       <span>
-        <Link href="/">
-          <a>
-            <img src="/img/bazarik-1.png" alt="Logo" className="logo" />
-          </a>
-        </Link>
+        <a href="/">
+          <img src="/img/bazarik-1.png" alt="Logo" className="logo" />
+        </a>
       </span>
       <i
         aria-hidden
