@@ -330,12 +330,12 @@ h6 {
 }
 
 .ad-titles {
+  font-weight: 700;
   font-size: 1.2rem;
   color: var(--text-color);
 }
 
 .ad-titles a {
-  font-weight: 500;
   color: var(--text-color);
 }
 

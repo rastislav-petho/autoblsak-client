@@ -132,7 +132,7 @@ export const Ad = memo((props) => {
               </a>
             </Link>
           </div>
-          <div className="col-4 text-right font-weight-bold">
+          <div className="col-4 text-right">
             <NumberFormat
               value={price}
               displayType="text"
