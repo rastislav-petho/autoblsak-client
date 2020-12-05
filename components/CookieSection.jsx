@@ -4,9 +4,9 @@ import { Context } from './../context/context';
 
 export const CookiesSection = () => {
   const { state } = useContext(Context);
-  const backgroundDark = '#1b2027';
+  const backgroundDark = '#18191a';
   const backgroundLight = '#252422';
-  const textDark = '#d65a31';
+  const textDark = '#e8373e';
   const textLight = '#d90429';
   return (
     <CookieConsent
