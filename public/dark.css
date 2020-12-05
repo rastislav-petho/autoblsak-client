@@ -5,7 +5,7 @@
   --bg-navbar-color: #18191a;
   --text-color: #ffffff;
   /* --text-second-color: #d65a31; */
-  --text-second-color: #e8373e;
+  --text-second-color: #d90429;
   --bg-third-color: #212730;
   --success: #2d884d;
   --warning: #fecf6d;
@@ -421,8 +421,8 @@ h6 {
 }
 
 .header-button {
-  color: var(--text-second-color);
-  border: 1px solid var(--text-second-color);
+  color: var(--text-color);
+  border: 1px solid var(--text-color);
   background-color: var(--bg-color);
   min-width: 150px;
   min-height: 40px;
