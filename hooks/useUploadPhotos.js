@@ -16,11 +16,11 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
 
   useEffect(() => {
     if (countOfFiles === copressedFiles.length && countOfFiles !== 0) {
-      hanfleSubmitUploadPhotos();
+      handleSubmitUploadPhotos();
     }
   }, [copressedFiles]);
 
-  const hanfleSubmitUploadPhotos = () => {
+  const handleSubmitUploadPhotos = () => {
     const formData = new FormData();
 
     for (var i = 0; i < copressedFiles.length; i++) {
@@ -160,6 +160,5 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
     photos,
     loading,
     setCountOfFiles,
-    hanfleSubmitUploadPhotos,
   };
 };

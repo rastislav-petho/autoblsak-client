@@ -9,12 +9,6 @@ export const MobileMenu = (props) => {
         Zmeniť tému
       </a>
       <a href="https://autoblsak.sk/magazin">Magazín</a>
-      <Link href="/kontakt">
-        <a>Kontakt</a>
-      </Link>
-      <Link href="/onas">
-        <a>O nás</a>
-      </Link>
       {user && (
         <Fragment>
           <Link href="/post-ad">

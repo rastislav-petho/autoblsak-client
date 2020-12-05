@@ -15,16 +15,6 @@ export const Menu = (props) => {
           <a href="https://autoblsak.sk/magazin">Magazín</a>
         </span>
 
-        <span>
-          <Link href="/onas">
-            <a>O nás</a>
-          </Link>
-        </span>
-        <span>
-          <Link href="/kontakt">
-            <a>Kontakt</a>
-          </Link>
-        </span>
         {!user && (
           <Fragment>
             <span>

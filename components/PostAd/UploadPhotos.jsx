@@ -12,7 +12,6 @@ export const UploadPhotos = (props) => {
     photos,
     loading,
     setCountOfFiles,
-    hanfleSubmitUploadPhotos,
   } = useUploadPhotos(aid, postAdState, setStep, nextStep);
   return (
     <div>

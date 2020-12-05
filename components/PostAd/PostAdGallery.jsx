@@ -1,9 +1,22 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Context } from '../../context/context';
 
 export const PostAdGallery = (props) => {
   const { photos, setPostAdState, postAdState, removePhoto } = props;
   const { state } = useContext(Context);
+
+  useEffect(() => {
+    photos.map((item) => {
+      if (item.default_photo == 1) {
+        setPostAdState((prevState) => {
+          return {
+            ...prevState,
+            defaultPhoto: item.id,
+          };
+        });
+      }
+    });
+  }, [photos]);
 
   const selectDefaultPhoto = (item) => {
     setPostAdState({
@@ -15,7 +28,9 @@ export const PostAdGallery = (props) => {
   return (
     <div className="row mt-3">
       <div className="col-12 pl-5 pr-5">
-        {photos.length > 0 && <p>Vyberte jednu titulnú fotku</p>}
+        {photos.length > 0 && !postAdState.defaultPhoto && (
+          <p>Vyberte jednu titulnú fotku</p>
+        )}
         <div className="row">
           {photos.map((item) => (
             <div

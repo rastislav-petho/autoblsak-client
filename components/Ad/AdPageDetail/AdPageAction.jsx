@@ -6,12 +6,16 @@ export const AdPageAction = (props) => {
   return (
     <div className="row">
       <div className="col-12">
-        <button className="full-button mb-2">Predajca: {seller_name}</button>
+        <button className="full-button mb-2" disabled>
+          Predajca: {seller_name}
+        </button>
         <button className="full-button mb-2">
           <a href={`tel:${mobile_number}`}>Zavolať {mobile_number}</a>
         </button>
         <AdSendEmail user={user} email={email} />
-        <button className="full-button mb-2">Poloha: {location}</button>
+        <button className="full-button mb-2" disabled>
+          Poloha: {location}
+        </button>
       </div>
     </div>
   );

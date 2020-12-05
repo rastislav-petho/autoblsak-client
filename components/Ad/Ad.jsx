@@ -227,8 +227,7 @@ export const Ad = memo((props) => {
                 {paid != 1 && (
                   <p className="mt-3">
                     Pre zverejnenie inzerázu pošlite SMS v tvare{' '}
-                    <strong> AUTOB {id}</strong> na číslo 8866 Cena SMS je:
-                    2,90€
+                    <strong> AUTOB {id}</strong> na číslo 8866 Cena SMS je 2,90€
                   </p>
                 )}
                 {premium != 1 && (

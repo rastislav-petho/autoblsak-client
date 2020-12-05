@@ -184,6 +184,7 @@ export const useApi = () => {
           dispatch({ type: 'TOGGLE_FILTER', toogle: false });
           dispatch({ type: 'HANDLE_LOADING', loading: false });
         } else {
+          dispatch({ type: 'HANDLE_LOADING', loading: false });
           dispatch({
             type: 'SET_MESSAGE',
             message: {

@@ -79,15 +79,15 @@ const Kontakt = () => {
                 Vám bude doručená.
               </i>
             </p>
+          </div>
+          <div className="col-12 col-lg-6">
             <h6>Kontaktný formulár</h6>
             <p>
               Kontaktovať nás môžete aj prostredníctvom nasledujúceho rýchleho
               formulára:
             </p>
-          </div>
-          <div className="col-12">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="form-group col-12 col-lg-6 p-0">
+              <div className="form-group col-12 col-lg-8 p-0">
                 <label htmlFor="name">Vaše meno</label>
                 <input
                   type="text"
@@ -100,7 +100,7 @@ const Kontakt = () => {
                   <i className="text-danger">Vaše meno je povinný údaj.</i>
                 )}
               </div>
-              <div className="form-group col-12 col-lg-6 p-0">
+              <div className="form-group col-12 col-lg-8 p-0">
                 <label htmlFor="email">Vaša emailová adresa</label>
                 <input
                   type="email"
@@ -113,7 +113,7 @@ const Kontakt = () => {
                   <i className="text-danger">Vaše email je povinný údaj.</i>
                 )}
               </div>
-              <div className="form-group col-12 col-lg-6 p-0">
+              <div className="form-group col-12 col-lg-8 p-0">
                 <label htmlFor="subject">Predmet</label>
                 <input
                   type="text"
@@ -126,7 +126,7 @@ const Kontakt = () => {
                   <i className="text-danger">Predmet je povinný údaj.</i>
                 )}
               </div>
-              <div className="form-group col-12 col-lg-6 p-0">
+              <div className="form-group col-12 col-lg-12 p-0">
                 <label for="content">Správa</label>
                 <textarea
                   className="form-control"
