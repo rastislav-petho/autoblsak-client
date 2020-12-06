@@ -1,6 +1,7 @@
 import React, { useReducer, createContext } from 'react';
 import reducer from './../reducer/reducer';
 import Cookies from 'js-cookie';
+import { RESET_FILTER } from './../helpers/constants';
 
 export const Context = createContext();
 
@@ -26,22 +27,7 @@ export const ContextProvider = (props) => {
       toggleFavorites: false,
       loading: true,
     },
-    filter: {
-      category: '1',
-      brand: '',
-      model: '',
-      fuel: '',
-      transmision: '',
-      color: '',
-      yearFrom: '',
-      yearTo: '',
-      priceFrom: '',
-      priceTo: '',
-      kmFrom: '',
-      kmTo: '',
-      powerFrom: '',
-      powerTo: '',
-    },
+    filter: RESET_FILTER,
     brands: [],
     models: [],
   };

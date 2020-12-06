@@ -8,7 +8,7 @@ export const Loading = () => {
     <div className="col-12 d-flex justify-content-center">
       <ReactLoading
         type={'spinningBubbles'}
-        color={state.theme === 'dark' ? '#e8373e' : '#d90429'}
+        color={state.theme === 'dark' ? '#d90429' : '#d90429'}
         height={'100px'}
         width={'100px'}
       />

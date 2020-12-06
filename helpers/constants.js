@@ -338,3 +338,20 @@ export const NUMBER_OF_DOORS = [
     label: '4/5',
   },
 ];
+
+export const RESET_FILTER = {
+  category: '1',
+  brand: '',
+  model: '',
+  fuel: '',
+  transmision: '',
+  color: '',
+  yearFrom: '',
+  yearTo: '',
+  priceFrom: '',
+  priceTo: '',
+  kmFrom: '',
+  kmTo: '',
+  powerFrom: '',
+  powerTo: '',
+};

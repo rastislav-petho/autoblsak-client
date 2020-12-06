@@ -110,6 +110,12 @@ export default function reducer(state, action) {
         },
       };
 
+    case 'RESET_FILTER':
+      return {
+        ...state,
+        filter: action.filter,
+      };
+
     case 'SET_BRANDS':
       return {
         ...state,

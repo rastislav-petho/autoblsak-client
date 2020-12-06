@@ -2,12 +2,12 @@ import React, { Fragment } from 'react';
 import Link from 'next/link';
 
 export const Menu = (props) => {
-  const { user, handleFavorites, favoritesCount } = props;
+  const { user, handleFavorites, favoritesCount, handleLogoClick } = props;
   return (
     <div className="menu-wrapper">
       <div className="menu">
         <span>
-          <a href="/">
+          <a onClick={handleLogoClick} className="cursor-pointer">
             <img src="/img/bazarik-1.png" alt="Autoblšák.sk" className="logo" />
           </a>
         </span>
