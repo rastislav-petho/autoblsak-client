@@ -31,11 +31,11 @@ export const Header = () => {
     setCollapse(!collapse);
   }, [setCollapse, collapse]);
 
-  const handleLogoClick = () => {
-    dispatch({ type: 'HANDLE_LOADING', loading: true });
-    dispatch({ type: 'RESET_FILTER', filter: RESET_FILTER });
-    router.push('/');
-  };
+  // const handleLogoClick = () => {
+  //   dispatch({ type: 'HANDLE_LOADING', loading: true });
+  //   dispatch({ type: 'RESET_FILTER', filter: RESET_FILTER });
+  //   router.push('/');
+  // };
 
   return (
     <div className="container p-1">
@@ -43,7 +43,6 @@ export const Header = () => {
         user={state.user}
         handleFavorites={handleFavorites}
         favoritesCount={state.favoriteAds.length}
-        handleLogoClick={handleLogoClick}
       />
       <ToogleMenu
         user={state.user}
@@ -59,7 +58,6 @@ export const Header = () => {
           user={state.user}
           handleChangeTheme={handleChangeTheme}
           logout={logout}
-          handleLogoClick={handleLogoClick}
         />
       )}
     </div>

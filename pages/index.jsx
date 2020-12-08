@@ -30,6 +30,8 @@ const Index = () => {
     scrollToTop();
   };
 
+  console.log(state);
+
   return (
     <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
       <div className="row">
@@ -56,7 +58,7 @@ const Index = () => {
               {state.config.loading ? (
                 <Loading />
               ) : (
-                ads.map((ad) => <Ad ad={ad} key={ad.id} />)
+                ads && ads.map((ad) => <Ad ad={ad} key={ad.id} />)
               )}
             </>
           </Reveal>

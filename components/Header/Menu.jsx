@@ -7,7 +7,7 @@ export const Menu = (props) => {
     <div className="menu-wrapper">
       <div className="menu">
         <span>
-          <a onClick={handleLogoClick} className="cursor-pointer">
+          <a href="/" className="cursor-pointer">
             <img src="/img/bazarik-1.png" alt="Autoblšák.sk" className="logo" />
           </a>
         </span>

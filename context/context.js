@@ -13,7 +13,7 @@ export const ContextProvider = (props) => {
   const initialState = {
     language: 'sk',
     url: 'https://autoblsak.sk',
-    api: 'https://autoblsak.sk/api/api',
+    api: process.env.apiUrl,
     user: user,
     theme: theme ? theme : 'light',
     ads: [],

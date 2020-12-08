@@ -23,7 +23,7 @@ const Page = ({ data }) => {
 };
 
 export async function getServerSideProps({ params }) {
-  const res = await fetch(`https://autoblsak.sk/api/api/page/${params.url}`);
+  const res = await fetch(`${process.env.apiUrl}/page/${params.url}`);
   const data = await res.json();
   return {
     props: { data },

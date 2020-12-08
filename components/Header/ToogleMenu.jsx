@@ -9,6 +9,7 @@ export const ToogleMenu = (props) => {
     favoritesCount,
     dispatch,
     handleCollapse,
+    handleLogoClick,
   } = props;
   return (
     <div className="toggle-menu">
