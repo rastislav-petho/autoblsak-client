@@ -30,8 +30,6 @@ const Index = () => {
     scrollToTop();
   };
 
-  console.log(state);
-
   return (
     <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
       <div className="row">
