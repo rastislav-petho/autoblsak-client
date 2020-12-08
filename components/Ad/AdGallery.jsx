@@ -25,12 +25,7 @@ export const AdGallery = (props) => {
 
   return (
     <>
-      <Gallery
-        photos={loadPhotos()}
-        onClick={openLightbox}
-        direction="row"
-        columns="3"
-      />
+      <Gallery photos={loadPhotos()} onClick={openLightbox} direction="row" />
       <ModalGateway>
         {viewerIsOpen ? (
           <Modal onClose={closeLightbox}>

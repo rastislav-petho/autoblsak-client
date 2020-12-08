@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import { Context } from '../../context/context';
 import axios from 'axios';
 import fetch from 'isomorphic-unfetch';
-import { Layout } from '../../components';
+import { Layout, Loading } from '../../components';
 import {
   AdGallery,
   AdPageHeader,
@@ -15,7 +15,7 @@ import Reveal from 'react-reveal/Reveal';
 import { getAdTitle } from '../../helpers';
 
 const Inzerat = ({ data }) => {
-  const { state } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
 
   const {
     id,

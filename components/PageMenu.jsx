@@ -7,8 +7,9 @@ export const PageMenu = (props) => {
   return (
     <ul className="nav nav-tabs">
       <GoBack />
-      {items.map((item) => (
+      {items.map((item, index) => (
         <NavItem
+          key={index}
           className={item.className}
           adsCount={item.adsCount}
           label={item.label}
