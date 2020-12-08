@@ -37,15 +37,47 @@ export const useApi = () => {
   };
 
   const logout = () => {
-    Cookies.remove('user');
-    dispatch({ type: 'LOGOUT' });
-    router.push('/login');
+    axios
+      .post(
+        `${state.api}/logout`,
+        { id: state.user.id },
+        {
+          headers: {
+            token: state.user.token,
+          },
+        }
+      )
+      .then((response) => {
+        if (response.status === 200 && response.data.success) {
+          Cookies.remove('user');
+          dispatch({ type: 'LOGOUT' });
+          router.push('/login');
+        } else if (response.status === 200 && response.data.error) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'warning', message: response.data.error },
+          });
+        }
+      })
+      .then((error) => {
+        if (error) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: {
+              type: 'warning',
+              message: 'Chyba! Kontaktujte administrátora',
+            },
+          });
+        }
+      });
   };
 
   const changePassword = (data) => {
-    data = { ...data, token: state.user.token, userId: state.user.id };
+    data = { ...data, userId: state.user.id };
     axios
-      .post(`${state.api}/change-password`, data)
+      .post(`${state.api}/change-password`, data, {
+        headers: { token: state.user.token },
+      })
       .then((response) => {
         if (response.status === 200 && response.data.success) {
           dispatch({
@@ -81,7 +113,9 @@ export const useApi = () => {
 
   const editAccount = (data) => {
     axios
-      .post(`${state.api}/edit-account`, data)
+      .post(`${state.api}/edit-account`, data, {
+        headers: { token: state.user.token },
+      })
       .then((response) => {
         if (response.status === 200 && response.data.success) {
           dispatch({
@@ -110,10 +144,13 @@ export const useApi = () => {
 
   const deactiveAccount = () => {
     axios
-      .post(`${state.api}/deactive-account`, {
-        userId: state.user.id,
-        token: state.user.token,
-      })
+      .post(
+        `${state.api}/deactive-account`,
+        {
+          userId: state.user.id,
+        },
+        { headers: { token: state.user.token } }
+      )
       .then((response) => {
         if (response.status === 200 && response.data.success) {
           dispatch({

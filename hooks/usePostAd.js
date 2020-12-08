@@ -84,7 +84,9 @@ export const usePostAd = () => {
 
   const onSubmit = (data) => {
     axios
-      .post(`${state.api}/save-ad`, postAdState)
+      .post(`${state.api}/save-ad`, postAdState, {
+        headers: { token: state.user.token },
+      })
       .then((response) => {
         if (response.status === 200) {
           setPostAdState({

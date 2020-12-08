@@ -32,6 +32,9 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
     fetch(`${state.api}/upload-photo`, {
       method: 'POST',
       body: formData,
+      headers: {
+        token: state.user.token,
+      },
     })
       .then((response) => response.json())
       .then(() => {
@@ -61,7 +64,11 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
 
   const removePhoto = (id) => {
     axios
-      .post(`${state.api}/remove-photo`, { id: id })
+      .post(
+        `${state.api}/remove-photo`,
+        { id: id },
+        { headers: { token: state.user.token } }
+      )
       .then((response) => {
         if (response.data.error) {
           dispatch({

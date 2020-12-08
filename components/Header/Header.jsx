@@ -1,25 +1,23 @@
 import React, { useState, useContext, useCallback } from 'react';
 import { Context } from '../../context/context';
-import Cookies from 'js-cookie';
 import { useRouter } from 'next/router';
-import { useTheme } from '../../hooks';
+import { useTheme, useApi } from '../../hooks';
 import { scrollToTop } from '../../helpers';
 import { Menu, MobileMenu } from './index';
 import { ToogleMenu } from './ToogleMenu';
-import { RESET_FILTER } from './../../helpers/constants';
+//import { RESET_FILTER } from './../../helpers/constants';
 
 export const Header = () => {
   const [collapse, setCollapse] = useState(false);
   const { state, dispatch } = useContext(Context);
   const { handleChangeTheme } = useTheme();
+  const { logout } = useApi();
   const collapseFilter = state.config.toggleFilter;
   const collapseFavorites = state.config.toggleFavorites;
   const router = useRouter();
 
-  const logout = () => {
-    Cookies.remove('user');
-    dispatch({ type: 'LOGOUT' });
-    router.push('/login');
+  const handleLogout = () => {
+    logout();
   };
 
   const handleFavorites = () => {
@@ -57,7 +55,7 @@ export const Header = () => {
         <MobileMenu
           user={state.user}
           handleChangeTheme={handleChangeTheme}
-          logout={logout}
+          logout={handleLogout}
         />
       )}
     </div>

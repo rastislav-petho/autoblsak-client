@@ -57,10 +57,18 @@ export const useMyAds = () => {
 
     if (alert) {
       axios
-        .post(`${state.api}/inzerat/remove`, {
-          id: id,
-          token: state.user.token,
-        })
+        .post(
+          `${state.api}/inzerat/remove`,
+          {
+            id: id,
+            token: state.user.token,
+          },
+          {
+            headers: {
+              token: state.user.token,
+            },
+          }
+        )
         .then((response) => {
           if (response.data.error) {
             dispatch({
@@ -95,11 +103,18 @@ export const useMyAds = () => {
 
     if (alert) {
       axios
-        .post(`${state.api}/inzerat/active-handler`, {
-          id: id,
-          action: action,
-          token: state.user.token,
-        })
+        .post(
+          `${state.api}/inzerat/active-handler`,
+          {
+            id: id,
+            action: action,
+          },
+          {
+            headers: {
+              token: state.user.token,
+            },
+          }
+        )
         .then((response) => {
           if (response.data.error) {
             dispatch({
@@ -156,7 +171,9 @@ export const useMyAds = () => {
 
   const onSubmit = (data) => {
     axios
-      .post(`${state.api}/save-ad`, postAdState)
+      .post(`${state.api}/save-ad`, postAdState, {
+        headers: { token: state.user.token },
+      })
       .then((response) => {
         if (response.status === 200) {
           setPostAdState({
