@@ -4,6 +4,8 @@ import Head from 'next/head';
 import { Header } from './Header';
 import { Messages, CookiesSection, Footer } from './../components';
 import { Favorites } from './Favorites';
+import { useSwipeable } from 'react-swipeable';
+import { useRouter } from 'next/router';
 
 export const Layout = ({
   children,
@@ -13,6 +15,12 @@ export const Layout = ({
   image,
 }) => {
   const { state, dispatch } = useContext(Context);
+  const router = useRouter();
+
+  const handlers = useSwipeable({
+    onSwipedRight: () => router.push('/'),
+    preventDefaultTouchmoveEvent: true,
+  });
 
   return (
     <Fragment>
@@ -62,7 +70,9 @@ export const Layout = ({
         collapse={state.config.toggleFavorites}
         dispatch={dispatch}
       />
-      <div className="container content">{children}</div>
+      <div className="container content" {...handlers}>
+        {children}
+      </div>
       <div className="container-fluid p-0">
         <Footer />
       </div>

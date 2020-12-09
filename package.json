@@ -1,6 +1,6 @@
 {
   "name": "client",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "private": true,
   "homepage": "https://autoblsak.sk/",
   "scripts": {
@@ -29,6 +29,7 @@
     "react-number-format": "^4.4.1",
     "react-photo-gallery": "^8.0.0",
     "react-reveal": "^1.2.2",
+    "react-swipeable": "^6.0.1",
     "xml2js": "^0.4.23"
   },
   "proxy": "http://autoblsak.sk/api",
