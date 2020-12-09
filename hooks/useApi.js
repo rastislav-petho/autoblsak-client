@@ -13,7 +13,7 @@ export const useApi = () => {
       .post(`${state.api}/login`, data)
       .then((response) => {
         if (response.status === 200 && response.data.id) {
-          Cookies.set('user', response.data, { expires: 30 });
+          Cookies.set('user', response.data, { expires: 7 });
           dispatch({ type: 'LOGIN', user: response.data });
           router.push('/');
         } else if (response.status === 203) {
