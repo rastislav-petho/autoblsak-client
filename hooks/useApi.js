@@ -37,39 +37,40 @@ export const useApi = () => {
   };
 
   const logout = () => {
-    axios
-      .post(
-        `${state.api}/logout`,
-        { id: state.user.id },
-        {
-          headers: {
-            token: state.user.token,
-          },
-        }
-      )
-      .then((response) => {
-        if (response.status === 200 && response.data.success) {
-          Cookies.remove('user');
-          dispatch({ type: 'LOGOUT' });
-          router.push('/login');
-        } else if (response.status === 200 && response.data.error) {
-          dispatch({
-            type: 'SET_MESSAGE',
-            message: { type: 'warning', message: response.data.error },
-          });
-        }
-      })
-      .then((error) => {
-        if (error) {
-          dispatch({
-            type: 'SET_MESSAGE',
-            message: {
-              type: 'warning',
-              message: 'Chyba! Kontaktujte administrátora',
-            },
-          });
-        }
-      });
+    Cookies.remove('user');
+    dispatch({ type: 'LOGOUT' });
+    router.push('/login');
+    // axios
+    //   .post(
+    //     `${state.api}/logout`,
+    //     { id: state.user.id },
+    //     {
+    //       headers: {
+    //         token: state.user.token,
+    //       },
+    //     }
+    //   )
+    //   .then((response) => {
+    //     if (response.status === 200 && response.data.success) {
+
+    //     } else if (response.status === 200 && response.data.error) {
+    //       dispatch({
+    //         type: 'SET_MESSAGE',
+    //         message: { type: 'warning', message: response.data.error },
+    //       });
+    //     }
+    //   })
+    //   .then((error) => {
+    //     if (error) {
+    //       dispatch({
+    //         type: 'SET_MESSAGE',
+    //         message: {
+    //           type: 'warning',
+    //           message: 'Chyba! Kontaktujte administrátora',
+    //         },
+    //       });
+    //     }
+    //   });
   };
 
   const changePassword = (data) => {
