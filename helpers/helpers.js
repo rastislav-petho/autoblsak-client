@@ -196,3 +196,74 @@ export const getAdTitle = (title, brand, model) => {
 
 export const scrollToTop = () =>
   window.scrollTo({ top: 0, behavior: 'smooth' });
+
+export const getFilterQueryUrl = (filter, baseUrl) => {
+  const category = filter.category ? filter.category : '1';
+  let url = baseUrl + '/filter?category=' + category;
+
+  const queryObject = {
+    category: filter.category ? filter.category : '1',
+  };
+
+  if (filter.brand) {
+    queryObject.brand = filter.brand;
+    url += '&brand=' + filter.brand;
+  }
+
+  if (filter.model) {
+    queryObject.model = filter.model;
+    url += '&model=' + filter.model;
+  }
+
+  if (filter.fuel) {
+    queryObject.fuel = filter.fuel;
+    url += '&fuel=' + filter.fuel;
+  }
+
+  if (filter.transmision) {
+    queryObject.transmision = filter.transmision;
+    url += '&transmision=' + filter.transmision;
+  }
+
+  if (filter.color) {
+    queryObject.color = filter.color;
+    url += '&color=' + filter.color;
+  }
+
+  if (filter.yearFrom) {
+    queryObject.yearFrom = filter.yearFrom;
+    url += '&yearFrom=' + filter.yearFrom;
+  }
+
+  if (filter.yearTo) {
+    queryObject.yearTo = filter.yearTo;
+    url += '&yearTo=' + filter.yearTo;
+  }
+
+  if (filter.priceFrom) {
+    queryObject.priceFrom = filter.priceFrom;
+    url += '&priceFrom=' + filter.priceFrom;
+  }
+
+  if (filter.priceTo) {
+    queryObject.priceTo = filter.priceTo;
+    url += '&priceTo=' + filter.priceTo;
+  }
+
+  if (filter.kmFrom) {
+    queryObject.kmFrom = filter.kmFrom;
+    url += '&kmFrom=' + filter.kmFrom;
+  }
+
+  if (filter.powerFrom) {
+    queryObject.powerFrom = filter.powerFrom;
+    url += '&powerFrom=' + filter.powerFrom;
+  }
+
+  if (filter.powerTo) {
+    queryObject.powerTo = filter.powerTo;
+    url += '&powerTo=' + filter.powerTo;
+  }
+
+  return [queryObject, url];
+};

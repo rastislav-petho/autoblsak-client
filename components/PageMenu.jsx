@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
+import { BackButton } from './BackButton';
 
 export const PageMenu = (props) => {
   const { setStep, items } = props;
-
   return (
     <ul className="nav nav-tabs">
       <GoBack />
@@ -23,11 +23,11 @@ export const PageMenu = (props) => {
 
 const GoBack = () => (
   <li className="nav-item">
-    <Link href="/">
+    <BackButton>
       <a className="nav-link">
         <i aria-hidden className="fas fa-chevron-left"></i>
       </a>
-    </Link>
+    </BackButton>
   </li>
 );
 

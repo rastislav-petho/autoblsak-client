@@ -1,14 +1,17 @@
 import { useContext, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import { Context } from './../context/context';
 import axios from 'axios';
-import { scrollToTop } from '../helpers';
+import { getFilterQueryUrl, scrollToTop } from '../helpers';
 
 export const useFilter = () => {
   const { state, dispatch } = useContext(Context);
+  const router = useRouter();
   const collapse = state.config.toggleFilter;
   const brands = state.brands;
   const models = state.models;
   const filter = state.filter;
+  const [queryObject, url] = getFilterQueryUrl(filter, state.api);
 
   useEffect(() => {
     fetch(`${state.api}/filter/brands`)
@@ -35,37 +38,13 @@ export const useFilter = () => {
     });
   }
 
-  function handleSubmitFilter() {
+  function handleSubmitFilter(event) {
+    event.preventDefault();
     dispatch({ type: 'HANDLE_LOADING', loading: true });
-    axios
-      .post(`${state.api}/filter`, filter)
-      .then((response) => {
-        if (response.status === 200 && response.data.data.length !== 0) {
-          dispatch({ type: 'SET_ADS', ads: response.data });
-          dispatch({ type: 'TOGGLE_FILTER', toogle: false });
-          dispatch({ type: 'HANDLE_LOADING', loading: false });
-        } else {
-          dispatch({ type: 'HANDLE_LOADING', loading: false });
-          dispatch({
-            type: 'SET_MESSAGE',
-            message: {
-              type: 'warning',
-              message: 'Pre zvolený filter sa nenašli žiadne výsledky.',
-            },
-          });
-        }
-      })
-      .then((error) => {
-        if (error) {
-          dispatch({
-            type: 'SET_MESSAGE',
-            message: {
-              type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora',
-            },
-          });
-        }
-      });
+    router.push({
+      pathname: '/',
+      query: queryObject,
+    });
     scrollToTop();
   }
 

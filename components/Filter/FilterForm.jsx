@@ -26,7 +26,7 @@ export const FilterForm = ({
   button,
 }) => {
   return (
-    <div>
+    <form className="form" onSubmit={handleSubmitFilter}>
       <div className="form-group mb-2">
         <select
           onChange={handleChange}
@@ -268,10 +268,10 @@ export const FilterForm = ({
         </div>
       </div>
       <div className="form-group text-center">
-        <button onClick={handleSubmitFilter} className={button}>
+        <button type="submit" className={button}>
           Hľadať
         </button>
       </div>
-    </div>
+    </form>
   );
 };

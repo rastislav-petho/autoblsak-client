@@ -14,16 +14,27 @@ import { Filter } from './../components/Filter';
 import { Ad } from './../components/Ad';
 import { useApi } from './../hooks';
 import Reveal from 'react-reveal/Reveal';
-import { scrollToTop } from './../helpers';
+import { scrollToTop, getFilterQueryUrl } from './../helpers';
 
-const Index = () => {
-  const { state } = useContext(Context);
-  const ads = state.ads.data;
-  const { filter, adPagination } = useApi();
+const Index = (props) => {
+  const { state, dispatch } = useContext(Context);
+  const { adPagination } = useApi();
 
   useEffect(() => {
-    filter();
-  }, []);
+    if (props.data.data.length == 0) {
+      dispatch({
+        type: 'SET_MESSAGE',
+        message: {
+          type: 'warning',
+          message: 'Pre zvolený filter sa nenašli žiadne výsledky.',
+        },
+      });
+    }
+
+    dispatch({ type: 'SET_ADS', ads: props.data });
+    dispatch({ type: 'TOGGLE_FILTER', toogle: false });
+    if (state.ads) dispatch({ type: 'HANDLE_LOADING', loading: false });
+  }, [props]);
 
   const handlePagination = (move) => {
     adPagination(move);
@@ -43,10 +54,10 @@ const Index = () => {
               <Filter />
             </div>
             <div className="col-12">
-              <Magazine apiUrl={state.api} />
+              <Magazine data={props.magazineData} />
             </div>
             <div className="col-12">
-              <MostView apiUrl={state.api} url={state.url} />
+              <MostView data={props.mostViewData} url={state.url} />
             </div>
           </div>
         </div>
@@ -56,7 +67,8 @@ const Index = () => {
               {state.config.loading ? (
                 <Loading />
               ) : (
-                ads && ads.map((ad) => <Ad ad={ad} key={ad.id} />)
+                state.ads.data &&
+                state.ads.data.map((ad) => <Ad ad={ad} key={ad.id} />)
               )}
             </>
           </Reveal>
@@ -74,12 +86,21 @@ const Index = () => {
   );
 };
 
-// Index.getInitialProps = async function ({ params }) {
-//   const res = await fetch(`https://autoblsak.sk/api/api/ads`);
-//   const data = await res.json();
-//   return {
-//     data: data,
-//   };
-// };
+Index.getInitialProps = async function ({ query }) {
+  const [, url] = getFilterQueryUrl(query, process.env.apiUrl);
+  const res = await fetch(url + '&page=' + query.page);
+  const data = await res.json();
+
+  const magazine = await fetch(`${process.env.apiUrl}/magazine`);
+  const magazineData = await magazine.json();
+
+  const mostView = await fetch(`${process.env.apiUrl}/most-view`);
+  const mostViewData = await mostView.json();
+  return {
+    data: data,
+    magazineData: magazineData,
+    mostViewData: mostViewData,
+  };
+};
 
 export default Index;

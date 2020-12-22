@@ -3,10 +3,13 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { Context } from './../context/context';
 import Cookies from 'js-cookie';
+import { getFilterQueryUrl } from '../helpers';
 
 export const useApi = () => {
   const { state, dispatch } = useContext(Context);
   const router = useRouter();
+  const filter = state.filter;
+  const [queryObject, url] = getFilterQueryUrl(filter, state.api);
 
   const auth = (data) => {
     axios
@@ -213,72 +216,15 @@ export const useApi = () => {
       });
   };
 
-  const filter = () => {
-    axios
-      .post(`${state.api}/filter`, state.filter)
-      .then((response) => {
-        if (response.status === 200 && response.data.data.length !== 0) {
-          dispatch({ type: 'SET_ADS', ads: response.data });
-          dispatch({ type: 'TOGGLE_FILTER', toogle: false });
-          dispatch({ type: 'HANDLE_LOADING', loading: false });
-        } else {
-          dispatch({ type: 'HANDLE_LOADING', loading: false });
-          dispatch({
-            type: 'SET_MESSAGE',
-            message: {
-              type: 'warning',
-              message: 'Pre zvolený filter sa nenašli žiadne výsledky.',
-            },
-          });
-        }
-      })
-      .then((error) => {
-        if (error) {
-          dispatch({
-            type: 'SET_MESSAGE',
-            message: {
-              type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora',
-            },
-          });
-        }
-      });
-  };
-
   const adPagination = (move) => {
+    queryObject.page = move
+      ? state.ads.current_page + 1
+      : state.ads.current_page - 1;
     dispatch({ type: 'HANDLE_LOADING', loading: true });
-    axios
-      .post(
-        `${state.api}/filter?page=${
-          move ? state.ads.current_page + 1 : state.ads.current_page - 1
-        }`,
-        state.filter
-      )
-      .then((response) => {
-        if (response.status === 200 && response.data.length !== 0) {
-          dispatch({ type: 'SET_ADS', ads: response.data });
-          dispatch({ type: 'HANDLE_LOADING', loading: false });
-        } else {
-          dispatch({
-            type: 'SET_MESSAGE',
-            message: {
-              type: 'warning',
-              message: 'Pre zvolený filter sa nenašli žiadne výsledky.',
-            },
-          });
-        }
-      })
-      .then((error) => {
-        if (error) {
-          dispatch({
-            type: 'SET_MESSAGE',
-            message: {
-              type: 'warning',
-              message: 'Chyba ! Kontaktujte administrátora',
-            },
-          });
-        }
-      });
+    router.push({
+      pathname: '/',
+      query: queryObject,
+    });
   };
 
   const getBrands = (setBrands) => {
@@ -345,7 +291,6 @@ export const useApi = () => {
     changePassword,
     deactiveAccount,
     registration,
-    filter,
     adPagination,
     getBrands,
     getModels,

@@ -1,7 +1,7 @@
 import React from 'react';
-import Link from 'next/link';
 import { getAdTitle, getDateFromTimestamp } from './../../../helpers';
 import NumberFormat from 'react-number-format';
+import { BackButton } from '../../BackButton';
 
 export const AdPageHeader = (props) => {
   const { title, brand, model, id, created, views, premium, price } = props;
@@ -10,9 +10,9 @@ export const AdPageHeader = (props) => {
     <div className="row inzerat-titles">
       <div className="col-12">
         <h5>
-          <Link href={`/`} as={`/`}>
+          <BackButton>
             <button className="btn btn-dark btn-sm">Späť</button>
-          </Link>
+          </BackButton>
         </h5>
       </div>
       <div className="col-12 col-lg-6">

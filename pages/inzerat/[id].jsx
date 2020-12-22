@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../context/context';
 import axios from 'axios';
 import fetch from 'isomorphic-unfetch';
@@ -16,7 +16,7 @@ import { getAdTitle } from '../../helpers';
 
 const Inzerat = ({ data }) => {
   const { state, dispatch } = useContext(Context);
-
+  const [sortedExtras, setSortedExtars] = useState({});
   const {
     id,
     title,
@@ -40,14 +40,51 @@ const Inzerat = ({ data }) => {
     mobile_number,
     location,
     additional_information,
-    extras,
     email,
   } = data;
+
+  let safety = [];
+  let comfort = [];
+  let protection = [];
+  let exterier = [];
+  let interier = [];
 
   useEffect(() => {
     const data = { id: id, views: views + 1 };
     axios.post(`${state.api}/inzerat/updateviews`, data).then((response) => {
       return;
+    });
+  }, []);
+
+  useEffect(() => {
+    data.extras.map((item) => {
+      if (item.extra_category_id == 1) {
+        safety.push(item);
+      }
+
+      if (item.extra_category_id == 2) {
+        comfort.push(item);
+      }
+
+      if (item.extra_category_id == 5) {
+        protection.push(item);
+      }
+
+      if (item.extra_category_id == 3) {
+        exterier.push(item);
+      }
+
+      if (item.extra_category_id == 6) {
+        interier.push(item);
+      }
+    });
+
+    setSortedExtars({
+      safety: safety,
+      comfort: comfort,
+      protection: protection,
+      interier: interier,
+      exterier: exterier,
     });
   }, []);
 
@@ -113,11 +150,7 @@ const Inzerat = ({ data }) => {
                   additional_information={additional_information}
                 />
               )}
-              {extras.length > 0 && (
-                <>
-                  <AdPageExtras extras={extras} />
-                </>
-              )}
+              <AdPageExtras extras={sortedExtras} />
             </div>
           </div>
         </div>
