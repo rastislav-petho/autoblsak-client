@@ -12,13 +12,18 @@ export const useApi = () => {
   const [queryObject, url] = getFilterQueryUrl(filter, state.api);
 
   const auth = (data) => {
+    queryObject.page = state.ads.current_page;
+
     axios
       .post(`${state.api}/login`, data)
       .then((response) => {
         if (response.status === 200 && response.data.id) {
           Cookies.set('user', response.data);
           dispatch({ type: 'LOGIN', user: response.data });
-          router.push('/');
+          router.push({
+            pathname: '/',
+            query: queryObject,
+          });
         } else if (response.status === 203) {
           dispatch({
             type: 'SET_MESSAGE',
@@ -217,10 +222,10 @@ export const useApi = () => {
   };
 
   const adPagination = (move) => {
+    dispatch({ type: 'HANDLE_LOADING', loading: true });
     queryObject.page = move
       ? state.ads.current_page + 1
       : state.ads.current_page - 1;
-    dispatch({ type: 'HANDLE_LOADING', loading: true });
     router.push({
       pathname: '/',
       query: queryObject,

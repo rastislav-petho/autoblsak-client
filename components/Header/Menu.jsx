@@ -7,9 +7,15 @@ export const Menu = (props) => {
     <div className="menu-wrapper">
       <div className="menu">
         <span>
-          <a href="/" className="cursor-pointer">
-            <img src="/img/bazarik-1.png" alt="Autoblšák.sk" className="logo" />
-          </a>
+          <Link href="/">
+            <a className="cursor-pointer">
+              <img
+                src="/img/bazarik-1.png"
+                alt="Autoblšák.sk"
+                className="logo"
+              />
+            </a>
+          </Link>
         </span>
         <span>
           <a href="https://autoblsak.sk/magazin">Magazín</a>

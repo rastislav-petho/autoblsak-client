@@ -6,6 +6,7 @@ import { Messages, CookiesSection, Footer } from './../components';
 import { Favorites } from './Favorites';
 import { useSwipeable } from 'react-swipeable';
 import { useRouter } from 'next/router';
+import { getFilterQueryUrl } from './../helpers';
 
 export const Layout = ({
   children,
@@ -16,9 +17,14 @@ export const Layout = ({
 }) => {
   const { state, dispatch } = useContext(Context);
   const router = useRouter();
+  const [queryObject] = getFilterQueryUrl(state.filter, state.api);
 
   const handlers = useSwipeable({
-    onSwipedRight: () => router.push('/'),
+    onSwipedRight: () =>
+      router.push({
+        pathname: '/',
+        query: queryObject,
+      }),
     preventDefaultTouchmoveEvent: true,
   });
 
