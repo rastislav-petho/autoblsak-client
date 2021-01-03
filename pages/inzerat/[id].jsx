@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Context } from '../../context/context';
+import { useRouter } from 'next/router';
 import axios from 'axios';
 import fetch from 'isomorphic-unfetch';
 import { Layout, Loading } from '../../components';
@@ -13,9 +14,11 @@ import {
 } from '../../components/Ad';
 import Reveal from 'react-reveal/Reveal';
 import { getAdTitle } from '../../helpers';
+import { isPaidCategory } from './../../helpers/constants';
 
 const Inzerat = ({ data }) => {
   const { state, dispatch } = useContext(Context);
+  const router = useRouter();
   const [sortedExtras, setSortedExtars] = useState({});
   const {
     id,
@@ -48,6 +51,16 @@ const Inzerat = ({ data }) => {
   let protection = [];
   let exterier = [];
   let interier = [];
+
+  useEffect(() => {
+    if (state.user != undefined && state.user.id == data.uid) {
+      return;
+    } else if (data.status == 0) {
+      router.push('/');
+    } else if (isPaidCategory.includes(data.category) && data.paid != 1) {
+      router.push('/');
+    }
+  }, []);
 
   useEffect(() => {
     const data = { id: id, views: views + 1 };

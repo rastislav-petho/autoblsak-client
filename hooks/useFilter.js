@@ -32,9 +32,13 @@ export const useFilter = () => {
   }, [filter.brand]);
 
   function handleChange(event) {
+    let value = event.target.value;
+    if (value === '') {
+      value = undefined;
+    }
     dispatch({
       type: 'SET_FILTER',
-      event: { name: event.target.name, value: event.target.value },
+      event: { name: event.target.name, value: value },
     });
   }
 

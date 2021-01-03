@@ -58,11 +58,10 @@ const MyAd = (props) => {
         myAds
           .filter((ad) => ad.status == 1)
           .map((ad) => (
-            <Reveal>
+            <Reveal key={ad.id}>
               <Ad
                 ad={ad}
                 actionBar={true}
-                key={ad.id}
                 handleRemove={handleRemove}
                 handleActive={handleActive}
                 handleEdit={handleEdit}

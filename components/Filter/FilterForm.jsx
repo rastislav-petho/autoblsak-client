@@ -53,7 +53,7 @@ export const FilterForm = ({
               className="form-control"
               name="brand"
             >
-              <option value={filter.brand ? filter.brand : null}>
+              <option value={filter.brand ? filter.brand : undefined}>
                 {filter.brand
                   ? decodeBrand(brands, filter.brand)
                   : 'Zvoľte značku'}

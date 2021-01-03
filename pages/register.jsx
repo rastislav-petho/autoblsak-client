@@ -9,7 +9,7 @@ const Register = () => {
   const { register, handleSubmit, errors } = useForm();
   const { registration } = useApi();
 
-  const onSubmit = data => {
+  const onSubmit = (data) => {
     registration(data);
   };
 
@@ -133,7 +133,11 @@ const Register = () => {
                   </span>
                 </div>
                 <div className="col-12 d-flex justify-content-center">
-                  <input type="submit" className="button" value="Prihlásiť" />
+                  <input
+                    type="submit"
+                    className="button"
+                    value="Zaregistrovať"
+                  />
                 </div>
               </form>
             </div>

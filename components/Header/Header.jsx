@@ -5,7 +5,7 @@ import { useTheme, useApi } from '../../hooks';
 import { scrollToTop } from '../../helpers';
 import { Menu, MobileMenu } from './index';
 import { ToogleMenu } from './ToogleMenu';
-//import { RESET_FILTER } from './../../helpers/constants';
+import { RESET_FILTER } from './../../helpers/constants';
 
 export const Header = () => {
   const [collapse, setCollapse] = useState(false);
@@ -29,11 +29,13 @@ export const Header = () => {
     setCollapse(!collapse);
   }, [setCollapse, collapse]);
 
-  // const handleLogoClick = () => {
-  //   dispatch({ type: 'HANDLE_LOADING', loading: true });
-  //   dispatch({ type: 'RESET_FILTER', filter: RESET_FILTER });
-  //   router.push('/');
-  // };
+  const handleLogoClick = () => {
+    dispatch({ type: 'RESET_FILTER', filter: RESET_FILTER });
+    router.push({
+      pathname: '/',
+      query: { category: '1', page: '1' },
+    });
+  };
 
   return (
     <div className="container p-1">
@@ -41,6 +43,7 @@ export const Header = () => {
         user={state.user}
         handleFavorites={handleFavorites}
         favoritesCount={state.favoriteAds.length}
+        handleLogoClick={handleLogoClick}
       />
       <ToogleMenu
         user={state.user}
@@ -49,6 +52,7 @@ export const Header = () => {
         favoritesCount={state.favoriteAds.length}
         dispatch={dispatch}
         handleCollapse={handleCollapse}
+        handleLogoClick={handleLogoClick}
       />
 
       {collapse && (

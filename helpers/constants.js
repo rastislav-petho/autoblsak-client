@@ -305,6 +305,8 @@ export const OTHER_CATEGORY = [
   },
 ];
 
+export const isPaidCategory = [1, 2, 3, 4, 5, 6, 7, 8, 16];
+
 export const EXTRAS_CATEGORIES = [
   {
     id: 1,
@@ -339,6 +341,29 @@ export const NUMBER_OF_DOORS = [
   },
 ];
 
+export const SORTED = [
+  {
+    value: 'year_of_manufacture',
+    label: 'Rok výroby',
+  },
+  {
+    value: 'price',
+    label: 'Cena',
+  },
+  {
+    value: 'power',
+    label: 'Výkon',
+  },
+  {
+    value: 'mileage',
+    label: 'Najazdené',
+  },
+  {
+    value: 'fuel',
+    label: 'Palivo',
+  },
+];
+
 export const RESET_FILTER = {
   category: '1',
   brand: undefined,
@@ -354,4 +379,5 @@ export const RESET_FILTER = {
   kmTo: undefined,
   powerFrom: undefined,
   powerTo: undefined,
+  sortBy: undefined,
 };

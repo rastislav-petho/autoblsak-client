@@ -210,6 +210,21 @@ h6 {
   font-size: 0.9rem;
 }
 
+.ad-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+}
+
+.ad-list-header select {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  height: 37px;
+  font-size: 0.9rem;
+  border: none;
+}
+
 .favorites > i {
   color: var(--text-second-color);
   font-size: 1.5rem;

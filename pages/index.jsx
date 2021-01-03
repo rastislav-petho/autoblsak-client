@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useCallback } from 'react';
+import React, { useContext, useEffect } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Context } from './../context/context';
 import {
@@ -9,6 +9,7 @@ import {
   Pagination,
   Newsletter,
   Loading,
+  AdListHeader,
 } from './../components';
 import { Filter } from './../components/Filter';
 import { Ad } from './../components/Ad';
@@ -19,7 +20,6 @@ import { scrollToTop, getFilterQueryUrl } from './../helpers';
 const Index = (props) => {
   const { state, dispatch } = useContext(Context);
   const { adPagination } = useApi();
-
   useEffect(() => {
     if (props.data.data.length == 0) {
       dispatch({
@@ -64,6 +64,15 @@ const Index = (props) => {
         <div className="col-12 col-md-12 col-lg-9 order-lg-2 order-1">
           <Reveal>
             <>
+              {state.config.loading === false && (
+                <AdListHeader
+                  to={state.ads.to}
+                  from={state.ads.from}
+                  total={state.ads.total}
+                  dispatch={dispatch}
+                />
+              )}
+
               {state.config.loading ? (
                 <Loading />
               ) : (

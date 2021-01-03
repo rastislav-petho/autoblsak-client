@@ -4,6 +4,7 @@ import {
   TRANSMISION,
   COLORS,
   CATEGORY,
+  SORTED,
 } from './../helpers/constants';
 import moment from 'moment';
 
@@ -181,6 +182,20 @@ export const decodeColor = (color) => {
   }
 };
 
+export const decodeSorted = (sort) => {
+  if (sort == 'year_of_manufacture') {
+    return SORTED[0].label;
+  } else if (sort == 'price') {
+    return SORTED[1].label;
+  } else if (sort == 'power') {
+    return SORTED[2].label;
+  } else if (sort == 'mileage') {
+    return SORTED[3].label;
+  } else if (sort == 'fuel') {
+    return SORTED[4].label;
+  } else return null;
+};
+
 export const getYearsList = (min, max) => {
   let years = [];
   for (let i = max; i >= min; i--) {
@@ -198,72 +213,20 @@ export const scrollToTop = () =>
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
 export const getFilterQueryUrl = (filter, baseUrl) => {
-  const category = filter.category ? filter.category : '1';
-  let url = baseUrl + '/filter?category=' + category;
+  let url = baseUrl + '/filter?';
+  let queryObject = {};
 
-  const queryObject = {
-    category: filter.category ? filter.category : '1',
-  };
+  Object.entries(filter).forEach(([key, val]) => {
+    if (val !== undefined) {
+      queryObject[key] = val;
 
-  if (filter.brand) {
-    queryObject.brand = filter.brand;
-    url += '&brand=' + filter.brand;
-  }
-
-  if (filter.model) {
-    queryObject.model = filter.model;
-    url += '&model=' + filter.model;
-  }
-
-  if (filter.fuel) {
-    queryObject.fuel = filter.fuel;
-    url += '&fuel=' + filter.fuel;
-  }
-
-  if (filter.transmision) {
-    queryObject.transmision = filter.transmision;
-    url += '&transmision=' + filter.transmision;
-  }
-
-  if (filter.color) {
-    queryObject.color = filter.color;
-    url += '&color=' + filter.color;
-  }
-
-  if (filter.yearFrom) {
-    queryObject.yearFrom = filter.yearFrom;
-    url += '&yearFrom=' + filter.yearFrom;
-  }
-
-  if (filter.yearTo) {
-    queryObject.yearTo = filter.yearTo;
-    url += '&yearTo=' + filter.yearTo;
-  }
-
-  if (filter.priceFrom) {
-    queryObject.priceFrom = filter.priceFrom;
-    url += '&priceFrom=' + filter.priceFrom;
-  }
-
-  if (filter.priceTo) {
-    queryObject.priceTo = filter.priceTo;
-    url += '&priceTo=' + filter.priceTo;
-  }
-
-  if (filter.kmFrom) {
-    queryObject.kmFrom = filter.kmFrom;
-    url += '&kmFrom=' + filter.kmFrom;
-  }
-
-  if (filter.powerFrom) {
-    queryObject.powerFrom = filter.powerFrom;
-    url += '&powerFrom=' + filter.powerFrom;
-  }
-
-  if (filter.powerTo) {
-    queryObject.powerTo = filter.powerTo;
-    url += '&powerTo=' + filter.powerTo;
-  }
+      if (key === 'category') {
+        url += `${key}=${val}`;
+      } else {
+        url += `&${key}=${val}`;
+      }
+    }
+  });
 
   return [queryObject, url];
 };

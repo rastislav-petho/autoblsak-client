@@ -1,18 +1,17 @@
 import React from 'react';
-import { useApi } from './../../hooks';
+import { BackButton } from './../BackButton';
 
 export const Stepper = (props) => {
   const { step, setStep } = props;
-  const { handleBackButton } = useApi();
   return (
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
         <li className="breadcrumb-item">
-          <i
-            onClick={handleBackButton}
-            aria-hidden
-            className="fas fa-chevron-left cursor-pointer"
-          ></i>
+          <BackButton>
+            <a className="breadcrumb-item">
+              <i aria-hidden className="fas fa-chevron-left"></i>
+            </a>
+          </BackButton>
         </li>
         {step === 'category' && (
           <>
