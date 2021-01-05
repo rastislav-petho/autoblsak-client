@@ -33,7 +33,6 @@ export const Header = () => {
     dispatch({ type: 'RESET_FILTER', filter: RESET_FILTER });
     router.push({
       pathname: '/',
-      query: { category: '1', page: '1' },
     });
   };
 

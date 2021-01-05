@@ -19,7 +19,14 @@ import { scrollToTop, getFilterQueryUrl } from './../helpers';
 
 const Index = (props) => {
   const { state, dispatch } = useContext(Context);
-  const { adPagination } = useApi();
+  const { adPagination, autoLogout } = useApi();
+
+  useEffect(() => {
+    if (state.user) {
+      autoLogout(state.user.token);
+    }
+  }, []);
+
   useEffect(() => {
     if (props.data.data.length == 0) {
       dispatch({

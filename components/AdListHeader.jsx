@@ -28,9 +28,7 @@ export const AdListHeader = () => {
 
   return (
     <div className="row ad-list-header">
-      <div>
-        {from}-{to} z {total} inzerátov
-      </div>
+      <div>{/* {from}-{to} z {total} inzerátov */}</div>
       <div>
         <select
           className="form-control form-control-sm custom-select"

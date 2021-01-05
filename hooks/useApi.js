@@ -221,6 +221,28 @@ export const useApi = () => {
       });
   };
 
+  const autoLogout = (token) => {
+    axios
+      .post(`${state.api}/verification/token`, { token: token })
+      .then((response) => {
+        if (response.data.error) {
+          Cookies.remove('user');
+          dispatch({ type: 'LOGIN', user: undefined });
+        }
+      })
+      .then((error) => {
+        if (error) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: {
+              type: 'warning',
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
+          });
+        }
+      });
+  };
+
   const adPagination = (move) => {
     dispatch({ type: 'HANDLE_LOADING', loading: true });
     queryObject.page = move
@@ -302,5 +324,6 @@ export const useApi = () => {
     getExtras,
     editAccount,
     newsletter,
+    autoLogout,
   };
 };

@@ -33,11 +33,12 @@ export const FilterForm = ({
           className="form-control"
           name="category"
         >
-          <option value={filter.category ? filter.category : '1'}>
+          <option value={filter.category ? filter.category : ''}>
             {filter.category
               ? decodeCategory(filter.category)
-              : 'Osobné vozidlá'}
+              : 'Zvoľte typ inzerátu'}
           </option>
+          <option value="">-- Zvoľte typ inzerátu --</option>
           {CATEGORY.map((brand) => (
             <option key={brand.value} value={brand.value}>
               {brand.label}

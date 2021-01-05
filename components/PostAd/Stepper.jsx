@@ -2,7 +2,7 @@ import React from 'react';
 import { BackButton } from './../BackButton';
 
 export const Stepper = (props) => {
-  const { step, setStep } = props;
+  const { step, handleStepperStep } = props;
   return (
     <nav aria-label="breadcrumb">
       <ol className="breadcrumb">
@@ -25,7 +25,7 @@ export const Stepper = (props) => {
           <>
             <li
               className="breadcrumb-item cursor-pointer"
-              onClick={() => setStep('category')}
+              onClick={() => handleStepperStep('category')}
             >
               Kategória vozidla
             </li>
@@ -38,13 +38,13 @@ export const Stepper = (props) => {
           <>
             <li
               className="breadcrumb-item cursor-pointer"
-              onClick={() => setStep('category')}
+              onClick={() => handleStepperStep('category')}
             >
               Kategória vozidla
             </li>
             <li
               className="breadcrumb-item cursor-pointer"
-              onClick={() => setStep('additional-information')}
+              onClick={() => handleStepperStep('additional-information')}
             >
               Informácie o vozidle
             </li>
