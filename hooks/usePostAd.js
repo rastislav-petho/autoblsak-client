@@ -4,12 +4,14 @@ import { Context } from './../context/context';
 import { useForm } from 'react-hook-form';
 import { useApi } from './../hooks';
 import { scrollToTop } from '../helpers';
+import next from 'next';
 
 export const usePostAd = () => {
   const { state, dispatch } = useContext(Context);
   const { register, handleSubmit, errors } = useForm();
   const { getBrands, getModels, getExtras } = useApi();
-  const [postAdState, setPostAdState] = useState({
+
+  const defaultPostAdState = {
     categoryType: '',
     userId: state.user && state.user.id,
     aid: '',
@@ -34,7 +36,9 @@ export const usePostAd = () => {
     email: state.user && state.user.email,
     location: '',
     defaultPhoto: '',
-  });
+  };
+
+  const [postAdState, setPostAdState] = useState(defaultPostAdState);
 
   const [step, setStep] = useState('category');
   const [brands, setBrands] = useState([]);
@@ -64,6 +68,13 @@ export const usePostAd = () => {
   useEffect(() => {
     scrollToTop();
   }, [step]);
+
+  const handleStepperStep = (nextStep) => {
+    if (nextStep === 'category') {
+      setPostAdState(defaultPostAdState);
+    }
+    setStep(nextStep);
+  };
 
   function handleCategory(value, step) {
     if (value === 'personal') {
@@ -147,6 +158,7 @@ export const usePostAd = () => {
     extras,
     step,
     setStep,
+    handleStepperStep,
     handleCategory,
     onSubmit,
     handleChange,

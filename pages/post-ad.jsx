@@ -19,6 +19,7 @@ const PostAd = () => {
     models,
     extras,
     step,
+    handleStepperStep,
     setStep,
     handleCategory,
     onSubmit,
@@ -34,7 +35,7 @@ const PostAd = () => {
       pageKeywords=""
     >
       <h4>Pridať inzerát</h4>
-      <Stepper step={step} setStep={setStep} />
+      <Stepper step={step} handleStepperStep={handleStepperStep} />
       {step === 'category' && <Category handleCategory={handleCategory} />}
 
       {step === 'additional-information' && (

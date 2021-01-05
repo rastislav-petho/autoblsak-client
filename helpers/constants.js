@@ -358,14 +358,10 @@ export const SORTED = [
     value: 'mileage',
     label: 'Najazdené',
   },
-  {
-    value: 'fuel',
-    label: 'Palivo',
-  },
 ];
 
 export const RESET_FILTER = {
-  category: '1',
+  category: undefined,
   brand: undefined,
   model: undefined,
   fuel: undefined,
