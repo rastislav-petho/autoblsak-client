@@ -14,24 +14,19 @@ function Error({ statusCode }) {
         <div className="row">
           <div className="col-12 text-center mt-5">
             <h2 className="mb-5">OOOPS!!</h2>
-            <h4>
-              STRÁNKA, KTORÚ STE HĽADALI SA NENAŠLA PREJDITE PROSÍM NA NIEKTORÚ
-              ZO STRÁNOK
-            </h4>
-            <div className="row mt-5">
-              <div className="col-12 col-lg-4 mt-3">
+            <img
+              className="w-75"
+              src="/img/404-car.png"
+              alt="Stránku ktorú ste hladali sme nenašli"
+            />
+            <h4 className="mt-5">Stránku, ktorú ste hľadali sme nenašli.</h4>
+            <div className="row mt-5 text-center">
+              <div className="col">
+                {' '}
                 <Link href="/">
-                  <button className="button">INZERCIA</button>
-                </Link>
-              </div>
-              <div className="col-12 col-lg-4 mt-3">
-                <a className="button" href="https://autoblsak.sk/magazin">
-                  MAGAZÍN
-                </a>
-              </div>
-              <div className="col-12 col-lg-4 mt-3">
-                <Link href="/kontakt">
-                  <button className="button">KONTAKT</button>
+                  <button className="full-button" style={{ width: '250px' }}>
+                    Prejsť na hlavnú stránku
+                  </button>
                 </Link>
               </div>
             </div>

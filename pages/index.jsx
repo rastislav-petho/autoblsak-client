@@ -84,7 +84,9 @@ const Index = (props) => {
                 <Loading />
               ) : (
                 state.ads.data &&
-                state.ads.data.map((ad) => <Ad ad={ad} key={ad.id} />)
+                state.ads.data.map(
+                  (ad) => ad.defaultPhoto != null && <Ad ad={ad} key={ad.id} />
+                )
               )}
             </>
           </Reveal>
