@@ -189,7 +189,8 @@ export const Ad = memo((props) => {
             </div>
           )}
           <div className="col-12">
-            {withOutIcons.includes(category) && additional_information}
+            {withOutIcons.includes(category) &&
+              additional_information.slice(0, 150)}
           </div>
         </div>
         <div className="row ad-footers mt-3">
