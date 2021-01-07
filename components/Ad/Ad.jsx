@@ -1,4 +1,4 @@
-import React, { useContext, memo, useState } from 'react';
+import React, { useContext, useState, useCallback } from 'react';
 import { Context } from '../../context/context';
 import { useFavorites } from './../../hooks';
 import { AdGallery } from './index';
@@ -13,7 +13,7 @@ import {
   getDateFromTimestamp,
 } from '../../helpers';
 
-export const Ad = memo((props) => {
+export const Ad = (props) => {
   const {
     id,
     year_of_manufacture,
@@ -56,7 +56,7 @@ export const Ad = memo((props) => {
   // TODO spravit ako konstantu
   const withOutIcons = [9, 10, 11, 12, 13, 14];
 
-  const handleLoadGallery = () => {
+  const handleLoadGallery = useCallback(() => {
     setLoading(true);
     axios
       .get(`${state.api}/upload-photos/${id}`)
@@ -64,7 +64,7 @@ export const Ad = memo((props) => {
         if (response.status === 200) {
           const mapPhotos = response.data.map((item) => ({
             ...item,
-            src: `http://autoblsak.sk/${item.photo}`,
+            src: `https://autoblsak.sk/${item.photo}`,
             width: 4,
             height: 3,
           }));
@@ -76,7 +76,7 @@ export const Ad = memo((props) => {
       .catch(function (error) {
         console.log(error);
       });
-  };
+  }, []);
 
   return (
     <div key={id} className="row ad-box shadow">
@@ -276,4 +276,4 @@ export const Ad = memo((props) => {
       </div>
     </div>
   );
-});
+};

@@ -14,7 +14,6 @@ import {
 import { Filter } from './../components/Filter';
 import { Ad } from './../components/Ad';
 import { useApi } from './../hooks';
-import Reveal from 'react-reveal/Reveal';
 import { scrollToTop, getFilterQueryUrl } from './../helpers';
 
 const Index = (props) => {
@@ -69,27 +68,25 @@ const Index = (props) => {
           </div>
         </div>
         <div className="col-12 col-md-12 col-lg-9 order-lg-2 order-1">
-          <Reveal>
-            <>
-              {state.config.loading === false && (
-                <AdListHeader
-                  to={state.ads.to}
-                  from={state.ads.from}
-                  total={state.ads.total}
-                  dispatch={dispatch}
-                />
-              )}
+          <>
+            {state.config.loading === false && (
+              <AdListHeader
+                to={state.ads.to}
+                from={state.ads.from}
+                total={state.ads.total}
+                dispatch={dispatch}
+              />
+            )}
 
-              {state.config.loading ? (
-                <Loading />
-              ) : (
-                state.ads.data &&
-                state.ads.data.map(
-                  (ad) => ad.defaultPhoto != null && <Ad ad={ad} key={ad.id} />
-                )
-              )}
-            </>
-          </Reveal>
+            {state.config.loading ? (
+              <Loading />
+            ) : (
+              state.ads.data &&
+              state.ads.data.map(
+                (ad) => ad.defaultPhoto != null && <Ad ad={ad} key={ad.id} />
+              )
+            )}
+          </>
           <div className="row">
             <Pagination
               currentPage={state.ads.current_page}
