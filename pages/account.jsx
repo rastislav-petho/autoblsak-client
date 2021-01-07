@@ -1,7 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { Layout, PageMenu } from '../components';
 import { Context } from '../context/context';
-import Reveal from 'react-reveal/Reveal';
 import {
   ChangePassword,
   DeactiveAccount,
@@ -36,34 +35,22 @@ const Account = () => {
       pageDescription=""
       pageKeywords=""
     >
-      <Reveal>
-        <div className="row mb-3">
-          <div className="col-12">
-            <PageMenu setStep={setStep} items={pageMenuItems} />
-          </div>
+      <div className="row mb-3">
+        <div className="col-12">
+          <PageMenu setStep={setStep} items={pageMenuItems} />
         </div>
-        <div className="row">
-          <div className="col-12">
-            {step === 'private-information' && (
-              <Reveal>
-                <PrivateInformation user={state.user} />
-              </Reveal>
-            )}
+      </div>
+      <div className="row">
+        <div className="col-12">
+          {step === 'private-information' && (
+            <PrivateInformation user={state.user} />
+          )}
 
-            {step === 'change-password' && (
-              <Reveal>
-                <ChangePassword />
-              </Reveal>
-            )}
+          {step === 'change-password' && <ChangePassword />}
 
-            {step === 'deactive-account' && (
-              <Reveal>
-                <DeactiveAccount />
-              </Reveal>
-            )}
-          </div>
+          {step === 'deactive-account' && <DeactiveAccount />}
         </div>
-      </Reveal>
+      </div>
     </Layout>
   );
 };

@@ -190,6 +190,7 @@ export const Ad = (props) => {
           )}
           <div className="col-12">
             {withOutIcons.includes(category) &&
+              additional_information &&
               additional_information.slice(0, 150)}
           </div>
         </div>

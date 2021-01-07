@@ -1,6 +1,5 @@
 import React from 'react';
 import { Layout } from './../../components';
-import Reveal from 'react-reveal/Reveal';
 import ReactHtmlParser from 'react-html-parser';
 
 const Page = ({ data }) => {
@@ -10,14 +9,12 @@ const Page = ({ data }) => {
       pageDescription=""
       pageKeywords=""
     >
-      <Reveal>
-        <div className="row">
-          <div className="col-12">
-            <h4>{data.title}</h4>
-            {ReactHtmlParser(data.content)}
-          </div>
+      <div className="row">
+        <div className="col-12">
+          <h4>{data.title}</h4>
+          {ReactHtmlParser(data.content)}
         </div>
-      </Reveal>
+      </div>
     </Layout>
   );
 };
