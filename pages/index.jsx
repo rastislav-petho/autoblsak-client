@@ -48,7 +48,12 @@ const Index = (props) => {
   };
 
   return (
-    <Layout pageTitle="Autoblšák.sk" pageDescription="" pageKeywords="">
+    <Layout
+      pageTitle={props.settingsData.title}
+      pageDescription={props.settingsData.description}
+      pageKeywords={props.settingsData.keywords}
+      image={`${state.url}/img/fb-logo.jpg`}
+    >
       <div className="row">
         <div className="col-12 col-md-12 col-lg-3 order-lg-1 order-2">
           <div className="row">
@@ -111,10 +116,14 @@ Index.getInitialProps = async function ({ query }) {
 
   const mostView = await fetch(`${process.env.apiUrl}/most-view`);
   const mostViewData = await mostView.json();
+
+  const settings = await fetch(`${process.env.apiUrl}/settings`);
+  const settingsData = await settings.json();
   return {
     data: data,
     magazineData: magazineData,
     mostViewData: mostViewData,
+    settingsData: settingsData,
   };
 };
 

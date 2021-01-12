@@ -79,7 +79,7 @@ const Register = () => {
                   {' '}
                   Súhlasím s{' '}
                   <a
-                    href="https://autoblsak.sk/pages/privacy-policy"
+                    href="https://autoblsak.sk/page/privacy-policy"
                     target="_blank"
                   >
                     ochranou osobných údajov
@@ -107,7 +107,7 @@ const Register = () => {
                   {' '}
                   Súhlasím s{' '}
                   <a
-                    href="https://autoblsak.sk/pages/obchodne-podmienky"
+                    href="https://autoblsak.sk/page/obchodne-podmienky"
                     target="_blank"
                   >
                     obchodnými podmienkami
