@@ -12,7 +12,7 @@ import {
   AdListHeader,
 } from './../components';
 import { Filter } from './../components/Filter';
-import { Ad } from './../components/Ad';
+import { Ad } from '../components/Ad';
 import { useApi } from './../hooks';
 import { scrollToTop, getFilterQueryUrl } from './../helpers';
 
@@ -40,7 +40,7 @@ const Index = (props) => {
     dispatch({ type: 'SET_ADS', ads: props.data });
     dispatch({ type: 'TOGGLE_FILTER', toogle: false });
     if (state.ads) dispatch({ type: 'HANDLE_LOADING', loading: false });
-  }, [props]);
+  }, []);
 
   const handlePagination = (move) => {
     adPagination(move);

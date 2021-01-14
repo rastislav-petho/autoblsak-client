@@ -1,6 +1,6 @@
 import React, { useContext, useState, useCallback } from 'react';
 import { Context } from '../../context/context';
-import { useFavorites } from './../../hooks';
+import { useFavorites } from '../../hooks';
 import { AdGallery } from './index';
 import Link from 'next/link';
 import axios from 'axios';
@@ -79,7 +79,7 @@ export const Ad = (props) => {
   }, []);
 
   return (
-    <div key={id} className="row ad-box shadow">
+    <div key={id} className="row inzerat-box shadow">
       {loadGallery && (
         <div>
           <AdGallery
