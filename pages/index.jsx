@@ -40,7 +40,7 @@ const Index = (props) => {
     dispatch({ type: 'SET_ADS', ads: props.data });
     dispatch({ type: 'TOGGLE_FILTER', toogle: false });
     if (state.ads) dispatch({ type: 'HANDLE_LOADING', loading: false });
-  }, []);
+  }, [props]);
 
   const handlePagination = (move) => {
     adPagination(move);
