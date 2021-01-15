@@ -4,6 +4,7 @@ import { useRouter } from 'next/router';
 import { Context } from './../context/context';
 import Cookies from 'js-cookie';
 import { getFilterQueryUrl } from '../helpers';
+import { route } from 'next/dist/next-server/server/router';
 
 export const useApi = () => {
   const { state, dispatch } = useContext(Context);
@@ -99,6 +100,67 @@ export const useApi = () => {
           dispatch({
             type: 'SET_MESSAGE',
             message: { type: 'warning', message: response.data.warning },
+          });
+        } else {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'danger', message: response.data.error },
+          });
+        }
+      })
+      .then((error) => {
+        if (error) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: {
+              type: 'warning',
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
+          });
+        }
+      });
+  };
+
+  const newPassword = (data) => {
+    axios
+      .post(`${state.api}/new-password`, data, {
+        headers: { token: data.token },
+      })
+      .then((response) => {
+        if (response.status === 200 && response.data.success) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'success', message: response.data.success },
+          });
+          router.push('/login');
+        } else if (response.status === 200 && response.data.error) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'danger', message: response.data.error },
+          });
+        }
+      })
+      .then((error) => {
+        if (error) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: {
+              type: 'warning',
+              message: 'Chyba ! Kontaktujte administrátora',
+            },
+          });
+        }
+      });
+  };
+
+  const resetPassword = (data) => {
+    axios
+      .post(`${state.api}/reset-password`, data)
+      .then((response) => {
+        if (response.status === 200 && response.data.success) {
+          dispatch({
+            type: 'SET_MESSAGE',
+            message: { type: 'success', message: response.data.success },
           });
         } else {
           dispatch({
@@ -316,6 +378,8 @@ export const useApi = () => {
     auth,
     logout,
     changePassword,
+    resetPassword,
+    newPassword,
     deactiveAccount,
     registration,
     adPagination,

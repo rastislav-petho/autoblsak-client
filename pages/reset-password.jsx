@@ -6,10 +6,10 @@ import Link from 'next/link';
 
 const Login = () => {
   const { register, handleSubmit, errors } = useForm();
-  const { auth } = useApi();
+  const { resetPassword } = useApi();
 
   const onSubmit = (data) => {
-    auth(data);
+    resetPassword(data);
   };
 
   return (
@@ -17,7 +17,7 @@ const Login = () => {
       <div className="row login-page">
         <div className="card">
           <div className="card-header text-center">
-            <h5>Prihláste sa</h5>
+            <h5>Zabudnuté heslo</h5>
           </div>
           <div className="card-body">
             <form onSubmit={handleSubmit(onSubmit)}>
@@ -34,26 +34,9 @@ const Login = () => {
                   <i className="text-danger">Email je povinný údaj.</i>
                 )}
               </div>
-              <div className="form-group">
-                <label htmlFor="password">Heslo</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  name="password"
-                  ref={register({ required: true })}
-                ></input>
-                {errors.password && errors.password.type === 'required' && (
-                  <i className="text-danger">Heslo je povinný údaj.</i>
-                )}
-              </div>
-
-              <p>
-                <Link href="/reset-password">Zabudnuté heslo</Link>
-              </p>
 
               <div className="col-12 d-flex justify-content-center">
-                <input type="submit" className="button" value="Prihlásiť" />
+                <input type="submit" className="button" value="Odoslať" />
               </div>
             </form>
           </div>
