@@ -49,7 +49,9 @@ const Login = () => {
               </div>
 
               <p>
-                <Link href="/reset-password">Zabudnuté heslo</Link>
+                <Link href="/reset-password">
+                  <a>Zabudnuté heslo</a>
+                </Link>
               </p>
 
               <div className="col-12 d-flex justify-content-center">
