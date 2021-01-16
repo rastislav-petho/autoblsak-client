@@ -1,4 +1,4 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import { Context } from './../context/context';
 import Head from 'next/head';
 import { Header } from './Header';
@@ -7,6 +7,8 @@ import { Favorites } from './Favorites';
 import { useSwipeable } from 'react-swipeable';
 import { useRouter } from 'next/router';
 import { getFilterQueryUrl } from './../helpers';
+import { MobileFilter } from './Filter';
+import { initGA, logPageView } from './../helpers/googleAnalytics';
 
 export const Layout = ({
   children,
@@ -18,6 +20,14 @@ export const Layout = ({
   const { state, dispatch } = useContext(Context);
   const router = useRouter();
   const [queryObject] = getFilterQueryUrl(state.filter, state.api);
+
+  useEffect(() => {
+    if (!window.GA_INITIALIZED) {
+      initGA();
+      window.GA_INITIALIZED = true;
+    }
+    logPageView();
+  }, []);
 
   const handlers = useSwipeable({
     onSwipedRight: () =>
@@ -71,6 +81,7 @@ export const Layout = ({
         <Header />
       </div>
       <div className="spacer"></div>
+      {state.config.toggleFilter && <MobileFilter />}
       <Favorites
         favorites={state.favoriteAds}
         collapse={state.config.toggleFavorites}

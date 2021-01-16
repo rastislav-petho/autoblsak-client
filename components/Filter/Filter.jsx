@@ -30,19 +30,6 @@ export const Filter = () => {
           />
         </Fragment>
       </div>
-
-      {collapse && (
-        <div className="filter-box-mobile">
-          <FilterForm
-            filter={filter}
-            brands={brands}
-            models={models}
-            handleChange={handleChange}
-            handleSubmitFilter={handleSubmitFilter}
-            button="button"
-          />
-        </div>
-      )}
     </Fragment>
   );
 };
