@@ -18,7 +18,7 @@ export const Footer = () => {
           <Link href="/">
             <a>Domov</a>
           </Link>
-          <Link href="/onas">
+          <Link href="/o-nas">
             <a>O nás</a>
           </Link>
           <Link href="/kontakt">
