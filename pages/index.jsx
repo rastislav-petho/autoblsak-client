@@ -47,11 +47,12 @@ const Index = (props) => {
     scrollToTop();
   };
 
+  console.log(state);
   return (
     <Layout
-      pageTitle={props.settingsData.title}
-      pageDescription={props.settingsData.description}
-      pageKeywords={props.settingsData.keywords}
+      pageTitle={props.indexData.settings.title}
+      pageDescription={props.indexData.settings.description}
+      pageKeywords={props.indexData.settings.keywords}
       image={`${state.url}/img/fb-logo.jpg`}
     >
       <div className="row">
@@ -65,10 +66,10 @@ const Index = (props) => {
               <Filter />
             </div>
             <div className="col-12">
-              <Magazine data={props.magazineData} />
+              <Magazine data={props.indexData.magazine} />
             </div>
             <div className="col-12">
-              <MostView data={props.mostViewData} url={state.url} />
+              <MostView data={props.indexData.mostView} url={state.url} />
             </div>
           </div>
         </div>
@@ -111,19 +112,11 @@ Index.getInitialProps = async function ({ query }) {
   const res = await fetch(url + '&page=' + query.page);
   const data = await res.json();
 
-  const magazine = await fetch(`${process.env.apiUrl}/magazine`);
-  const magazineData = await magazine.json();
-
-  const mostView = await fetch(`${process.env.apiUrl}/most-view`);
-  const mostViewData = await mostView.json();
-
-  const settings = await fetch(`${process.env.apiUrl}/settings`);
-  const settingsData = await settings.json();
+  const index = await fetch(`${process.env.apiUrl}/index-data`);
+  const indexData = await index.json();
   return {
     data: data,
-    magazineData: magazineData,
-    mostViewData: mostViewData,
-    settingsData: settingsData,
+    indexData: indexData,
   };
 };
 

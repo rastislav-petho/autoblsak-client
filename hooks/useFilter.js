@@ -1,7 +1,6 @@
 import { useContext, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import { Context } from './../context/context';
-import axios from 'axios';
 import { getFilterQueryUrl, scrollToTop } from '../helpers';
 
 export const useFilter = () => {
