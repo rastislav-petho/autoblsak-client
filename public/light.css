@@ -142,9 +142,8 @@ h6 {
   padding: 10px;
   width: 100%;
   height: 50px;
-  background-color: var(--bg-color);
+  background-color: var(--bg-navbar-color);
   text-align: center;
-  border: 1px solid var(--bg-navbar-color);
 }
 
 .mobile-menu a:hover {

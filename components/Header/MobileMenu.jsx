@@ -9,28 +9,22 @@ export const MobileMenu = (props) => {
         Zmeniť tému
       </a>
       <a href="https://autoblsak.sk/magazin">Magazín</a>
+      <Link href="/post-ad">
+        <a className="user-add-ads">Pridať inzerát</a>
+      </Link>
       {user && (
         <Fragment>
-          <Link href="/post-ad">
-            <a className="user-add-ads">
-              <i aria-hidden className="far fa-plus-square"></i> Pridať inzerát
-            </a>
-          </Link>
           <Link href="/my-ad">
-            <a className="user-add-ads">
-              <i aria-hidden className="fas fa-car"></i> Moje inzeráty
-            </a>
+            <a className="user-add-ads">Moje inzeráty</a>
           </Link>
           <Link href="/account">
-            <a className="user-add-ads">
-              <i aria-hidden className="fas fa-cog"></i> Nastavenia účtu
-            </a>
+            <a className="user-add-ads">Nastavenia účtu</a>
           </Link>
         </Fragment>
       )}
       {user ? (
         <a onClick={logout} href="#" className="user-add-ads">
-          <i aria-hidden className="fas fa-sign-out-alt"></i> Odhlásiť
+          Odhlásiť
         </a>
       ) : (
         <Fragment>

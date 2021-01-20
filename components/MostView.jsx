@@ -7,7 +7,7 @@ export const MostView = (props) => {
 
   return (
     <div className="most-view">
-      <h5>Napozeranejšie inzeráty</h5>
+      <h5>Najpozeranejšie inzeráty</h5>
       <div className="row">
         {data.data.map((item) => (
           <div key={item.id} className="col-12 mb-2">

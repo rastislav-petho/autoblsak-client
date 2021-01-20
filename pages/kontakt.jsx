@@ -85,33 +85,36 @@ const Kontakt = () => {
             formulára:
           </p>
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div className="form-group col-12 col-lg-8 p-0">
-              <label htmlFor="name">Vaše meno</label>
-              <input
-                type="text"
-                className="form-control"
-                id="name"
-                name="name"
-                ref={register({ required: true })}
-              />
-              {errors.name && errors.name.type === 'required' && (
-                <i className="text-danger">Vaše meno je povinný údaj.</i>
-              )}
+            <div className="row">
+              <div className="form-group col-12 col-lg-6">
+                <label htmlFor="name">Vaše meno</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="name"
+                  name="name"
+                  ref={register({ required: true })}
+                />
+                {errors.name && errors.name.type === 'required' && (
+                  <i className="text-danger">Vaše meno je povinný údaj.</i>
+                )}
+              </div>
+              <div className="form-group col-12 col-lg-6">
+                <label htmlFor="email">Vaša emailová adresa</label>
+                <input
+                  type="email"
+                  className="form-control"
+                  id="email"
+                  name="email"
+                  ref={register({ required: true })}
+                />
+                {errors.email && errors.email.type === 'required' && (
+                  <i className="text-danger">Vaše email je povinný údaj.</i>
+                )}
+              </div>
             </div>
-            <div className="form-group col-12 col-lg-8 p-0">
-              <label htmlFor="email">Vaša emailová adresa</label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                name="email"
-                ref={register({ required: true })}
-              />
-              {errors.email && errors.email.type === 'required' && (
-                <i className="text-danger">Vaše email je povinný údaj.</i>
-              )}
-            </div>
-            <div className="form-group col-12 col-lg-8 p-0">
+
+            <div className="form-group col-12 col-lg-12 p-0">
               <label htmlFor="subject">Predmet</label>
               <input
                 type="text"
