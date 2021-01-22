@@ -605,12 +605,13 @@ h6 {
 }
 
 .back-btn {
-  width: 50px;
-  height: 50px;
-  border-radius: 60px;
-  border: 1px solid var(--text-second-color);
-  background-color: var(--bg-color);
-  color: var(--text-second-color);
+  background-color: #000000;
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  border-radius: 0.2rem;
+  border: none;
 }
 
 .newsletter {

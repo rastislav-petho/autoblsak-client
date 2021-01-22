@@ -11,7 +11,7 @@ export const AdPageHeader = (props) => {
       <div className="col-12">
         <h5>
           <BackButton>
-            <button className="btn btn-dark btn-sm">Späť</button>
+            <button className="back-btn">Späť</button>
           </BackButton>
         </h5>
       </div>
