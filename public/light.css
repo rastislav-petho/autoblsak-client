@@ -385,13 +385,44 @@ h6 {
   transform: translateX(-150px);
 }
 
-.paginate button {
-  width: 80px;
-  height: 40px;
-  border-radius: 60px;
-  border: 1px solid var(--text-second-color);
+.paginate {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+
+.pagination li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 8px;
+  border-radius: 10px;
+  border: 2px solid var(--bg-second-color);
   background-color: var(--bg-color);
   color: var(--text-second-color);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.pagination .active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  margin: 8px;
+  border-radius: 10px;
+  border: 2px solid var(--bg-second-color);
+  background-color: var(--text-second-color);
+  font-weight: 600;
+  cursor: default;
+}
+
+.current-page {
+  color: var(--bg-color);
 }
 
 .add-to-favorites-button {

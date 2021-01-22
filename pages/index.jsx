@@ -6,7 +6,7 @@ import {
   Magazine,
   MostView,
   UserPanel,
-  Pagination,
+  PaginationComponent,
   Newsletter,
   Loading,
   AdListHeader,
@@ -42,8 +42,8 @@ const Index = (props) => {
     if (state.ads) dispatch({ type: 'HANDLE_LOADING', loading: false });
   }, [props]);
 
-  const handlePagination = (move) => {
-    adPagination(move);
+  const handlePagination = (page) => {
+    adPagination(page);
     scrollToTop();
   };
 
@@ -93,10 +93,11 @@ const Index = (props) => {
             )}
           </>
           <div className="row">
-            <Pagination
+            <PaginationComponent
               currentPage={state.ads.current_page}
-              lastPage={state.ads.last_page}
               handlePagination={handlePagination}
+              total={state.ads.total}
+              itemsCountPerPage={props.indexData.settings.max_ads_per_page}
             />
           </div>
           <Newsletter />

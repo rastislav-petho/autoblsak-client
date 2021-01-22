@@ -305,11 +305,9 @@ export const useApi = () => {
       });
   };
 
-  const adPagination = (move) => {
+  const adPagination = (page) => {
     dispatch({ type: 'HANDLE_LOADING', loading: true });
-    queryObject.page = move
-      ? state.ads.current_page + 1
-      : state.ads.current_page - 1;
+    queryObject.page = page;
     router.push({
       pathname: '/',
       query: queryObject,
