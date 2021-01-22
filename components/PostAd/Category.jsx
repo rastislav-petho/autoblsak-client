@@ -14,7 +14,11 @@ export const Category = (props) => {
                   handleCategory('personal', 'additional-information')
                 }
               >
-                <img src="/img/osobne.png" style={{ width: '60%' }} />
+                <img
+                  src="/img/osobne.png"
+                  style={{ width: '60%' }}
+                  alt="osobné vozidlá"
+                />
               </a>
             </div>
             <div className="col-12">
@@ -31,7 +35,11 @@ export const Category = (props) => {
                   handleCategory('commercial', 'additional-information')
                 }
               >
-                <img src="/img/uzitkove.png" style={{ width: '60%' }} />
+                <img
+                  src="/img/uzitkove.png"
+                  style={{ width: '60%' }}
+                  alt="Úžitkové vozidlá"
+                />
               </a>
             </div>
             <div className="col-12">
@@ -50,7 +58,7 @@ export const Category = (props) => {
                 href="#"
                 onClick={() => handleCategory('moto', 'additional-information')}
               >
-                <img src="/img/moto.png" style={{ width: '70%' }} />
+                <img src="/img/moto.png" style={{ width: '70%' }} alt="moto" />
               </a>
             </div>
             <div className="col-12">
@@ -69,7 +77,11 @@ export const Category = (props) => {
                   handleCategory('accessories', 'additional-information')
                 }
               >
-                <img src="/img/autodiely.png" style={{ width: '70%' }} />
+                <img
+                  src="/img/autodiely.png"
+                  style={{ width: '70%' }}
+                  alt="Príslušenstvo"
+                />
               </a>
             </div>
             <div className="col-12">
@@ -89,7 +101,7 @@ export const Category = (props) => {
                   handleCategory('other', 'additional-information')
                 }
               >
-                <img src="/img/ine.png" style={{ width: '70%' }} />
+                <img src="/img/ine.png" style={{ width: '70%' }} alt="Iné" />
               </a>
             </div>
             <div className="col-12">

@@ -8,10 +8,16 @@ export const Footer = () => {
       <div className="container">
         <div className="footer-social mb-2">
           <a href="https://www.facebook.com/groups/autoblsakinzercia/">
-            <img src="/img/facebook.png" />
+            <img
+              src="/img/facebook.png"
+              alt="https://www.facebook.com/groups/autoblsakinzercia/"
+            />
           </a>
           <a href="https://www.instagram.com/autoblsak.sk/">
-            <img src="/img/instagram.png" />
+            <img
+              src="/img/instagram.png"
+              alt="https://www.instagram.com/autoblsak.sk/"
+            />
           </a>
         </div>
         <div className="footer-links mb-2">

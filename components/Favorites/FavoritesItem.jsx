@@ -22,7 +22,14 @@ export const FavoritesItem = memo((props) => {
       <div className="favorites-img-box">
         <Link href={`/inzerat/[id]`} as={`/inzerat/${id}`}>
           <a>
-            <img src={`${state.url}/${defaultPhoto.photo}`} alt="bme f10" />
+            <img
+              src={`${state.url}/${defaultPhoto.photo}`}
+              alt={
+                props.ad.title
+                  ? props.ad.title
+                  : props.ad.brand && props.ad.brand
+              }
+            />
           </a>
         </Link>
       </div>
