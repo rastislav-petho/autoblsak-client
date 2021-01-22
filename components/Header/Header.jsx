@@ -20,6 +20,11 @@ export const Header = () => {
     logout();
   };
 
+  const handleMobileChangeTheme = () => {
+    handleChangeTheme();
+    setCollapse(false);
+  };
+
   const handleFavorites = () => {
     dispatch({ type: 'TOGGLE_FAVORITES', toggle: !collapseFavorites });
     scrollToTop();
@@ -57,7 +62,7 @@ export const Header = () => {
       {collapse && (
         <MobileMenu
           user={state.user}
-          handleChangeTheme={handleChangeTheme}
+          handleChangeTheme={handleMobileChangeTheme}
           logout={handleLogout}
         />
       )}
