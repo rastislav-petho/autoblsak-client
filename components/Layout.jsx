@@ -99,7 +99,11 @@ export const Layout = ({
       <div className="container-fluid p-0">
         <Footer />
       </div>
-      <ScrollToTop smooth color="#d90429" />
+      <ScrollToTop
+        smooth
+        color="#d90429"
+        style={{ right: '15px', bottom: '15px' }}
+      />
     </Fragment>
   );
 };

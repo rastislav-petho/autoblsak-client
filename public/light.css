@@ -67,6 +67,10 @@ h6 {
   white-space: nowrap;
 }
 
+.btn-dark {
+  background-color: #000000;
+}
+
 .modal-window {
   position: fixed;
   z-index: 4;

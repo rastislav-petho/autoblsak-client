@@ -81,6 +81,10 @@ h6 {
   height: 7vw;
 }
 
+.btn-dark {
+  background-color: #000000;
+}
+
 .content {
   padding-bottom: 50px;
   min-height: 750px;
