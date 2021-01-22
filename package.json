@@ -30,6 +30,7 @@
     "react-number-format": "^4.4.1",
     "react-photo-gallery": "^8.0.0",
     "react-reveal": "^1.2.2",
+    "react-scroll-to-top": "^1.0.5",
     "react-swipeable": "^6.0.1",
     "xml2js": "^0.4.23"
   },

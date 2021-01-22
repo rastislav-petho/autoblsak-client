@@ -9,6 +9,7 @@ import { useRouter } from 'next/router';
 import { getFilterQueryUrl } from './../helpers';
 import { MobileFilter } from './Filter';
 import { initGA, logPageView } from './../helpers/googleAnalytics';
+import ScrollToTop from 'react-scroll-to-top';
 
 export const Layout = ({
   children,
@@ -98,6 +99,7 @@ export const Layout = ({
       <div className="container-fluid p-0">
         <Footer />
       </div>
+      <ScrollToTop smooth color="#d90429" />
     </Fragment>
   );
 };
