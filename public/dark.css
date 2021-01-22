@@ -741,12 +741,12 @@ h6 {
 
   .filter-box-mobile input {
     background-color: var(--bg-second-color);
-    color: var(--text-second-color);
+    color: var(--text-color);
   }
 
   .filter-box-mobile select {
     background-color: var(--bg-second-color);
-    color: var(--text-second-color);
+    color: var(--text-color);
   }
 
   .filter-mobile-buttons,

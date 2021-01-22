@@ -47,7 +47,6 @@ const Index = (props) => {
     scrollToTop();
   };
 
-  console.log(state);
   return (
     <Layout
       pageTitle={props.indexData.settings.title}

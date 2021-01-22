@@ -153,7 +153,7 @@ export const FilterForm = ({
       <div className="form-group mb-2">
         <label>Rok výroby</label>
         <div className="row">
-          <div className="col-12 col-md-6">
+          <div className="col-6">
             <select
               onChange={handleChange}
               name="yearFrom"
@@ -172,7 +172,7 @@ export const FilterForm = ({
               )}
             </select>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-6">
             <select
               onChange={handleChange}
               name="yearTo"
@@ -196,7 +196,7 @@ export const FilterForm = ({
       <div className="form-group mb-2">
         <label>Cena</label>
         <div className="row">
-          <div className="col-12 col-md-6">
+          <div className="col-6">
             <input
               type="number"
               onChange={handleChange}
@@ -206,7 +206,7 @@ export const FilterForm = ({
               value={filter.priceFrom}
             ></input>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-6">
             <input
               type="number"
               onChange={handleChange}
@@ -221,7 +221,7 @@ export const FilterForm = ({
       <div className="form-group mb-2">
         <label>Najazdených km</label>
         <div className="row">
-          <div className="col-12 col-md-6">
+          <div className="col-6">
             <input
               type="number"
               onChange={handleChange}
@@ -231,7 +231,7 @@ export const FilterForm = ({
               value={filter.kmFrom}
             ></input>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-6">
             <input
               type="number"
               onChange={handleChange}
@@ -246,7 +246,7 @@ export const FilterForm = ({
       <div className="form-group mb-2">
         <label>Výkon (kW)</label>
         <div className="row">
-          <div className="col-12 col-md-6">
+          <div className="col-6">
             <input
               type="number"
               onChange={handleChange}
@@ -256,7 +256,7 @@ export const FilterForm = ({
               value={filter.powerFrom}
             ></input>
           </div>
-          <div className="col-12 col-md-6">
+          <div className="col-6">
             <input
               type="number"
               onChange={handleChange}
