@@ -388,8 +388,8 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin: 8px;
   border-radius: 10px;
   border: 2px solid var(--bg-second-color);
@@ -403,8 +403,8 @@ h6 {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   margin: 8px;
   border-radius: 10px;
   border: 2px solid var(--bg-second-color);
