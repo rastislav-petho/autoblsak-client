@@ -177,6 +177,10 @@ h6 {
   width: 15vw;
 }
 
+.filter-label {
+  margin-left: 18px;
+}
+
 .filter-box {
   border-bottom: 1px solid var(--text-second-color);
   margin-bottom: 15px;
@@ -448,7 +452,7 @@ h6 {
   background-color: var(--bg-second-color);
   opacity: 0.9;
   max-width: 360px;
-  width: 360px;
+  width: 90%;
   margin: 15px;
 }
 

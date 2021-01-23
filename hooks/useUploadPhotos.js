@@ -58,7 +58,7 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
         }
       })
       .catch(function (error) {
-        console.log(error);
+        throw new Error(error);
       });
   };
 
@@ -108,7 +108,7 @@ export const useUploadPhotos = (aid, postAdState, setStep, nextStep) => {
 
       setCompressedFiles((prevState) => [...prevState, compressedFile]);
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   }
 

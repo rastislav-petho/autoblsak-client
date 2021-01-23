@@ -92,14 +92,16 @@ const Index = (props) => {
               )
             )}
           </>
-          <div className="row">
-            <PaginationComponent
-              currentPage={state.ads.current_page}
-              handlePagination={handlePagination}
-              total={state.ads.total}
-              itemsCountPerPage={props.indexData.settings.max_ads_per_page}
-            />
-          </div>
+          {state.ads && (
+            <div className="row">
+              <PaginationComponent
+                currentPage={state.ads.current_page}
+                handlePagination={handlePagination}
+                total={state.ads.total}
+                itemsCountPerPage={props.indexData.settings.max_ads_per_page}
+              />
+            </div>
+          )}
           <Newsletter />
         </div>
       </div>

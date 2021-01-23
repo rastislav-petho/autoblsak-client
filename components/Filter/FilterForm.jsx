@@ -163,7 +163,7 @@ export const FilterForm = ({
       ) && (
         <>
           <div className="form-group mb-2">
-            <label>Rok výroby</label>
+            <label className="filter-label">Rok výroby</label>
             <div className="row">
               <div className="col-6">
                 <select
@@ -209,7 +209,7 @@ export const FilterForm = ({
       )}
       {filter.category && (
         <div className="form-group mb-2">
-          <label>Cena</label>
+          <label className="filter-label">Cena</label>
           <div className="row">
             <div className="col-6">
               <input
@@ -238,7 +238,7 @@ export const FilterForm = ({
         filter.category
       ) && (
         <div className="form-group mb-2">
-          <label>Najazdených km</label>
+          <label className="filter-label">Najazdených km</label>
           <div className="row">
             <div className="col-6">
               <input
@@ -267,7 +267,7 @@ export const FilterForm = ({
         filter.category
       ) && (
         <div className="form-group mb-2">
-          <label>Výkon (kW)</label>
+          <label className="filter-label">Výkon (kW)</label>
           <div className="row">
             <div className="col-6">
               <input
