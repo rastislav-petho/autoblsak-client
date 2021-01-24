@@ -343,6 +343,10 @@ export const NUMBER_OF_DOORS = [
 
 export const SORTED = [
   {
+    value: 'created',
+    label: 'Najnovšie',
+  },
+  {
     value: 'year_of_manufacture',
     label: 'Rok výroby',
   },
@@ -357,10 +361,6 @@ export const SORTED = [
   {
     value: 'mileage',
     label: 'Najazdené',
-  },
-  {
-    value: 'created',
-    label: 'Dátum',
   },
 ];
 

@@ -184,15 +184,15 @@ export const decodeColor = (color) => {
 };
 
 export const decodeSorted = (sort) => {
-  if (sort == 'year_of_manufacture') {
+  if (sort == 'created') {
     return SORTED[0].label;
-  } else if (sort == 'price') {
+  } else if (sort == 'year_of_manufacture') {
     return SORTED[1].label;
-  } else if (sort == 'power') {
+  } else if (sort == 'price') {
     return SORTED[2].label;
-  } else if (sort == 'mileage') {
+  } else if (sort == 'power') {
     return SORTED[3].label;
-  } else if (sort == 'created') {
+  } else if (sort == 'mileage') {
     return SORTED[4].label;
   } else return null;
 };

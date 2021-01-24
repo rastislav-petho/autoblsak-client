@@ -238,7 +238,7 @@ h6 {
   align-items: center;
   justify-content: flex-end;
   flex-direction: row;
-  width: 285px;
+  max-width: 285px;
 }
 
 .ad-list-header select {

@@ -71,22 +71,24 @@ export const AdListHeader = () => {
           ))}
         </select>
 
-        <select
-          className="form-control form-control-sm custom-select"
-          name="direction"
-          onChange={(event) => handleDirectionChange(event)}
-        >
-          {state.filter.direction && (
-            <option value={state.filter.direction}>
-              {decodeDirection(state.filter.direction)}
-            </option>
-          )}
-          {DIRECTION.map((item) => (
-            <option key={item.value} value={item.value}>
-              {item.label}
-            </option>
-          ))}
-        </select>
+        {state.filter.sortBy && state.filter.sortBy !== 'created' && (
+          <select
+            className="form-control form-control-sm custom-select"
+            name="direction"
+            onChange={(event) => handleDirectionChange(event)}
+          >
+            {state.filter.direction && (
+              <option value={state.filter.direction}>
+                {decodeDirection(state.filter.direction)}
+              </option>
+            )}
+            {DIRECTION.map((item) => (
+              <option key={item.value} value={item.value}>
+                {item.label}
+              </option>
+            ))}
+          </select>
+        )}
       </div>
     </div>
   );
