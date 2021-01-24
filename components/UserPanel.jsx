@@ -18,7 +18,7 @@ export const UserPanel = ({ user }) => {
           </p>
 
           <p>
-            <Link href="/post-ad">
+            <Link href="/novy-inzerat">
               <a>
                 <i aria-hidden className="fas fa-plus mr-2"></i> Pridať inzerát
               </a>

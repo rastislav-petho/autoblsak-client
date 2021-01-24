@@ -6,8 +6,8 @@ import {
   Category,
   AdditionalInformation,
   PublicationAd,
-} from './../components/PostAd';
-import { usePostAd } from './../hooks';
+} from '../components/PostAd';
+import { usePostAd } from '../hooks';
 
 const PostAd = () => {
   const {

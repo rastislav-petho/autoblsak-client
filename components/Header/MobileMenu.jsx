@@ -9,7 +9,7 @@ export const MobileMenu = (props) => {
         Zmeniť tému
       </a>
       <a href="https://autoblsak.sk/magazin">Magazín</a>
-      <Link href="/post-ad">
+      <Link href="/novy-inzerat">
         <a className="user-add-ads">Pridať inzerát</a>
       </Link>
       {user && (

@@ -35,7 +35,7 @@ export const ToogleMenu = (props) => {
         <span className="count">{favoritesCount}</span>
       </i>
       <span>
-        <Link href="/post-ad">
+        <Link href="/novy-inzerat">
           <a className="user-add-ads">
             <i aria-hidden className="fas fa-plus"></i>{' '}
           </a>
