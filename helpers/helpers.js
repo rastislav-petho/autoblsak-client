@@ -5,6 +5,7 @@ import {
   COLORS,
   CATEGORY,
   SORTED,
+  DIRECTION,
 } from './../helpers/constants';
 import moment from 'moment';
 
@@ -191,9 +192,17 @@ export const decodeSorted = (sort) => {
     return SORTED[2].label;
   } else if (sort == 'mileage') {
     return SORTED[3].label;
-  } else if (sort == 'fuel') {
+  } else if (sort == 'created') {
     return SORTED[4].label;
   } else return null;
+};
+
+export const decodeDirection = (direction) => {
+  if (direction == 'asc') {
+    return DIRECTION[1].label;
+  }
+
+  return DIRECTION[0].label;
 };
 
 export const getYearsList = (min, max) => {

@@ -105,7 +105,7 @@ export const FilterForm = ({
           </div>
         </>
       )}
-      {['1', '2', '3', '4', '5', '6'].includes(filter.category) && (
+      {['1', '2', '3', '4', '5', '6', undefined].includes(filter.category) && (
         <div className="form-group mb-2">
           <select onChange={handleChange} className="form-control" name="fuel">
             <option value={filter.fuel ? filter.fuel : null}>
@@ -120,7 +120,7 @@ export const FilterForm = ({
           </select>
         </div>
       )}
-      {['1', '2', '3', '4', '5', '6'].includes(filter.category) && (
+      {['1', '2', '3', '4', '5', '6', undefined].includes(filter.category) && (
         <div className="form-group mb-2">
           <select
             onChange={handleChange}
@@ -141,7 +141,7 @@ export const FilterForm = ({
           </select>
         </div>
       )}
-      {['1', '2', '3', '4', '5', '6', '7', '8', '16'].includes(
+      {['1', '2', '3', '4', '5', '6', '7', '8', '16', undefined].includes(
         filter.category
       ) && (
         <div className="form-group mb-2">
@@ -158,7 +158,7 @@ export const FilterForm = ({
           </select>
         </div>
       )}
-      {['1', '2', '3', '4', '5', '6', '7', '8', '16'].includes(
+      {['1', '2', '3', '4', '5', '6', '7', '8', '16', undefined].includes(
         filter.category
       ) && (
         <>
@@ -234,7 +234,7 @@ export const FilterForm = ({
           </div>
         </div>
       )}
-      {['1', '2', '3', '4', '5', '6', '7', '8', '16'].includes(
+      {['1', '2', '3', '4', '5', '6', '7', '8', '16', undefined].includes(
         filter.category
       ) && (
         <div className="form-group mb-2">
@@ -263,7 +263,7 @@ export const FilterForm = ({
           </div>
         </div>
       )}
-      {['1', '2', '3', '4', '5', '6', '7', '8', '16'].includes(
+      {['1', '2', '3', '4', '5', '6', '7', '8', '16', undefined].includes(
         filter.category
       ) && (
         <div className="form-group mb-2">
@@ -292,13 +292,11 @@ export const FilterForm = ({
           </div>
         </div>
       )}
-      {filter.category && (
-        <div className="form-group text-center">
-          <button type="submit" className={button}>
-            Hľadať
-          </button>
-        </div>
-      )}
+      <div className="form-group text-center">
+        <button type="submit" className={button}>
+          Hľadať
+        </button>
+      </div>
     </form>
   );
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 import { Layout, PageMenu } from '../components';
-import { Ad } from './../components/Ad';
-import { useMyAds } from './../hooks';
+import { Ad } from '../components/Ad';
+import { useMyAds } from '../hooks';
 import { MyAdsEditForm } from '../components/MyAds';
-import { UploadPhotos } from './../components/PostAd';
+import { UploadPhotos } from '../components/PostAd';
 
 const MyAd = (props) => {
   const {

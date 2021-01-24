@@ -18,12 +18,12 @@ export const UserPanel = ({ user }) => {
           </p>
 
           <p>
-            <Link href="/novy-inzerat">
+            <Link href="/pridat-inzerat">
               <a>
                 <i aria-hidden className="fas fa-plus mr-2"></i> Pridať inzerát
               </a>
             </Link>
-            <Link href="/my-ad">
+            <Link href="/moje-inzeraty">
               <a>
                 <i aria-hidden className="fas fa-car mr-2"></i> Moje inzeráty
               </a>

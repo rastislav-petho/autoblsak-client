@@ -15,6 +15,7 @@ export const useMyAds = () => {
   const [models, setModels] = useState([]);
   const [extras, setExtras] = useState([]);
 
+  // TODO zmenit linku na /moje-inzeraty
   const getMyAds = () => {
     fetch(`${state.api}/my-ads/${state.user.id}`)
       .then((res) => res.json())

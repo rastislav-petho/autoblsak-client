@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-export const PublicationAd = props => {
+export const PublicationAd = (props) => {
   const { aid, category } = props;
 
   return (
@@ -67,7 +67,7 @@ export const PublicationAd = props => {
         </div>
       </div>
       <div className="col-12 text-center mt-5">
-        <Link href="/my-ad">
+        <Link href="/moje-inzeraty">
           <a className="a-button p-3">Prejsť na moje inzeráty</a>
         </Link>
       </div>

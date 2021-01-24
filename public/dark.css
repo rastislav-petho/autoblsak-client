@@ -228,6 +228,14 @@ h6 {
   flex-direction: row;
 }
 
+.header-filter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-direction: row;
+  width: 285px;
+}
+
 .ad-list-header select {
   background-color: var(--bg-color);
   color: var(--text-color);

@@ -358,6 +358,21 @@ export const SORTED = [
     value: 'mileage',
     label: 'Najazdené',
   },
+  {
+    value: 'created',
+    label: 'Dátum',
+  },
+];
+
+export const DIRECTION = [
+  {
+    value: 'desc',
+    label: 'Zostupne',
+  },
+  {
+    value: 'asc',
+    label: 'Vzostupne',
+  },
 ];
 
 export const RESET_FILTER = {
@@ -376,4 +391,5 @@ export const RESET_FILTER = {
   powerFrom: undefined,
   powerTo: undefined,
   sortBy: undefined,
+  direction: undefined,
 };

@@ -35,7 +35,7 @@ export const ToogleMenu = (props) => {
         <span className="count">{favoritesCount}</span>
       </i>
       <span>
-        <Link href="/novy-inzerat">
+        <Link href="/pridat-inzerat">
           <a className="user-add-ads">
             <i aria-hidden className="fas fa-plus"></i>{' '}
           </a>
@@ -44,7 +44,7 @@ export const ToogleMenu = (props) => {
       {user && (
         <>
           <span>
-            <Link href="/my-ad">
+            <Link href="/moje-inzeraty">
               <a className="user-add-ads">
                 <i aria-hidden className="fas fa-car"></i>{' '}
               </a>

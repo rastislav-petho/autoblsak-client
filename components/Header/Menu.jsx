@@ -25,7 +25,7 @@ export const Menu = (props) => {
           </Fragment>
         )}
       </div>
-      <Link href="/novy-inzerat">
+      <Link href="/pridat-inzerat">
         <button className="header-button mr-2">Pridať inzerát</button>
       </Link>
       {!user && (
