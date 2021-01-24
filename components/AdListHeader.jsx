@@ -24,6 +24,15 @@ export const AdListHeader = () => {
     let [queryObject] = getFilterQueryUrl(state.filter, state.api);
     queryObject.sortBy = event.target.value;
 
+    if (event.target.value === 'created') {
+      dispatch({
+        type: 'SET_FILTER',
+        event: { name: 'direction', value: undefined },
+      });
+
+      queryObject.direction = undefined;
+    }
+
     router.push({
       pathname: '/',
       query: queryObject,

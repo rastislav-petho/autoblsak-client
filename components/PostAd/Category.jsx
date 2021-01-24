@@ -22,7 +22,14 @@ export const Category = (props) => {
               </a>
             </div>
             <div className="col-12">
-              <h5>OSOBNÉ VOZIDLÁ</h5>
+              <a
+                href="#"
+                onClick={() =>
+                  handleCategory('personal', 'additional-information')
+                }
+              >
+                <h5>OSOBNÉ VOZIDLÁ</h5>
+              </a>
             </div>
           </div>
         </div>
@@ -43,7 +50,14 @@ export const Category = (props) => {
               </a>
             </div>
             <div className="col-12">
-              <h5>ÚŽÍTKOVÉ VOZIDLÁ</h5>
+              <a
+                href="#"
+                onClick={() =>
+                  handleCategory('commercial', 'additional-information')
+                }
+              >
+                <h5>ÚŽÍTKOVÉ VOZIDLÁ</h5>
+              </a>
               nákladné autá, dodávky, autobusy, mikrobusy, karavany
             </div>
           </div>
@@ -62,7 +76,12 @@ export const Category = (props) => {
               </a>
             </div>
             <div className="col-12">
-              <h5>MOTO</h5>
+              <a
+                href="#"
+                onClick={() => handleCategory('moto', 'additional-information')}
+              >
+                <h5>MOTO</h5>
+              </a>
               motocykle <br /> skútre a štvorkolky
             </div>
           </div>
@@ -85,7 +104,14 @@ export const Category = (props) => {
               </a>
             </div>
             <div className="col-12">
-              <h5>PRÍSLUŠENSTVO</h5>
+              <a
+                href="#"
+                onClick={() =>
+                  handleCategory('accessories', 'additional-information')
+                }
+              >
+                <h5>PRÍSLUŠENSTVO</h5>
+              </a>
               náhradné diely, prívesné vozíky, pneumatiky a kolesá, autorádia,
               gps
             </div>
@@ -105,7 +131,14 @@ export const Category = (props) => {
               </a>
             </div>
             <div className="col-12">
-              <h5>INÉ</h5>
+              <a
+                href="#"
+                onClick={() =>
+                  handleCategory('other', 'additional-information')
+                }
+              >
+                <h5>INÉ</h5>
+              </a>
               veterány <br /> havarované vozidlá
             </div>
           </div>
