@@ -7,7 +7,7 @@ export const AdGallery = (props) => {
   const [currentImage, setCurrentImage] = useState(0);
   const [viewerIsOpen, setViewerIsOpen] = useState(open ? open : false);
 
-  const openLightbox = useCallback((event, { photo, index }) => {
+  const openLightbox = useCallback(({ index }) => {
     setCurrentImage(index);
     setViewerIsOpen(true);
   }, []);

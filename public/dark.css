@@ -30,7 +30,7 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   font-size: 14px;
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 a {
@@ -670,7 +670,7 @@ h6 {
 
 .newsletter p {
   font-size: 0.8rem;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 .newsletter .jumbotron {
