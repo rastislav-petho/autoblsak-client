@@ -5,18 +5,6 @@ import { Favorite } from 'helpers/types';
 
 export const useFavorites = (props: Favorite) => {
   const { dispatch } = useContext(Context);
-  // const ad = {
-  //   id,
-  //   title,
-  //   brand,
-  //   model,
-  //   price,
-  //   mileage,
-  //   defaultPhoto,
-  //   fuel,
-  //   power,
-  //   year_of_manufacture,
-  // };
 
   const addToFavorites = () => {
     const favoritesCookie = Cookies.getJSON('fav');
@@ -34,11 +22,11 @@ export const useFavorites = (props: Favorite) => {
     });
   };
 
-  const removeFavorites = (props) => {
+  const removeFavorites = (id: number) => {
     const favoritesCookie = Cookies.getJSON('fav');
-    const newFav = favoritesCookie.filter((item) => item.id !== props.id);
+    const newFav = favoritesCookie.filter((item) => item.id != id);
     Cookies.set('fav', newFav, { expires: 365 });
-    dispatch({ type: 'REMOVE_ITEM_FROM_FAVORITES', id: props.id });
+    dispatch({ type: 'REMOVE_ITEM_FROM_FAVORITES', id: id });
   };
 
   return {

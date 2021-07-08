@@ -57,6 +57,9 @@ export const Ad: FC<AdProps> = (props) => {
     mileage,
     price,
     defaultPhoto,
+    brand,
+    model,
+    title,
   } as Favorite);
 
   // TODO spravit ako konstantu
