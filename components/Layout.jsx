@@ -72,6 +72,7 @@ export const Layout = ({
           integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
           crossOrigin="anonymous"
         ></link> */}
+        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2" />
         {state.theme === 'light' ? (
           <link rel="stylesheet" href="/light.css"></link>
         ) : (
