@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import { BackButton } from './BackButton';
 import { AccountPageSteps, MyAdsSteps, PageMenuItems } from 'helpers/types';
+import { ChevronLeft } from './Icons';
 
 type PageMenuProps = {
   items: PageMenuItems[];
@@ -30,7 +31,7 @@ const GoBack = () => (
   <li className="nav-item">
     <BackButton>
       <a className="nav-link">
-        <i aria-hidden className="fas fa-chevron-left"></i>
+        <ChevronLeft />
       </a>
     </BackButton>
   </li>

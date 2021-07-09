@@ -1,6 +1,7 @@
 import React, { FC, Fragment } from 'react';
 import { FilterForm } from './index';
 import { useFilter } from '../../hooks';
+import { Search } from 'components/Icons';
 
 type FilterProps = {};
 
@@ -18,7 +19,7 @@ export const Filter: FC<FilterProps> = () => {
       <div className="filter-box">
         <Fragment>
           <h5>
-            <i aria-hidden className="fas fa-search"></i> Vyhľadávanie
+            <Search /> Vyhľadávanie
           </h5>
           <FilterForm
             filter={filter}

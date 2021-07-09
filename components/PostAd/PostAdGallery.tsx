@@ -8,6 +8,7 @@ import React, {
   useEffect,
 } from 'react';
 import { Context } from '../../context/context';
+import { Times } from '../Icons';
 
 type PostAdGalleryProps = {
   photos: PhotoType[];
@@ -64,9 +65,10 @@ export const PostAdGallery: FC<PostAdGalleryProps> = (props) => {
               />
               <i
                 onClick={() => removePhoto(item.id)}
-                aria-hidden
-                className="fas fa-times cursor-pointer"
-              ></i>
+                className="cursor-pointer"
+              >
+                <Times size={16} />
+              </i>
             </div>
           ))}
         </div>

@@ -4,6 +4,7 @@ import { useFavorites } from '../../hooks';
 import { decodeFuel } from '../../helpers';
 import Link from 'next/link';
 import { Favorite } from 'helpers/types';
+import { Trash } from 'components/Icons';
 
 type FavoritesItemProps = {
   ad: Favorite;
@@ -51,12 +52,12 @@ export const FavoritesItem: FC<FavoritesItemProps> = memo((props) => {
         <div className="favorites-remove-box">
           <i
             onClick={() => removeFavorites(id)}
-            aria-hidden
-            className="far fa-trash-alt"
             data-toggle="tooltip"
             data-placement="top"
             title="Odobrať z obľúbených"
-          ></i>
+          >
+            <Trash size={18} />
+          </i>
         </div>
       </Fragment>
     </div>

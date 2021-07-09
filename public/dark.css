@@ -51,6 +51,10 @@ h6 {
   color: var(--text-second-color);
 }
 
+.svg {
+  color: var(--text-second-color);
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -244,10 +248,19 @@ h6 {
   border: none;
 }
 
+.favorites {
+  width: 40px;
+}
+
 .favorites > i {
   color: var(--text-second-color);
   font-size: 1.5rem;
   cursor: pointer;
+  display: flex;
+}
+
+.favorites > i > span {
+  margin-top: 10px;
 }
 
 .favorites > i > .count {
@@ -310,10 +323,6 @@ h6 {
   padding: 10px;
   background-color: var(--bg-second-color);
   min-height: 160px;
-}
-
-.inzerat-box:hover {
-  transform: scale(1.03);
 }
 
 .ad-photo a {
@@ -757,14 +766,23 @@ h6 {
     justify-content: space-between;
     align-items: center;
   }
-  .toggle-menu i {
+  .toggle-menu a {
     color: var(--text-second-color);
     font-size: 2rem;
     cursor: pointer;
   }
 
+  .toggle-menu a:hover {
+    color: var(--text-second-color);
+  }
+
   .toggle-menu i .count {
     font-size: 0.8rem;
+  }
+
+  .toggle-menu a .count {
+    font-size: 0.8rem;
+    color: var(--text-second-color);
   }
 
   .menu-wrapper {

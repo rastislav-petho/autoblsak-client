@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
 import { CategoryType } from 'helpers/types';
+import { Check } from 'components/Icons';
 
 type PublicationAdProps = {
   aid: number;
@@ -40,7 +41,7 @@ export const PublicationAd: FC<PublicationAdProps> = (props) => {
               </div>
               <div className="card-body">
                 <h1>
-                  <i className="fas fa-check" aria-hidden></i>
+                  <Check />
                 </h1>
               </div>
               <div className="card-footer">

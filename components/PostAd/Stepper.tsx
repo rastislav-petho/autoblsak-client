@@ -1,3 +1,4 @@
+import { ChevronLeft } from 'components/Icons';
 import { PostAdSteps } from 'helpers/types';
 import React, { FC } from 'react';
 import { BackButton } from '../BackButton';
@@ -15,7 +16,7 @@ export const Stepper: FC<StepperProps> = (props) => {
         <li className="breadcrumb-item">
           <BackButton>
             <a className="breadcrumb-item">
-              <i aria-hidden className="fas fa-chevron-left"></i>
+              <ChevronLeft size={16} />
             </a>
           </BackButton>
         </li>

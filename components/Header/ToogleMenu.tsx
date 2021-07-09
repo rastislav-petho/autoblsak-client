@@ -1,6 +1,7 @@
 import React, { FC } from 'react';
 import Link from 'next/link';
 import { User } from 'helpers/types';
+import { Bars, Car, Plus, Search, Star } from 'components/Icons';
 
 type ToogleMenuProps = {
   user: User;
@@ -29,26 +30,27 @@ export const ToogleMenu: FC<ToogleMenuProps> = (props) => {
           <img src="/img/bazarik-1.png" alt="Logo" className="logo" />
         </a>
       </span>
-      <i
-        aria-hidden
-        className="fas fa-search"
+      <a
+        className="cursor-pointer"
         onClick={() =>
           dispatch({ type: 'TOGGLE_FILTER', toggle: !collapseFilter })
         }
-      ></i>
-      <i
-        aria-hidden
-        className="far fa-star"
+      >
+        <Search />
+      </a>
+      <a
+        className="cursor-pointer"
         onClick={() =>
           dispatch({ type: 'TOGGLE_FAVORITES', toggle: !collapseFavorites })
         }
       >
+        <Star />
         <span className="count">{favoritesCount}</span>
-      </i>
+      </a>
       <span>
         <Link href="/pridat-inzerat">
           <a className="user-add-ads">
-            <i aria-hidden className="fas fa-plus"></i>{' '}
+            <Plus />
           </a>
         </Link>
       </span>
@@ -57,13 +59,15 @@ export const ToogleMenu: FC<ToogleMenuProps> = (props) => {
           <span>
             <Link href="/moje-inzeraty">
               <a className="user-add-ads">
-                <i aria-hidden className="fas fa-car"></i>{' '}
+                <Car />
               </a>
             </Link>
           </span>
         </>
       )}
-      <i aria-hidden className="fas fa-bars" onClick={handleCollapse}></i>
+      <a onClick={handleCollapse} className="cursor-pointer">
+        <Bars />
+      </a>
     </div>
   );
 };

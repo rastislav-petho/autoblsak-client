@@ -72,12 +72,12 @@ export const Layout: FC<LayoutProps> = (props) => {
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossOrigin="anonymous"
         ></link>
-        <link
+        {/* <link
           rel="stylesheet"
           href="https://use.fontawesome.com/releases/v5.13.0/css/all.css"
           integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
           crossOrigin="anonymous"
-        ></link>
+        ></link> */}
         {state.theme === 'light' ? (
           <link rel="stylesheet" href="/light.css"></link>
         ) : (
