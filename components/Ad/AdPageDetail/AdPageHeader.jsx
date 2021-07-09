@@ -2,6 +2,7 @@ import React from 'react';
 import { getAdTitle, getDateFromTimestamp } from './../../../helpers';
 import NumberFormat from 'react-number-format';
 import { BackButton } from '../../BackButton';
+import { Eye } from '../../Icons';
 
 export const AdPageHeader = (props) => {
   const { title, brand, model, id, created, views, premium, price } = props;
@@ -20,7 +21,7 @@ export const AdPageHeader = (props) => {
         <span>ID inzerátu: {id}</span> -{' '}
         <span>Zverejnené: {getDateFromTimestamp(created)}</span> -{' '}
         <span className="badge badge-secondary">
-          <i aria-hidden className="far fa-eye"></i> {views}
+          <Eye size={16} /> {views}
         </span>{' '}
         {premium ? (
           <span>

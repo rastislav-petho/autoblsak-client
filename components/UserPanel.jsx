@@ -2,6 +2,7 @@ import React from 'react';
 import { useTheme, useApi } from './../hooks';
 import Link from 'next/link';
 import { getDateFromTimestamp } from './../helpers';
+import { Car, Cog, Palette, Plus, SignOut } from './Icons';
 
 export const UserPanel = ({ user }) => {
   const { handleChangeTheme } = useTheme();
@@ -20,31 +21,31 @@ export const UserPanel = ({ user }) => {
           <p>
             <Link href="/pridat-inzerat">
               <a>
-                <i aria-hidden className="fas fa-plus mr-2"></i> Pridať inzerát
+                <Plus size={16} /> Pridať inzerát
               </a>
             </Link>
             <Link href="/moje-inzeraty">
               <a>
-                <i aria-hidden className="fas fa-car mr-2"></i> Moje inzeráty
+                <Car size={16} /> Moje inzeráty
               </a>
             </Link>
             <Link href="/account">
               <a>
-                <i aria-hidden className="fas fa-cog mr-2"></i> Nastavenia účtu
+                <Cog size={16} /> Nastavenia účtu
               </a>
             </Link>
             <a className="cursor-pointer" onClick={() => handleChangeTheme()}>
-              <i aria-hidden className="fas fa-palette mr-2"></i> Zmeniť tému
+              <Palette size={16} /> Zmeniť tému
             </a>
             <a onClick={logout} href="#" className="user-add-ads">
-              <i aria-hidden className="fas fa-sign-out-alt mr-2"></i> Odhlásiť
+              <SignOut size={16} /> Odhlásiť
             </a>
           </p>
         </>
       ) : (
         <h6>
           <a className="cursor-pointer" onClick={() => handleChangeTheme()}>
-            <i aria-hidden className="fas fa-palette mr-2"></i> Zmeniť tému
+            <Palette size={16} /> Zmeniť tému
           </a>
         </h6>
       )}

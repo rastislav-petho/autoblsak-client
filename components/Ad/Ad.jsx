@@ -12,6 +12,17 @@ import {
   decodeTransmision,
   getDateFromTimestamp,
 } from '../../helpers';
+import {
+  Calendar,
+  Dumbbell,
+  GasPump,
+  Images,
+  Palette,
+  Road,
+  Star,
+  StarFill,
+  Tachometer,
+} from '../Icons';
 
 export const Ad = (props) => {
   const {
@@ -112,7 +123,7 @@ export const Ad = (props) => {
           </div>
         ) : (
           <div className="load-gallery" onClick={() => handleLoadGallery()}>
-            <i aria-hidden className="fas fa-images"></i>
+            <Images size={16} />
           </div>
         )}
         <Link href={`/inzerat/[id]`} as={`/inzerat/${id}`}>
@@ -144,33 +155,44 @@ export const Ad = (props) => {
         <div className="row ad-contents mt-2">
           {year_of_manufacture && (
             <div className="col-4 col-md-2 text-center white-space p-1">
-              <i aria-hidden className="fas fa-calendar-alt"></i>
+              <i>
+                <Calendar size={18} />
+              </i>
               <br />
               {year_of_manufacture}
             </div>
           )}
           {fuel && (
             <div className="col-4 col-md-2 text-center white-space p-1">
-              <i aria-hidden className="fas fa-gas-pump"></i> <br />
+              <i>
+                <GasPump size={16} />
+              </i>{' '}
+              <br />
               {decodeFuel(fuel)}
             </div>
           )}
           {transmision && (
             <div className="col-4 col-md-2 text-center white-space p-1">
-              <i aria-hidden className="fas fa-dumbbell"></i>
+              <i>
+                <Dumbbell size={18} />
+              </i>
               <br />
               {decodeTransmision(transmision)}
             </div>
           )}
           {power && (
             <div className="col-4 col-md-2 text-center white-space p-1">
-              <i aria-hidden className="fas fa-tachometer-alt"></i>
+              <i>
+                <Tachometer size={18} />
+              </i>
               <br /> {power} kW
             </div>
           )}
           {mileage && (
             <div className="col-4 col-md-2 text-center white-space p-1">
-              <i aria-hidden className="fas fa-road"></i>
+              <i>
+                <Road size={18} />
+              </i>
               <br />{' '}
               <NumberFormat
                 value={mileage}
@@ -183,7 +205,9 @@ export const Ad = (props) => {
           {color && (
             <div className="col-4 col-md-2 text-center white-space p-1">
               <span>
-                <i aria-hidden className="fas fa-palette"></i>
+                <i>
+                  <Palette size={18} />
+                </i>
               </span>{' '}
               <br /> {decodeColor(color)}
             </div>
@@ -256,21 +280,23 @@ export const Ad = (props) => {
             {state.favoriteAds.find((ad) => ad.id === id) ? (
               <i
                 onClick={() => removeFavorites(id)}
-                aria-hidden
-                className="fas fa-star add-to-favorites-button"
+                className="add-to-favorites-button"
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Odobrať z obľúbených"
-              ></i>
+              >
+                <StarFill size={20} />
+              </i>
             ) : (
               <i
                 onClick={() => addToFavorites()}
-                aria-hidden
-                className="far fa-star add-to-favorites-button"
+                className="add-to-favorites-button"
                 data-toggle="tooltip"
                 data-placement="top"
                 title="Pridať do obľúbených"
-              ></i>
+              >
+                <Star size={20} />
+              </i>
             )}
           </div>
         </div>

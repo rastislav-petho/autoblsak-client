@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import { FilterForm } from './index';
 import { useFilter } from './../../hooks';
+import { Search } from '../Icons';
 
 export const Filter = () => {
   const {
@@ -18,7 +19,7 @@ export const Filter = () => {
       <div className="filter-box">
         <Fragment>
           <h5>
-            <i aria-hidden className="fas fa-search"></i> Vyhľadávanie
+            <Search /> Vyhľadávanie
           </h5>
           <FilterForm
             filter={filter}

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import NumberFormat from 'react-number-format';
+import { Eye } from './Icons';
 
 export const MostView = (props) => {
   const { data, url } = props;
@@ -29,7 +30,7 @@ export const MostView = (props) => {
                 suffix=" €"
                 renderText={(value) => <>{value}</>}
               />
-              , <i aria-hidden className="far fa-eye"></i> {item.views}
+              , <Eye size={16} /> {item.views}
             </span>
           </div>
         ))}

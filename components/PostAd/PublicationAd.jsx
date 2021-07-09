@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { Check } from '../Icons';
 
 export const PublicationAd = (props) => {
   const { aid, category } = props;
@@ -34,7 +35,7 @@ export const PublicationAd = (props) => {
               </div>
               <div className="card-body">
                 <h1>
-                  <i className="fas fa-check" aria-hidden></i>
+                  <Check />
                 </h1>
               </div>
               <div className="card-footer">

@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Link from 'next/link';
+import { Star } from '../Icons';
 
 export const Menu = (props) => {
   const { user, handleFavorites, favoritesCount, handleLogoClick } = props;
@@ -34,7 +35,8 @@ export const Menu = (props) => {
         </Link>
       )}
       <div className="favorites">
-        <i aria-hidden className="far fa-star" onClick={handleFavorites}>
+        <i onClick={handleFavorites}>
+          <Star size={24} />
           <span className="count">{favoritesCount}</span>
         </i>
       </div>

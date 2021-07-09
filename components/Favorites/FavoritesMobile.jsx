@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChevronUp } from '../Icons';
 import { FavoritesItem } from './index';
 
 export const FavoritesMobile = (props) => {
@@ -16,7 +17,7 @@ export const FavoritesMobile = (props) => {
             dispatch({ type: 'TOGGLE_FAVORITES', toggle: !collapse })
           }
         >
-          <i aria-hidden className="fas fa-chevron-up"></i>
+          <ChevronUp />
         </button>
       </div>
     </div>

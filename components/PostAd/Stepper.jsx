@@ -1,4 +1,5 @@
 import React from 'react';
+import { ChevronLeft } from '../Icons';
 import { BackButton } from './../BackButton';
 
 export const Stepper = (props) => {
@@ -9,7 +10,7 @@ export const Stepper = (props) => {
         <li className="breadcrumb-item">
           <BackButton>
             <a className="breadcrumb-item">
-              <i aria-hidden className="fas fa-chevron-left"></i>
+              <ChevronLeft size={16} />
             </a>
           </BackButton>
         </li>

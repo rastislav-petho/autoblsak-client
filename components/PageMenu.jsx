@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { BackButton } from './BackButton';
+import { ChevronLeft } from '../components/Icons';
 
 export const PageMenu = (props) => {
   const { setStep, items } = props;
@@ -25,7 +26,7 @@ const GoBack = () => (
   <li className="nav-item">
     <BackButton>
       <a className="nav-link">
-        <i aria-hidden className="fas fa-chevron-left"></i>
+        <ChevronLeft />
       </a>
     </BackButton>
   </li>
