@@ -1,4 +1,4 @@
-:root {
+/* :root {
   --bg-color: #18191a;
   --bg-second-color: #242526;
   --bg-navbar-color: #18191a;
@@ -11,34 +11,34 @@
   --info: #4091d7;
   --info-second: #99e9eb;
 
-  /* --bg-color: #222831; */
-  /* --bg-second-color: #393e46; */
-  /* --bg-second-color: #393e46ea;
-  --bg-navbar-color: #1b2027; */
-  /* --text-color: #ffffff; */
-  /* --text-second-color: #d65a31; */
-  /* --text-second-color: #e8373e;
+  --bg-color: #222831;
+  --bg-second-color: #393e46;
+  --bg-second-color: #393e46ea;
+  --bg-navbar-color: #1b2027;
+  --text-color: #ffffff;
+  --text-second-color: #d65a31;
+  --text-second-color: #e8373e;
   --bg-third-color: #212730;
   --success: #2d884d;
   --warning: #fecf6d;
   --danger: #b34045;
   --info: #4091d7;
-  --info-second: #99e9eb; */
-}
+  --info-second: #99e9eb;
+} */
 
 body {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: #18191a;
+  color: #ffffff;
   font-size: 14px;
   font-family: 'Open Sans', sans-serif;
 }
 
 a {
-  color: var(--text-second-color);
+  color: #d90429;
 }
 
 a:hover {
-  color: var(--text-color);
+  color: #ffffff;
   text-decoration: none;
 }
 
@@ -48,11 +48,11 @@ h3,
 h4,
 h5,
 h6 {
-  color: var(--text-second-color);
+  color: #d90429;
 }
 
 .svg {
-  color: var(--text-second-color);
+  color: #d90429;
 }
 
 .cursor-pointer {
@@ -76,9 +76,9 @@ h6 {
   position: fixed;
   left: 0;
   top: 0;
-  background-color: var(--bg-navbar-color);
+  background-color: #18191a;
   z-index: 2;
-  border-bottom: 1px solid var(--text-second-color);
+  border-bottom: 1px solid #d90429;
 }
 
 .spacer {
@@ -117,13 +117,13 @@ h6 {
 }
 
 .menu a {
-  color: var(--text-color);
+  color: #ffffff;
 }
 
 .menu a:hover,
 .user a:hover {
   text-decoration: none;
-  color: var(--text-second-color);
+  color: #d90429;
 }
 
 .toggle-menu {
@@ -143,17 +143,17 @@ h6 {
   padding: 10px;
   width: 100%;
   height: 50px;
-  background-color: var(--bg-color);
+  background-color: #18191a;
   text-align: center;
-  border: 1px solid var(--bg-navbar-color);
+  border: 1px solid #18191a;
 }
 
 .mobile-menu a:hover {
   text-decoration: none;
-  color: var(--text-second-color);
-  border-top: 1px solid var(--text-second-color);
-  border-bottom: 1px solid var(--text-second-color);
-  background-color: var(--bg-navbar-color);
+  color: #d90429;
+  border-top: 1px solid #d90429;
+  border-bottom: 1px solid #d90429;
+  background-color: #18191a;
 }
 
 .user {
@@ -167,7 +167,7 @@ h6 {
 }
 
 .user a {
-  color: var(--warning);
+  color: #fecf6d;
 }
 
 .logo {
@@ -184,7 +184,7 @@ h6 {
 }
 
 .filter-box {
-  border-bottom: 1px solid var(--text-second-color);
+  border-bottom: 1px solid #d90429;
   margin-bottom: 15px;
 }
 
@@ -204,25 +204,25 @@ h6 {
   width: 50px;
   height: 50px;
   border-radius: 60px;
-  border: 1px solid var(--text-second-color);
-  background-color: var(--bg-color);
-  color: var(--text-second-color);
+  border: 1px solid #d90429;
+  background-color: #18191a;
+  color: #d90429;
 }
 
 .filter-box input {
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  border: 2px solid var(--bg-second-color);
+  background-color: #18191a;
+  color: #ffffff;
+  border: 2px solid #242526;
   height: 37px;
   font-size: 0.9rem;
 }
 
 .filter-box select {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: #18191a;
+  color: #ffffff;
   height: 37px;
   font-size: 0.9rem;
-  border: 2px solid var(--bg-second-color);
+  border: 2px solid #242526;
 }
 
 .ad-list-header {
@@ -241,8 +241,8 @@ h6 {
 }
 
 .ad-list-header select {
-  background-color: var(--bg-color);
-  color: var(--text-color);
+  background-color: #18191a;
+  color: #ffffff;
   height: 37px;
   font-size: 0.9rem;
   border: none;
@@ -253,7 +253,7 @@ h6 {
 }
 
 .favorites > i {
-  color: var(--text-second-color);
+  color: #d90429;
   font-size: 1.5rem;
   cursor: pointer;
 }
@@ -276,7 +276,7 @@ h6 {
 }
 
 .favorites-box h3 {
-  border-bottom: 1px dotted var(--text-second-color);
+  border-bottom: 1px dotted #d90429;
   padding-bottom: 5px;
   margin-bottom: 10px;
 }
@@ -289,7 +289,7 @@ h6 {
   border-radius: 60px;
   width: 45px;
   height: 45px;
-  border: 1px solid var(--text-second-color);
+  border: 1px solid #d90429;
 }
 
 .favorites-content-box {
@@ -299,7 +299,7 @@ h6 {
 }
 
 .favorites-remove-box {
-  color: var(--danger);
+  color: #b34045;
   cursor: pointer;
 }
 
@@ -308,7 +308,7 @@ h6 {
   align-items: center;
   justify-content: space-between;
   padding: 5px;
-  background-color: var(--bg-second-color);
+  background-color: #242526;
   border-radius: 5px;
   min-width: 200px;
 }
@@ -316,7 +316,7 @@ h6 {
 .inzerat-box {
   margin-bottom: 25px;
   padding: 10px;
-  background-color: var(--bg-second-color);
+  background-color: #242526;
   min-height: 160px;
 }
 
@@ -339,7 +339,7 @@ h6 {
   width: 70px;
   height: 20px;
   line-height: 20px;
-  background-color: var(--text-second-color);
+  background-color: #d90429;
   font-weight: 600;
   text-align: center;
   color: #ffffff;
@@ -352,7 +352,7 @@ h6 {
   width: 30px;
   height: 30px;
   line-height: 30px;
-  background-color: var(--bg-color);
+  background-color: #18191a;
   opacity: 0.9;
   text-align: center;
   color: #ffffff;
@@ -366,23 +366,23 @@ h6 {
   width: 30px;
   height: 30px;
   text-align: center;
-  background-color: var(--bg-color);
+  background-color: #18191a;
 }
 
 .ad-titles {
   font-weight: 700;
   font-size: 1.2rem;
-  color: var(--text-color);
+  color: #ffffff;
 }
 
 .ad-titles a {
-  color: var(--text-color);
+  color: #ffffff;
 }
 
 .ad-contents i {
   font-weight: 600;
   font-size: 1.1rem;
-  color: var(--text-second-color);
+  color: #d90429;
 }
 
 .action-bar span {
@@ -414,9 +414,9 @@ h6 {
   height: 40px;
   margin: 8px;
   border-radius: 10px;
-  border: 2px solid var(--bg-second-color);
-  background-color: var(--bg-color);
-  color: var(--text-second-color);
+  border: 2px solid #242526;
+  background-color: #18191a;
+  color: #d90429;
   font-weight: 600;
   cursor: pointer;
 }
@@ -429,19 +429,19 @@ h6 {
   height: 40px;
   margin: 8px;
   border-radius: 10px;
-  border: 2px solid var(--bg-second-color);
-  background-color: var(--text-second-color);
+  border: 2px solid #242526;
+  background-color: #d90429;
   font-weight: 600;
   cursor: default;
 }
 
 .current-page {
-  color: var(--text-color);
+  color: #ffffff;
   cursor: default;
 }
 
 .add-to-favorites-button {
-  color: var(--text-second-color);
+  color: #d90429;
   font-size: 1.2rem;
   cursor: pointer;
 }
@@ -460,7 +460,7 @@ h6 {
 .register-page > .card,
 .changepassword-page > .card,
 .private-information-page > .card {
-  background-color: var(--bg-second-color);
+  background-color: #242526;
   opacity: 0.9;
   max-width: 360px;
   width: 90%;
@@ -471,21 +471,21 @@ h6 {
 .register-page input,
 .changepassword-page input,
 .private-information-page input {
-  background-color: var(--bg-second-color);
-  color: var(--text-second-color);
+  background-color: #242526;
+  color: #d90429;
 }
 
 .publication > .card {
-  background-color: var(--bg-second-color);
+  background-color: #242526;
   opacity: 0.9;
   width: 100%;
   margin: 15px;
 }
 
 .button {
-  color: var(--text-second-color);
-  border: 1px solid var(--text-second-color);
-  background-color: var(--bg-color);
+  color: #d90429;
+  border: 1px solid #d90429;
+  background-color: #18191a;
   min-width: 150px;
   min-height: 40px;
   border-radius: 4px;
@@ -493,9 +493,9 @@ h6 {
 }
 
 .header-button {
-  color: var(--text-color);
-  border: 1px solid var(--text-color);
-  background-color: var(--bg-color);
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background-color: #18191a;
   min-width: 150px;
   min-height: 40px;
   border-radius: 4px;
@@ -503,9 +503,9 @@ h6 {
 }
 
 .full-button {
-  color: var(--text-color);
+  color: #ffffff;
   border: none;
-  background-color: var(--text-second-color);
+  background-color: #d90429;
   width: 100%;
   min-height: 35px;
   border-radius: 4px;
@@ -513,13 +513,13 @@ h6 {
 }
 
 .full-button a {
-  color: var(--text-color);
+  color: #ffffff;
 }
 
 .a-button {
-  color: var(--text-second-color);
-  border: 1px solid var(--text-second-color);
-  background-color: var(--bg-color);
+  color: #d90429;
+  border: 1px solid #d90429;
+  background-color: #18191a;
   min-width: 150px;
   min-height: 50px;
   border-radius: 4px;
@@ -527,28 +527,28 @@ h6 {
 }
 
 .a-button:hover {
-  color: var(--text-second-color);
+  color: #d90429;
   text-decoration: none;
 }
 
 .nav-tabs {
-  border-bottom: 1px solid var(--bg-second-color);
+  border-bottom: 1px solid #242526;
 }
 
 .nav-tabs .nav-link:hover {
-  border-color: var(--bg-second-color);
+  border-color: #242526;
 }
 
 .nav-tabs .nav-link.active {
-  color: var(--text-color);
-  background-color: var(--bg-second-color);
-  border-color: var(--bg-second-color);
+  color: #ffffff;
+  background-color: #242526;
+  border-color: #242526;
 }
 
 .action-bar > button {
-  color: var(--text-second-color);
-  border: 1px solid var(--text-second-color);
-  background-color: var(--bg-color);
+  color: #d90429;
+  border: 1px solid #d90429;
+  background-color: #18191a;
   border-radius: 4px;
   font-weight: 600;
   padding-left: 15px;
@@ -556,20 +556,20 @@ h6 {
 }
 
 .action-bar > p {
-  background-color: var(--bg-color);
+  background-color: #18191a;
   padding: 15px;
   border-radius: 5px;
 }
 
 .inzerat-titles {
   height: auto;
-  border-bottom: 1px solid var(--text-second-color);
+  border-bottom: 1px solid #d90429;
   padding-bottom: 10px;
 }
 
 .inzerat-titles h1 {
   font-size: 1.8rem;
-  color: var(--text-second-color);
+  color: #d90429;
 }
 
 .inzerat-titles span {
@@ -577,7 +577,7 @@ h6 {
 }
 
 .badge-danger {
-  background-color: var(--text-second-color);
+  background-color: #d90429;
 }
 
 .gallery-items {
@@ -604,7 +604,7 @@ h6 {
 }
 
 .table {
-  color: var(--text-color);
+  color: #ffffff;
 }
 
 .table td,
@@ -613,20 +613,20 @@ h6 {
 }
 
 .inzerat .card {
-  background-color: var(--bg-color);
-  border: 1px solid var(--text-second-color);
+  background-color: #18191a;
+  border: 1px solid #d90429;
 }
 
 .default-photo {
-  border: 1px solid var(--success);
+  border: 1px solid #2d884d;
 }
 
 .breadcrumb {
-  background-color: var(--bg-second-color);
+  background-color: #242526;
 }
 
 .breadcrumb-item.active {
-  color: var(--text-second-color);
+  color: #d90429;
 }
 
 .breadcrumb-item.novisite {
@@ -634,12 +634,12 @@ h6 {
 }
 
 .magazine {
-  border-bottom: 1px solid var(--text-second-color);
+  border-bottom: 1px solid #d90429;
   margin-bottom: 15px;
 }
 
 .magazine a {
-  color: var(--text-color);
+  color: #ffffff;
 }
 
 .most-view img {
@@ -651,7 +651,7 @@ h6 {
   position: relative;
   bottom: 20px;
   left: 0;
-  background-color: var(--text-second-color);
+  background-color: #d90429;
   opacity: 0.6;
   padding-left: 5px;
   padding-right: 5px;
@@ -683,14 +683,14 @@ h6 {
 
 .newsletter .jumbotron {
   padding: 1rem;
-  background-color: var(--bg-navbar-color);
+  background-color: #18191a;
 }
 
 .footer {
   width: 100%;
   height: auto;
-  background-color: var(--bg-navbar-color);
-  border-top: 1px solid var(--text-second-color);
+  background-color: #18191a;
+  border-top: 1px solid #d90429;
   color: var(--navbar-text-color);
   padding-top: 15px;
   padding-bottom: 15px;
@@ -712,20 +712,20 @@ h6 {
 }
 
 .user-panel {
-  color: var(--text-color);
-  border-bottom: 1px solid var(--text-second-color);
+  color: #ffffff;
+  border-bottom: 1px solid #d90429;
   margin-bottom: 15px;
 }
 
 .user-panel a {
-  color: var(--text-color);
+  color: #ffffff;
   display: block;
   font-weight: 600;
   font-size: 1rem;
 }
 
 .user-panel a:hover {
-  color: var(--text-second-color);
+  color: #d90429;
 }
 
 .drop-zone {
@@ -734,11 +734,11 @@ h6 {
   justify-content: center;
   width: 100%;
   height: 150px;
-  border: dashed 1px var(--text-second-color);
+  border: dashed 1px #d90429;
 }
 
 .card-footer {
-  color: var(--text-second-color) !important;
+  color: #d90429 !important;
 }
 
 @media (max-width: 1279px) {
@@ -762,13 +762,13 @@ h6 {
     align-items: center;
   }
   .toggle-menu a {
-    color: var(--text-second-color);
+    color: #d90429;
     font-size: 2rem;
     cursor: pointer;
   }
 
   .toggle-menu a:hover {
-    color: var(--text-second-color);
+    color: #d90429;
   }
 
   .toggle-menu i .count {
@@ -777,7 +777,7 @@ h6 {
 
   .toggle-menu a .count {
     font-size: 0.8rem;
-    color: var(--text-second-color);
+    color: #d90429;
   }
 
   .menu-wrapper {
@@ -795,7 +795,7 @@ h6 {
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    background-color: var(--bg-second-color);
+    background-color: #242526;
     padding: 30px;
     padding-bottom: 60px;
     z-index: 1;
@@ -808,16 +808,16 @@ h6 {
   }
 
   .filter-box-mobile input {
-    background-color: var(--bg-second-color);
-    border: 2px solid var(--bg-color);
-    color: var(--text-color);
+    background-color: #242526;
+    border: 2px solid #18191a;
+    color: #ffffff;
     height: 37px;
   }
 
   .filter-box-mobile select {
-    background-color: var(--bg-second-color);
-    border: 2px solid var(--bg-color);
-    color: var(--text-color);
+    background-color: #242526;
+    border: 2px solid #18191a;
+    color: #ffffff;
     height: 37px;
   }
 
@@ -829,11 +829,11 @@ h6 {
     left: 0;
     width: 100%;
     height: 60px;
-    background-color: var(--bg-color);
+    background-color: #18191a;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    border-top: 1px solid var(--text-second-color);
+    border-top: 1px solid #d90429;
   }
 
   .filter-box-mobile button,
@@ -841,9 +841,9 @@ h6 {
     width: 50px;
     height: 50px;
     border-radius: 60px;
-    border: 1px solid var(--text-second-color);
-    background-color: var(--bg-color);
-    color: var(--text-second-color);
+    border: 1px solid #d90429;
+    background-color: #18191a;
+    color: #d90429;
   }
 }
 

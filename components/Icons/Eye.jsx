@@ -11,7 +11,7 @@ export const Eye = forwardRef((props, ref) => {
       focusable="false"
       data-prefix="far"
       data-icon="eye"
-      class={`svg-inline--fa fa-eye fa-w-18 ${color}`}
+      className={`svg-inline--fa fa-eye fa-w-18 ${color}`}
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"

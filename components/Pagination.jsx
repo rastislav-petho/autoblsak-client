@@ -9,7 +9,7 @@ export const PaginationComponent = (props) => {
       <Pagination
         activePage={currentPage}
         itemsCountPerPage={itemsCountPerPage}
-        totalItemsCount={total}
+        totalItemsCount={total ? total : 0}
         pageRangeDisplayed={3}
         onChange={handlePagination}
         hideDisabled={true}

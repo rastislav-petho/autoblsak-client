@@ -11,7 +11,7 @@ export const Star = forwardRef((props, ref) => {
       focusable="false"
       data-prefix="far"
       data-icon="star"
-      class={`svg-inline--fa fa-star fa-w-18 ${color}`}
+      className={`svg-inline--fa fa-star fa-w-18 ${color}`}
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"

@@ -11,7 +11,7 @@ export const Car = forwardRef((props, ref) => {
       focusable="false"
       data-prefix="fas"
       data-icon="car"
-      class={`svg-inline--fa fa-car fa-w-16 ${color}`}
+      className={`svg-inline--fa fa-car fa-w-16 ${color}`}
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 512 512"

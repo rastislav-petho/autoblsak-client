@@ -11,7 +11,7 @@ export const ChevronLeft = forwardRef((props, ref) => {
       focusable="false"
       data-prefix="fas"
       data-icon="chevron-left"
-      class={`svg-inline--fa fa-chevron-left fa-w-10 ${color}`}
+      className={`svg-inline--fa fa-chevron-left fa-w-10 ${color}`}
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 320 512"

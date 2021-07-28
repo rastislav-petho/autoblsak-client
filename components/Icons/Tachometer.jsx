@@ -11,7 +11,7 @@ export const Tachometer = forwardRef((props, ref) => {
       focusable="false"
       data-prefix="fas"
       data-icon="tachometer-alt"
-      class="svg-inline--fa fa-tachometer-alt fa-w-18"
+      className="svg-inline--fa fa-tachometer-alt fa-w-18"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"

@@ -11,7 +11,7 @@ export const Plus = forwardRef((props, ref) => {
       focusable="false"
       data-prefix="fas"
       data-icon="plus"
-      class={`svg-inline--fa fa-plus fa-w-14 ${color}`}
+      className={`svg-inline--fa fa-plus fa-w-14 ${color}`}
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 448 512"

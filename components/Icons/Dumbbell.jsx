@@ -11,7 +11,7 @@ export const Dumbbell = forwardRef((props, ref) => {
       focusable="false"
       data-prefix="fas"
       data-icon="dumbbell"
-      class="svg-inline--fa fa-dumbbell fa-w-20"
+      className="svg-inline--fa fa-dumbbell fa-w-20"
       role="img"
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 640 512"
