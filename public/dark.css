@@ -691,13 +691,13 @@ h6 {
   height: auto;
   background-color: #18191a;
   border-top: 1px solid #d90429;
-  color: var(--navbar-text-color);
+  color: #ffffff;
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
 .footer a {
-  color: var(--navbar-text-color);
+  color: #ffffff;
   margin-right: 10px;
   margin-left: 10px;
 }
