@@ -11,7 +11,6 @@ import { MobileFilter } from './Filter';
 import { initGA, logPageView } from '../helpers/googleAnalytics';
 import ScrollToTop from 'react-scroll-to-top';
 import { ParsedUrlQueryInput } from 'querystring';
-import { isIE } from 'react-device-detect';
 
 type LayoutProps = {
   pageTitle: string;
@@ -87,7 +86,6 @@ export const Layout: FC<LayoutProps> = (props) => {
       </Head>
       <CookiesSection />
       {state.message.type && <Messages />}
-      {isIE && <IEModal />}
       <div className="container-fluid nav-bar p-0">
         <Header />
       </div>

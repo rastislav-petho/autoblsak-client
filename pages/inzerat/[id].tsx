@@ -3,7 +3,7 @@ import { Context } from '../../context/context';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 import fetch from 'isomorphic-unfetch';
-import { Layout, Loading } from '../../components';
+import { IEModal, Layout, Loading } from '../../components';
 import {
   AdGallery,
   AdPageHeader,
@@ -15,6 +15,7 @@ import {
 import { getAdTitle } from '../../helpers';
 import { isPaidCategory } from '../../helpers/constants';
 import { Ad, SortedExtrasType } from 'helpers/types';
+import { isIE } from 'react-device-detect';
 
 type InzeratProps = {
   data: Ad;
@@ -123,6 +124,7 @@ const Inzerat: FC<InzeratProps> = ({ data }) => {
       image={photos[0].src}
     >
       <div className="row inzerat">
+        {isIE && <IEModal /> }
         <div className="col-12">
           <AdPageHeader
             title={title}
