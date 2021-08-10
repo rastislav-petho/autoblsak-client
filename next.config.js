@@ -3,5 +3,6 @@ module.exports = {
 
   env: {
     apiUrl: 'https://autoblsak.sk/api/api',
+    // apiUrl: 'https://autoblsak.sk/api/api',
   },
 };

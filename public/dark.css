@@ -55,6 +55,10 @@ h6 {
   color: #d90429;
 }
 
+.svg {
+  color: var(--text-second-color);
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -256,6 +260,11 @@ h6 {
   color: #d90429;
   font-size: 1.5rem;
   cursor: pointer;
+  display: flex;
+}
+
+.favorites > i > span {
+  margin-top: 10px;
 }
 
 .favorites > i > .count {
@@ -762,13 +771,13 @@ h6 {
     align-items: center;
   }
   .toggle-menu a {
-    color: #d90429;
+    color: var(--text-second-color);
     font-size: 2rem;
     cursor: pointer;
   }
 
   .toggle-menu a:hover {
-    color: #d90429;
+    color: var(--text-second-color);
   }
 
   .toggle-menu i .count {
@@ -777,7 +786,7 @@ h6 {
 
   .toggle-menu a .count {
     font-size: 0.8rem;
-    color: #d90429;
+    color: var(--text-second-color);
   }
 
   .menu-wrapper {

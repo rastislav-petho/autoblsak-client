@@ -63,6 +63,10 @@ h6 {
   color: #f8f9fa;
 }
 
+.svg {
+  color: var(--bg-color);
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
@@ -261,6 +265,11 @@ h6 {
   color: #d90429;
   font-size: 1.5rem;
   cursor: pointer;
+  display: flex;
+}
+
+.favorites > i > span {
+  margin-top: 10px;
 }
 
 .favorites > i > .count {
@@ -765,13 +774,13 @@ h6 {
     align-items: center;
   }
   .toggle-menu a {
-    color: #f8f9fa;
+    color: var(--navbar-text-color);
     font-size: 2rem;
     cursor: pointer;
   }
 
   .toggle-menu a:hover {
-    color: #f8f9fa;
+    color: var(--navbar-text-color);
   }
 
   .toggle-menu i .count {
@@ -780,7 +789,7 @@ h6 {
 
   .toggle-menu a .count {
     font-size: 0.8rem;
-    color: #f8f9fa;
+    color: var(--navbar-text-color);
   }
 
   .menu-wrapper {
