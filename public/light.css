@@ -63,10 +63,6 @@ h6 {
   color: #f8f9fa;
 }
 
-.svg {
-  color: var(--bg-color);
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
@@ -801,13 +797,13 @@ h6 {
     align-items: center;
   }
   .toggle-menu a {
-    color: var(--navbar-text-color);
+    color: #f8f9fa;
     font-size: 2rem;
     cursor: pointer;
   }
 
   .toggle-menu a:hover {
-    color: var(--navbar-text-color);
+    color: #f8f9fa;
   }
 
   .toggle-menu i .count {
@@ -816,7 +812,7 @@ h6 {
 
   .toggle-menu a .count {
     font-size: 0.8rem;
-    color: var(--navbar-text-color);
+    color: #f8f9fa;
   }
 
   .menu-wrapper {
