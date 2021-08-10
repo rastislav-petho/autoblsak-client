@@ -88,7 +88,7 @@ export const Layout: FC<LayoutProps> = (props) => {
       <CookiesSection />
       {state.message.type && <Messages />}
 
-      {isIE ? 
+      {!isIE ? 
       <>
         <div className="container-fluid nav-bar p-0">
           <Header />
