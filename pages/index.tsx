@@ -87,7 +87,7 @@ const Index = (props) => {
               )
             )}
           </>
-          {state.ads && isIE ? (
+          {state.ads && !isIE ? (
             <div className="row">
               <PaginationComponent
                 currentPage={state.ads.current_page}
