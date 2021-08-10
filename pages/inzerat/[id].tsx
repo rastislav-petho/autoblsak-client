@@ -15,7 +15,6 @@ import {
 import { getAdTitle } from '../../helpers';
 import { isPaidCategory } from '../../helpers/constants';
 import { Ad, SortedExtrasType } from 'helpers/types';
-import { isIE } from 'react-device-detect';
 
 type InzeratProps = {
   data: Ad;
@@ -124,7 +123,6 @@ const Inzerat: FC<InzeratProps> = ({ data }) => {
       image={photos[0].src}
     >
       <div className="row inzerat">
-        {isIE && <IEModal /> }
         <div className="col-12">
           <AdPageHeader
             title={title}
