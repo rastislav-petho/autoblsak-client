@@ -2,7 +2,7 @@ import React, { FC, Fragment, useContext, useEffect } from 'react';
 import { Context } from '../context/context';
 import Head from 'next/head';
 import { Header } from './Header';
-import { Messages, CookiesSection, Footer } from '.';
+import { Messages, CookiesSection, Footer, IEModal } from '.';
 import { Favorites } from './Favorites';
 import { useSwipeable } from 'react-swipeable';
 import { useRouter } from 'next/router';
@@ -11,6 +11,7 @@ import { MobileFilter } from './Filter';
 import { initGA, logPageView } from '../helpers/googleAnalytics';
 import ScrollToTop from 'react-scroll-to-top';
 import { ParsedUrlQueryInput } from 'querystring';
+import { isIE } from 'react-device-detect';
 
 type LayoutProps = {
   pageTitle: string;
@@ -78,10 +79,6 @@ export const Layout: FC<LayoutProps> = (props) => {
           integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
           crossOrigin="anonymous"
         ></link> */}
-<<<<<<< HEAD:components/Layout.jsx
-        <script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2" />
-=======
->>>>>>> add-typescript:components/Layout.tsx
         {state.theme === 'light' ? (
           <link rel="stylesheet" href="/light.css"></link>
         ) : (
@@ -91,22 +88,25 @@ export const Layout: FC<LayoutProps> = (props) => {
       <CookiesSection />
       {state.message.type && <Messages />}
 
-      <div className="container-fluid nav-bar p-0">
-        <Header />
-      </div>
-      <div className="spacer"></div>
-      {state.config.toggleFilter && <MobileFilter />}
-      <Favorites
-        favorites={state.favoriteAds}
-        collapse={state.config.toggleFavorites}
-        dispatch={dispatch}
-      />
-      <div className="container content" {...handlers}>
-        {children}
-      </div>
-      <div className="container-fluid p-0">
-        <Footer />
-      </div>
+      {isIE ? 
+      <>
+        <div className="container-fluid nav-bar p-0">
+          <Header />
+        </div>
+        <div className="spacer"></div>
+        {state.config.toggleFilter && <MobileFilter />}
+        <Favorites
+          favorites={state.favoriteAds}
+          collapse={state.config.toggleFavorites}
+          dispatch={dispatch}
+        />
+        <div className="container content" {...handlers}>
+          {children}
+        </div>
+        <div className="container-fluid p-0">
+          <Footer />
+        </div>
+      </> : <IEModal />}
       <ScrollToTop
         smooth
         color="#d90429"

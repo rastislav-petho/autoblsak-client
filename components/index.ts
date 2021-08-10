@@ -11,3 +11,4 @@ export * from './UserPanel';
 export * from './Newsletter';
 export * from './BackButton';
 export * from './AdListHeader';
+export * from './IEModal';
