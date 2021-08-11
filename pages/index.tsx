@@ -10,13 +10,11 @@ import {
   Newsletter,
   Loading,
   AdListHeader,
-  IEModal,
 } from '../components';
 import { Filter } from '../components/Filter';
 import { Ad } from '../components/Ad';
 import { useApi } from '../hooks';
 import { scrollToTop, getFilterQueryUrl } from '../helpers';
-import { isIE } from 'react-device-detect';
 
 const Index = (props) => {
   const { state, dispatch } = useContext(Context);
@@ -95,7 +93,6 @@ const Index = (props) => {
                 total={state.ads.total}
                 itemsCountPerPage={props.indexData.settings.max_ads_per_page}
               />
-              {isIE && <IEModal />}
             </div>
           )}
           <Newsletter />
