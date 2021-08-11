@@ -15,6 +15,7 @@ import { Filter } from '../components/Filter';
 import { Ad } from '../components/Ad';
 import { useApi } from '../hooks';
 import { scrollToTop, getFilterQueryUrl } from '../helpers';
+import { isIE } from 'react-device-detect';
 
 const Index = (props) => {
   const { state, dispatch } = useContext(Context);
@@ -46,6 +47,12 @@ const Index = (props) => {
     adPagination(page);
     scrollToTop();
   };
+
+  const redirectToEdge = () => {
+    if (typeof window !== "undefined") {
+      window.location.href = 'microsoft-edge:https://autoblsak.sk';
+    }
+  }
 
   return (
     <Layout
@@ -85,7 +92,7 @@ const Index = (props) => {
               )
             )}
           </>
-          {state.ads && (
+          {state.ads && !isIE ? (
             <div className="row">
               <PaginationComponent
                 currentPage={state.ads.current_page}
@@ -94,7 +101,7 @@ const Index = (props) => {
                 itemsCountPerPage={props.indexData.settings.max_ads_per_page}
               />
             </div>
-          )}
+          ): redirectToEdge()}
           <Newsletter />
         </div>
       </div>

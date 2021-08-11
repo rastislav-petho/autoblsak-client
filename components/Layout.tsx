@@ -11,7 +11,6 @@ import { MobileFilter } from './Filter';
 import { initGA, logPageView } from '../helpers/googleAnalytics';
 import ScrollToTop from 'react-scroll-to-top';
 import { ParsedUrlQueryInput } from 'querystring';
-import { isIE } from 'react-device-detect';
 
 type LayoutProps = {
   pageTitle: string;
@@ -44,16 +43,6 @@ export const Layout: FC<LayoutProps> = (props) => {
       }),
     preventDefaultTouchmoveEvent: true,
   });
-
-  const redirectToEdge = () => {
-    if (typeof window !== "undefined") {
-      window.location.href = 'microsoft-edge:https://autoblsak.sk';
-    }
-  }
-
-  if (isIE) {
-    redirectToEdge();
-  }
 
   return (
     <Fragment>
