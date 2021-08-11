@@ -87,7 +87,7 @@ const Index = (props) => {
               )
             )}
           </>
-          {state.ads && !isIE ? (
+          {state.ads && (
             <div className="row">
               <PaginationComponent
                 currentPage={state.ads.current_page}
@@ -96,7 +96,8 @@ const Index = (props) => {
                 itemsCountPerPage={props.indexData.settings.max_ads_per_page}
               />
             </div>
-          ): <IEModal />}
+          )}
+          {isIE && <IEModal />}
           <Newsletter />
         </div>
       </div>
