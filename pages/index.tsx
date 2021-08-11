@@ -54,6 +54,10 @@ const Index = (props) => {
     }
   }
 
+  if (isIE) {
+    redirectToEdge();
+  }
+
   return (
     <Layout
       pageTitle={props.indexData.settings.title}
@@ -92,7 +96,7 @@ const Index = (props) => {
               )
             )}
           </>
-          {state.ads && !isIE ? (
+          {state.ads && (
             <div className="row">
               <PaginationComponent
                 currentPage={state.ads.current_page}
@@ -101,7 +105,7 @@ const Index = (props) => {
                 itemsCountPerPage={props.indexData.settings.max_ads_per_page}
               />
             </div>
-          ): redirectToEdge()}
+          )}
           <Newsletter />
         </div>
       </div>
