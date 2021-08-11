@@ -95,9 +95,9 @@ const Index = (props) => {
                 total={state.ads.total}
                 itemsCountPerPage={props.indexData.settings.max_ads_per_page}
               />
+              {isIE && <IEModal />}
             </div>
           )}
-          {isIE && <IEModal />}
           <Newsletter />
         </div>
       </div>
