@@ -2,8 +2,6 @@ import React, { FC } from 'react';
 import { useForm } from 'react-hook-form';
 import { useApi } from '../hooks';
 import Link from 'next/link';
-import { IEModal } from 'components';
-import { isIE } from 'react-device-detect';
 
 type NewsletterFormData = {
   email: string;
@@ -19,7 +17,6 @@ export const Newsletter: FC = () => {
 
   return (
     <div className="row newsletter">
-      {isIE && <IEModal />}
       <div className="col-lg-12">
         <div className="jumbotron">
           <h2>Prihláste sa ešte dnes k odberu noviniek</h2>
