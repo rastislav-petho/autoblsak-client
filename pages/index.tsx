@@ -15,7 +15,6 @@ import { Filter } from '../components/Filter';
 import { Ad } from '../components/Ad';
 import { useApi } from '../hooks';
 import { scrollToTop, getFilterQueryUrl } from '../helpers';
-import { isIE } from 'react-device-detect';
 
 const Index = (props) => {
   const { state, dispatch } = useContext(Context);
@@ -36,8 +35,17 @@ const Index = (props) => {
           message: 'Pre zvolený filter sa nenašli žiadne výsledky.',
         },
       });
+    } else {
+      dispatch({
+        type: 'SET_MESSAGE',
+        message: {
+          type: null,
+          message: null,
+        },
+      });
     }
 
+    
     dispatch({ type: 'SET_ADS', ads: props.data });
     dispatch({ type: 'TOGGLE_FILTER', toogle: false });
     if (state.ads) dispatch({ type: 'HANDLE_LOADING', loading: false });
@@ -47,16 +55,6 @@ const Index = (props) => {
     adPagination(page);
     scrollToTop();
   };
-
-  const redirectToEdge = () => {
-    if (typeof window !== "undefined") {
-      window.location.href = 'microsoft-edge:https://autoblsak.sk';
-    }
-  }
-
-  if (isIE) {
-    redirectToEdge();
-  }
 
   return (
     <Layout

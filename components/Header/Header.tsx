@@ -6,8 +6,6 @@ import { scrollToTop } from '../../helpers';
 import { Menu, MobileMenu } from './index';
 import { ToogleMenu } from './ToogleMenu';
 import { RESET_FILTER } from '../../helpers/constants';
-import { isIE } from 'react-device-detect';
-import { IEModal } from 'components/IEModal';
 
 type HeaderProps = {};
 
@@ -70,7 +68,6 @@ export const Header: FC<HeaderProps> = () => {
           logout={handleLogout}
         />
       )}
-      {isIE && <IEModal /> }
     </div>
   );
 };
