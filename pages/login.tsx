@@ -60,7 +60,7 @@ const Login: FC = () => {
               </p>
 
               <div className="col-12 d-flex justify-content-center">
-                <button type="submit" className="button">Prihlásiť"</button>
+                <button type="submit" className="button">Prihlásiť</button>
               </div>
             </form>
           </div>
