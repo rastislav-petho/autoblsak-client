@@ -14,7 +14,7 @@ export const useApi = () => {
   const [queryObject, url] = getFilterQueryUrl(filter, state.api);
 
   const auth = (data) => {
-    queryObject.page = state.ads.current_page;
+    //queryObject.page = state.ads.current_page;
 
     axios
       .post(`${state.api}/login`, data)
@@ -24,7 +24,7 @@ export const useApi = () => {
           dispatch({ type: 'LOGIN', user: response.data });
           router.push({
             pathname: '/',
-            query: queryObject as ParsedUrlQueryInput,
+            //query: queryObject as ParsedUrlQueryInput,
           });
         } else if (response.status === 203) {
           dispatch({
