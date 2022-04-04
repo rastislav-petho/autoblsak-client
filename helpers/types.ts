@@ -47,7 +47,7 @@ export type Ad = {
     paid_expire: number | null;
     pay_id: string | null;
     power: number | null;
-    premium: number | null;
+    premium: string | null;
     premium_expire: number | null;
     premium_start: number | null
     price: number | null;

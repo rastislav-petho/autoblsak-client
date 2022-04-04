@@ -1,7 +1,7 @@
-import React, { FC } from 'react';
-import Link from 'next/link';
-import { CategoryType } from 'helpers/types';
-import { Check } from 'components/Icons';
+import React, { FC } from "react";
+import Link from "next/link";
+import { CategoryType } from "helpers/types";
+import { Check } from "components/Icons";
 
 type PublicationAdProps = {
   aid: number;
@@ -9,48 +9,27 @@ type PublicationAdProps = {
 };
 
 export const PublicationAd: FC<PublicationAdProps> = (props) => {
-  const { aid, category } = props;
+  const { aid } = props;
 
   return (
     <div className="row">
       <div className="col-12 col-lg-6">
         <div className="row publication">
-          {category === 'personal' ||
-          category === 'moto' ||
-          category === 'commercial' ? (
-            <div className="card text-center">
-              <div className="card-header">
-                <p>
-                  Pre zverejnenie inzerátu pošlite SMS na číslo 8866 v tvare
-                </p>
-              </div>
-              <div className="card-body">
-                <h1>AUTOB {aid}</h1>
-              </div>
-              <div className="card-footer">
-                <p className="card-text">
-                  Inzerát môžete zobraziť v "Moje inzeráty".
-                  <br /> Cena za službu na 1 mesiac (30 dní) je 2,90 €
-                </p>
-              </div>
+          <div className="card text-center">
+            <div className="card-header">
+              <p>Váš inzerát bol úspešne pridaný</p>
             </div>
-          ) : (
-            <div className="card text-center">
-              <div className="card-header">
-                <p>Váš inzerát bol úspešne pridaný</p>
-              </div>
-              <div className="card-body">
-                <h1>
-                  <Check />
-                </h1>
-              </div>
-              <div className="card-footer">
-                <p className="card-text">
-                  Inzerát môžete zobraziť alebo upraviť v "Moje inzeráty".
-                </p>
-              </div>
+            <div className="card-body">
+              <h1>
+                <Check />
+              </h1>
             </div>
-          )}
+            <div className="card-footer">
+              <p className="card-text">
+                Inzerát môžete zobraziť alebo upraviť v "Moje inzeráty".
+              </p>
+            </div>
+          </div>
         </div>
       </div>
 

@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import { getAdTitle, getDateFromTimestamp } from '../../../helpers';
-import NumberFormat from 'react-number-format';
-import { BackButton } from '../../BackButton';
-import { Eye } from '../../Icons';
+import React, { FC } from "react";
+import { getAdTitle, getDateFromTimestamp } from "../../../helpers";
+import NumberFormat from "react-number-format";
+import { BackButton } from "../../BackButton";
+import { Eye } from "../../Icons";
 
 type AdPageHeaderProps = {
   title: string;
@@ -11,7 +11,7 @@ type AdPageHeaderProps = {
   id: number;
   created: number;
   views: number;
-  premium: number;
+  premium: string;
   price: number;
 };
 
@@ -29,18 +29,18 @@ export const AdPageHeader: FC<AdPageHeaderProps> = (props) => {
       </div>
       <div className="col-12 col-lg-6">
         <h1>{getAdTitle(title, brand, model)}</h1>
-        <span>ID inzerátu: {id}</span> -{' '}
-        <span>Zverejnené: {getDateFromTimestamp(created)}</span> -{' '}
+        <span>ID inzerátu: {id}</span> -{" "}
+        <span>Zverejnené: {getDateFromTimestamp(created)}</span> -{" "}
         <span className="badge badge-secondary">
           <Eye size={16} /> {views}
-        </span>{' '}
+        </span>{" "}
         {premium ? (
           <span>
-            {' '}
+            {" "}
             - <span className="badge badge-danger">TOP</span>
           </span>
         ) : (
-          ''
+          ""
         )}
       </div>
       <div className="col-12 col-lg-6 text-lg-right">

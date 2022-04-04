@@ -1,7 +1,7 @@
-import { useReducer, createContext, FC, Dispatch } from 'react';
-import reducer from '../reducer/reducer';
-import Cookies from 'js-cookie';
-import { RESET_FILTER } from '../helpers/constants';
+import { useReducer, createContext, FC, Dispatch } from "react";
+import reducer from "../reducer/reducer";
+import Cookies from "js-cookie";
+import { RESET_FILTER } from "../helpers/constants";
 import {
   Ads,
   BrandType,
@@ -12,10 +12,10 @@ import {
   ModelType,
   Theme,
   User,
-} from 'helpers/types';
+} from "helpers/types";
 
 type State = {
-  language: 'sk';
+  language: "sk";
   url: string;
   api: string;
   user: User | null;
@@ -41,16 +41,16 @@ type ContextProviderProps = {
 };
 
 export const ContextProvider: FC<ContextProviderProps> = (props) => {
-  const user: User = Cookies.getJSON('user');
-  const theme = Cookies.get('theme');
-  const favorites = Cookies.getJSON('fav');
+  const user: User = Cookies.getJSON("user");
+  const theme = Cookies.get("theme");
+  const favorites = Cookies.getJSON("fav");
 
   const initialState: State = {
-    language: 'sk',
-    url: 'https://autoblsak.sk',
+    language: "sk",
+    url: "https://autoblsak.sk",
     api: process.env.apiUrl,
     user: user,
-    theme: theme ? theme : 'light',
+    theme: theme ? theme : "light",
     ads: undefined,
     favoriteAds: favorites ? favorites : [],
     message: {

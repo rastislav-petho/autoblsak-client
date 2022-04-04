@@ -1,38 +1,42 @@
-import React, { FC, useContext } from 'react';
-import CookieConsent from 'react-cookie-consent';
-import { Context } from '../context/context';
+import Link from "next/link";
+import React, { FC } from "react";
 
-export const CookiesSection: FC = () => {
-  const { state } = useContext(Context);
-  const backgroundDark = '#18191a';
-  const backgroundLight = '#252422';
-  const textDark = '#e8373e';
-  const textLight = '#d90429';
+type CookiesSectionProps = {
+  handleCookie: React.Dispatch<React.SetStateAction<string>>;
+};
+
+export const CookiesSection: FC<CookiesSectionProps> = (props) => {
+  const { handleCookie } = props;
   return (
-    <CookieConsent
-      location="bottom"
-      buttonText="Súhlasím"
-      cookieName="autoblsakAllowCookie"
-      style={{
-        background: state.theme === 'dark' ? backgroundDark : backgroundLight,
-        //borderTop: `2px solid ${state.theme === 'dark' ? textDark : textLight}`,
-        borderBottom: `2px solid ${
-          state.theme === 'dark' ? textDark : textLight
-        }`,
-        color: state.theme === 'dark' ? textDark : '#ffffff',
-        fontWeight: '600',
-      }}
-      buttonStyle={{
-        color: state.theme === 'dark' ? backgroundDark : '#ffffff',
-        background: state.theme === 'dark' ? textDark : textLight,
-        fontSize: '13px',
-        fontWeight: 600,
-      }}
-      expires={150}
-    >
-      Používame cookies, aby sme pre Vás zabezpečili ten najlepší zážitok z
-      našich webových stránok. Ak budete pokračovať v používaní tejto
-      webstránky, budeme predpokladať, že ste s ňou spokojní.{' '}
-    </CookieConsent>
+    <div className="cookies-panel">
+      <p>
+        Používame súbory cookie, aby sme pre Vás zabezpečili ten najlepší
+        zážitok z našich webových stránok. Naše súbory cookie môžete prijať
+        alebo odmietnuť kliknutím na tlačidlá nižšie. Predvolená možnosť "bez
+        súhlasu" sa uplatňuje v prípade, že sa nevyberie žiadna voľba a
+        odmietnutie neobmedzí vašu používateľskú skúsenosť. Ak sa chcete
+        dozvedieť viac o našich pravidlách používania súborov cookie, kliknite
+        na tlačidlo „Viac informácií“ nižšie.
+      </p>
+      <div>
+        <button
+          className="btn btn-sm btn-danger"
+          onClick={() => handleCookie("false")}
+        >
+          Odmietnuť
+        </button>
+        <button
+          className="btn btn-sm btn-success ml-2"
+          onClick={() => handleCookie("true")}
+        >
+          Prijať
+        </button>
+        <Link href="/page/privacy-policy">
+          <button className="btn btn-sm btn-warning ml-2">
+            Viac Informácií
+          </button>
+        </Link>
+      </div>
+    </div>
   );
 };

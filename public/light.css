@@ -38,7 +38,7 @@ body {
   background-color: #f8f9fa;
   color: #011627;
   font-size: 14px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
 }
 
 a {
@@ -84,6 +84,20 @@ h6 {
   width: 500px;
 }
 
+.cookies-panel {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  color: #fcfff5;
+  width: 100%;
+  height: auto;
+  z-index: 99;
+  background-color: #4f9cb1;
+  padding: 15px;
+}
+
 .ie-modal {
   position: fixed;
   top: 50%;
@@ -108,7 +122,6 @@ h6 {
   display: flex;
   justify-content: space-around;
   width: 80%;
-
 }
 
 .nav-bar {

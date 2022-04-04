@@ -1,17 +1,17 @@
-import React, { useContext, useState, useCallback, FC } from 'react';
-import { Context } from '../../context/context';
-import { useFavorites } from '../../hooks';
-import { AdGallery } from './index';
-import Link from 'next/link';
-import axios from 'axios';
-import ReactLoading from 'react-loading';
-import NumberFormat from 'react-number-format';
+import React, { useContext, useState, useCallback, FC } from "react";
+import { Context } from "../../context/context";
+import { useFavorites } from "../../hooks";
+import { AdGallery } from "./index";
+import Link from "next/link";
+import axios from "axios";
+import ReactLoading from "react-loading";
+import NumberFormat from "react-number-format";
 import {
   decodeFuel,
   decodeColor,
   decodeTransmision,
   getDateFromTimestamp,
-} from '../../helpers';
+} from "../../helpers";
 import {
   Calendar,
   Dumbbell,
@@ -22,14 +22,14 @@ import {
   Star,
   StarFill,
   Tachometer,
-} from '../Icons';
-import { Ad as AdTypes, Favorite } from 'helpers/types';
+} from "../Icons";
+import { Ad as AdTypes, Favorite } from "helpers/types";
 
 type AdProps = {
   ad: AdTypes;
   actionBar?: boolean;
   handleRemove?: (id: number) => void;
-  handleActive?: (id: number, value: 'active' | 'deactive') => void;
+  handleActive?: (id: number, value: "active" | "deactive") => void;
   handleEdit?: (id: number, value: string) => void;
 };
 
@@ -114,20 +114,20 @@ export const Ad: FC<AdProps> = (props) => {
         className="col-12 col-lg-4 p-0 ad-photo"
         style={{
           backgroundImage: `url(${state.url}/${defaultPhoto.photo})`,
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: 'cover',
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
         }}
       >
-        {premium ? <div className="top">TOP</div> : ''}
+        {Boolean(parseInt(premium)) ? <div className="top">TOP</div> : ""}
 
         {loading ? (
           <div className="load-gallery-loading">
             <ReactLoading
-              type={'spinningBubbles'}
-              color={state.theme === 'dark' ? '#d65a31' : '#ff331f'}
-              height={'25px'}
-              width={'25px'}
+              type={"spinningBubbles"}
+              color={state.theme === "dark" ? "#d65a31" : "#ff331f"}
+              height={"25px"}
+              width={"25px"}
             />
           </div>
         ) : (
@@ -147,7 +147,7 @@ export const Ad: FC<AdProps> = (props) => {
               <a>
                 {props.ad.title
                   ? props.ad.title
-                  : props.ad.brand && props.ad.brand}{' '}
+                  : props.ad.brand && props.ad.brand}{" "}
                 {props.ad.model && props.ad.model}
               </a>
             </Link>
@@ -175,7 +175,7 @@ export const Ad: FC<AdProps> = (props) => {
             <div className="col-4 col-md-2 text-center white-space p-1">
               <i>
                 <GasPump size={16} />
-              </i>{' '}
+              </i>{" "}
               <br />
               {decodeFuel(fuel)}
             </div>
@@ -202,7 +202,7 @@ export const Ad: FC<AdProps> = (props) => {
               <i>
                 <Road size={18} />
               </i>
-              <br />{' '}
+              <br />{" "}
               <NumberFormat
                 value={mileage}
                 displayType="text"
@@ -217,7 +217,7 @@ export const Ad: FC<AdProps> = (props) => {
                 <i>
                   <Palette size={18} />
                 </i>
-              </span>{' '}
+              </span>{" "}
               <br /> {decodeColor(color)}
             </div>
           )}
@@ -231,25 +231,25 @@ export const Ad: FC<AdProps> = (props) => {
           <div className="col-10 action-bar">
             {actionBar ? (
               <>
-                <button onClick={() => handleEdit(id, 'edit')} className="mr-2">
+                <button onClick={() => handleEdit(id, "edit")} className="mr-2">
                   Upraviť
                 </button>
                 <button
-                  onClick={() => handleEdit(id, 'edit-photos')}
+                  onClick={() => handleEdit(id, "edit-photos")}
                   className="mr-2"
                 >
                   Upraviť fotografie
                 </button>
                 {status == 1 ? (
                   <button
-                    onClick={() => handleActive(id, 'deactive')}
+                    onClick={() => handleActive(id, "deactive")}
                     className="mr-2"
                   >
                     Deaktivovať
                   </button>
                 ) : (
                   <button
-                    onClick={() => handleActive(id, 'active')}
+                    onClick={() => handleActive(id, "active")}
                     className="mr-2"
                   >
                     Aktivovať
@@ -261,13 +261,13 @@ export const Ad: FC<AdProps> = (props) => {
 
                 {paid != 1 && (
                   <p className="mt-3">
-                    Pre zverejnenie inzerázu pošlite SMS v tvare{' '}
+                    Pre zverejnenie inzerázu pošlite SMS v tvare{" "}
                     <strong> AUTOB {id}</strong> na číslo 8866 Cena SMS je 2,90€
                   </p>
                 )}
-                {premium != 1 && (
+                {premium != "1" && (
                   <p className="mt-3">
-                    {' '}
+                    {" "}
                     Pre topovanie inzerátu pošlite SMS na číslo 8866 v tvare
                     <strong> AUTOB TOP {id} </strong> Cena za službu na týždeň
                     (7 dní) je 2,00 €

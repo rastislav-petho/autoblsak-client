@@ -1,16 +1,17 @@
-import React, { FC, Fragment, useContext, useEffect } from 'react';
-import { Context } from '../context/context';
-import Head from 'next/head';
-import { Header } from './Header';
-import { Messages, CookiesSection, Footer, IEModal } from '.';
-import { Favorites } from './Favorites';
-import { useSwipeable } from 'react-swipeable';
-import { useRouter } from 'next/router';
-import { getFilterQueryUrl } from '../helpers';
-import { MobileFilter } from './Filter';
-import { initGA, logPageView } from '../helpers/googleAnalytics';
-import ScrollToTop from 'react-scroll-to-top';
-import { ParsedUrlQueryInput } from 'querystring';
+import React, { FC, Fragment, useContext, useEffect, useState } from "react";
+import { Context } from "../context/context";
+import Head from "next/head";
+import Cookies from "js-cookie";
+import { Header } from "./Header";
+import { Messages, CookiesSection, Footer } from ".";
+import { Favorites } from "./Favorites";
+import { useSwipeable } from "react-swipeable";
+import { useRouter } from "next/router";
+import { getFilterQueryUrl } from "../helpers";
+import { MobileFilter } from "./Filter";
+import { initGA, logPageView } from "../helpers/googleAnalytics";
+import ScrollToTop from "react-scroll-to-top";
+import { ParsedUrlQueryInput } from "querystring";
 
 type LayoutProps = {
   pageTitle: string;
@@ -24,10 +25,12 @@ export const Layout: FC<LayoutProps> = (props) => {
   const { state, dispatch } = useContext(Context);
   const router = useRouter();
   const [queryObject] = getFilterQueryUrl(state.filter, state.api);
+  const cookie = Cookies.get("cookie");
+  const [cookieVisible, setCookieVisible] = useState<boolean>(true);
 
   useEffect(() => {
     //@ts-ignore
-    if (!window.GA_INITIALIZED as any) {
+    if ((!window.GA_INITIALIZED as any) && cookie === "true") {
       initGA();
       //@ts-ignore
       window.GA_INITIALIZED = true;
@@ -38,11 +41,16 @@ export const Layout: FC<LayoutProps> = (props) => {
   const handlers = useSwipeable({
     onSwipedRight: () =>
       router.push({
-        pathname: '/',
+        pathname: "/",
         query: queryObject as ParsedUrlQueryInput,
       }),
     preventDefaultTouchmoveEvent: true,
   });
+
+  const handleCookie = (value: string) => {
+    Cookies.set("cookie", value);
+    setCookieVisible(false);
+  };
 
   return (
     <Fragment>
@@ -56,7 +64,7 @@ export const Layout: FC<LayoutProps> = (props) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           name="theme-color"
-          content={state.theme === 'light' ? '#FFFFFF' : '#121212'}
+          content={state.theme === "light" ? "#FFFFFF" : "#121212"}
         />
         <meta name="description" content={pageDescription} />
         <meta name="keywords" content={pageKeywords} />
@@ -78,13 +86,17 @@ export const Layout: FC<LayoutProps> = (props) => {
           integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V"
           crossOrigin="anonymous"
         ></link> */}
-        {state.theme === 'light' ? (
+        {state.theme === "light" ? (
           <link rel="stylesheet" href="/light.css"></link>
         ) : (
           <link rel="stylesheet" href="/dark.css"></link>
         )}
       </Head>
-      <CookiesSection />
+      {cookieVisible && !cookie ? (
+        <CookiesSection handleCookie={handleCookie} />
+      ) : (
+        ""
+      )}
       {state.message.type && <Messages />}
       <div className="container-fluid nav-bar p-0">
         <Header />
@@ -105,7 +117,7 @@ export const Layout: FC<LayoutProps> = (props) => {
       <ScrollToTop
         smooth
         color="#d90429"
-        style={{ right: '15px', bottom: '15px' }}
+        style={{ right: "15px", bottom: "15px" }}
       />
     </Fragment>
   );
