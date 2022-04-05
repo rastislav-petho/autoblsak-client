@@ -1,6 +1,6 @@
-import React, { useContext, useEffect } from 'react';
-import fetch from 'isomorphic-unfetch';
-import { Context } from '../context/context';
+import React, { useContext, useEffect } from "react";
+import fetch from "isomorphic-unfetch";
+import { Context } from "../context/context";
 import {
   Layout,
   Magazine,
@@ -10,11 +10,11 @@ import {
   Newsletter,
   Loading,
   AdListHeader,
-} from '../components';
-import { Filter } from '../components/Filter';
-import { Ad } from '../components/Ad';
-import { useApi } from '../hooks';
-import { scrollToTop, getFilterQueryUrl } from '../helpers';
+} from "../components";
+import { Filter } from "../components/Filter";
+import { Ad } from "../components/Ad";
+import { useApi } from "../hooks";
+import { scrollToTop, getFilterQueryUrl } from "../helpers";
 
 const Index = (props) => {
   const { state, dispatch } = useContext(Context);
@@ -29,15 +29,15 @@ const Index = (props) => {
   useEffect(() => {
     if (props.data.data.length == 0) {
       dispatch({
-        type: 'SET_MESSAGE',
+        type: "SET_MESSAGE",
         message: {
-          type: 'warning',
-          message: 'Pre zvolený filter sa nenašli žiadne výsledky.',
+          type: "warning",
+          message: "Pre zvolený filter sa nenašli žiadne výsledky.",
         },
       });
     } else {
       dispatch({
-        type: 'SET_MESSAGE',
+        type: "SET_MESSAGE",
         message: {
           type: null,
           message: null,
@@ -45,10 +45,9 @@ const Index = (props) => {
       });
     }
 
-    
-    dispatch({ type: 'SET_ADS', ads: props.data });
-    dispatch({ type: 'TOGGLE_FILTER', toogle: false });
-    if (state.ads) dispatch({ type: 'HANDLE_LOADING', loading: false });
+    dispatch({ type: "SET_ADS", ads: props.data });
+    dispatch({ type: "TOGGLE_FILTER", toogle: false });
+    if (state.ads) dispatch({ type: "HANDLE_LOADING", loading: false });
   }, [props, state.ads]);
 
   const handlePagination = (page) => {
@@ -100,7 +99,9 @@ const Index = (props) => {
                 currentPage={state.ads.current_page}
                 handlePagination={handlePagination}
                 total={state.ads.total}
-                itemsCountPerPage={props.indexData.settings.max_ads_per_page}
+                itemsCountPerPage={parseInt(
+                  props.indexData.settings.max_ads_per_page
+                )}
               />
             </div>
           )}
@@ -113,7 +114,7 @@ const Index = (props) => {
 
 Index.getInitialProps = async function ({ query }) {
   const [, url] = getFilterQueryUrl(query, process.env.apiUrl);
-  const res = await fetch(url + '&page=' + query.page);
+  const res = await fetch(url + "&page=" + query.page);
   const data = await res.json();
 
   const index = await fetch(`${process.env.apiUrl}/index-data`);

@@ -1,5 +1,5 @@
-import React, { FC } from 'react';
-import Pagination from 'react-js-pagination';
+import React, { FC } from "react";
+import Pagination from "react-js-pagination";
 
 type PaginationComponentProps = {
   handlePagination: (value: number) => void;
