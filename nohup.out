@@ -1,0 +1,117 @@
+
+> client@1.2.0 start /home/autoblsak/nodejsapp
+> next start -p 3000
+
+{ Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (net.js:1280:14)
+    at listenInCluster (net.js:1328:12)
+    at Server.listen (net.js:1415:7)
+    at Promise (/home/autoblsak/nodejsapp/node_modules/next/dist/server/lib/start-server.js:2:62)
+    at new Promise (<anonymous>)
+    at start (/home/autoblsak/nodejsapp/node_modules/next/dist/server/lib/start-server.js:1:431)
+    at nextStart (/home/autoblsak/nodejsapp/node_modules/next/dist/cli/next-start.js:19:125)
+    at commands.(anonymous function).then.exec (/home/autoblsak/nodejsapp/node_modules/next/dist/bin/next:26:341)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:834:11)
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '::',
+  port: 3000 }
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! client@1.2.0 start: `next start -p 3000`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the client@1.2.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/autoblsak/.npm/_logs/2022-03-14T17_44_33_646Z-debug.log
+
+> client@1.2.0 start /home/autoblsak/nodejsapp
+> next start -p 3000
+
+ready - started server on http://localhost:3000
+
+> client@1.2.0 start /home/autoblsak/nodejsapp
+> next start -p 3000
+
+{ Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (net.js:1280:14)
+    at listenInCluster (net.js:1328:12)
+    at Server.listen (net.js:1415:7)
+    at Promise (/home/autoblsak/nodejsapp/node_modules/next/dist/server/lib/start-server.js:2:62)
+    at new Promise (<anonymous>)
+    at start (/home/autoblsak/nodejsapp/node_modules/next/dist/server/lib/start-server.js:1:431)
+    at nextStart (/home/autoblsak/nodejsapp/node_modules/next/dist/cli/next-start.js:19:125)
+    at commands.(anonymous function).then.exec (/home/autoblsak/nodejsapp/node_modules/next/dist/bin/next:26:341)
+    at process._tickCallback (internal/process/next_tick.js:68:7)
+    at Function.Module.runMain (internal/modules/cjs/loader.js:834:11)
+  code: 'EADDRINUSE',
+  errno: 'EADDRINUSE',
+  syscall: 'listen',
+  address: '::',
+  port: 3000 }
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! client@1.2.0 start: `next start -p 3000`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the client@1.2.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /root/.npm/_logs/2022-03-14T17_47_40_529Z-debug.log
+
+> client@1.2.0 start /home/autoblsak/nodejsapp
+> next start -p 3000
+
+ready - started server on http://localhost:3000
+
+> client@1.2.0 start
+> next start -p 3000
+
+sh: next: command not found
+
+> client@1.2.0 start
+> next start -p 3000
+
+Error: Could not find a valid build in the '/home/autoblsak/nodejsapp/.next' directory! Try building your app with 'next build' before starting the server.
+    at Server.readBuildId (/home/autoblsak/nodevenv/nodejsapp/16/lib/node_modules/next/dist/next-server/server/next-server.js:120:355)
+    at new Server (/home/autoblsak/nodevenv/nodejsapp/16/lib/node_modules/next/dist/next-server/server/next-server.js:3:120)
+    at createServer (/home/autoblsak/nodevenv/nodejsapp/16/lib/node_modules/next/dist/server/next.js:2:638)
+    at start (/home/autoblsak/nodevenv/nodejsapp/16/lib/node_modules/next/dist/server/lib/start-server.js:1:323)
+    at nextStart (/home/autoblsak/nodevenv/nodejsapp/16/lib/node_modules/next/dist/cli/next-start.js:19:125)
+    at /home/autoblsak/nodevenv/nodejsapp/16/lib/node_modules/next/dist/bin/next:26:341
+
+> client@1.2.0 start /home/autoblsak/nodejsapp
+> next start -p 3000
+
+ready - started server on 0.0.0.0:3000, url: http://localhost:3000
+(node:13365) UnhandledPromiseRejectionWarning: ReferenceError: TextEncoder is not defined
+    at Object.<anonymous> (/home/autoblsak/nodejsapp/node_modules/next/dist/compiled/react-server-dom-webpack/cjs/react-server-dom-webpack-writer.browser.production.min.server.js:10:357)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:789:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:692:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at Object.<anonymous> (/home/autoblsak/nodejsapp/node_modules/next/dist/compiled/react-server-dom-webpack/writer.browser.server.js:4:20)
+    at Module._compile (internal/modules/cjs/loader.js:778:30)
+(node:13365) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). (rejection id: 1)
+(node:13365) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+error - Failed to load next.config.js, see more info here https://nextjs.org/docs/messages/next-config-error
+Error: Not supported
+    at Object.loadConfig [as default] (/home/autoblsak/nodejsapp/node_modules/next/dist/server/config.js:70:78)
+npm ERR! code ELIFECYCLE
+npm ERR! errno 1
+npm ERR! client@1.2.0 start: `next start -p 3000`
+npm ERR! Exit status 1
+npm ERR! 
+npm ERR! Failed at the client@1.2.0 start script.
+npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+
+npm ERR! A complete log of this run can be found in:
+npm ERR!     /home/autoblsak/.npm/_logs/2022-04-05T15_18_58_243Z-debug.log
