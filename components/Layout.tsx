@@ -92,11 +92,7 @@ export const Layout: FC<LayoutProps> = (props) => {
           <link rel="stylesheet" href="/dark.css"></link>
         )}
       </Head>
-      {cookieVisible && !cookie ? (
-        <CookiesSection handleCookie={handleCookie} />
-      ) : (
-        ""
-      )}
+
       {state.message.type && <Messages />}
       <div className="container-fluid nav-bar p-0">
         <Header />
@@ -119,6 +115,9 @@ export const Layout: FC<LayoutProps> = (props) => {
         color="#d90429"
         style={{ right: "15px", bottom: "15px" }}
       />
+      {cookieVisible && !cookie && (
+        <CookiesSection handleCookie={handleCookie} />
+      )}
     </Fragment>
   );
 };
