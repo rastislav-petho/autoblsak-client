@@ -142,7 +142,7 @@ export const COLORS = [
   },
   {
     value: 19,
-    label: 'Farba chameleón',
+    label: 'Chameleón',
   },
   {
     value: 20,

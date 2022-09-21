@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
-import { PostAdGallery, DropZone } from './index';
-import { MyAdStateType, PostAdStateType, useUploadPhotos } from '../../hooks';
-import { Loading } from '..';
-import { MyAdsSteps, PostAdSteps } from 'helpers/types';
+import React, { FC } from "react";
+import { PostAdGallery, DropZone } from "./index";
+import { MyAdStateType, PostAdStateType, useUploadPhotos } from "../../hooks";
+import { Loading } from "..";
+import { MyAdsSteps, PostAdSteps } from "helpers/types";
 
 type UploadPhotosProps = {
   aid: number;
@@ -44,7 +44,7 @@ export const UploadPhotos: FC<UploadPhotosProps> = (props) => {
       <div className="row text-center mt-3">
         <div className="col-12">
           <button className="button" onClick={handleSubmit}>
-            Uložiť inzerát
+            Pridať inzerát
           </button>
         </div>
       </div>

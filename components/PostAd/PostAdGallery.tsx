@@ -1,14 +1,14 @@
-import { PhotoType } from 'helpers/types';
-import { MyAdStateType, PostAdStateType } from 'hooks';
+import { PhotoType } from "helpers/types";
+import { MyAdStateType, PostAdStateType } from "hooks";
 import React, {
   Dispatch,
   FC,
   SetStateAction,
   useContext,
   useEffect,
-} from 'react';
-import { Context } from '../../context/context';
-import { Times } from '../Icons';
+} from "react";
+import { Context } from "../../context/context";
+import { Times } from "../Icons";
 
 type PostAdGalleryProps = {
   photos: PhotoType[];
@@ -54,7 +54,7 @@ export const PostAdGallery: FC<PostAdGalleryProps> = (props) => {
             <div
               key={item.id}
               className={`${
-                postAdState.defaultPhoto == item.id && 'default-photo'
+                postAdState.defaultPhoto == item.id && "default-photo"
               } col-12 col-md-6 col-lg-2 p-1 text-center`}
             >
               <img
